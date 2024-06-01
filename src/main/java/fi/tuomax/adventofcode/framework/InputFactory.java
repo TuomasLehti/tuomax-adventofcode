@@ -3,6 +3,7 @@ package fi.tuomax.adventofcode.framework;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.List;
 
 /**
@@ -25,6 +26,23 @@ public class InputFactory
     throws IOException
     {
         return Files.readAllLines(file.toPath());
+    }
+
+    /**
+     * Reads input from a while which is located outside this repository.
+     * The file name is constructed using the metadata associated with the 
+     * puzzle.
+     */
+    public static List<String> inputFromMetadata(Metadata metadata, String filename) 
+    throws IOException
+    {
+        String path = String.format(
+            "inputs/y%d/d%02d/%d-%02d %s",
+            metadata.year(), metadata.day(),
+            metadata.year(), metadata.day(),
+            filename
+        );
+        return InputFactory.inputFromFile(new File(path));
     }
     
 }
