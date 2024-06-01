@@ -10,19 +10,33 @@ public class NotQuiteLisp_Part1
 extends Solver
 {
 
-    public NotQuiteLisp_Part1(List<String> input) {
+    public NotQuiteLisp_Part1(List<String> input) 
+    {
         super(input);
     }
 
     @Override
-    protected Parser manufactureParser(List<String> input) {
+    protected Parser manufactureParser(List<String> input) 
+    {
         return new StringParser(input);
     }
 
+    private StringParser getParser()
+    {
+        return (StringParser) parser;
+    }
+
     @Override
-    protected void solve() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'solve'");
+    protected void solve() 
+    {
+        Integer floor = 0;
+        for (char c : getParser().getString().toCharArray()) {
+            if (c == '(')
+                floor++;
+            else
+                floor--;
+        }
+        setAnswer(floor);
     }
     
 }
