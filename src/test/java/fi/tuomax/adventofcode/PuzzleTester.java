@@ -9,7 +9,7 @@ import java.net.URL;
  * Includes helpers for testing. This class should be inherited by all other
  * test classes.
  */
-public class HelpersForTests 
+public class PuzzleTester 
 {
 
     public File fetchResource(String filename)

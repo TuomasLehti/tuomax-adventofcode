@@ -10,8 +10,8 @@ import java.util.List;
 
 import org.junit.Test;
 
-public class TestHelpersForTests 
-extends HelpersForTests
+public class TestPuzzleTester 
+extends PuzzleTester
 {
 
     @Test

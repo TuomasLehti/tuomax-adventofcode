@@ -8,10 +8,10 @@ import java.util.List;
 
 import org.junit.Test;
 
-import fi.tuomax.adventofcode.HelpersForTests;
+import fi.tuomax.adventofcode.PuzzleTester;
 
 public class TestInputFactory 
-extends HelpersForTests
+extends PuzzleTester
 {
     
     @Test
