@@ -28,10 +28,10 @@ public abstract class Solver
     public Solver(List<String> input)
     {
         this.parser = manufactureParser(input);
-        setMetadata();
+        this.metadata = manufactureMetadata();
     }
 
-    protected abstract void setMetadata();
+    protected abstract Metadata manufactureMetadata();
 
     protected abstract Parser manufactureParser(List<String> input);
 

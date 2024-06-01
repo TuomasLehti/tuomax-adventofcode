@@ -2,6 +2,7 @@ package fi.tuomax.adventofcode.y2015.d01;
 
 import java.util.List;
 
+import fi.tuomax.adventofcode.framework.Metadata;
 import fi.tuomax.adventofcode.framework.Parser;
 import fi.tuomax.adventofcode.framework.Solver;
 import fi.tuomax.adventofcode.framework.StringParser;
@@ -41,6 +42,14 @@ extends Solver
             index++;
         }
         setAnswer(index);
+    }
+
+    @Override
+    protected Metadata manufactureMetadata() {
+        return new Metadata(
+            2015, 1, 1, 
+            "Not Quite Lisp", 
+            "");
     }
     
 }
