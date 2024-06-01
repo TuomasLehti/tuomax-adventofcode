@@ -31,7 +31,7 @@ extends Solver
     protected void solve() 
     {
         Integer floor = 0;
-        Integer index = 0;
+        Integer index = 1; // Santa's insturction's indexes are 1-based.
         for (char c : getParser().getString().toCharArray()) {
             if (c == '(')
                 floor++;
