@@ -6,6 +6,8 @@ public abstract class Solver
 {
 
     protected Parser parser;
+
+    protected String answer = "";
     
     public Solver(List<String> input)
     {
@@ -13,5 +15,13 @@ public abstract class Solver
     }
 
     protected abstract Parser manufactureParser(List<String> input);
+
+    public void run()
+    {
+        parser.parse();
+        solve();
+    }
+
+    protected abstract void solve();
 
 }
