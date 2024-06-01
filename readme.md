@@ -17,6 +17,14 @@ action of reading input to memory, then Parsers give the meaning to the inputs.
 Solver takes the parsed input from the parser and solves the puzzle (or at 
 least tries to).
 
+Parsing and solving are separated, because they are different responsibilities,
+at least in my mind. Separation also makes the code clearer in a case where the 
+solving logic is the same for both parts of a puzzle, but parsing logic is
+different, at least in my mind. I haven't come across such puzzles yet, but I
+guess it's good to futureproof things. At the very least, the parsing can get
+quite complicated and extracting it to its own class makes code cleaner, at
+least in my mind, once again.
+
 There should be a data structure to hold all the solvers for different years,
 days and parts.
 
