@@ -24,4 +24,9 @@ public abstract class Solver
 
     protected abstract void solve();
 
+    protected void setAnswer(Integer i)
+    {
+        answer = i.toString();
+    }
+
 }
