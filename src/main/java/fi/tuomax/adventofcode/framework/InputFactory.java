@@ -36,13 +36,20 @@ public class InputFactory
     public static List<String> inputFromMetadata(Metadata metadata, String filename) 
     throws IOException
     {
-        String path = String.format(
+        return InputFactory.inputFromFile(
+            new File(InputFactory.inputLocation(metadata, filename))
+        );
+    }
+
+    public static String inputLocation(Metadata metadata, String filename)
+    {
+        return String.format(
             "inputs/y%d/d%02d/%d-%02d %s",
             metadata.year(), metadata.day(),
             metadata.year(), metadata.day(),
             filename
         );
-        return InputFactory.inputFromFile(new File(path));
+
     }
     
 }
