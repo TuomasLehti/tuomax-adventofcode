@@ -8,6 +8,8 @@ public abstract class Solver
     protected Parser parser;
 
     protected String answer = "";
+
+    private Stopwatch stopwatch = new Stopwatch();
     
     public Solver(List<String> input)
     {
@@ -18,8 +20,10 @@ public abstract class Solver
 
     public void run()
     {
+        stopwatch.start();
         parser.parse();
         solve();
+        stopwatch.stop();
     }
 
     protected abstract void solve();
