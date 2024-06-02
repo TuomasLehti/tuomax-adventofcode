@@ -11,11 +11,6 @@ public class NotQuiteLisp_Part2
 extends Solver
 {
 
-    public NotQuiteLisp_Part2(List<String> input) 
-    {
-        super(input);
-    }
-
     @Override
     protected Parser manufactureParser(List<String> input) 
     {

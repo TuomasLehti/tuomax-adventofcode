@@ -19,8 +19,8 @@ extends PuzzleTester
     {
         List<PuzzleTestCase> suite = fetchTestCases(new Metadata(2015, 1, 1, null, null));
         for (PuzzleTestCase testCase : suite) {
-            NotQuiteLisp_Part1 part1 = new NotQuiteLisp_Part1(testCase.input());
-            part1.run();
+            NotQuiteLisp_Part1 part1 = new NotQuiteLisp_Part1();
+            part1.run(testCase.input());
             assertEquals(testCase.expectedAnswer(), part1.getAnswer());
         }
     }
@@ -30,8 +30,8 @@ extends PuzzleTester
     {
         List<PuzzleTestCase> suite = fetchTestCases(new Metadata(2015, 1, 2, null, null));
         for (PuzzleTestCase testCase : suite) {
-            NotQuiteLisp_Part2 part2 = new NotQuiteLisp_Part2(testCase.input());
-            part2.run();
+            NotQuiteLisp_Part2 part2 = new NotQuiteLisp_Part2();
+            part2.run(testCase.input());
             assertEquals(testCase.expectedAnswer(), part2.getAnswer());
         }
     }
