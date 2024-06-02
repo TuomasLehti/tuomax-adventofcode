@@ -14,5 +14,15 @@ public class Year
             days.put(meta.day(), new Day());
         days.get(meta.day()).addPart(solver);
     }
+
+    public Boolean containsDay(Integer day)
+    {
+        return days.containsKey(day);
+    }
     
+    public Day getDay(Integer day)
+    {
+        return days.get(day);
+    }
+
 }

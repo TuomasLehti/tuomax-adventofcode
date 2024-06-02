@@ -18,5 +18,22 @@ public class Day
             parts.put(part.getMetadata().part(), new HashMap<>());
         parts.get(part.getMetadata().part()).put(part.getMetadata().version(), part);
     }
+
+    public Boolean contains(Integer part, String version)
+    {
+        return (parts.containsKey(part) && parts.get(part).containsKey(version));
+    }
+
+    /**
+     * Returns solvers with a certain algorithm.
+     */
+    public Day getVersion(String version)
+    {
+        Day day = new Day();
+        for (Integer part : parts.keySet())
+            if (parts.get(part).containsKey(version))
+                day.addPart(parts.get(part).get(version));
+        return day;
+    }
     
 }
