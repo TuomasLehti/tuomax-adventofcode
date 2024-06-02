@@ -25,9 +25,8 @@ public abstract class Solver
         return stopwatch;
     }
 
-    public Solver(List<String> input)
+    public Solver()
     {
-        this.parser = manufactureParser(input);
         this.metadata = manufactureMetadata();
     }
 
@@ -35,8 +34,9 @@ public abstract class Solver
 
     protected abstract Parser manufactureParser(List<String> input);
 
-    public void run()
+    public void run(List<String> input)
     {
+        this.parser = manufactureParser(input);
         stopwatch.start();
         parser.parse();
         solve();
