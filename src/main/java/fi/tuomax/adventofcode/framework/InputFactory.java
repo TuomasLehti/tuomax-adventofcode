@@ -24,6 +24,8 @@ import java.util.List;
 public class InputFactory 
 {
 
+    public static final String DEFAULT_INPUT_FILENAME = "input.txt";
+
     public static List<String> inputFromFile(File file) 
     throws IOException
     {

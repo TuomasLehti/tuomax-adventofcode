@@ -1,9 +1,15 @@
 package fi.tuomax.adventofcode.framework;
 
+import java.io.IOException;
 import java.util.List;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public abstract class Solver 
 {
+
+    private final Logger LOGGER = LoggerFactory.getLogger(getClass());
 
     private Metadata metadata = null;
 
@@ -41,6 +47,19 @@ public abstract class Solver
         parser.parse();
         solve();
         stopwatch.stop();
+    }
+
+    /**
+     * Runs the solver with default input.
+     */
+    public void run()
+    {
+        try {
+            run(InputFactory.inputFromMetadata(metadata, InputFactory.DEFAULT_INPUT_FILENAME));
+        } catch (IOException e) {
+            LOGGER.warn("Unable to read input: " + e.getMessage());
+            e.printStackTrace();
+        }
     }
 
     protected abstract void solve();
