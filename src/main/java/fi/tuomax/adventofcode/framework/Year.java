@@ -25,4 +25,11 @@ public class Year
         return days.get(day);
     }
 
+    public void run()
+    {
+        for (Integer year : days.keySet())
+            days.get(year).run();
+    }
+
+
 }

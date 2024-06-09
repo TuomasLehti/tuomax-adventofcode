@@ -16,7 +16,7 @@ public class Day
     {
         if (!algorithms.containsKey(part.getMetadata().version()))
             algorithms.put(part.getMetadata().version(), new Algorithm());
-            algorithms.get(part.getMetadata().version()).addPart(part);
+        algorithms.get(part.getMetadata().version()).addPart(part);
     }
 
     public void run()
