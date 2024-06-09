@@ -5,17 +5,47 @@ which is a yearly collection of coding puzzles.
 
 ## Framework
 
-The framework consists of different stages.
+The framework consists of different stages, which are
+1) inputting,
+1) parsing,
+1) solving, and 
+1) printing the results
+
+### Inputting
 
 The first stage is InputFactory, which reads inputs from different sources and
 converts them to a list of strings.
+
+Puzzle inputs should not be distributed, which is why I've not included them in
+this repository. They should be stored in the local machine, and methods in the
+```InputFactory```-class should be used to locate and load them based on the 
+metadata for the year and day.
+
+For testing purposes, where there are more than one input to test, inputs can
+be read from a json file. ```PuzzleTester```-class has methods for converting 
+json test suites to ```PuzzleTestCase```-objects. Only single-line inputs are 
+supported for now.
+
+### Parsing
 
 The list of strings is then passed on to different parsers, which parse the 
 input so that they make sense to solvers. If InputFactory performs the physical
 action of reading input to memory, then Parsers give the meaning to the inputs.
 
+### Solving
+
 Solver takes the parsed input from the parser and solves the puzzle (or at 
 least tries to).
+
+There may be more than one way to solve a puzzle. If this is the case, each
+day can have multiple solving algorithms, each one of which is contained in
+its own Solver. This means that every day can be divided into more than one
+algorithm.
+
+It should be noted, that everything will be easier if all algorithms can solve
+both parts of the puzzle.
+
+### Separate Parsing and Solving
 
 Parsing and solving are separated, because they are different responsibilities,
 at least in my mind. Separation also makes the code clearer in a case where the 
@@ -25,8 +55,12 @@ guess it's good to futureproof things. At the very least, the parsing can get
 quite complicated and extracting it to its own class makes code cleaner, at
 least in my mind, once again.
 
+### Storing Solvers
+
 There should be a data structure to hold all the solvers for different years,
-days and parts.
+days, algorithms and parts.
+
+### Solving
 
 There should be a way to run different sets of solvers. Some running scenarios
 are:
@@ -37,6 +71,8 @@ are:
 - Run all the solvers for a given year, or for all the years. This should
   automatically test the speed of different algorithms used to solve a given
   day and select the fastest available algorithm.
+
+### Printing
 
 After a set of solvers has been run, the results are taken from the solvers and 
 printed out by a printer class.
