@@ -42,7 +42,7 @@ extends Solver
     @Override
     protected Metadata manufactureMetadata() {
         return new Metadata(
-            2015, 1, 1, 
+            2015, 1, 2, 
             "Not Quite Lisp", 
             "");
     }
