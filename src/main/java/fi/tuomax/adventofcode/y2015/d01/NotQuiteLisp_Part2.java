@@ -7,6 +7,13 @@ import fi.tuomax.adventofcode.framework.Parser;
 import fi.tuomax.adventofcode.framework.Solver;
 import fi.tuomax.adventofcode.framework.StringParser;
 
+/**
+ * Solves Advent of Code 2015, day 1, part 2: 
+ * Not Quite Lisp.
+ * @see 
+ *      <a href="https://adventofcode.com/2015/day/1">
+ *      Puzzle on the Advent of Code website.</a>
+ */
 public class NotQuiteLisp_Part2 
 extends Solver
 {
@@ -22,6 +29,10 @@ extends Solver
         return (StringParser) parser;
     }
 
+    /**
+     * Part 2 uses the same brute force solution than part 1, but the loop is 
+     * cut short when Santa enters the basement for the first time.
+     */
     @Override
     protected void solve() 
     {

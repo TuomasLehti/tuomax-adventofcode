@@ -7,6 +7,13 @@ import fi.tuomax.adventofcode.framework.Parser;
 import fi.tuomax.adventofcode.framework.Solver;
 import fi.tuomax.adventofcode.framework.StringParser;
 
+/**
+ * Solves Advent of Code 2015, day 1, part 1: 
+ * Not Quite Lisp.
+ * @see 
+ *      <a href="https://adventofcode.com/2015/day/1">
+ *      Puzzle on the Advent of Code website.</a>
+ */
 public class NotQuiteLisp_Part1 
 extends Solver
 {
@@ -22,6 +29,10 @@ extends Solver
         return (StringParser) parser;
     }
 
+    /** 
+     * <p>Part 1 is solved with brute force, ie by counting every single 
+     * character. There is no way around this.</p>
+     */
     @Override
     protected void solve() 
     {
