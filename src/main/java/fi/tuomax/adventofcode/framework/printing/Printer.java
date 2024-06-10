@@ -2,10 +2,12 @@ package fi.tuomax.adventofcode.framework.printing;
 
 import org.fusesource.jansi.Ansi;
 
+import fi.tuomax.adventofcode.Settings;
+
 public class Printer 
 {
 
-    public void print(Results results)
+    public void print(Settings settings, Results results)
     {
         System.out.print("\n".repeat(2));
 
