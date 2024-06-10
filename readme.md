@@ -32,6 +32,9 @@ The list of strings is then passed on to different parsers, which parse the
 input so that they make sense to solvers. If InputFactory performs the physical
 action of reading input to memory, then Parsers give the meaning to the inputs.
 
+If a parser needs to perform a lengthy task, it should keep the user informed
+of the progress via debug-level logging.
+
 ### Solving
 
 Solver takes the parsed input from the parser and solves the puzzle (or at 
@@ -45,7 +48,10 @@ algorithm.
 It should be noted, that everything will be easier if all algorithms can solve
 both parts of the puzzle.
 
-### Separate Parsing and Solving
+If a solver needs to perform a lengthy task, it should keep the user informed
+of the progress via debug-level logging.
+
+### Reasoning for Separate Parsing and Solving
 
 Parsing and solving are separated, because they are different responsibilities,
 at least in my mind. Separation also makes the code clearer in a case where the 
@@ -55,15 +61,26 @@ guess it's good to futureproof things. At the very least, the parsing can get
 quite complicated and extracting it to its own class makes code cleaner, at
 least in my mind, once again.
 
+That being said, it is also true, that parsers should not be used by 
+themselves, at least not in the "production side". They are always an integral
+part of a solver.
+
+Testing parsers independently, however, should not be only allowed but also 
+encouraged.
+
 ### Storing Solvers
 
-There should be a data structure to hold all the solvers for different years,
-days, algorithms and parts.
+There is a data structure to hold all the solvers for different years, days, 
+algorithms and parts.
 
-### Solving
+The place, in which the solvers are added to the data strucure, has not yet
+been finally decided.
 
-There should be a way to run different sets of solvers. Some running scenarios
-are:
+### Running Solvers
+
+There will be a few different ways to run different sets of solvers. Some 
+running scenarios are:
+
 - Run the latest addition, which is used when new puzzles are solved. If
   there are more algorithms to compare, a speed trial is going to be needed.
 - Run all the solvers for a given day. This would be a kind of a speed trial,
