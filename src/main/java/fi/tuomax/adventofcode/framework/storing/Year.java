@@ -1,6 +1,9 @@
-package fi.tuomax.adventofcode.framework;
+package fi.tuomax.adventofcode.framework.storing;
 
 import java.util.HashMap;
+
+import fi.tuomax.adventofcode.framework.solving.Metadata;
+import fi.tuomax.adventofcode.framework.solving.Solver;
 
 public class Year 
 {

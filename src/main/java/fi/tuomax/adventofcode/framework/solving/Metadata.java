@@ -1,4 +1,4 @@
-package fi.tuomax.adventofcode.framework;
+package fi.tuomax.adventofcode.framework.solving;
 
 /**
  * <p>The metadata associated with <a href="https://adventofcode.com/">Advent 

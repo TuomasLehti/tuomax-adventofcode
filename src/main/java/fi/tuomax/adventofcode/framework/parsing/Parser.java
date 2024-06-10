@@ -1,4 +1,4 @@
-package fi.tuomax.adventofcode.framework;
+package fi.tuomax.adventofcode.framework.parsing;
 
 import java.util.List;
 
@@ -18,6 +18,6 @@ public abstract class Parser
         this.input = input;
     }
 
-    protected abstract void parse();
+    public abstract void parse();
     
 }

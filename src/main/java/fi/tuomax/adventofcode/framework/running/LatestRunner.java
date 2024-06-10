@@ -1,10 +1,16 @@
-package fi.tuomax.adventofcode.framework;
+package fi.tuomax.adventofcode.framework.running;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import fi.tuomax.adventofcode.framework.solving.Metadata;
+import fi.tuomax.adventofcode.framework.solving.Solver;
+import fi.tuomax.adventofcode.framework.storing.Algorithm;
+import fi.tuomax.adventofcode.framework.storing.Day;
+import fi.tuomax.adventofcode.framework.storing.Year;
 
 public class LatestRunner 
 {

@@ -1,10 +1,12 @@
-package fi.tuomax.adventofcode.framework;
+package fi.tuomax.adventofcode.framework.storing;
 
 import java.util.HashMap;
 import java.util.Map;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import fi.tuomax.adventofcode.framework.solving.Solver;
 
 /**
  * Contains solvers for all the parts of an Advent of Code puzzle.

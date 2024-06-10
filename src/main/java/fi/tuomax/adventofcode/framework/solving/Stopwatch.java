@@ -1,4 +1,4 @@
-package fi.tuomax.adventofcode.framework;
+package fi.tuomax.adventofcode.framework.solving;
 
 /**
  * Times solvers.

@@ -1,7 +1,9 @@
-package fi.tuomax.adventofcode.framework;
+package fi.tuomax.adventofcode.framework.storing;
 
 import java.util.HashMap;
 import java.util.Map;
+
+import fi.tuomax.adventofcode.framework.solving.Solver;
 
 public class Day 
 {

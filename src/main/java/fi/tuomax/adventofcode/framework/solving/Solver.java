@@ -1,10 +1,13 @@
-package fi.tuomax.adventofcode.framework;
+package fi.tuomax.adventofcode.framework.solving;
 
 import java.io.IOException;
 import java.util.List;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import fi.tuomax.adventofcode.framework.inputting.InputFactory;
+import fi.tuomax.adventofcode.framework.parsing.Parser;
 
 public abstract class Solver 
 {

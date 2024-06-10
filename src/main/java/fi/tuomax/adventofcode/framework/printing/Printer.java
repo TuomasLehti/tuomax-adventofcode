@@ -1,8 +1,10 @@
-package fi.tuomax.adventofcode.framework;
+package fi.tuomax.adventofcode.framework.printing;
 
 import java.util.List;
 
 import org.fusesource.jansi.Ansi;
+
+import fi.tuomax.adventofcode.framework.solving.Solver;
 
 public class Printer 
 {

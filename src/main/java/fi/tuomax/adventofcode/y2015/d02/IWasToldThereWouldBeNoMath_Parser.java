@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-import fi.tuomax.adventofcode.framework.Parser;
+import fi.tuomax.adventofcode.framework.parsing.Parser;
 
 public class IWasToldThereWouldBeNoMath_Parser 
 extends Parser
@@ -19,7 +19,7 @@ implements Iterable<Present>
     }
 
     @Override
-    protected void parse() 
+    public void parse() 
     {
         for (String line : input) {
             String[] dimensions = line.split("x");

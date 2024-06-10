@@ -1,10 +1,12 @@
-package fi.tuomax.adventofcode.framework;
+package fi.tuomax.adventofcode.framework.inputting;
 
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.util.Arrays;
 import java.util.List;
+
+import fi.tuomax.adventofcode.framework.solving.Metadata;
 
 /**
  * <p>Manufactures input for Advent of Code puzzles from different sources.</p>

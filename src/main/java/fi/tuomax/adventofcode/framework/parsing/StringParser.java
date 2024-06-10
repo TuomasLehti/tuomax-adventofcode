@@ -1,4 +1,4 @@
-package fi.tuomax.adventofcode.framework;
+package fi.tuomax.adventofcode.framework.parsing;
 
 import java.util.List;
 
@@ -15,7 +15,7 @@ extends Parser
     }
 
     @Override
-    protected void parse() 
+    public void parse() 
     {
         /* Nothing to do. The string is already stored in the list. */
     }
