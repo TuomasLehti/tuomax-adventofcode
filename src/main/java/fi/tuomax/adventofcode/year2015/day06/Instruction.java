@@ -3,6 +3,8 @@ package fi.tuomax.adventofcode.year2015.day06;
 import java.util.ArrayList;
 import java.util.Arrays;
 
+import fi.tuomax.adventofcode.commons.Coordinates;
+
 /**
  * An instruction to turn an area of lights on or off.
  */

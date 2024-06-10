@@ -1,4 +1,4 @@
-package fi.tuomax.adventofcode.year2015.day06;
+package fi.tuomax.adventofcode.commons;
 
 public record Coordinates(Long x, Long y) 
 implements Comparable<Coordinates>

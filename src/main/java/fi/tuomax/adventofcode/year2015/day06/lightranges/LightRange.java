@@ -1,7 +1,7 @@
 package fi.tuomax.adventofcode.year2015.day06.lightranges;
 
+import fi.tuomax.adventofcode.commons.Coordinates;
 import fi.tuomax.adventofcode.year2015.day06.Command;
-import fi.tuomax.adventofcode.year2015.day06.Coordinates;
 import fi.tuomax.adventofcode.year2015.day06.Instruction;
 import fi.tuomax.adventofcode.year2015.day06.Light;
 
