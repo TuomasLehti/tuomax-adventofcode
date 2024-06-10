@@ -2,9 +2,7 @@ package fi.tuomax.adventofcode.framework.storing;
 
 import java.util.HashMap;
 import java.util.Map;
-
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import java.util.Set;
 
 import fi.tuomax.adventofcode.framework.solving.Solver;
 
@@ -13,8 +11,6 @@ import fi.tuomax.adventofcode.framework.solving.Solver;
  */
 public class Algorithm 
 {
-
-    private Logger logger = LoggerFactory.getLogger(getClass());
 
     private Map<Integer, Solver> parts = new HashMap<>();
 
@@ -33,26 +29,9 @@ public class Algorithm
         return parts.get(partNo);
     }
 
-    public void run()
+    public Set<Integer> getPartNos()
     {
-        for (Integer partNo : parts.keySet()) {
-            Solver part = parts.get(partNo);
-            logger.info(String.format(
-                "Running AoC %d, day %d, part %d: %s", 
-                part.getMetadata().year(), 
-                part.getMetadata().day(), 
-                part.getMetadata().part(), 
-                part.getMetadata().name()));
-            part.run();
-        }
-    }
-
-    public Long totalTime()
-    {
-        Long elapsed = 0L;
-        for (Integer partNo : parts.keySet())
-            elapsed += parts.get(partNo).getStopwatch().elapsed();
-        return elapsed;
+        return parts.keySet();
     }
     
 }

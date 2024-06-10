@@ -1,6 +1,7 @@
 package fi.tuomax.adventofcode.framework.storing;
 
 import java.util.HashMap;
+import java.util.Set;
 
 import fi.tuomax.adventofcode.framework.solving.Metadata;
 import fi.tuomax.adventofcode.framework.solving.Solver;
@@ -31,11 +32,9 @@ public class Year
         return days.get(day);
     }
 
-    public void run()
+    public Set<Integer> getDayNos()
     {
-        for (Integer year : days.keySet())
-            days.get(year).run();
+        return days.keySet();
     }
-
 
 }

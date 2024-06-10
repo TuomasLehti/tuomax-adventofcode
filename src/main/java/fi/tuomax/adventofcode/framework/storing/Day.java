@@ -2,6 +2,7 @@ package fi.tuomax.adventofcode.framework.storing;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Set;
 
 import fi.tuomax.adventofcode.framework.solving.Solver;
 
@@ -31,10 +32,9 @@ public class Day
         return algorithms.get(algorithmName);
     }
 
-    public void run()
+    public Set<String> getAlgorithmNames() 
     {
-        for (Algorithm algo : algorithms.values())
-            algo.run();
+        return algorithms.keySet();
     }
-    
+
 }
