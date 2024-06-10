@@ -9,7 +9,7 @@
     <!-- encoders are assigned the type
          ch.qos.logback.classic.encoder.PatternLayoutEncoder by default -->
     <encoder>
-      <pattern>%highlightex(%d{HH:mm:ss.SSS} %-5level %logger{36} %msg%n)</pattern>
+      <pattern>%highlightex(%d{HH:mm:ss.SSS} %-5level %logger{18} %msg%n)</pattern>
     </encoder>
   </appender>
 

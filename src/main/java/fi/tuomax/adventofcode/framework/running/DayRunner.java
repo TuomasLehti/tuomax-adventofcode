@@ -44,19 +44,26 @@ extends Runner
     {
         Long[] times = new Long[5];
         for (int i = 0; i < 5; i++) {
-            logger.info(String.format(
-                "Running AoC %d, day %d (%s), part %d, algorithm %s, pass %d", 
-                solver.getMetadata().year(), 
-                solver.getMetadata().day(), 
-                solver.getMetadata().name(),
-                solver.getMetadata().part(), 
-                solver.getMetadata().version(),
-                i));
+            logger.info(getLogMsg(solver, i));
             solver.run();
             times[i] = solver.getStopwatch().elapsed();
         }
         Long average = (times[0] + times[1] + times[2] + times[3] + times[4]) / 5;
         return new ResultCol(solver.getAnswer(), average);
+    }
+
+    protected String getLogMsg(Solver solver, Integer i)
+    {
+        String fmt = solver.getMetadata().version().isEmpty() 
+            ? "Running AoC %d, day %d (%s), part %d"
+            : "Running AoC %d, day %d (%s), part %d, %s version";
+        return String.format(fmt,
+            solver.getMetadata().year(), 
+            solver.getMetadata().day(), 
+            solver.getMetadata().name(),
+            solver.getMetadata().part(), 
+            solver.getMetadata().version()) +
+            String.format(", pass %d", (i + 1));
     }
 
     @Override

@@ -43,15 +43,22 @@ public abstract class Runner
 
     protected ResultCol run(Solver solver)
     {
-        logger.info(String.format(
-            "Running AoC %d, day %d (%s), part %d, algorithm %s", 
+        logger.info(getLogMsg(solver));
+        solver.run();
+        return new ResultCol(solver.getAnswer(), solver.getStopwatch().elapsed());
+    }
+
+    protected String getLogMsg(Solver solver)
+    {
+        String fmt = solver.getMetadata().version().isEmpty() 
+            ? "Running AoC %d, day %d (%s), part %d"
+            : "Running AoC %d, day %d (%s), part %d, %s version";
+        return String.format(fmt,
             solver.getMetadata().year(), 
             solver.getMetadata().day(), 
             solver.getMetadata().name(),
             solver.getMetadata().part(), 
-            solver.getMetadata().version()));
-        solver.run();
-        return new ResultCol(solver.getAnswer(), solver.getStopwatch().elapsed());
+            solver.getMetadata().version());
     }
     
 }
