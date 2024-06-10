@@ -9,14 +9,14 @@ import fi.tuomax.adventofcode.framework.running.Runner;
 import fi.tuomax.adventofcode.framework.running.YearRunner;
 import fi.tuomax.adventofcode.framework.solving.Metadata;
 import fi.tuomax.adventofcode.framework.storing.Year;
-import fi.tuomax.adventofcode.y2015.d01.NotQuiteLisp_Part1;
-import fi.tuomax.adventofcode.y2015.d01.NotQuiteLisp_Part2;
-import fi.tuomax.adventofcode.y2015.d02.IWasToldThereWouldBeNoMath_Part1;
-import fi.tuomax.adventofcode.y2015.d02.IWasToldThereWouldBeNoMath_Part2;
-import fi.tuomax.adventofcode.y2015.d06.lightranges.ProbablyAFireHazard_LightRanges_Part1;
-import fi.tuomax.adventofcode.y2015.d06.lightranges.ProbablyAFireHazard_LightRanges_Part2;
-import fi.tuomax.adventofcode.y2015.d06.singlelights.ProbablyAFireHazard_SingleLights_Part1;
-import fi.tuomax.adventofcode.y2015.d06.singlelights.ProbablyAFireHazard_SingleLights_Part2;
+import fi.tuomax.adventofcode.year2015.day01.NotQuiteLisp_Part1;
+import fi.tuomax.adventofcode.year2015.day01.NotQuiteLisp_Part2;
+import fi.tuomax.adventofcode.year2015.day02.IWasToldThereWouldBeNoMath_Part1;
+import fi.tuomax.adventofcode.year2015.day02.IWasToldThereWouldBeNoMath_Part2;
+import fi.tuomax.adventofcode.year2015.day06.lightranges.ProbablyAFireHazard_LightRanges_Part1;
+import fi.tuomax.adventofcode.year2015.day06.lightranges.ProbablyAFireHazard_LightRanges_Part2;
+import fi.tuomax.adventofcode.year2015.day06.singlelights.ProbablyAFireHazard_SingleLights_Part1;
+import fi.tuomax.adventofcode.year2015.day06.singlelights.ProbablyAFireHazard_SingleLights_Part2;
 
 public class AdventOfCode 
 {

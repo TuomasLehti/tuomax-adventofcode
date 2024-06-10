@@ -55,7 +55,7 @@ public class InputFactory
     public static String inputLocation(Metadata metadata, String filename)
     {
         return String.format(
-            "inputs/y%d/d%02d/%d-%02d %s",
+            "inputs/year%d/day%02d/%d-%02d %s",
             metadata.year(), metadata.day(),
             metadata.year(), metadata.day(),
             filename

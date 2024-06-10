@@ -1,0 +1,41 @@
+package fi.tuomax.adventofcode.year2015.day01;
+
+import static org.junit.Assert.assertEquals;
+
+import java.util.List;
+
+import org.junit.Test;
+
+import fi.tuomax.adventofcode.PuzzleTestCase;
+import fi.tuomax.adventofcode.PuzzleTester;
+import fi.tuomax.adventofcode.framework.solving.Metadata;
+import fi.tuomax.adventofcode.year2015.day01.NotQuiteLisp_Part1;
+import fi.tuomax.adventofcode.year2015.day01.NotQuiteLisp_Part2;
+
+public class Test_NotQuiteLisp 
+extends PuzzleTester
+{
+
+    @Test
+    public void test_Part1()
+    {
+        List<PuzzleTestCase> suite = fetchTestCases(new Metadata(2015, 1, 1, null, null));
+        for (PuzzleTestCase testCase : suite) {
+            NotQuiteLisp_Part1 part1 = new NotQuiteLisp_Part1();
+            part1.run(testCase.input());
+            assertEquals(testCase.expectedAnswer(), part1.getAnswer());
+        }
+    }
+
+    @Test
+    public void test_Part2()
+    {
+        List<PuzzleTestCase> suite = fetchTestCases(new Metadata(2015, 1, 2, null, null));
+        for (PuzzleTestCase testCase : suite) {
+            NotQuiteLisp_Part2 part2 = new NotQuiteLisp_Part2();
+            part2.run(testCase.input());
+            assertEquals(testCase.expectedAnswer(), part2.getAnswer());
+        }
+    }
+    
+}
