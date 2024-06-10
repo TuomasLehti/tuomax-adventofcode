@@ -34,5 +34,22 @@ extends Runner
 
         return runned;
     }
+
+    @Override
+    protected String getMainHeading(List<List<Solver>> runned) {
+        Metadata metadata = runned.get(0).get(0).getMetadata();
+        return String.format("Advent of Code %d", metadata.year());
+    }
+
+    @Override
+    protected String getSubHeading(List<List<Solver>> runned) {
+        return "";
+    }
+
+    @Override
+    protected String getRowHeader(List<Solver> row) {
+        Metadata metadata = row.get(0).getMetadata();
+        return String.format("Day %d: %s", metadata.day(), metadata.name());
+    }
     
 }

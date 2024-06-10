@@ -6,6 +6,8 @@ import org.fusesource.jansi.Ansi;
 import org.fusesource.jansi.AnsiConsole;
 
 import fi.tuomax.adventofcode.framework.printing.Printer;
+import fi.tuomax.adventofcode.framework.printing.Results;
+import fi.tuomax.adventofcode.framework.running.DayRunner;
 import fi.tuomax.adventofcode.framework.running.LatestRunner;
 import fi.tuomax.adventofcode.framework.running.YearRunner;
 import fi.tuomax.adventofcode.framework.solving.Solver;
@@ -41,7 +43,7 @@ public class Main
         year.addSolver(new ProbablyAFireHazard_LightRanges_Part2());
 
         YearRunner runner = new YearRunner();
-        List<List<Solver>> runned = runner.run(Year.latestAddition, year);
+        Results runned = runner.run(Year.latestAddition, year);
         Printer printer = new Printer();
         printer.print(runned);
         AnsiConsole.systemUninstall();

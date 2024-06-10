@@ -1,37 +1,32 @@
 package fi.tuomax.adventofcode.framework.printing;
 
-import java.util.List;
-
 import org.fusesource.jansi.Ansi;
-
-import fi.tuomax.adventofcode.framework.solving.Solver;
 
 public class Printer 
 {
 
-    public void print(List<List<Solver>> runned)
+    public void print(Results results)
     {
         System.out.print("\n".repeat(2));
 
-        System.out.println(Ansi.ansi().fgBright(Ansi.Color.GREEN).a(String.format(
-                "Advent of Code %d", 
-                runned.get(0).get(0).getMetadata().year()
-        )).reset().toString());
+        System.out.println(Ansi.ansi().fgBright(Ansi.Color.GREEN).a(
+                results.mainHeading()
+        ).reset().toString());
 
-        for (List<Solver> row : runned) {
+        for (ResultRow row : results.rows()) {
             System.out.print(Ansi.ansi().fg(Ansi.Color.GREEN).a(String.format(
                 "%-40s", 
-                row.get(0).getMetadata().name()
+                row.name()
             )).reset().toString());
     
             System.out.print(" | ");
-            System.out.print(String.format("%-15s", row.get(0).getAnswer()));
+            System.out.print(String.format("%-15s", row.cols().get(0).answer()));
             System.out.print(" (");
-            System.out.print(String.format("%14s", row.get(0).getStopwatch().toString()));
+            System.out.print(String.format("%14s", row.cols().get(0).time()));
             System.out.print(") | ");
-            System.out.print(String.format("%-15s", row.get(1).getAnswer()));
+            System.out.print(String.format("%-15s", row.cols().get(1).answer()));
             System.out.print(" (");
-            System.out.print(String.format("%14s", row.get(1).getStopwatch().toString()));
+            System.out.print(String.format("%14s", row.cols().get(1).time()));
             System.out.println(")");
         }
         System.out.print("\n".repeat(2));
