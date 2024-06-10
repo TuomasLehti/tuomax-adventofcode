@@ -72,4 +72,9 @@ public abstract class Solver
         answer = i.toString();
     }
 
+    protected void setAnswer(Long l)
+    {
+        answer = l.toString();
+    }
+
 }
