@@ -7,6 +7,7 @@ import org.fusesource.jansi.AnsiConsole;
 
 import fi.tuomax.adventofcode.framework.printing.Printer;
 import fi.tuomax.adventofcode.framework.running.LatestRunner;
+import fi.tuomax.adventofcode.framework.running.YearRunner;
 import fi.tuomax.adventofcode.framework.solving.Solver;
 import fi.tuomax.adventofcode.framework.storing.Year;
 import fi.tuomax.adventofcode.y2015.d01.NotQuiteLisp_Part1;
@@ -31,7 +32,7 @@ public class Main
         year.addSolver(new IWasToldThereWouldBeNoMath_Part1());
         year.addSolver(new IWasToldThereWouldBeNoMath_Part2());
 
-        LatestRunner runner = new LatestRunner();
+        YearRunner runner = new YearRunner();
         List<List<Solver>> runned = runner.run(Year.latestAddition, year);
         Printer printer = new Printer();
         printer.print(runned);
