@@ -14,6 +14,10 @@ import fi.tuomax.adventofcode.y2015.d01.NotQuiteLisp_Part1;
 import fi.tuomax.adventofcode.y2015.d01.NotQuiteLisp_Part2;
 import fi.tuomax.adventofcode.y2015.d02.IWasToldThereWouldBeNoMath_Part1;
 import fi.tuomax.adventofcode.y2015.d02.IWasToldThereWouldBeNoMath_Part2;
+import fi.tuomax.adventofcode.y2015.d06.lightranges.ProbablyAFireHazard_LightRanges_Part1;
+import fi.tuomax.adventofcode.y2015.d06.lightranges.ProbablyAFireHazard_LightRanges_Part2;
+import fi.tuomax.adventofcode.y2015.d06.singlelights.ProbablyAFireHazard_SingleLights_Part1;
+import fi.tuomax.adventofcode.y2015.d06.singlelights.ProbablyAFireHazard_SingleLights_Part2;
 
 public class Main 
 {
@@ -31,6 +35,10 @@ public class Main
         year.addSolver(new NotQuiteLisp_Part2());
         year.addSolver(new IWasToldThereWouldBeNoMath_Part1());
         year.addSolver(new IWasToldThereWouldBeNoMath_Part2());
+        year.addSolver(new ProbablyAFireHazard_SingleLights_Part1());
+        year.addSolver(new ProbablyAFireHazard_SingleLights_Part2());
+        year.addSolver(new ProbablyAFireHazard_LightRanges_Part1());
+        year.addSolver(new ProbablyAFireHazard_LightRanges_Part2());
 
         YearRunner runner = new YearRunner();
         List<List<Solver>> runned = runner.run(Year.latestAddition, year);
