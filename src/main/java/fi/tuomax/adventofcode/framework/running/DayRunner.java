@@ -56,7 +56,7 @@ extends Runner
             times[i] = solver.getStopwatch().elapsed();
         }
         Long average = (times[0] + times[1] + times[2] + times[3] + times[4]) / 5;
-        return new ResultCol(solver.getAnswer(), String.format("%.3f seconds", average/1000f));
+        return new ResultCol(solver.getAnswer(), average);
     }
 
     @Override

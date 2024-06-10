@@ -51,7 +51,7 @@ public abstract class Runner
             solver.getMetadata().part(), 
             solver.getMetadata().version()));
         solver.run();
-        return new ResultCol(solver.getAnswer(), solver.getStopwatch().toString());
+        return new ResultCol(solver.getAnswer(), solver.getStopwatch().elapsed());
     }
     
 }
