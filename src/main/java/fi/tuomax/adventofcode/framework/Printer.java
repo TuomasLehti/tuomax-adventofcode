@@ -9,6 +9,8 @@ public class Printer
 
     public void print(List<List<Solver>> runned)
     {
+        System.out.print("\n".repeat(2));
+
         System.out.println(Ansi.ansi().fgBright(Ansi.Color.GREEN).a(String.format(
                 "Advent of Code %d", 
                 runned.get(0).get(0).getMetadata().year()
@@ -29,6 +31,7 @@ public class Printer
         System.out.print(" (");
         System.out.print(String.format("%14s", runned.get(0).get(1).getStopwatch().toString()));
         System.out.print(")");
+        System.out.print("\n".repeat(2));
     }
     
 }

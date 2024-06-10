@@ -2,6 +2,7 @@ package fi.tuomax.adventofcode;
 
 import java.util.List;
 
+import org.fusesource.jansi.Ansi;
 import org.fusesource.jansi.AnsiConsole;
 
 import fi.tuomax.adventofcode.framework.LatestRunner;
@@ -19,6 +20,11 @@ public class Main
     public static void main(String[] args) 
     {
         AnsiConsole.systemInstall();
+
+        System.out.print("\n".repeat(2));
+        System.out.println(Ansi.ansi().fgBright(Ansi.Color.WHITE).a("Tuomax's Advent of Code Framework v. 15.0").reset());
+        System.out.print("\n".repeat(2));
+
         Year year = new Year();
         year.addSolver(new NotQuiteLisp_Part1());
         year.addSolver(new NotQuiteLisp_Part2());
