@@ -41,7 +41,7 @@ public abstract class Runner
 
     protected abstract List<List<Solver>> collectSolvers(Metadata metadata, Year year);
 
-    private ResultCol run(Solver solver)
+    protected ResultCol run(Solver solver)
     {
         logger.info(String.format(
             "Running AoC %d, day %d (%s), part %d, algorithm %s", 
@@ -52,6 +52,6 @@ public abstract class Runner
             solver.getMetadata().version()));
         solver.run();
         return new ResultCol(solver.getAnswer(), solver.getStopwatch().toString());
-}
+    }
     
 }
