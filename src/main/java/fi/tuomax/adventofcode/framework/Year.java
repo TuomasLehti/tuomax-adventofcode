@@ -5,6 +5,8 @@ import java.util.HashMap;
 public class Year 
 {
 
+    public static Metadata latestAddition = null;
+
     private HashMap<Integer, Day> days = new HashMap<>();
 
     public void addSolver(Solver solver)
@@ -13,6 +15,7 @@ public class Year
         if (!days.containsKey(meta.day()))
             days.put(meta.day(), new Day());
         days.get(meta.day()).addPart(solver);
+        latestAddition = meta;
     }
 
     public Boolean containsDay(Integer day)

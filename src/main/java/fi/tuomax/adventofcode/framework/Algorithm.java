@@ -21,6 +21,11 @@ public class Algorithm
         parts.put(solver.getMetadata().part(), solver);
     }
 
+    public Boolean containsPart(Integer partNo)
+    {
+        return parts.containsKey(partNo);
+    }
+
     public Solver getPart(Integer partNo)
     {
         return parts.get(partNo);

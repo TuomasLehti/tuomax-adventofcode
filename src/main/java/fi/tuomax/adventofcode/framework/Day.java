@@ -19,6 +19,16 @@ public class Day
         algorithms.get(part.getMetadata().version()).addPart(part);
     }
 
+    public Boolean containsAlgorithm(String algorithmName)
+    {
+        return algorithms.containsKey(algorithmName);
+    }
+
+    public Algorithm getAlgorithm(String algorithmName)
+    {
+        return algorithms.get(algorithmName);
+    }
+
     public void run()
     {
         for (Algorithm algo : algorithms.values())
