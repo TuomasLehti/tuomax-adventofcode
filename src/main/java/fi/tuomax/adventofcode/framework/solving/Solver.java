@@ -77,4 +77,9 @@ public abstract class Solver
         answer = l.toString();
     }
 
+    protected void setAnswer(String s)
+    {
+        answer = s;
+    }
+
 }

@@ -15,6 +15,8 @@ import fi.tuomax.adventofcode.year2015.day02.IWasToldThereWouldBeNoMath_Part1;
 import fi.tuomax.adventofcode.year2015.day02.IWasToldThereWouldBeNoMath_Part2;
 import fi.tuomax.adventofcode.year2015.day03.PerfectlySphericalHousesInAVacuum_Part1;
 import fi.tuomax.adventofcode.year2015.day03.PerfectlySphericalHousesInAVacuum_Part2;
+import fi.tuomax.adventofcode.year2015.day04.TheIdealStockingStuffer_Part1;
+import fi.tuomax.adventofcode.year2015.day04.TheIdealStockingStuffer_Part2;
 import fi.tuomax.adventofcode.year2015.day06.lightranges.ProbablyAFireHazard_LightRanges_Part1;
 import fi.tuomax.adventofcode.year2015.day06.lightranges.ProbablyAFireHazard_LightRanges_Part2;
 import fi.tuomax.adventofcode.year2015.day06.singlelights.ProbablyAFireHazard_SingleLights_Part1;
@@ -63,6 +65,9 @@ public class AdventOfCode
         year.addSolver(new ProbablyAFireHazard_SingleLights_Part2());
         year.addSolver(new ProbablyAFireHazard_LightRanges_Part1());
         year.addSolver(new ProbablyAFireHazard_LightRanges_Part2());
+        /* day 4 */
+        year.addSolver(new TheIdealStockingStuffer_Part1());
+        year.addSolver(new TheIdealStockingStuffer_Part2());
     }
 
     private void printWelcome() {
