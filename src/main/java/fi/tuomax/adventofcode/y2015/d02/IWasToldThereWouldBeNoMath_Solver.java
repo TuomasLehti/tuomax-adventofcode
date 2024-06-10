@@ -2,8 +2,8 @@ package fi.tuomax.adventofcode.y2015.d02;
 
 import java.util.List;
 
-import fi.tuomax.adventofcode.framework.Parser;
-import fi.tuomax.adventofcode.framework.Solver;
+import fi.tuomax.adventofcode.framework.parsing.Parser;
+import fi.tuomax.adventofcode.framework.solving.Solver;
 
 public abstract class IWasToldThereWouldBeNoMath_Solver 
 extends Solver

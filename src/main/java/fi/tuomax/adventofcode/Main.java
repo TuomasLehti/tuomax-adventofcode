@@ -5,10 +5,10 @@ import java.util.List;
 import org.fusesource.jansi.Ansi;
 import org.fusesource.jansi.AnsiConsole;
 
-import fi.tuomax.adventofcode.framework.LatestRunner;
-import fi.tuomax.adventofcode.framework.Printer;
-import fi.tuomax.adventofcode.framework.Solver;
-import fi.tuomax.adventofcode.framework.Year;
+import fi.tuomax.adventofcode.framework.printing.Printer;
+import fi.tuomax.adventofcode.framework.running.LatestRunner;
+import fi.tuomax.adventofcode.framework.solving.Solver;
+import fi.tuomax.adventofcode.framework.storing.Year;
 import fi.tuomax.adventofcode.y2015.d01.NotQuiteLisp_Part1;
 import fi.tuomax.adventofcode.y2015.d01.NotQuiteLisp_Part2;
 import fi.tuomax.adventofcode.y2015.d02.IWasToldThereWouldBeNoMath_Part1;

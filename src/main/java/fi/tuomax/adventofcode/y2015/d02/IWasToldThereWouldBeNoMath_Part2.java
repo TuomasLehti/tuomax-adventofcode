@@ -1,6 +1,6 @@
 package fi.tuomax.adventofcode.y2015.d02;
 
-import fi.tuomax.adventofcode.framework.Metadata;
+import fi.tuomax.adventofcode.framework.solving.Metadata;
 
 public class IWasToldThereWouldBeNoMath_Part2 
 extends IWasToldThereWouldBeNoMath_Solver

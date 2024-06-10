@@ -9,6 +9,7 @@ import java.util.List;
 import org.junit.Test;
 
 import fi.tuomax.adventofcode.PuzzleTester;
+import fi.tuomax.adventofcode.framework.inputting.InputFactory;
 
 public class TestInputFactory 
 extends PuzzleTester

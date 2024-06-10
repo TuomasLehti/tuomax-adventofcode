@@ -2,10 +2,10 @@ package fi.tuomax.adventofcode.y2015.d01;
 
 import java.util.List;
 
-import fi.tuomax.adventofcode.framework.Metadata;
-import fi.tuomax.adventofcode.framework.Parser;
-import fi.tuomax.adventofcode.framework.Solver;
-import fi.tuomax.adventofcode.framework.StringParser;
+import fi.tuomax.adventofcode.framework.parsing.Parser;
+import fi.tuomax.adventofcode.framework.parsing.StringParser;
+import fi.tuomax.adventofcode.framework.solving.Metadata;
+import fi.tuomax.adventofcode.framework.solving.Solver;
 
 /**
  * Solves Advent of Code 2015, day 1, part 2: 

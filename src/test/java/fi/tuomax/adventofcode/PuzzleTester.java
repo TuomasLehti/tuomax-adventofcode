@@ -13,8 +13,8 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-import fi.tuomax.adventofcode.framework.InputFactory;
-import fi.tuomax.adventofcode.framework.Metadata;
+import fi.tuomax.adventofcode.framework.inputting.InputFactory;
+import fi.tuomax.adventofcode.framework.solving.Metadata;
 
 /**
  * Includes helpers for testing. This class should be inherited by all other
