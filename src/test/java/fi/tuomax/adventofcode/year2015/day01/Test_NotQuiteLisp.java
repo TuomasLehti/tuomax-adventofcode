@@ -9,8 +9,6 @@ import org.junit.Test;
 import fi.tuomax.adventofcode.PuzzleTestCase;
 import fi.tuomax.adventofcode.PuzzleTester;
 import fi.tuomax.adventofcode.framework.solving.Metadata;
-import fi.tuomax.adventofcode.year2015.day01.NotQuiteLisp_Part1;
-import fi.tuomax.adventofcode.year2015.day01.NotQuiteLisp_Part2;
 
 public class Test_NotQuiteLisp 
 extends PuzzleTester

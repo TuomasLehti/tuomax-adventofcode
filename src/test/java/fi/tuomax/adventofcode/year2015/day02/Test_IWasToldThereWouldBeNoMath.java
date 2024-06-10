@@ -9,9 +9,6 @@ import org.junit.Test;
 import fi.tuomax.adventofcode.PuzzleTestCase;
 import fi.tuomax.adventofcode.PuzzleTester;
 import fi.tuomax.adventofcode.framework.solving.Metadata;
-import fi.tuomax.adventofcode.year2015.day02.IWasToldThereWouldBeNoMath_Part1;
-import fi.tuomax.adventofcode.year2015.day02.IWasToldThereWouldBeNoMath_Part2;
-import fi.tuomax.adventofcode.year2015.day02.IWasToldThereWouldBeNoMath_Solver;
 
 public class Test_IWasToldThereWouldBeNoMath 
 extends PuzzleTester
