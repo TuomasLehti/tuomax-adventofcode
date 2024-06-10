@@ -32,10 +32,10 @@ public class LatestRunner
             solvers.add(algo.getPart(1));
         }
         if (algo.containsPart(2)) {
-            run(algo.getPart(1));
+            run(algo.getPart(2));
             solvers.add(algo.getPart(2));
         }
-
+        runned.add(solvers);
         return runned;
     }
 
