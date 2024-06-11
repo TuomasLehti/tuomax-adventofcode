@@ -23,6 +23,8 @@ import fi.tuomax.adventofcode.year2015.day06.lightranges.ProbablyAFireHazard_Lig
 import fi.tuomax.adventofcode.year2015.day06.lightranges.ProbablyAFireHazard_LightRanges_Part2;
 import fi.tuomax.adventofcode.year2015.day06.singlelights.ProbablyAFireHazard_SingleLights_Part1;
 import fi.tuomax.adventofcode.year2015.day06.singlelights.ProbablyAFireHazard_SingleLights_Part2;
+import fi.tuomax.adventofcode.year2015.day07.SomeAssemblyRequired_Part1;
+import fi.tuomax.adventofcode.year2015.day07.SomeAssemblyRequired_Part2;
 
 public class AdventOfCode 
 {
@@ -62,17 +64,20 @@ public class AdventOfCode
         /* day 3 */
         year.addSolver(new PerfectlySphericalHousesInAVacuum_Part1());
         year.addSolver(new PerfectlySphericalHousesInAVacuum_Part2());
-        /* day 6 */
-        year.addSolver(new ProbablyAFireHazard_LightRanges_Part1());
-        year.addSolver(new ProbablyAFireHazard_LightRanges_Part2());
-        year.addSolver(new ProbablyAFireHazard_SingleLights_Part1());
-        year.addSolver(new ProbablyAFireHazard_SingleLights_Part2());
         /* day 4 */
         year.addSolver(new TheIdealStockingStuffer_Part1());
         year.addSolver(new TheIdealStockingStuffer_Part2());
         /* day 5 */
         year.addSolver(new DoesntHeHaveInternElvesForThis_Part1());
         year.addSolver(new DoesntHeHaveInternElvesForThis_Part2());
+        /* day 6 */
+        year.addSolver(new ProbablyAFireHazard_LightRanges_Part1());
+        year.addSolver(new ProbablyAFireHazard_LightRanges_Part2());
+        year.addSolver(new ProbablyAFireHazard_SingleLights_Part1());
+        year.addSolver(new ProbablyAFireHazard_SingleLights_Part2());
+        /* day 7 */
+        year.addSolver(new SomeAssemblyRequired_Part1());
+        year.addSolver(new SomeAssemblyRequired_Part2());
     }
 
     private void printWelcome() {
