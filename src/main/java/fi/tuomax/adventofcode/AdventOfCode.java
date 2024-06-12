@@ -25,6 +25,8 @@ import fi.tuomax.adventofcode.year2015.day06.singlelights.ProbablyAFireHazard_Si
 import fi.tuomax.adventofcode.year2015.day06.singlelights.ProbablyAFireHazard_SingleLights_Part2;
 import fi.tuomax.adventofcode.year2015.day07.SomeAssemblyRequired_Part1;
 import fi.tuomax.adventofcode.year2015.day07.SomeAssemblyRequired_Part2;
+import fi.tuomax.adventofcode.year2015.day08.Matchsticks_Part1;
+import fi.tuomax.adventofcode.year2015.day08.Matchsticks_Part2;
 
 public class AdventOfCode 
 {
@@ -78,6 +80,9 @@ public class AdventOfCode
         /* day 7 */
         year.addSolver(new SomeAssemblyRequired_Part1());
         year.addSolver(new SomeAssemblyRequired_Part2());
+        /* day 8 */
+        year.addSolver(new Matchsticks_Part1());
+        year.addSolver(new Matchsticks_Part2());
     }
 
     private void printWelcome() {
