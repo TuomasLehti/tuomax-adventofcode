@@ -2,19 +2,21 @@ package fi.tuomax.adventofcode.year2015.day10;
 
 import java.util.List;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 import fi.tuomax.adventofcode.framework.parsing.Parser;
 import fi.tuomax.adventofcode.framework.parsing.StringParser;
 import fi.tuomax.adventofcode.framework.solving.Metadata;
 import fi.tuomax.adventofcode.framework.solving.Solver;
 
+/**
+ * Solves Advent of Code 2015, day 10, part 1: 
+ * Elves Look, Elves Say.
+ * @see 
+ *      <a href="https://adventofcode.com/2015/day/9">
+ *      Puzzle on the Advent of Code website.</a>
+ */
 public class ElvesLookElvesSay_Part1 
 extends Solver
 {
-
-    Logger logger = LoggerFactory.getLogger(getClass());
 
     @Override
     protected Metadata manufactureMetadata() 

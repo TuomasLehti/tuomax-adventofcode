@@ -2,6 +2,7 @@ package fi.tuomax.adventofcode.year2015.day10;
 
 /**
  * Naive implementation of John Conway's look and say -sequence.
+ * @see https://en.wikipedia.org/wiki/Look-and-say_sequence
  */
 public class LookAndSay 
 {
