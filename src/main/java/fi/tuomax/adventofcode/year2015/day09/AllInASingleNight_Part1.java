@@ -7,6 +7,13 @@ import fi.tuomax.adventofcode.framework.parsing.Parser;
 import fi.tuomax.adventofcode.framework.solving.Metadata;
 import fi.tuomax.adventofcode.framework.solving.Solver;
 
+/**
+ * Solves Advent of Code 2015, day 9, part 1: 
+ * All in a Single Night.
+ * @see 
+ *      <a href="https://adventofcode.com/2015/day/9">
+ *      Puzzle on the Advent of Code website.</a>
+ */
 public class AllInASingleNight_Part1 
 extends Solver
 {

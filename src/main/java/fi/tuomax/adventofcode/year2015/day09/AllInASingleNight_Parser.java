@@ -5,6 +5,9 @@ import java.util.List;
 import fi.tuomax.adventofcode.commons.pathfinding.Graph;
 import fi.tuomax.adventofcode.framework.parsing.Parser;
 
+/**
+ * Parses input for Advent of Code 2015, day 9.
+ */
 public class AllInASingleNight_Parser 
 extends Parser
 {
@@ -17,6 +20,7 @@ extends Parser
 
     @Override
     public void parse() {
+        /* The input is of form "[FROM] to [TO] = [DISTANCE]" */
         for (String line : input) {
             String[] parts = line.trim().split(" ");
             graph.addNodesAndUndirectedEdge(
