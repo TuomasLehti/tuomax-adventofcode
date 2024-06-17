@@ -31,6 +31,9 @@ import fi.tuomax.adventofcode.year2015.day09.AllInASingleNight_Part1;
 import fi.tuomax.adventofcode.year2015.day09.AllInASingleNight_Part2;
 import fi.tuomax.adventofcode.year2015.day10.ElvesLookElvesSay_Part1;
 import fi.tuomax.adventofcode.year2015.day10.ElvesLookElvesSay_Part2;
+import fi.tuomax.adventofcode.year2015.day11.CorporatePolicy;
+import fi.tuomax.adventofcode.year2015.day11.CorporatePolicy_Part1;
+import fi.tuomax.adventofcode.year2015.day11.CorporatePolicy_Part2;
 
 public class AdventOfCode 
 {
@@ -93,6 +96,9 @@ public class AdventOfCode
         /* day 10 */
         year.addSolver(new ElvesLookElvesSay_Part1());
         year.addSolver(new ElvesLookElvesSay_Part2());
+        /* day 11 */
+        year.addSolver(new CorporatePolicy_Part1());
+        year.addSolver(new CorporatePolicy_Part2());
     }
 
     private void printWelcome() {

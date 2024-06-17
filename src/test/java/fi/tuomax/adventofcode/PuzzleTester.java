@@ -30,7 +30,22 @@ public class PuzzleTester
      */
     protected void readJson(Metadata metadata)
     {
-        File file = new File(InputFactory.inputLocation(metadata, "tests.json"));
+        readJson(metadata, "tests.json");
+/*        File file = new File(InputFactory.inputLocation(metadata, "tests.json"));
+        try {
+            String content = new String(Files.readAllBytes(file.toPath()));
+            json = new JSONObject(content);
+        } catch (IOException e) {
+            fail(e.getMessage());
+        }*/
+    }
+
+    /**
+     * Reads the json file which contains the test cases.
+     */
+    protected void readJson(Metadata metadata, String filename)
+    {
+        File file = new File(InputFactory.inputLocation(metadata, filename));
         try {
             String content = new String(Files.readAllBytes(file.toPath()));
             json = new JSONObject(content);
