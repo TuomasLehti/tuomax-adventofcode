@@ -17,7 +17,7 @@ public class Graph {
 
     /** 
      * Adds two nodes to the graph if they don't yet exist. 
-     * Adds an udirected edge between the two nodes.
+     * Adds an undirected edge between the two nodes.
      */
     public void addNodesAndUndirectedEdge(String from, String to, Integer weight) 
     {
@@ -26,6 +26,19 @@ public class Graph {
         if (!graph.containsKey(to))
             graph.put(to, new Node(to));
         graph.get(from).addUndirectedEdge(new Edge(graph.get(to), weight));
+    }
+
+    /** 
+     * Adds two nodes to the graph if they don't yet exist. 
+     * Adds a directed edge between the two nodes.
+     */
+    public void addNodesAndDirectedEdge(String from, String to, Integer weight) 
+    {
+        if (!graph.containsKey(from))
+            graph.put(from, new Node(from));
+        if (!graph.containsKey(to))
+            graph.put(to, new Node(to));
+        graph.get(from).addDirectedEdge(new Edge(graph.get(to), weight));
     }
 
     public Node get(String name) 
