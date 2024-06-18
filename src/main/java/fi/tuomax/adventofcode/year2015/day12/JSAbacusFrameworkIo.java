@@ -30,33 +30,30 @@ extends Solver
         for (String key : json.keySet()) {
             if (abort(json.get(key)))
                 return 0;
-            if (json.get(key) instanceof Integer) {
-                answer += json.getInt(key);
-/*/            } else if ((json.get(key) instanceof String) && json.getString(key).equals("red")) {
-                return 0;*/
-            } else if (json.get(key) instanceof JSONObject) {
-                answer += countObject(json.getJSONObject(key));
-            } else if (json.get(key) instanceof JSONArray) {
-                answer += countArray(json.getJSONArray(key));
-            }
+            answer += count(json.get(key));
+        }
+        return answer;
+    }
+
+    private Integer countArray(JSONArray json) {
+        Integer answer = 0;
+        for (int index = 0; index < json.length(); index++) {
+            answer += count(json.get(index));
         }
         return answer;
     }
 
     public abstract Boolean abort(Object o);
 
-    private Integer countArray(JSONArray json) {
-        Integer answer = 0;
-        for (int index = 0; index < json.length(); index++) {
-            if (json.get(index) instanceof Integer) {
-                answer += json.getInt(index);
-            } else if (json.get(index) instanceof JSONObject) {
-                answer += countObject(json.getJSONObject(index));
-            } else if (json.get(index) instanceof JSONArray) {
-                answer += countArray(json.getJSONArray(index));
-            }
-        }
-        return answer;
+    private Integer count(Object o)
+    {
+        if (o instanceof Integer)
+            return (Integer) o;
+        if (o instanceof JSONObject)
+            return countObject((JSONObject) o);
+        if (o instanceof JSONArray)
+            return countArray((JSONArray) o);
+        return 0;
     }
     
 }
