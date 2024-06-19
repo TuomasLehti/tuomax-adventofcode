@@ -8,6 +8,13 @@ import org.json.JSONObject;
 import fi.tuomax.adventofcode.framework.parsing.Parser;
 import fi.tuomax.adventofcode.framework.solving.Solver;
 
+/**
+ * Solving logic for Advent of Code 2015, day 12.
+ * JSAbacusFramework.io.
+ * @see 
+ *      <a href="https://adventofcode.com/2015/day/12">
+ *      Puzzle on the Advent of Code website.</a>
+ */
 public abstract class JSAbacusFrameworkIo 
 extends Solver
 {
@@ -24,6 +31,12 @@ extends Solver
         setAnswer(countObject(json));
     }
 
+    /**
+     * Counter methods go through the child objects one at a time. Object's and
+     * array's childs are fetched through different methods, why there are two
+     * methods here as well. The actual counting of a child object is carried 
+     * out in ```count```-method.
+     */
     private Integer countObject(JSONObject json)
     {
         Integer answer = 0;
@@ -43,6 +56,10 @@ extends Solver
         return answer;
     }
 
+    /** 
+     * If there is a need to not count a certain JSON object and it's childs, 
+     * this method does the trick and aborts counting for a given object.
+     */
     public abstract Boolean abort(Object o);
 
     private Integer count(Object o)
