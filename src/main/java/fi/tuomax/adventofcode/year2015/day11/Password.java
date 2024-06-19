@@ -85,10 +85,16 @@ public class Password
         } while (!isValid());
     }
 
+    /**
+     * Increments the digit'th digit. 7 = least significant, 0 = most significant.
+     */
     private void increment(int digit) {
         password[digit]++;
+        /* roll over? */
         if (password[digit] > 122) {
             password[digit] = 97;
+            /* In the case of roll over, more significant digit must also be 
+             * incremented, but only if there is a more significant digit. */
             if (digit > 0) {
                 increment(digit - 1);
             }
