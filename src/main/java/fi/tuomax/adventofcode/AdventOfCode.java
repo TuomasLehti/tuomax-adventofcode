@@ -49,6 +49,8 @@ import fi.tuomax.adventofcode.year2015.day18.LikeAGifForYourYard_Part1;
 import fi.tuomax.adventofcode.year2015.day18.LikeAGifForYourYard_Part2;
 import fi.tuomax.adventofcode.year2015.day19.MedicineForRudolph_Part1;
 import fi.tuomax.adventofcode.year2015.day19.MedicineForRudolph_Part2;
+import fi.tuomax.adventofcode.year2015.day20.InfiniteElvesAndInfiniteHouses_Part1;
+import fi.tuomax.adventofcode.year2015.day20.InfiniteElvesAndInfiniteHouses_Part2;
 
 public class AdventOfCode 
 {
@@ -138,6 +140,9 @@ public class AdventOfCode
         /* day 19 */
         year.addSolver(new MedicineForRudolph_Part1());
         year.addSolver(new MedicineForRudolph_Part2());
+        /* day 20 */
+        year.addSolver(new InfiniteElvesAndInfiniteHouses_Part1());
+        year.addSolver(new InfiniteElvesAndInfiniteHouses_Part2());
     }
 
     private void printWelcome() {
