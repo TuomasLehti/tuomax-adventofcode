@@ -16,6 +16,7 @@ extends ForegroundCompositeConverterBase<ILoggingEvent>
             case Level.ERROR_INT :  return ANSIConstants.RED_FG;
             case Level.DEBUG_INT :  return ANSIConstants.BOLD + ANSIConstants.BLACK_FG;
             case Level.INFO_INT  :  return ANSIConstants.BLUE_FG;
+            case Level.WARN_INT  :  return ANSIConstants.RED_FG;
             default :               return ANSIConstants.WHITE_FG;
         }
     }
