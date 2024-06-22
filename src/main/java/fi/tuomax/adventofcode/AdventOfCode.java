@@ -39,6 +39,8 @@ import fi.tuomax.adventofcode.year2015.day13.KnightsOfTheDinnerTable_Part1;
 import fi.tuomax.adventofcode.year2015.day13.KnightsOfTheDinnerTable_Part2;
 import fi.tuomax.adventofcode.year2015.day14.ReindeerOlympics_Part1;
 import fi.tuomax.adventofcode.year2015.day14.ReindeerOlympics_Part2;
+import fi.tuomax.adventofcode.year2015.day15.ScienceForHungryPeople_Part1;
+import fi.tuomax.adventofcode.year2015.day15.ScienceForHungryPeople_Part2;
 
 public class AdventOfCode 
 {
@@ -113,6 +115,9 @@ public class AdventOfCode
         /* day 14 */
         year.addSolver(new ReindeerOlympics_Part1());
         year.addSolver(new ReindeerOlympics_Part2());
+        /* day 15 */
+        year.addSolver(new ScienceForHungryPeople_Part1());
+        year.addSolver(new ScienceForHungryPeople_Part2());
     }
 
     private void printWelcome() {
