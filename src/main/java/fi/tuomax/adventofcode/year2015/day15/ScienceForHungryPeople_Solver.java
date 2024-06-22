@@ -6,6 +6,14 @@ import java.util.List;
 import fi.tuomax.adventofcode.framework.parsing.Parser;
 import fi.tuomax.adventofcode.framework.solving.Solver;
 
+/**
+ * Solves Advent of Code 2015, day 15:
+ * Science for Hungry People
+ * @see 
+ *      <a href="https://adventofcode.com/2015/day/12">
+ *      Puzzle on the Advent of Code website.</a>
+ */
+
 public abstract class ScienceForHungryPeople_Solver 
 extends Solver
 {
@@ -32,7 +40,7 @@ extends Solver
     }
 
     /**
-     * Goes through every possible recipe and cooks it.
+     * Goes recursively through every possible recipe and cooks it.
      * @param current
      *      The amount of each ingredient.
      * @param depth
