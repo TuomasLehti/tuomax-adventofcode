@@ -15,6 +15,8 @@ import java.util.Map;
  * have not been defined. Guaranteed to work with complete graphs only.
  * (A complete graph is a graph, where every distinct pair of nodes is
  * connected with a pair of unique edges (one in each direction).)</p>
+ * 
+ * TODO: Join this with TravellingSalesmanBruteForce.
  */
 public class TravellingSalesman_ReturnsToStartingNode {
 

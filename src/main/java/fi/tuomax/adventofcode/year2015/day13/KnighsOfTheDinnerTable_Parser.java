@@ -4,6 +4,9 @@ import java.util.List;
 import fi.tuomax.adventofcode.commons.pathfinding.Graph;
 import fi.tuomax.adventofcode.framework.parsing.Parser;
 
+/**
+ * Turns the input for Advent of Code 2015, day 13 into a graph.
+ */
 public class KnighsOfTheDinnerTable_Parser 
 extends Parser
 {

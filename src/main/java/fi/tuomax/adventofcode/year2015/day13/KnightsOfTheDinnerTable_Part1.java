@@ -8,6 +8,13 @@ import fi.tuomax.adventofcode.framework.parsing.Parser;
 import fi.tuomax.adventofcode.framework.solving.Metadata;
 import fi.tuomax.adventofcode.framework.solving.Solver;
 
+/**
+ * Solves Advent of Code 2015, day 13, part 1:
+ * Knights of the Dinner Table
+ * @see 
+ *      <a href="https://adventofcode.com/2015/day/12">
+ *      Puzzle on the Advent of Code website.</a>
+ */
 public class KnightsOfTheDinnerTable_Part1 
 extends Solver
 {
