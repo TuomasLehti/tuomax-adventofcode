@@ -121,10 +121,11 @@ Dates are for the first solve on a previous framework, if not otherwise noted.
 | 17 | 28.1.2024  | 28.1.2024  |  |
 | 18 | 30.3.2024  | 30.3.2024  |  |
 | 19 | 22.6.2024  | 22.6.2024  | (1) (2) |
-| 20 | 10.5.2024  | to be solved  |  |
+| 20 | 10.5.2024  | 10.5.2024  | (3) |
 | 21 | 16.5.2024  | 16.5.2024  |  |
 | 23 | 19.5.2024  | 19.5.2024  |  |
 | 24 | 19.5.2024  | 19.5.2024  |  |
 
 1) The date of import to this framework.
 2) I don't consider part 2 solved yet, because I had to look the solution up.
+3) Very slow algorithm (1-2 minutes), must be made faster.
