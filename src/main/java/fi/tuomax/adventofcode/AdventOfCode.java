@@ -45,6 +45,8 @@ import fi.tuomax.adventofcode.year2015.day16.AuntSue_Part1;
 import fi.tuomax.adventofcode.year2015.day16.AuntSue_Part2;
 import fi.tuomax.adventofcode.year2015.day17.NoSuchThingAsTooMuch_Part1;
 import fi.tuomax.adventofcode.year2015.day17.NoSuchThingAsTooMuch_Part2;
+import fi.tuomax.adventofcode.year2015.day18.LikeAGifForYourYard_Part1;
+import fi.tuomax.adventofcode.year2015.day18.LikeAGifForYourYard_Part2;
 
 public class AdventOfCode 
 {
@@ -128,6 +130,9 @@ public class AdventOfCode
         /* day 17 */
         year.addSolver(new NoSuchThingAsTooMuch_Part1());
         year.addSolver(new NoSuchThingAsTooMuch_Part2());
+        /* day 18 */
+        year.addSolver(new LikeAGifForYourYard_Part1());
+        year.addSolver(new LikeAGifForYourYard_Part2());
     }
 
     private void printWelcome() {
