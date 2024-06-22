@@ -35,6 +35,10 @@ import fi.tuomax.adventofcode.year2015.day11.CorporatePolicy_Part1;
 import fi.tuomax.adventofcode.year2015.day11.CorporatePolicy_Part2;
 import fi.tuomax.adventofcode.year2015.day12.JSAbacusFrameworkIo_Part1;
 import fi.tuomax.adventofcode.year2015.day12.JSAbacusFrameworkIo_Part2;
+import fi.tuomax.adventofcode.year2015.day13.KnightsOfTheDinnerTable_Part1;
+import fi.tuomax.adventofcode.year2015.day13.KnightsOfTheDinnerTable_Part2;
+import fi.tuomax.adventofcode.year2015.day14.ReindeerOlympics_Part1;
+import fi.tuomax.adventofcode.year2015.day14.ReindeerOlympics_Part2;
 
 public class AdventOfCode 
 {
@@ -103,6 +107,12 @@ public class AdventOfCode
         /* day 12 */
         year.addSolver(new JSAbacusFrameworkIo_Part1());
         year.addSolver(new JSAbacusFrameworkIo_Part2());
+        /* day 13 */
+        year.addSolver(new KnightsOfTheDinnerTable_Part1());
+        year.addSolver(new KnightsOfTheDinnerTable_Part2());
+        /* day 14 */
+        year.addSolver(new ReindeerOlympics_Part1());
+        year.addSolver(new ReindeerOlympics_Part2());
     }
 
     private void printWelcome() {
