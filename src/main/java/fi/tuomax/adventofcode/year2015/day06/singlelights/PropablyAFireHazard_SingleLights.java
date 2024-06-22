@@ -1,7 +1,7 @@
 package fi.tuomax.adventofcode.year2015.day06.singlelights;
 
+import fi.tuomax.adventofcode.commons.Grid;
 import fi.tuomax.adventofcode.framework.solving.Solver;
-import fi.tuomax.adventofcode.year2015.day06.Grid;
 import fi.tuomax.adventofcode.year2015.day06.Instruction;
 import fi.tuomax.adventofcode.year2015.day06.Light;
 import fi.tuomax.adventofcode.year2015.day06.ProbablyAFireHazard_Parser;
