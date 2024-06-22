@@ -11,7 +11,7 @@ import fi.tuomax.adventofcode.framework.solving.Solver;
  * Solves Advent of Code 2015, day 10, part 1: 
  * Elves Look, Elves Say.
  * @see 
- *      <a href="https://adventofcode.com/2015/day/9">
+ *      <a href="https://adventofcode.com/2015/day/10">
  *      Puzzle on the Advent of Code website.</a>
  */
 public class ElvesLookElvesSay_Part1 

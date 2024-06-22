@@ -6,7 +6,7 @@ import fi.tuomax.adventofcode.framework.solving.Metadata;
  * Solves Advent of Code 2015, day 15, part 2:
  * Science for Hungry People
  * @see 
- *      <a href="https://adventofcode.com/2015/day/12">
+ *      <a href="https://adventofcode.com/2015/day/15">
  *      Puzzle on the Advent of Code website.</a>
  */
 public class ScienceForHungryPeople_Part2

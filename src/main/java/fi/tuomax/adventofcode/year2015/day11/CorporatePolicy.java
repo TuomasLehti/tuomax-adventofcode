@@ -7,10 +7,10 @@ import fi.tuomax.adventofcode.framework.parsing.StringParser;
 import fi.tuomax.adventofcode.framework.solving.Solver;
 
 /**
- * Solves Advent of Code 2015, day 10: 
- * Elves Look, Elves Say.
+ * Solves Advent of Code 2015, day 11: 
+ * Corporate Policy.
  * @see 
- *      <a href="https://adventofcode.com/2015/day/9">
+ *      <a href="https://adventofcode.com/2015/day/11">
  *      Puzzle on the Advent of Code website.</a>
  */
 public abstract class CorporatePolicy 

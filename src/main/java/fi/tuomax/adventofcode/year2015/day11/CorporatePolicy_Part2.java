@@ -6,7 +6,7 @@ import fi.tuomax.adventofcode.framework.solving.Metadata;
  * Solves Advent of Code 2015, day 11, part 2: 
  * Corporate Policy.
  * @see 
- *      <a href="https://adventofcode.com/2015/day/9">
+ *      <a href="https://adventofcode.com/2015/day/11">
  *      Puzzle on the Advent of Code website.</a>
  */
 public class CorporatePolicy_Part2

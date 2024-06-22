@@ -10,7 +10,7 @@ import fi.tuomax.adventofcode.framework.solving.Solver;
  * Solves Advent of Code 2015, day 15:
  * Science for Hungry People
  * @see 
- *      <a href="https://adventofcode.com/2015/day/12">
+ *      <a href="https://adventofcode.com/2015/day/15">
  *      Puzzle on the Advent of Code website.</a>
  */
 

@@ -5,6 +5,13 @@ import java.util.List;
 import fi.tuomax.adventofcode.framework.parsing.Parser;
 import fi.tuomax.adventofcode.framework.solving.Solver;
 
+/**
+ * Solves Advent of Code 2015, day 1: 
+ * I Was Told There Would Be No Math.
+ * @see 
+ *      <a href="https://adventofcode.com/2015/day/2">
+ *      Puzzle on the Advent of Code website.</a>
+ */
 public abstract class IWasToldThereWouldBeNoMath_Solver 
 extends Solver
 {

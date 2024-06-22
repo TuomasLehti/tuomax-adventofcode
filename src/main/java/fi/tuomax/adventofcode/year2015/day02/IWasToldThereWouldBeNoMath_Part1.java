@@ -6,6 +6,13 @@ public class IWasToldThereWouldBeNoMath_Part1
 extends IWasToldThereWouldBeNoMath_Solver
 {
 
+    /**
+     * Solves Advent of Code 2015, day 1, part 1: 
+     * I Was Told There Would Be No Math.
+     * @see 
+     *      <a href="https://adventofcode.com/2015/day/2">
+     *      Puzzle on the Advent of Code website.</a>
+     */
     @Override
     protected Metadata manufactureMetadata() 
     {

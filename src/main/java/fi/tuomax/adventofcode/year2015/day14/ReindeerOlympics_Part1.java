@@ -10,7 +10,7 @@ import fi.tuomax.adventofcode.framework.solving.Solver;
  * Solves Advent of Code 2015, day 14, part 1:
  * Reindeer Olympics
  * @see 
- *      <a href="https://adventofcode.com/2015/day/12">
+ *      <a href="https://adventofcode.com/2015/day/14">
  *      Puzzle on the Advent of Code website.</a>
  */
 public class ReindeerOlympics_Part1 
