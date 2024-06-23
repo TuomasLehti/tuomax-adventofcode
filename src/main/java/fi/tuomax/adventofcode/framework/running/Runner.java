@@ -45,7 +45,7 @@ public abstract class Runner
     {
         logger.info(getLogMsg(solver));
         solver.run();
-        return new ResultCol(solver.getAnswer(), solver.getStopwatch().elapsed());
+        return new ResultCol(solver.getAnswer(), solver.getStopwatch().elapsed(), solver);
     }
 
     protected String getLogMsg(Solver solver)
