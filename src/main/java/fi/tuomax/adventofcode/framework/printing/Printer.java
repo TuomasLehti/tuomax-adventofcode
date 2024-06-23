@@ -95,7 +95,11 @@ public class Printer
     private void printTime(ResultCol col)
     {
         System.out.print(" (");
-        System.out.print(formatTime(col.time()));
+        String format = String.format(
+            "%%%ds", 
+            getSpaceNeededForTime(col.solver().getMetadata().part())
+        );
+        System.out.print(String.format(format, formatTime(col.time())));
         System.out.print(")");
     }
 
