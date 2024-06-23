@@ -94,7 +94,15 @@ running scenarios are:
 After a set of solvers has been run, the results are taken from the solvers and 
 printed out by a printer class.
 
-## Year 2015
+## Roadmap
+
+The development is divided into two branches.
+
+The y2016-branch concentrates on solving puzzles from Advent of Code 2016.
+
+The y2015-branch concentrates on refactoring the slow algorithms from part 1.
+It also is responsible for developing concepts of expected answers and accepted
+solving times, and coloring the printing according to them.
 
 ## Year 2015
 
