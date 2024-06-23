@@ -1,6 +1,7 @@
 package fi.tuomax.adventofcode.framework.solving;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.slf4j.Logger;
@@ -60,8 +61,8 @@ public abstract class Solver
         try {
             run(InputFactory.inputFromMetadata(metadata, InputFactory.DEFAULT_INPUT_FILENAME));
         } catch (IOException e) {
-            LOGGER.warn("Unable to read input: " + e.getMessage());
-            e.printStackTrace();
+            LOGGER.warn("Unable to read input: " + e.toString());
+            run(new ArrayList<String>());
         }
     }
 

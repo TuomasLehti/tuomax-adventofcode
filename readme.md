@@ -126,6 +126,7 @@ Dates are for the first solve on a previous framework, if not otherwise noted.
 | 22 | 23.6.2024  | 23.6.2024  | (1) (4) |
 | 23 | 19.5.2024  | 19.5.2024  |  |
 | 24 | 19.5.2024  | 19.5.2024  | (5) |
+| 25 | 23.6.2024  | n/a        | (1) |
 
 1) The date of import to this framework.
 
