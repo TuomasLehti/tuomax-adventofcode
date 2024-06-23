@@ -1,11 +1,9 @@
-package fi.tuomax.adventofcode.year2015.day03;
+package fi.tuomax.adventofcode.commons;
 
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
-
-import fi.tuomax.adventofcode.commons.Coordinates;
 
 /**
  * A walker, but not a random one, keeps track where he has been.
