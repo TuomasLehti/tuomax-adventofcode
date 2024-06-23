@@ -125,7 +125,7 @@ Dates are for the first solve on a previous framework, if not otherwise noted.
 | 21 | 16.5.2024  | 16.5.2024  |  |
 | 22 | 23.6.2024  | 23.6.2024  | (1) (4) |
 | 23 | 19.5.2024  | 19.5.2024  |  |
-| 24 | 19.5.2024  | 19.5.2024  |  |
+| 24 | 19.5.2024  | 19.5.2024  | (5) |
 
 1) The date of import to this framework.
 
@@ -136,3 +136,5 @@ Dates are for the first solve on a previous framework, if not otherwise noted.
 4) The code is a slow mess and produces right results when part 2 is run 
    independently, but not when preceeded by part 1. This must be refactored 
    or even rewritten.
+
+5) Needs refactoring.

@@ -57,6 +57,8 @@ import fi.tuomax.adventofcode.year2015.day22.WizardSimulator20XX_Part1;
 import fi.tuomax.adventofcode.year2015.day22.WizardSimulator20XX_Part2;
 import fi.tuomax.adventofcode.year2015.day23.OpeningTheTuringLock_Part1;
 import fi.tuomax.adventofcode.year2015.day23.OpeningTheTuringLock_Part2;
+import fi.tuomax.adventofcode.year2015.day24.ItHangsInTheBalance_Part1;
+import fi.tuomax.adventofcode.year2015.day24.ItHangsInTheBalance_Part2;
 
 public class AdventOfCode 
 {
@@ -158,6 +160,9 @@ public class AdventOfCode
         /* day 23 */
         year.addSolver(new OpeningTheTuringLock_Part1());
         year.addSolver(new OpeningTheTuringLock_Part2());
+        /* day 24 */
+        year.addSolver(new ItHangsInTheBalance_Part1());
+        year.addSolver(new ItHangsInTheBalance_Part2());
     }
 
     private void printWelcome() {
