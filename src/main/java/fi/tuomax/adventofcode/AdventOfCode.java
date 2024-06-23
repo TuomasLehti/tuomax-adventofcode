@@ -60,6 +60,8 @@ import fi.tuomax.adventofcode.year2015.day23.OpeningTheTuringLock_Part2;
 import fi.tuomax.adventofcode.year2015.day24.ItHangsInTheBalance_Part1;
 import fi.tuomax.adventofcode.year2015.day24.ItHangsInTheBalance_Part2;
 import fi.tuomax.adventofcode.year2015.day25.LetItSnow;
+import fi.tuomax.adventofcode.year2016.day01.NoTimeForATaxicab_Part1;
+import fi.tuomax.adventofcode.year2016.day01.NoTimeForATaxicab_Part2;
 
 public class AdventOfCode 
 {
@@ -69,12 +71,20 @@ public class AdventOfCode
     public void run(Settings settings)
     {
         printWelcome();
-        addSolvers();
+//        addSolvers2015();
+        addSolvers2016();
         Runner runner = manufactureRunner(settings);
         Metadata metadata = settings.metadata() != null ? settings.metadata() : Year.latestAddition;
         Results results = runner.run(metadata, year);
         Printer printer = manufacturePrinter();
         printer.print(settings, results);
+    }
+
+    private void addSolvers2016() 
+    {
+        /* day 1 */
+        year.addSolver(new NoTimeForATaxicab_Part1());
+        year.addSolver(new NoTimeForATaxicab_Part2());
     }
 
     private Printer manufacturePrinter() {
@@ -89,7 +99,7 @@ public class AdventOfCode
         return null;
     }
 
-    private void addSolvers() {
+    private void addSolvers2015() {
         /* day 1 */
         year.addSolver(new NotQuiteLisp_Part1());
         year.addSolver(new NotQuiteLisp_Part2());
