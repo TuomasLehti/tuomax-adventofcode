@@ -53,6 +53,8 @@ import fi.tuomax.adventofcode.year2015.day20.InfiniteElvesAndInfiniteHouses_Part
 import fi.tuomax.adventofcode.year2015.day20.InfiniteElvesAndInfiniteHouses_Part2;
 import fi.tuomax.adventofcode.year2015.day21.RpgSimulator20xx_Part1;
 import fi.tuomax.adventofcode.year2015.day21.RpgSimulator20xx_Part2;
+import fi.tuomax.adventofcode.year2015.day22.WizardSimulator20XX_Part1;
+import fi.tuomax.adventofcode.year2015.day22.WizardSimulator20XX_Part2;
 
 public class AdventOfCode 
 {
@@ -148,6 +150,9 @@ public class AdventOfCode
         /* day 21 */
         year.addSolver(new RpgSimulator20xx_Part1());
         year.addSolver(new RpgSimulator20xx_Part2());
+        /* day 22 */
+        year.addSolver(new WizardSimulator20XX_Part1());
+        year.addSolver(new WizardSimulator20XX_Part2());
     }
 
     private void printWelcome() {
