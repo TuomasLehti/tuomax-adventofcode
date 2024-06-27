@@ -109,7 +109,7 @@ solving times, and coloring the printing according to them.
 | Day | Part 1 | Part 2 | Notes |
 |---|---|---|---|
 | 1  | 23.6.2024 | 23.6.2024 |  |
-| 2  |  |  |  |
+| 2  | 27.6.2024 | 27.6.2024 |  |
 | 3  |  |  |  |
 | 4  |  |  |  |
 | 5  |  |  |  |

@@ -34,6 +34,11 @@ public class Walker
      */
     private Coordinates current = Coordinates.ORIGIN;
 
+    public void setCurrentCoords(Coordinates current) 
+    {
+        this.current = current;
+    }
+
     public Coordinates getCurrentCoords() 
     {
         return current;
