@@ -1,5 +1,6 @@
 package fi.tuomax.adventofcode;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.fail;
 
@@ -11,10 +12,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import fi.tuomax.adventofcode.framework.inputting.InputFactory;
 import fi.tuomax.adventofcode.framework.solving.Metadata;
+import fi.tuomax.adventofcode.framework.solving.Solver;
 
 /**
  * Includes helpers for testing. This class should be inherited by all other
@@ -22,6 +27,8 @@ import fi.tuomax.adventofcode.framework.solving.Metadata;
  */
 public class PuzzleTester 
 {
+
+    private Logger logger = LoggerFactory.getLogger(getClass());
 
     protected JSONObject json;
 
@@ -31,13 +38,6 @@ public class PuzzleTester
     protected void readJson(Metadata metadata)
     {
         readJson(metadata, "tests.json");
-/*        File file = new File(InputFactory.inputLocation(metadata, "tests.json"));
-        try {
-            String content = new String(Files.readAllBytes(file.toPath()));
-            json = new JSONObject(content);
-        } catch (IOException e) {
-            fail(e.getMessage());
-        }*/
     }
 
     /**
@@ -57,25 +57,52 @@ public class PuzzleTester
     /**
      * Fetches the suite of tests from json.
      */
-    protected List<PuzzleTestCase> fetchTestCases(Metadata metadata)
+    protected List<PuzzleTestCase> fetchTestCases(Metadata metadata) 
     {
         readJson(metadata);
-        JSONArray suite = json.getJSONArray(String.format("part%d", metadata.part()));
+        JSONArray suite = json.getJSONArray(
+                String.format("part%d", metadata.part()));
 
         List<PuzzleTestCase> tests = new ArrayList<>();
         for (Object o : suite) {
             JSONObject test = (JSONObject) o;
-            tests.add(new PuzzleTestCase(InputFactory.inputFromString(test.getString("input")), test.getString("answer")));
+            if (test.has("input")) {
+                tests.add(
+                    new PuzzleTestCase(
+                        InputFactory.inputFromString(test.getString("input")), 
+                        test.getString("answer")
+                    )
+                );
+            } else if (test.has("file")) {
+                List<String> input = null;
+                try {
+                    input = InputFactory.inputFromMetadata(
+                        metadata, test.getString("file")
+                    );
+                } catch (JSONException | IOException e) {
+                    logger.error(e.getMessage(), e);
+                    input = new ArrayList<>();
+                }
+                tests.add(new PuzzleTestCase(input,test.getString("answer")));
+            } 
         }
         return tests;
     }
-
 
     public File fetchResource(String filename)
     {
         URL url = getClass().getResource(filename);
         assertNotNull(url);
         return new File(url.getPath().substring(1));
+    }
+
+    public void runTests(Solver solver)
+    {
+        List<PuzzleTestCase> suite = fetchTestCases(solver.getMetadata());
+        for (PuzzleTestCase testCase : suite) {
+            solver.run(testCase.input());
+            assertEquals(testCase.expectedAnswer(), solver.getAnswer());
+        }
     }
     
 }
