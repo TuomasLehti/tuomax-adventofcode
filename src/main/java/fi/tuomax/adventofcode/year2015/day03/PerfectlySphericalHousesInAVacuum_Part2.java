@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Set;
 
 import fi.tuomax.adventofcode.commons.Coordinates;
+import fi.tuomax.adventofcode.commons.Walker;
 import fi.tuomax.adventofcode.framework.parsing.Parser;
 import fi.tuomax.adventofcode.framework.parsing.StringParser;
 import fi.tuomax.adventofcode.framework.solving.Metadata;
