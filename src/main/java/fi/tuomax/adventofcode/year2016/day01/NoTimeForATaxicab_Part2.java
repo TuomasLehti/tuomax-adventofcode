@@ -1,16 +1,18 @@
 package fi.tuomax.adventofcode.year2016.day01;
 
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
-
-import fi.tuomax.adventofcode.commons.Coordinates;
 import fi.tuomax.adventofcode.framework.parsing.Parser;
 import fi.tuomax.adventofcode.framework.solving.Metadata;
-import fi.tuomax.adventofcode.framework.solving.Solver;
 
+/**
+ * Solves Advent of Code 2016, day 1, part 2: 
+ * No Time for a Taxicab.
+ * @see 
+ *      <a href="https://adventofcode.com/2016/day/1">
+ *      Puzzle on the Advent of Code website.</a>
+ */
 public class NoTimeForATaxicab_Part2 
-extends Solver
+extends NoTimeForATaxicab_Part1
 {
 
     @Override
@@ -29,41 +31,12 @@ extends Solver
     }
 
     @Override
-    protected void solve() 
+    protected Boolean finished() 
     {
-        int dir = 0;
-        long x = 0;
-        long y = 0;
-        Set<Coordinates> visited = new HashSet<>();
-        visited.add(Coordinates.ORIGIN);
-        for (Instruction instruction : (NoTimeForATaxicab_Parser) parser) {
-            if (instruction.getTurn() == 'R')
-                dir++;
-            else
-                dir--;
-            if (dir > 3)
-                dir -= 4;
-            else if (dir < 0)
-                dir += 4;
-            for (int i = 0; i < instruction.getBlocks(); i++) {
-                if (dir == 0)
-                    y--;
-                else if (dir == 1)
-                    x++;
-                else if (dir == 2)
-                    y++;
-                else
-                    x--;
-                Coordinates position = new Coordinates(x, y);
-                if (visited.contains(position)) {
-                    setAnswer(Math.abs(x) + Math.abs(y));
-                    return;
-                } else {
-                    visited.add(position);
-                }
-            }
-        }
+        /* Finished state has been reached, if the walker has been in the same
+         * coordinates twice. */
+        return walker.isAtVisitedCoordinates();
     }
+
     
 }
-// 157 too low

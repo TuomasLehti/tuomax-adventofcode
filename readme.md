@@ -104,6 +104,36 @@ The y2015-branch concentrates on refactoring the slow algorithms from part 1.
 It also is responsible for developing concepts of expected answers and accepted
 solving times, and coloring the printing according to them.
 
+## Year 2016
+
+| Day | Part 1 | Part 2 | Notes |
+|---|---|---|---|
+| 1  | 23.6.2024 | 23.6.2024 |  |
+| 2  |  |  |  |
+| 3  |  |  |  |
+| 4  |  |  |  |
+| 5  |  |  |  |
+| 6  |  |  |  |
+| 7  |  |  |  |
+| 8  |  |  |  |
+| 9  |  |  |  |
+| 10 |  |  |  |
+| 11 |  |  |  |
+| 12 |  |  |  |
+| 13 |  |  |  |
+| 14 |  |  |  |
+| 15 |  |  |  |
+| 16 |  |  |  |
+| 17 |  |  |  |
+| 18 |  |  |  |
+| 19 |  |  |  |
+| 20 |  |  |  |
+| 21 |  |  |  |
+| 22 |  |  |  |
+| 23 |  |  |  |
+| 24 |  |  |  |
+| 25 |  |  |  |
+
 ## Year 2015
 
 Dates are for the first solve on a previous framework, if not otherwise noted.
@@ -147,3 +177,4 @@ Dates are for the first solve on a previous framework, if not otherwise noted.
    or even rewritten.
 
 5) Needs refactoring.
+
