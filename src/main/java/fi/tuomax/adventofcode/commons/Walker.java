@@ -75,11 +75,25 @@ public class Walker
      */
     public void step(Direction direction)
     {
+        Coordinates previous = current;
         current = current.translate(direction.asCoordinates());
+        if (outOfBounds(current)) {
+            current = previous;
+            return;
+        }
+
         /* Has to be checked before adding the coordinates to the visited set.
          * Otherwise would always be in visited coordinates. */
         atVisitedCoordinates = visited.contains(current);
         visited.add(current);
+    }
+
+    private Boolean outOfBounds(Coordinates coords)
+    {
+        return
+            upperLeft != null && lowerRight != null && 
+            (coords.x() < upperLeft.x() || coords.x() > lowerRight.x() ||
+             coords.y() < upperLeft.y() || coords.y() > lowerRight.y());
     }
 
     /**
@@ -95,6 +109,19 @@ public class Walker
     public Boolean isAtVisitedCoordinates()
     {
         return atVisitedCoordinates;
+    }
+
+    private Coordinates upperLeft = null;
+
+    private Coordinates lowerRight = null;
+
+    /**
+     * Restricts the movement of the walker inside a rectangular area.
+     */
+    public void restrict(Coordinates upperLeft, Coordinates lowerRight)
+    {
+        this.upperLeft = upperLeft;
+        this.lowerRight = lowerRight;
     }
     
 }
