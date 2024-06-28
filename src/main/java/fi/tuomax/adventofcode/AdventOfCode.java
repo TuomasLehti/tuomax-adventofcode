@@ -66,6 +66,8 @@ import fi.tuomax.adventofcode.year2016.day02.BathroomSecurity_Part1;
 import fi.tuomax.adventofcode.year2016.day02.BathroomSecurity_Part2;
 import fi.tuomax.adventofcode.year2016.day03.SquaresWithThreeSides_Part1;
 import fi.tuomax.adventofcode.year2016.day03.SquaresWithThreeSides_Part2;
+import fi.tuomax.adventofcode.year2016.day04.SecurityThroughObscurity_Part1;
+import fi.tuomax.adventofcode.year2016.day04.SecurityThroughObscurity_Part2;
 
 public class AdventOfCode 
 {
@@ -95,6 +97,9 @@ public class AdventOfCode
         /* day 3 */
         year.addSolver(new SquaresWithThreeSides_Part1());
         year.addSolver(new SquaresWithThreeSides_Part2());
+        /* day 4 */
+        year.addSolver(new SecurityThroughObscurity_Part1());
+        year.addSolver(new SecurityThroughObscurity_Part2());
     }
 
     private Printer manufacturePrinter() {
