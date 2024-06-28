@@ -8,6 +8,7 @@ import org.junit.Test;
 
 import fi.tuomax.adventofcode.PuzzleTestCase;
 import fi.tuomax.adventofcode.PuzzleTester;
+import fi.tuomax.adventofcode.commons.MD5;
 import fi.tuomax.adventofcode.framework.solving.Metadata;
 
 public class TestMD5 
@@ -20,7 +21,7 @@ extends PuzzleTester
         final String PREFIX = "00000";
         List<PuzzleTestCase> suite = fetchTestCases(new Metadata(2015, 4, 1, null, null));
         for (PuzzleTestCase testCase : suite) {
-            assertEquals(testCase.expectedAnswer(), MD5.getSantasHash(testCase.input().get(0), PREFIX));
+            assertEquals(testCase.expectedAnswer(), MD5.getHash(testCase.input().get(0), PREFIX));
         }
 
     }

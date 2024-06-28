@@ -1,6 +1,8 @@
 package fi.tuomax.adventofcode.year2015.day04;
 
 import java.util.List;
+
+import fi.tuomax.adventofcode.commons.MD5;
 import fi.tuomax.adventofcode.framework.parsing.Parser;
 import fi.tuomax.adventofcode.framework.parsing.StringParser;
 import fi.tuomax.adventofcode.framework.solving.Metadata;
@@ -50,7 +52,7 @@ extends Solver
     protected void solve() 
     {
         StringParser parser = (StringParser) this.parser;
-        setAnswer(MD5.getSantasHash(parser.getString(), getPrefix()));
+        setAnswer(MD5.getHash(parser.getString(), getPrefix()));
     }
 
     @Override
