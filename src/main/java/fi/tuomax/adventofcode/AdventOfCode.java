@@ -72,6 +72,8 @@ import fi.tuomax.adventofcode.year2016.day05.HowAboutANiceGameOfChess_Part1;
 import fi.tuomax.adventofcode.year2016.day05.HowAboutANiceGameOfChess_Part2;
 import fi.tuomax.adventofcode.year2016.day06.SignalsAndNoise_Part1;
 import fi.tuomax.adventofcode.year2016.day06.SignalsAndNoise_Part2;
+import fi.tuomax.adventofcode.year2016.day07.InternetProtocolVersion7_Part1;
+import fi.tuomax.adventofcode.year2016.day07.InternetProtocolVersion7_Part2;
 
 public class AdventOfCode 
 {
@@ -110,6 +112,9 @@ public class AdventOfCode
         /* day 6 */
         year.addSolver(new SignalsAndNoise_Part1());
         year.addSolver(new SignalsAndNoise_Part2());
+        /* day 7 */
+        year.addSolver(new InternetProtocolVersion7_Part1());
+        year.addSolver(new InternetProtocolVersion7_Part2());
     }
 
     private Printer manufacturePrinter() {
