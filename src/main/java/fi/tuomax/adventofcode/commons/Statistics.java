@@ -3,6 +3,7 @@ package fi.tuomax.adventofcode.commons;
 import java.util.Map;
 import java.util.TreeMap;
 
+@Deprecated
 public class Statistics 
 {
 

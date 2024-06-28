@@ -2,13 +2,9 @@ package fi.tuomax.adventofcode.year2016.day04;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Comparator;
+import java.util.Collections;
 import java.util.List;
-import java.util.Map;
-import java.util.Set;
-import java.util.TreeSet;
-
-import fi.tuomax.adventofcode.commons.Statistics;
+import fi.tuomax.adventofcode.commons.CharacterFrequency;
 import fi.tuomax.adventofcode.framework.parsing.Parseable;
 
 /**
@@ -48,23 +44,11 @@ extends Parseable
     {
         /* This counts the real checksum and compares it to the one given in the 
          * puzzle input. */
-        Map<Character, Integer> freqs = Statistics.frequencies(encryptedName);
-
-        Set<Integer> distinctCounts = new TreeSet<>(new Comparator<Integer>() {
-            @Override
-            public int compare(Integer o1, Integer o2) {
-                return o2.compareTo(o1);
-            }
-        });
-        for (Character c : freqs.keySet())
-            distinctCounts.add(freqs.get(c));
-
+        List<CharacterFrequency> freqs = CharacterFrequency.count(encryptedName);
+        Collections.sort(freqs, CharacterFrequency.AMOUNT_DESCENDING_COMPARATOR);
         StringBuilder sb = new StringBuilder();
-        for (Integer i : distinctCounts)
-            for (Character c : freqs.keySet())
-                if (freqs.get(c).equals(i))
-                    sb.append(c);
-    
+        for (CharacterFrequency freq : freqs)
+            sb.append(freq.c());
         return sb.length() >= checkSum.length() && sb.toString().startsWith(checkSum);
     }
     

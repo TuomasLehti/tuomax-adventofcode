@@ -61,5 +61,37 @@ public class Test_Frequency
         assertEquals(Character.valueOf('a'), freqs.get(2).c());
         assertEquals(Character.valueOf('d'), freqs.get(3).c());
     }
+
+    @Test
+    public void test_AmountAscendingComparator_TieBreaker()
+    {
+        List<CharacterFrequency> freqs = new ArrayList<>(Arrays.asList(new CharacterFrequency[]{
+            new CharacterFrequency('a', 1),
+            new CharacterFrequency('d', 1),
+            new CharacterFrequency('b', 1),
+            new CharacterFrequency('c', 1),
+        }));
+        Collections.sort(freqs, CharacterFrequency.AMOUNT_ASCENDING_COMPARATOR);
+        assertEquals(Character.valueOf('a'), freqs.get(0).c());
+        assertEquals(Character.valueOf('b'), freqs.get(1).c());
+        assertEquals(Character.valueOf('c'), freqs.get(2).c());
+        assertEquals(Character.valueOf('d'), freqs.get(3).c());
+    }
+
+    @Test
+    public void test_AmountDescendingComparator_TieBreaker()
+    {
+        List<CharacterFrequency> freqs = new ArrayList<>(Arrays.asList(new CharacterFrequency[]{
+            new CharacterFrequency('a', 1),
+            new CharacterFrequency('d', 2),
+            new CharacterFrequency('b', 2),
+            new CharacterFrequency('c', 1),
+        }));
+        Collections.sort(freqs, CharacterFrequency.AMOUNT_DESCENDING_COMPARATOR);
+        assertEquals(Character.valueOf('b'), freqs.get(0).c());
+        assertEquals(Character.valueOf('d'), freqs.get(1).c());
+        assertEquals(Character.valueOf('a'), freqs.get(2).c());
+        assertEquals(Character.valueOf('c'), freqs.get(3).c());
+    }
     
 }
