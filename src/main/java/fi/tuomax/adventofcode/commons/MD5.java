@@ -121,7 +121,8 @@ public class MD5 {
         return number;
     }
 
-    
+    public static Integer leftOff = -1;
+
     /**
      * <p>Goes through millions of hashes to find one that starts with a 
      * certain string.</p>
@@ -147,6 +148,7 @@ public class MD5 {
             number++;
         } while (!md5.startsWith(hasToStartWith));
         number--;
+        MD5.leftOff = number;
         return md5;
     }
 
