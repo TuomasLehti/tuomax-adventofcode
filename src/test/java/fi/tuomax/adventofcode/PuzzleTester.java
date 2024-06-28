@@ -104,5 +104,15 @@ public class PuzzleTester
             assertEquals(testCase.expectedAnswer(), solver.getAnswer());
         }
     }
+
+    protected List<String> getStrings(JSONArray json)
+    {
+        List<String> strings = new ArrayList<>();
+        for (Object o : json) {
+            strings.add((String) o);
+        }
+        return strings;
+    }
+
     
 }

@@ -3,10 +3,8 @@ package fi.tuomax.adventofcode.year2015.day05;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
-import java.util.ArrayList;
 import java.util.List;
 
-import org.json.JSONArray;
 import org.junit.Test;
 
 import fi.tuomax.adventofcode.PuzzleTester;
@@ -38,13 +36,4 @@ extends PuzzleTester
         }
     }
 
-    private List<String> getStrings(JSONArray json)
-    {
-        List<String> strings = new ArrayList<>();
-        for (Object o : json) {
-            strings.add((String) o);
-        }
-        return strings;
-    }
-    
 }
