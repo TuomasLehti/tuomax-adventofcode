@@ -1,4 +1,4 @@
-package fi.tuomax.adventofcode.year2016.day04;
+package fi.tuomax.adventofcode.commons;
 
 import java.util.Map;
 import java.util.TreeMap;

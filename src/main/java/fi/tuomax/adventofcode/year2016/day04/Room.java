@@ -8,6 +8,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.TreeSet;
 
+import fi.tuomax.adventofcode.commons.Statistics;
 import fi.tuomax.adventofcode.framework.parsing.Parseable;
 
 /**
