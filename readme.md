@@ -115,7 +115,7 @@ solving times, and coloring the printing according to them.
 | 5  | 28.6.2024 | 28.6.2024 |  |
 | 6  | 28.6.2024 | 28.6.2024 |  |
 | 7  | 28.6.2024 | 28.6.2024 |  |
-| 8  |  |  |  |
+| 8  | 1.7.2024  | 1.7.2024  | (1) |
 | 9  |  |  |  |
 | 10 |  |  |  |
 | 11 |  |  |  |
@@ -133,6 +133,9 @@ solving times, and coloring the printing according to them.
 | 23 |  |  |  |
 | 24 |  |  |  |
 | 25 |  |  |  |
+
+1) Part 2 is solved visually. It should be converted to use text recognition
+   just for the fun of it.
 
 ## Year 2015
 
