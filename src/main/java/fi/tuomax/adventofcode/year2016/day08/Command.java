@@ -1,8 +1,10 @@
 package fi.tuomax.adventofcode.year2016.day08;
 
 import fi.tuomax.adventofcode.commons.Grid;
+import fi.tuomax.adventofcode.framework.parsing.Parseable;
 
 public abstract class Command 
+extends Parseable
 {
 
     public static Command fromInput(String input)
