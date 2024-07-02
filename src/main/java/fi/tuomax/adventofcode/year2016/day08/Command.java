@@ -7,6 +7,11 @@ public abstract class Command
 extends Parseable
 {
 
+    public Command(String aocInput) 
+    {
+        super(aocInput);
+    }
+
     public static Command fromInput(String input)
     {
         if (input.startsWith("rect"))

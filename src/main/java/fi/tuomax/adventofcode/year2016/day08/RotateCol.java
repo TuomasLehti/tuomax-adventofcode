@@ -12,6 +12,7 @@ extends Command
 
     public RotateCol(String input)
     {
+        super(input);
         String[] parts = input.split(" |=");
         col = Integer.valueOf(parts[3]);
         amount = Integer.valueOf(parts[5]);

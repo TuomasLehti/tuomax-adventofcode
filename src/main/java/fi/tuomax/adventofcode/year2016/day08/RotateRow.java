@@ -12,6 +12,7 @@ extends Command
 
     public RotateRow(String input)
     {
+        super(input);
         String[] parts = input.split(" |=");
         row = Integer.valueOf(parts[3]);
         amount = Integer.valueOf(parts[5]);

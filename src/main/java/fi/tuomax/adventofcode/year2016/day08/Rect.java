@@ -12,6 +12,7 @@ extends Command
 
     public Rect(String input)
     {
+        super(input);
         String[] parts = input.split(" |x");
         this.width = Integer.valueOf(parts[1]);
         this.height = Integer.valueOf(parts[2]);
