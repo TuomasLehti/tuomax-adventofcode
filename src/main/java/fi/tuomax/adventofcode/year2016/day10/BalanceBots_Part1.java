@@ -6,7 +6,7 @@ import fi.tuomax.adventofcode.framework.solving.Metadata;
 
 /**
  * Solves Advent of Code 2016, day 10, part 1: 
- * Explosives in Cyberspace
+ * Balance Bots
  * @see 
  *      <a href="https://adventofcode.com/2016/day/10">
  *      Puzzle on the Advent of Code website.</a>
@@ -25,7 +25,7 @@ extends BalanceBots_Solver
     {
         return new Metadata(
             2016, 10, 1,
-            "BalanceBots", ""
+            "Balance Bots", ""
         );
     }
 

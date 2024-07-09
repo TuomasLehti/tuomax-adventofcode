@@ -8,7 +8,7 @@ import fi.tuomax.adventofcode.framework.solving.Solver;
 
 /**
  * Solves Advent of Code 2016, day 10: 
- * Explosives in Cyberspace
+ * Balance Bots
  * @see 
  *      <a href="https://adventofcode.com/2016/day/10">
  *      Puzzle on the Advent of Code website.</a>
