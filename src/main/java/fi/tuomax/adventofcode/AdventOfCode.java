@@ -78,6 +78,8 @@ import fi.tuomax.adventofcode.year2016.day08.TwoFactorAuthentication_Part1;
 import fi.tuomax.adventofcode.year2016.day08.TwoFactorAuthentication_Part2;
 import fi.tuomax.adventofcode.year2016.day09.ExplosivesInCyberspace_Part1;
 import fi.tuomax.adventofcode.year2016.day09.ExplosivesInCyberspace_Part2;
+import fi.tuomax.adventofcode.year2016.day10.BalanceBots_Part1;
+import fi.tuomax.adventofcode.year2016.day10.BalanceBots_Part2;
 
 public class AdventOfCode 
 {
@@ -125,6 +127,9 @@ public class AdventOfCode
         /* day 9 */
         year.addSolver(new ExplosivesInCyberspace_Part1());
         year.addSolver(new ExplosivesInCyberspace_Part2());
+        /* day 10 */
+        year.addSolver(new BalanceBots_Part1());
+        year.addSolver(new BalanceBots_Part2());
     }
 
     private Printer manufacturePrinter() {
@@ -220,7 +225,7 @@ public class AdventOfCode
 
     private void printWelcome() {
         System.out.print("\n".repeat(2));
-        System.out.println(Ansi.ansi().fgBright(Ansi.Color.WHITE).a("Tuomax's Advent of Code Framework v. 15.0").reset());
+        System.out.println(Ansi.ansi().fgBright(Ansi.Color.WHITE).a("Tuomax's Advent of Code Framework v. 16.1").reset());
         System.out.print("\n".repeat(2));
     }
 
