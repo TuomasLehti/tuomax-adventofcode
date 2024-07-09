@@ -4,6 +4,13 @@ import org.json.JSONObject;
 
 import fi.tuomax.adventofcode.framework.solving.Metadata;
 
+/**
+ * Solves Advent of Code 2016, day 10, part 1: 
+ * Explosives in Cyberspace
+ * @see 
+ *      <a href="https://adventofcode.com/2016/day/10">
+ *      Puzzle on the Advent of Code website.</a>
+ */
 public class BalanceBots_Part1
 extends BalanceBots_Solver
 {

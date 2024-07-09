@@ -1,8 +1,10 @@
 package fi.tuomax.adventofcode.year2016.day10;
 
-import java.util.Deque;
 import java.util.Map;
 
+/**
+ * A bot from Advent of Code 2016, day 10.
+ */
 public class Bot 
 implements Comparable<Bot>
 {
@@ -41,16 +43,23 @@ implements Comparable<Bot>
 
     public void give(Map<Integer, Bot> bots)
     {
-        bots.get(lowGivenTo).receive(Math.min(firstChip, secondChip));
+        bots.get(lowGivenTo).receive(Math.min(firstChip, secondChip), bots);
         if (bots.get(lowGivenTo).hasTwoChips())
             bots.get(lowGivenTo).give(bots);
-        bots.get(highGivenTo).receive(Math.max(firstChip, secondChip));
+        bots.get(highGivenTo).receive(Math.max(firstChip, secondChip), bots);
         if (bots.get(highGivenTo).hasTwoChips())
             bots.get(highGivenTo).give(bots);
     }
 
-    public void receive(int chip)
+    /**
+     * Receive a chip from another bot.
+     */
+    public void receive(int chip, Map<Integer, Bot> bots)
     {
+        /* This approach just works for my input. There are no loops, thus a 
+         * bot that has received two chips will never receive more chips. In
+         * that sense the throwing of the exception is needless, but I'll just
+         * let it stay in. */
         if (firstChip == -1)
             firstChip = chip;
         else if (secondChip == -1)

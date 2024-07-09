@@ -8,6 +8,13 @@ import java.util.TreeMap;
 
 import fi.tuomax.adventofcode.framework.parsing.Parser;
 
+/**
+ * Parses input for Advent of Code 2016, day 10: 
+ * Explosives in Cyberspace
+ * @see 
+ *      <a href="https://adventofcode.com/2016/day/10">
+ *      Puzzle on the Advent of Code website.</a>
+ */
 public class BalanceBots_Parser 
 extends Parser
 {
