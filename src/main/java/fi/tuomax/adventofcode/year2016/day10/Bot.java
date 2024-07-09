@@ -41,11 +41,12 @@ implements Comparable<Bot>
 
     public void give(Map<Integer, Bot> bots)
     {
-        System.out.println(botNumber + " " + lowGivenTo + " " + highGivenTo);
         bots.get(lowGivenTo).receive(Math.min(firstChip, secondChip));
+        if (bots.get(lowGivenTo).hasTwoChips())
+            bots.get(lowGivenTo).give(bots);
         bots.get(highGivenTo).receive(Math.max(firstChip, secondChip));
-        firstChip = -1;
-        secondChip = -1;
+        if (bots.get(highGivenTo).hasTwoChips())
+            bots.get(highGivenTo).give(bots);
     }
 
     public void receive(int chip)
