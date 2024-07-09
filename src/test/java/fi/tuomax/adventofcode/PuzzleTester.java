@@ -54,6 +54,17 @@ public class PuzzleTester
         }
     }
 
+    protected JSONObject fetchJson(Metadata metadata, String filename)
+    {
+        File file = new File(InputFactory.inputLocation(metadata, filename));
+        try {
+            String content = new String(Files.readAllBytes(file.toPath()));
+            return new JSONObject(content);
+        } catch (IOException e) {
+            return null;
+        }
+    }
+
     /**
      * Fetches the suite of tests from json.
      */
@@ -100,6 +111,8 @@ public class PuzzleTester
     {
         List<PuzzleTestCase> suite = fetchTestCases(solver.getMetadata());
         for (PuzzleTestCase testCase : suite) {
+            // may return null, which is fine by solver
+            solver.setParameters(fetchJson(solver.getMetadata(), "test parameters.json"));
             solver.run(testCase.input());
             assertEquals(testCase.expectedAnswer(), solver.getAnswer());
         }

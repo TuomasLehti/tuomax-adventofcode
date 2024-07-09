@@ -38,7 +38,9 @@ of the progress via debug-level logging.
 ### Solving
 
 Solver takes the parsed input from the parser and solves the puzzle (or at 
-least tries to).
+least tries to). If the puzzle includes information, which the solver needs
+for solving the puzzle, but which is not given in the puzzle input, a solver
+can receive a set of parameters in JSON format.
 
 There may be more than one way to solve a puzzle. If this is the case, each
 day can have multiple solving algorithms, each one of which is contained in
