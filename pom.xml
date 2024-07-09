@@ -6,7 +6,7 @@
 
   <groupId>fi.tuomax.adventofcode</groupId>
   <artifactId>tuomax-adventofcode</artifactId>
-  <version>15.0</version>
+  <version>16.1</version>
 
   <name>tuomax-adventofcode</name>
   <!-- FIXME change it to the project's website -->
