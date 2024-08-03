@@ -120,7 +120,7 @@ solving times, and coloring the printing according to them.
 | 8  | 1.7.2024  | 1.7.2024  | (1) |
 | 9  | 6.7.2024  | 7.7.2024  |  |
 | 10 | 9.7.2024  | 9.7.2024 |  |
-| 11 |  |  |  |
+| 11 | 3.8.2024 | 3.8.2024 | (2) |
 | 12 |  |  |  |
 | 13 |  |  |  |
 | 14 |  |  |  |
@@ -138,6 +138,8 @@ solving times, and coloring the printing according to them.
 
 1) Part 2 is solved visually. It should be converted to use text recognition
    just for the fun of it.
+
+2) No parser included yet.
 
 ## Year 2015
 
