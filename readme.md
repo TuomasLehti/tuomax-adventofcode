@@ -106,6 +106,9 @@ The y2015-branch concentrates on refactoring the slow algorithms from part 1.
 It also is responsible for developing concepts of expected answers and accepted
 solving times, and coloring the printing according to them.
 
+To do after solving everything from 2016:
+- 2015 day 23: convert to generic cpu
+
 ## Year 2016
 
 | Day | Part 1 | Part 2 | Notes |
@@ -121,7 +124,7 @@ solving times, and coloring the printing according to them.
 | 9  | 6.7.2024  | 7.7.2024  |  |
 | 10 | 9.7.2024  | 9.7.2024 |  |
 | 11 | 3.8.2024 | 3.8.2024 | (2) |
-| 12 |  |  |  |
+| 12 | 3.8.2024 | 2.8.2024 |  |
 | 13 |  |  |  |
 | 14 |  |  |  |
 | 15 |  |  |  |

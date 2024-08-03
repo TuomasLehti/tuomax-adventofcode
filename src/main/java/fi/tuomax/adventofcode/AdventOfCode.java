@@ -82,6 +82,8 @@ import fi.tuomax.adventofcode.year2016.day10.BalanceBots_Part1;
 import fi.tuomax.adventofcode.year2016.day10.BalanceBots_Part2;
 import fi.tuomax.adventofcode.year2016.day11.RadioisotopeThermoelectricGenerators_Part1;
 import fi.tuomax.adventofcode.year2016.day11.RadioisotopeThermoelectricGenerators_Part2;
+import fi.tuomax.adventofcode.year2016.day12.LeonardosMonorail_Part1;
+import fi.tuomax.adventofcode.year2016.day12.LeonardosMonorail_Part2;
 
 public class AdventOfCode 
 {
@@ -135,6 +137,9 @@ public class AdventOfCode
         /* day 11 */
         year.addSolver(new RadioisotopeThermoelectricGenerators_Part1());
         year.addSolver(new RadioisotopeThermoelectricGenerators_Part2());
+        /* day 12 */
+        year.addSolver(new LeonardosMonorail_Part1());
+        year.addSolver(new LeonardosMonorail_Part2());
     }
 
     private Printer manufacturePrinter() {
