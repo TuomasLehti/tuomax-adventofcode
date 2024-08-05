@@ -20,6 +20,11 @@ public class Dfs
      */
     private List<DfsState> queue = new ArrayList<>();
 
+    public List<DfsState> getQueue() 
+    {
+        return queue;
+    }
+
     private Integer idx = 0;
 
     public DfsState search(DfsState start)
@@ -33,8 +38,7 @@ public class Dfs
             }
             Set<DfsState> nextStates = queue.get(idx).nextStates();
             for (DfsState state : nextStates) {
-//                LOGGER.debug(state.toString());
-                if (state.isTargetState())
+                if (finished(state))
                     return state;
                 else if (!queue.contains(state))
                     queue.add(state);
@@ -42,6 +46,11 @@ public class Dfs
             idx++;
         }
         return null;
+    }
+
+    protected Boolean finished(DfsState state) 
+    {
+        return state.isTargetState();
     }
     
 }
