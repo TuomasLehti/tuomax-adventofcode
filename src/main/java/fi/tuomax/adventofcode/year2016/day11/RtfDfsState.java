@@ -4,6 +4,8 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
+import fi.tuomax.adventofcode.commons.DfsState;
+
 /**
  * Radioisotope Testing Facility from Advent of Code 2016, day 11.
  */

@@ -9,6 +9,8 @@ import java.util.Set;
 
 import org.junit.Test;
 
+import fi.tuomax.adventofcode.commons.DfsState;
+
 public class Test_RtfDfsState 
 {
 

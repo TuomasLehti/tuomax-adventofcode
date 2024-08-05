@@ -2,6 +2,8 @@ package fi.tuomax.adventofcode.year2016.day11;
 
 import java.util.List;
 
+import fi.tuomax.adventofcode.commons.Dfs;
+import fi.tuomax.adventofcode.commons.DfsState;
 import fi.tuomax.adventofcode.framework.parsing.NoopParser;
 import fi.tuomax.adventofcode.framework.parsing.Parser;
 import fi.tuomax.adventofcode.framework.solving.Metadata;
