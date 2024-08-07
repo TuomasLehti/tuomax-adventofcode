@@ -18,7 +18,7 @@ extends PuzzleTester
     public void testPart1()
     {
         try {
-            OnetimePad solver = new OnetimePad();
+            OnetimePad_Part1 solver = new OnetimePad_Part1();
             solver.setParameters(fetchJson(solver.getMetadata(), "parameters.json"));
             solver.run(InputFactory.inputFromMetadata(solver.getMetadata(), "test.txt"));
             assertEquals("22728", solver.getAnswer());

@@ -108,6 +108,8 @@ solving times, and coloring the printing according to them.
 
 To do after solving everything from 2016:
 - 2015 day 23: convert to generic cpu
+- Totally revamp the MD5 puzzle algorithm, which is a mess after so many tweaks
+  needed by so many puzzles.
 
 ## Year 2016
 
@@ -126,7 +128,7 @@ To do after solving everything from 2016:
 | 11 | 3.8.2024 | 3.8.2024 | (2) |
 | 12 | 3.8.2024 | 2.8.2024 |  |
 | 13 |  |  |  |
-| 14 |  |  |  |
+| 14 | 6.8.2024 | 6.8.2024 |  |
 | 15 |  |  |  |
 | 16 |  |  |  |
 | 17 |  |  |  |

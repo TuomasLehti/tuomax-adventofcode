@@ -11,11 +11,21 @@ import fi.tuomax.adventofcode.framework.parsing.StringParser;
 import fi.tuomax.adventofcode.framework.solving.Metadata;
 import fi.tuomax.adventofcode.framework.solving.Solver;
 
+/**
+ * <p>Solves Advent of Code 2016, day 14, part 2: 
+ * One-time Pad.</p>
+ * 
+ * <p>Notes on the algorigthm can be found from the Javadoc of part 1.</p>
+ * 
+ * @see 
+ *      <a href="https://adventofcode.com/2016/day/14">
+ *      Puzzle on the Advent of Code website.</a>
+ */
 public class OnetimePad_Part2
 extends Solver
 {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(OnetimePad.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(OnetimePad_Part1.class);
 
     @Override
     protected Metadata manufactureMetadata() 

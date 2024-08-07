@@ -11,11 +11,25 @@ import fi.tuomax.adventofcode.framework.parsing.StringParser;
 import fi.tuomax.adventofcode.framework.solving.Metadata;
 import fi.tuomax.adventofcode.framework.solving.Solver;
 
-public class OnetimePad 
+/**
+ * <p>Solves Advent of Code 2016, day 14, part 1: 
+ * One-time Pad.</p>
+ * 
+ * <p>The solution is very slow, but I hear it can be sped up by splitting the
+ * counting of the hashes across multiple cores. Multithreading solution has to
+ * wait, however, until I've completed other puzzles of year 2016, and then
+ * the multithreaded MD5 searcher can be put to use in other MD5 puzzles as 
+ * well.</p>
+ * 
+ * @see 
+ *      <a href="https://adventofcode.com/2016/day/14">
+ *      Puzzle on the Advent of Code website.</a>
+ */
+public class OnetimePad_Part1 
 extends Solver
 {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(OnetimePad.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(OnetimePad_Part1.class);
 
     @Override
     protected Metadata manufactureMetadata() 
