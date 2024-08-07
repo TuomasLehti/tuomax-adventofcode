@@ -88,6 +88,8 @@ import fi.tuomax.adventofcode.year2016.day13.AMazeOfTwistyLittleCubicles_Part1;
 import fi.tuomax.adventofcode.year2016.day13.AMazeOfTwistyLittleCubicles_Part2;
 import fi.tuomax.adventofcode.year2016.day15.TimingIsEverything_Part1;
 import fi.tuomax.adventofcode.year2016.day15.TimingIsEverything_Part2;
+import fi.tuomax.adventofcode.year2016.day14.OnetimePad_Part1;
+import fi.tuomax.adventofcode.year2016.day14.OnetimePad_Part2;
 
 public class AdventOfCode 
 {
@@ -147,6 +149,9 @@ public class AdventOfCode
         /* day 13 */
         year.addSolver(new AMazeOfTwistyLittleCubicles_Part1());
         year.addSolver(new AMazeOfTwistyLittleCubicles_Part2());
+        /* day 14 */
+        year.addSolver(new OnetimePad_Part1());
+        year.addSolver(new OnetimePad_Part2());
         /* day 15 */
         year.addSolver(new TimingIsEverything_Part1());
         year.addSolver(new TimingIsEverything_Part2());

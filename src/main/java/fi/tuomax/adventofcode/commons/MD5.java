@@ -3,14 +3,18 @@ package fi.tuomax.adventofcode.commons;
 import java.math.BigInteger;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.util.HashMap;
+import java.util.Map;
 
 import org.fusesource.jansi.Ansi;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * Contains the actual solving (business) logic for Advent of Code puzzles in
- * which the problem is to find a hash with certain properties.
+ * <p>Contains the actual solving (business) logic for Advent of Code puzzles 
+ * in which the problem is to find a hash with certain properties.</p>
+ * 
+ * 
  */
 public class MD5 {
 
@@ -73,6 +77,18 @@ public class MD5 {
         return String.format(format, new BigInteger(1, algorithm.digest()));
     }
 
+    /** 
+     * Constructs a 32-digit hexadecimal MD5 hash by hashing a given input
+     * many times. 
+     */
+    public static String getMD5(String input, Integer iterations) 
+    {
+        String hash = input;
+        for (int i = 0; i < iterations; i++)
+            hash = MD5.getMD5(hash, "%032x");
+        return hash;
+    }
+
     /**
      * <p>Goes through millions of hashes to find one that starts with a 
      * certain string.</p>
@@ -104,6 +120,31 @@ public class MD5 {
         return (number.toString());
     }
 
+    /**
+     * <p>Solves an AoC MD5 puzzle, in which a running number is added to the
+     * end of a secret key, salt, or however it is descriped in a puzzle, and
+     * the result is the number, which yields a MD5 hash with certain 
+     * properties.</p>
+     * 
+     * <p>This method deals with MD5 hashes that start with a certain string,
+     * and it is left here for backwards combatibility. We wouldn't want to
+     * break old solvers just yet, but this method is still marked as 
+     * deprecated. The new version of the method has the same name, but the
+     * parameters differ.</p>
+     * 
+     * @param secretKey
+     *      The prefix of the string to be hashed.
+     * 
+     * @param hasToStartWith
+     *      The prefix which the MD5 hash has to have.
+     * 
+     * @param startSearchFrom
+     *      The fist number to try.
+     * 
+     * @return
+     *      The number which yields a hash starting with a certain string.
+     */
+    @Deprecated
     public static Integer getNumber(
         String secretKey, 
         String hasToStartWith,
@@ -134,6 +175,7 @@ public class MD5 {
      * @return
      *      The hash.
      */
+    @Deprecated
     public static String getHash(
         String seed, 
         String hasToStartWith,
@@ -150,6 +192,62 @@ public class MD5 {
         number--;
         MD5.leftOff = number;
         return md5;
+    }
+
+    private static Map<Integer, String> memo = new HashMap<>();
+
+    public static void clearCache()
+    {
+        memo.clear();
+    }
+
+    /**
+     * <p>Solves an AoC MD5 puzzle, in which a running number is added to the
+     * end of a secret key, salt, or however it is descriped in a puzzle, and
+     * the result is the number, which yields a MD5 hash with certain 
+     * properties.</p>
+     *
+     * @param secretKey
+     *      The prefix of the string to be hashed.
+     * 
+     * @param requirement
+     *      The requirement the MD5 must fulfill.
+     * 
+     * @param startSearchFrom
+     *      The fist number to try.
+     * 
+     * @return
+     *      The number which yields a hash starting with a certain string.
+     */
+    public static Integer getNumber(
+        String secretKey, 
+        MD5Requirement requirement,
+        Integer iterations,
+        Integer startSearchFrom,
+        Integer endSearchAt
+    ) {
+        Integer number = startSearchFrom;
+        String md5 = "";
+        Boolean finished = false;
+        do {
+            if (!MD5.memo.containsKey(number))
+                MD5.memo.put(number, MD5.getMD5(String.format("%s%d", secretKey, number), iterations));
+            md5 = MD5.memo.get(number);
+//            md5 = MD5.getMD5(String.format("%s%d", secretKey, number), iterations);
+            if ((number % LOGGING_FREQUENCY) == 0) 
+                LOGGER.debug(number + " hashes tried so far.");
+            number++;
+            finished = requirement.fulfilledBy(md5) ||
+                    (endSearchAt < 0 ? false : number > endSearchAt);
+        } while (!finished);
+        number--;
+        if (endSearchAt < 0)
+            return number;
+        else if (number >= endSearchAt)
+            return -1;
+        else
+            return number;
+            
     }
 
 
