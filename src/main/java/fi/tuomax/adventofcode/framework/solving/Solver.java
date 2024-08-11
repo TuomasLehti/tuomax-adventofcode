@@ -101,6 +101,7 @@ public abstract class Solver
             String content = new String(Files.readAllBytes(paramsFile.toPath()));
             setParameters(new JSONObject(content));
         } catch (IOException e) {
+            System.out.println(e.getMessage());
             /* Parameter file not found, just continue without params. */
         }
         try {

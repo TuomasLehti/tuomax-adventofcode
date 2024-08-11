@@ -88,6 +88,8 @@ import fi.tuomax.adventofcode.year2016.day13.AMazeOfTwistyLittleCubicles_Part1;
 import fi.tuomax.adventofcode.year2016.day13.AMazeOfTwistyLittleCubicles_Part2;
 import fi.tuomax.adventofcode.year2016.day15.TimingIsEverything_Part1;
 import fi.tuomax.adventofcode.year2016.day15.TimingIsEverything_Part2;
+import fi.tuomax.adventofcode.year2016.day16.DragonChecksum_Part1;
+import fi.tuomax.adventofcode.year2016.day16.DragonChecksum_Part2;
 import fi.tuomax.adventofcode.year2016.day17.TwoStepsForward_Part1;
 import fi.tuomax.adventofcode.year2016.day17.TwoStepsForward_Part2;
 import fi.tuomax.adventofcode.year2016.day14.OnetimePad_Part1;
@@ -157,6 +159,9 @@ public class AdventOfCode
         /* day 15 */
         year.addSolver(new TimingIsEverything_Part1());
         year.addSolver(new TimingIsEverything_Part2());
+        /* day 16 */
+        year.addSolver(new DragonChecksum_Part1());
+        year.addSolver(new DragonChecksum_Part2());
         /* day 17 */
         year.addSolver(new TwoStepsForward_Part1());
         year.addSolver(new TwoStepsForward_Part2());
