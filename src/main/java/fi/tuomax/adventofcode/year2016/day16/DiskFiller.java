@@ -7,7 +7,7 @@ public class DiskFiller
 {
 
     /**
-     * Generates fisk filling data following the rules from the puzzle.
+     * Generates disk filling data following the rules from the puzzle.
      */
     public static String fill(String a)
     {

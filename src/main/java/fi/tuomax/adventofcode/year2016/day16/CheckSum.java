@@ -1,5 +1,8 @@
 package fi.tuomax.adventofcode.year2016.day16;
 
+/**
+ * Counts a checksum of some data from AoC 2016, day 16.
+ */
 public class CheckSum 
 {
 

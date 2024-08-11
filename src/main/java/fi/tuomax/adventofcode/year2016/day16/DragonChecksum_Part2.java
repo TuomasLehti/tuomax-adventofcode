@@ -7,6 +7,14 @@ import fi.tuomax.adventofcode.framework.parsing.StringParser;
 import fi.tuomax.adventofcode.framework.solving.Metadata;
 import fi.tuomax.adventofcode.framework.solving.Solver;
 
+/**
+ * <p>Solves Advent of Code 2016, day 16, part 2: 
+ * Dragon Checksum.</p>
+ * 
+ * @see 
+ *      <p><a href="https://adventofcode.com/2016/day/16">
+ *      Puzzle on the Advent of Code website.</a></p>
+ */
 public class DragonChecksum_Part2
 extends Solver
 {
