@@ -54,7 +54,19 @@ public class Trap
     }
 
     /**
-     * Tells whether a spot in the next row will be safe or not.
+     * <p>Tells whether a spot in the next row will be safe or not.</p>
+     * 
+     * <p>The truth table for the rules reveal that the test for the safeness
+     * of a spot boils down to a simple xor. The spot on the next row will 
+     * not be safe if one of these is true:</p>
+     * 
+     * <table>
+     * <tr> <th>left</th>   <th>center</th> <th>right</th>  </tr>
+     * <tr> <td>trap</td>   <td>trap</td>   <td>safe</td>   </tr>
+     * <tr> <td>safe</td>   <td>trap</td>   <td>trap</td>   </tr>
+     * <tr> <td>trap</td>   <td>safe</td>   <td>safe</td>   </tr>
+     * <tr> <td>safe</td>   <td>safe</td>   <td>trap</td>   </tr>
+     * </table>
      * @param idx
      *      The spot in question.
      * @return
@@ -63,15 +75,8 @@ public class Trap
     private boolean isNewTileTrap(int idx) 
     {
         boolean leftIsTrap = isOldTileTrap(idx - 1);
-        boolean centerIsTrap = isOldTileTrap(idx);
         boolean rightIsTrap = isOldTileTrap(idx + 1);
-        // This might be simplified to a simple xor.
-        return
-            (leftIsTrap && centerIsTrap && !rightIsTrap) ||
-            (!leftIsTrap && centerIsTrap && rightIsTrap) ||
-            (leftIsTrap && !centerIsTrap && !rightIsTrap) ||
-            (!leftIsTrap && !centerIsTrap && rightIsTrap);
-            
+        return leftIsTrap ^ rightIsTrap;
     }
 
     /**
