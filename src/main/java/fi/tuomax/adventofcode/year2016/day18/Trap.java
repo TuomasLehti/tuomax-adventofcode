@@ -15,8 +15,6 @@ public class Trap
 
     private boolean[] traps;
 
-    private String next = "";
-
     /**
      * Creates a row of traps from Advent of Code input.
      * @param input
@@ -38,13 +36,10 @@ public class Trap
      */
     public Trap getNext()
     {
-        if (next.isEmpty()) {
-            StringBuilder sb = new StringBuilder();
-            for (int idx = 0; idx < traps.length; idx++)
-                sb.append(isNewTileTrap(idx) ? '^' : '.');
-            next = sb.toString();
-        }
-        return new Trap(next);
+        StringBuilder sb = new StringBuilder();
+        for (int idx = 0; idx < traps.length; idx++)
+            sb.append(isNewTileTrap(idx) ? '^' : '.');
+        return new Trap(sb.toString());
     }
 
     /**
