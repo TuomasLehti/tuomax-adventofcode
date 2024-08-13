@@ -30,20 +30,9 @@ extends Solver
     protected void solve() 
     {
         Integer numOfElves = Integer.valueOf(((StringParser) parser).getString());
+        Elf.create(numOfElves);
 
-        Elf head = new Elf();
-        head.num = 1;
-
-        Elf tail = head;
-        for (int i = 2; i <= numOfElves; i++) {
-            Elf elf = new Elf();
-            elf.num = i;
-            tail.left = elf;
-            tail = elf;
-        }
-        tail.left = head;
-
-        Elf turn = head;
+        Elf turn = Elf.head;
         while (turn.steal()) {
             do {
                 turn = turn.left;
