@@ -33,10 +33,10 @@ extends Solver
         Elf.create(numOfElves);
 
         Elf turn = Elf.head;
-        while (turn.steal()) {
-            do {
-                turn = turn.left;
-            } while (turn.numOfPresents == 0);
+        Elf from = turn.left;
+        while (turn.steal(from)) {
+            turn = turn.left;
+            from = turn.left;
         }
         setAnswer(turn.num);
 

@@ -7,8 +7,6 @@ public class Elf
 
     public int num;
 
-    public int numOfPresents = 1;
-
     public Elf left = null;
 
     public Elf(Integer numOfElves, Elf left)
@@ -27,13 +25,11 @@ public class Elf
         tail.left = Elf.head;
     }
 
-    public Boolean steal()
+    public Boolean steal(Elf from)
     {
-        Elf stealFrom = left;
-        if (stealFrom == this)
+        if (from == this)
             return false;
-        this.numOfPresents += stealFrom.numOfPresents;
-        stealFrom.remove(this);
+        from.remove(this);
         return true;
     }
 
