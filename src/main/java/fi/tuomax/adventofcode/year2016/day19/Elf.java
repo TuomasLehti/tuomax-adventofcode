@@ -30,19 +30,16 @@ public class Elf
     public Boolean steal()
     {
         Elf stealFrom = left;
-        while (stealFrom != this && stealFrom.numOfPresents == 0)
-            stealFrom = stealFrom.left;
         if (stealFrom == this)
             return false;
         this.numOfPresents += stealFrom.numOfPresents;
-        stealFrom.numOfPresents = 0;
+        stealFrom.remove(this);
         return true;
     }
 
-    public void remove()
+    public void remove(Elf right)
     {
-        // find the elf to the right
-
+        right.left = this.left;
     }
 
 }
