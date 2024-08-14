@@ -12,17 +12,6 @@ import fi.tuomax.adventofcode.framework.solving.Metadata;
  * the circle, and the behaviour of the half-way elf follows a certain pattern,
  * modelling of which is fast.</p>
  * 
- * <table>
- * <tr> <th>Number of elves</th> <th>Half-way</th>   </tr>
- * <tr> <td>10</td>              <td>6</td>          </tr>
- * <tr> <td>9</td>               <td>5</td>          </tr>
- * <tr> <td>8</td>               <td>5</td>          </tr>
- * <tr> <td>7</td>               <td>4</td>          </tr>
- * <tr> <td>6</td>               <td>4</td>          </tr>
- * <tr> <td>5</td>               <td>3</td>          </tr>
- * <tr> <td>4</td>               <td>3</td>          </tr>
- * </table>
- * 
  * @see 
  *      <a href="https://adventofcode.com/2016/day/19">
  *      Puzzle on the Advent of Code website.</a>
