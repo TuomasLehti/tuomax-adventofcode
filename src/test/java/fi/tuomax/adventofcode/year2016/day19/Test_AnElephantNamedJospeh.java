@@ -11,7 +11,7 @@ extends PuzzleTester
     @Test
     public void test_Part1()
     {
-        runTests(new AnElephantNamedJoseph());
+        runTests(new AnElephantNamedJoseph_Part1());
     }
     
 }
