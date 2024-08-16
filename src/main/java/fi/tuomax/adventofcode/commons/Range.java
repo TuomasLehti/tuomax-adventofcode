@@ -1,4 +1,4 @@
-package fi.tuomax.adventofcode.year2015.day06.lightranges;
+package fi.tuomax.adventofcode.commons;
 
 import java.util.ArrayList;
 import java.util.List;

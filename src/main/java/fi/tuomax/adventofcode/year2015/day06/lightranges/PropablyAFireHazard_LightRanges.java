@@ -2,6 +2,8 @@ package fi.tuomax.adventofcode.year2015.day06.lightranges;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import fi.tuomax.adventofcode.commons.Range;
 import fi.tuomax.adventofcode.framework.solving.Metadata;
 import fi.tuomax.adventofcode.framework.solving.Solver;
 import fi.tuomax.adventofcode.year2015.day06.Instruction;
