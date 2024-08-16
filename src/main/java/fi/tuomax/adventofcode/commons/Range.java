@@ -10,28 +10,28 @@ public class Range
 {
 
     /**
-     * The first number of this range.
+     * The first number of this range, inclusive.
      */
     private Long start;
 
     /**
-     * Returns the first number of this range.
+     * Returns the first number of this range, inclusive.
      * @return
-     *      The first number of this range.
+     *      The first number of this range, inclusive.
      */
     public Long getStart() {
         return start;
     }
 
     /**
-     * The last number of this range.
+     * The last number of this range, inclusive.
      */
     private Long end;
 
     /**
-     * Returns the last number of this range.
+     * Returns the last number of this range, inclusive.
      * @return
-     *      The first number of this range.
+     *      The first number of this range, inclusive.
      */
     public Long getEnd() {
         return end;
@@ -40,11 +40,11 @@ public class Range
     /**
      * Constructs a range.
      * @param start
-     *      The first number of this range.
+     *      The first number of this range, inclusive.
      * @param end
-     *      The last number of this range.
+     *      The last number of this range, inclusive.
      * @throws
-     *      IllegalArgumentException if the start is greater than end.
+     *      IllegalArgumentException if the start is greater than the end.
      */
     public Range(Long start, Long end)
     throws IllegalArgumentException
@@ -80,11 +80,12 @@ public class Range
     }
 
     /**
-     * Splits the range just before a number.
+     * Splits the range just before a number. If the range doesn't contain the
+     * number, returns the whole range as a single part.
      * @param index
      *      The number before which the range is split.
      * @return
-     *      Two parts of the list.
+     *      Parts of the list.
      */
     public List<Range> splitBefore(Long index)
     {
@@ -99,11 +100,12 @@ public class Range
     }
 
     /**
-     * Splits the range just after a number.
+     * Splits the range just after a number. If the range doesn't contain the
+     * number, returns the whole range as a single part.
      * @param index
      *      The number after which the range is split.
      * @return
-     *      Two parts of the list.
+     *      Parts of the list.
      */
     public List<Range> splitAfter(Long index)
     {

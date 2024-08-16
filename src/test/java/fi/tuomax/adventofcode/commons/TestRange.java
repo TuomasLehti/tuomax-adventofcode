@@ -32,6 +32,13 @@ public class TestRange
     }
 
     @Test
+    public void testGetLengthOfOne()
+    {
+        Range range = new Range(1L, 1L);
+        assertEquals(1L, (long) range.getLength());
+    }
+
+    @Test
     public void testContains()
     {
         Range range = new Range(0L, 9L);
@@ -56,6 +63,21 @@ public class TestRange
         assertEquals(4L, (long) parts.get(0).getEnd());
         assertEquals(5L, (long) parts.get(1).getStart());
         assertEquals(9L, (long) parts.get(1).getEnd());
+
+        // Edge case: split before start
+        parts = range.splitBefore(0L);
+        assertEquals(0L, (long) parts.get(0).getStart());
+        assertEquals(9L, (long) parts.get(0).getEnd());
+
+        // Range doesn't contain index
+        parts = range.splitBefore(99L);
+        assertEquals(0L, (long) parts.get(0).getStart());
+        assertEquals(9L, (long) parts.get(0).getEnd());
+
+        // Edge case: index is one greater than range end
+        parts = range.splitBefore(10L);
+        assertEquals(0L, (long) parts.get(0).getStart());
+        assertEquals(9L, (long) parts.get(0).getEnd());
     }
 
     @Test
@@ -70,6 +92,21 @@ public class TestRange
         assertEquals(5L, (long) parts.get(0).getEnd());
         assertEquals(6L, (long) parts.get(1).getStart());
         assertEquals(9L, (long) parts.get(1).getEnd());
+
+        // Edge case: split after end
+        parts = range.splitAfter(9L);
+        assertEquals(0L, (long) parts.get(0).getStart());
+        assertEquals(9L, (long) parts.get(0).getEnd());
+
+        // Range doesn't contain index
+        parts = range.splitAfter(-99L);
+        assertEquals(0L, (long) parts.get(0).getStart());
+        assertEquals(9L, (long) parts.get(0).getEnd());
+
+        // Edge case: index is one less than range start
+        parts = range.splitBefore(10L);
+        assertEquals(0L, (long) parts.get(0).getStart());
+        assertEquals(9L, (long) parts.get(0).getEnd());
     }
 
     @Test
