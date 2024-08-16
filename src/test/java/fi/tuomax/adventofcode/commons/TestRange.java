@@ -4,6 +4,7 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotEquals;
 import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
 
 import java.util.List;
 
@@ -11,6 +12,17 @@ import org.junit.Test;
 
 public class TestRange 
 {
+
+    @Test
+    public void testMalformation()
+    {
+        try {
+            Range range = new Range(9L, 0L);
+            fail("No expected exception.");
+        } catch (IllegalArgumentException e) {
+            assert(true);
+        }
+    }
 
     @Test
     public void testGetLength()

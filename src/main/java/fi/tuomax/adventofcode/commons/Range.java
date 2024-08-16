@@ -43,9 +43,16 @@ public class Range
      *      The first number of this range.
      * @param end
      *      The last number of this range.
+     * @throws
+     *      IllegalArgumentException if the start is greater than end.
      */
     public Range(Long start, Long end)
+    throws IllegalArgumentException
     {
+        if (start > end)
+            throw new IllegalArgumentException(
+                String.format("Start (%d) is greater than end (%d).", start, end)
+            );
         this.start = start;
         this.end = end;
     }
