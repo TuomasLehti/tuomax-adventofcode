@@ -50,7 +50,6 @@ extends AnElephantNamedJoseph
         return oldHalfWay;
     }
 
-
     /**
      * This is called only once, right at the beginning, which guarantees that
      * inTurn is the first elf.

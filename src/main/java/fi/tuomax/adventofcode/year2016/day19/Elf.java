@@ -1,5 +1,9 @@
 package fi.tuomax.adventofcode.year2016.day19;
 
+/**
+ * A linked list of elves was the chosen approach for Advent of Code 2016, 
+ * day 19.
+ */
 public class Elf 
 {
 
@@ -19,9 +23,15 @@ public class Elf
             left.right = this;
     }
 
+    /**
+     * Creates a circle of elves.
+     */
     public static void create(Integer numOfElves)
     {
         if (numOfElves == 0) return;
+
+        /* The numOfElves keeps getting, which is why the construction of the 
+         * circle is started from the tail of the linked list. */
         Elf tail = new Elf(numOfElves, null);
         Elf.head = tail;
         for (int i = numOfElves - 1; i > 0; i--) 
