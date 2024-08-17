@@ -1,6 +1,7 @@
 package fi.tuomax.adventofcode.commons;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -117,6 +118,61 @@ public class Range
             result.add(new Range(index + 1, end));
         }
         return result;
+    }
+
+    /**
+     * Checks if two ranges overlap.
+     * @param other
+     *      The range to check against.
+     * @return
+     *      True if the ranges overlap.
+     */
+    public Boolean overlaps(Range other)
+    {
+        return !(this.getStart() > other.getEnd() || this.getEnd() < other.getStart());
+    }
+
+    /**
+     * <p>Splits a range into three parts. The middle part will be the overlap of
+     * the two ranges. The first part is the part of this range which is 
+     * located before the split, and the last part is the part of this range 
+     * which is located after the split.</p>
+     * <table>
+     * <tr> <th>this</th>  <th>other</th> <th>first</th> <th>middle</th> <th>last</th>  </tr>
+     * <tr> <td>10-20</td> <td>0-5</td>   <td>null</td>  <td>null</td>   <td>10-20</td> </tr>
+     * <tr> <td>10-20</td> <td>0-15</td>  <td>null</td>  <td>10-15</td>  <td>16-20</td> </tr>
+     * <tr> <td>10-20</td> <td>15-30</td> <td>10-14</td> <td>15-20</td>  <td>null</td>  </tr>
+     * <tr> <td>10-20</td> <td>25-30</td> <td>10-20</td> <td>null</td>   <td>null</td>  </tr>
+     * <tr> <td>10-20</td> <td>0-30</td>  <td>null</td>  <td>10-20</td>  <td>null</td>  </tr>
+     * <tr> <td>10-20</td> <td>14-16</td> <td>10-13</td> <td>14-16</td>  <td>17-20</td> </tr>
+     * </table>
+     * @param other
+     *      The range with which to split.
+     * @return
+     *      Parts of the range.
+     */
+    public List<Range> split(Range other)
+    {
+        Range[] splitted = new Range[]{null, null, null};
+
+        if (this.getStart() > other.getEnd()) {
+            splitted[2] = this;
+        } else if (this.getEnd() < other.getStart()) {
+            splitted[0] = this;
+        } else if (this.getStart() > other.getStart() && this.getEnd() < other.getEnd()) {
+            splitted[1] = this;
+        } else if (this.getStart() < other.getStart() && this.getEnd() > other.getEnd()) {
+            splitted[0] = this.splitBefore(other.getStart()).get(0);
+            splitted[2] = this.splitAfter(other.getEnd()).get(1);
+            splitted[1] = new Range(splitted[0].getEnd() + 1, splitted[2].getStart() - 1);
+        } else if (this.getStart() < other.getStart() && this.getEnd() < other.getEnd()) {
+            splitted[0] = this.splitBefore(other.getStart()).get(0);
+            splitted[1] = this.splitBefore(other.getStart()).get(1);
+        } else if (this.getStart() > other.getStart() && this.getEnd() > other.getEnd()) {
+            splitted[1] = this.splitAfter(other.getEnd()).get(0);
+            splitted[2] = this.splitAfter(other.getEnd()).get(1);
+        }
+        return Arrays.asList(splitted);
     }
 
     /**

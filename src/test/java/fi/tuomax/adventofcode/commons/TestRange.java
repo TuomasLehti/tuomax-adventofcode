@@ -17,6 +17,7 @@ public class TestRange
     public void testMalformation()
     {
         try {
+            @SuppressWarnings("unused")
             Range range = new Range(9L, 0L);
             fail("No expected exception.");
         } catch (IllegalArgumentException e) {
@@ -119,6 +120,59 @@ public class TestRange
         assertEquals(range, equal);
         assertNotEquals(inequal, range);
         assertNotEquals(range, inequal);
+    }
+
+    @Test
+    public void testOverlaps()
+    {
+        Range range = new Range(10L, 20L);
+        assertFalse(range.overlaps(new Range(0L, 5L)));
+        assertTrue(range.overlaps(new Range(5L, 10L)));
+        assertTrue(range.overlaps(new Range(5L, 15L)));
+        assertTrue(range.overlaps(new Range(5L, 25L)));
+        assertTrue(range.overlaps(new Range(15L, 25L)));
+        assertTrue(range.overlaps(new Range(20L, 25L)));
+        assertTrue(range.overlaps(new Range(5L, 25L)));
+        assertTrue(range.overlaps(new Range(14L, 16L)));
+        assertFalse(range.overlaps(new Range(25L, 30L)));
+    }
+
+    @Test
+    public void testSplit()
+    {
+        Range range = new Range(10L, 20L);
+        List<Range> split;
+
+        split = range.split(new Range(0L, 5L));
+        assertEquals(split.get(0), null);
+        assertEquals(split.get(1), null);
+        assertEquals(split.get(2), new Range(10L, 20L));
+
+        split = range.split(new Range(0L, 15L));
+        assertEquals(split.get(0), null);
+        assertEquals(split.get(1), new Range(10L, 15L));
+        assertEquals(split.get(2), new Range(16L, 20L));
+
+        split = range.split(new Range(15L, 30L));
+        assertEquals(split.get(0), new Range(10L, 14L));
+        assertEquals(split.get(1), new Range(15L, 20L));
+        assertEquals(split.get(2), null);
+
+        split = range.split(new Range(25L, 30L));
+        assertEquals(split.get(0), new Range(10L, 20L));
+        assertEquals(split.get(1), null);
+        assertEquals(split.get(2), null);
+
+        split = range.split(new Range(0L, 30L));
+        assertEquals(split.get(0), null);
+        assertEquals(split.get(1), new Range(10L, 20L));
+        assertEquals(split.get(2), null);
+
+        split = range.split(new Range(14L, 16L));
+        assertEquals(split.get(0), new Range(10L, 13L));
+        assertEquals(split.get(1), new Range(14L, 16L));
+        assertEquals(split.get(2), new Range(17L, 20L));
+   
     }
     
 }
