@@ -159,19 +159,35 @@ public class Range
             splitted[2] = this;
         } else if (this.getEnd() < other.getStart()) {
             splitted[0] = this;
-        } else if (this.getStart() > other.getStart() && this.getEnd() < other.getEnd()) {
+        } else {
+            List<Range> parts = this.splitBefore(other.getStart());
+            if (parts.size() > 1) {
+                splitted[0] = parts.get(0);
+                splitted[1] = parts.get(1);
+            } else {
+                splitted[1] = parts.get(0);
+            }
+            parts = splitted[1].splitAfter(other.getEnd());
+            if (parts.size() > 1) {
+                splitted[1] = parts.get(0);
+                splitted[2] = parts.get(1);
+            }
+        }
+        
+        
+/*        if (this.getStart() >= other.getStart() && this.getEnd() <= other.getEnd()) {
             splitted[1] = this;
         } else if (this.getStart() < other.getStart() && this.getEnd() > other.getEnd()) {
             splitted[0] = this.splitBefore(other.getStart()).get(0);
             splitted[2] = this.splitAfter(other.getEnd()).get(1);
             splitted[1] = new Range(splitted[0].getEnd() + 1, splitted[2].getStart() - 1);
-        } else if (this.getStart() < other.getStart() && this.getEnd() < other.getEnd()) {
+        } else if (this.getStart() <= other.getStart() && this.getEnd() <= other.getEnd()) {
             splitted[0] = this.splitBefore(other.getStart()).get(0);
             splitted[1] = this.splitBefore(other.getStart()).get(1);
-        } else if (this.getStart() > other.getStart() && this.getEnd() > other.getEnd()) {
+        } else if (this.getStart() >= other.getStart() && this.getEnd() >= other.getEnd()) {
             splitted[1] = this.splitAfter(other.getEnd()).get(0);
             splitted[2] = this.splitAfter(other.getEnd()).get(1);
-        }
+        }*/
         return Arrays.asList(splitted);
     }
 

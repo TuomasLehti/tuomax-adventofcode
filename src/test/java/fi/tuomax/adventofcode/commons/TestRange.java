@@ -144,35 +144,44 @@ public class TestRange
         List<Range> split;
 
         split = range.split(new Range(0L, 5L));
-        assertEquals(split.get(0), null);
-        assertEquals(split.get(1), null);
-        assertEquals(split.get(2), new Range(10L, 20L));
+        assertEquals(null, split.get(0));
+        assertEquals(null, split.get(1));
+        assertEquals(new Range(10L, 20L), split.get(2));
 
         split = range.split(new Range(0L, 15L));
-        assertEquals(split.get(0), null);
-        assertEquals(split.get(1), new Range(10L, 15L));
-        assertEquals(split.get(2), new Range(16L, 20L));
+        assertEquals(null, split.get(0));
+        assertEquals(new Range(10L, 15L), split.get(1));
+        assertEquals(new Range(16L, 20L), split.get(2));
 
         split = range.split(new Range(15L, 30L));
-        assertEquals(split.get(0), new Range(10L, 14L));
-        assertEquals(split.get(1), new Range(15L, 20L));
-        assertEquals(split.get(2), null);
+        assertEquals(new Range(10L, 14L), split.get(0));
+        assertEquals(new Range(15L, 20L), split.get(1));
+        assertEquals(null, split.get(2));
 
         split = range.split(new Range(25L, 30L));
-        assertEquals(split.get(0), new Range(10L, 20L));
-        assertEquals(split.get(1), null);
-        assertEquals(split.get(2), null);
+        assertEquals(new Range(10L, 20L), split.get(0));
+        assertEquals(null, split.get(1));
+        assertEquals(null, split.get(2));
 
         split = range.split(new Range(0L, 30L));
-        assertEquals(split.get(0), null);
-        assertEquals(split.get(1), new Range(10L, 20L));
-        assertEquals(split.get(2), null);
+        assertEquals(null, split.get(0));
+        assertEquals(new Range(10L, 20L), split.get(1));
+        assertEquals(null, split.get(2));
 
         split = range.split(new Range(14L, 16L));
-        assertEquals(split.get(0), new Range(10L, 13L));
-        assertEquals(split.get(1), new Range(14L, 16L));
-        assertEquals(split.get(2), new Range(17L, 20L));
-   
+        assertEquals(new Range(10L, 13L), split.get(0));
+        assertEquals(new Range(14L, 16L), split.get(1));
+        assertEquals(new Range(17L, 20L), split.get(2));
+    }
+
+    @Test
+    public void testSplit_EqualStarts()
+    {
+        Range range = new Range(0L, 4L);
+        Range other = new Range(0L, 2L);
+        assertEquals(null, range.split(other).get(0));
+        assertEquals(new Range(0L, 2L), range.split(other).get(1));
+        assertEquals(new Range(3L, 4L), range.split(other).get(2));
     }
     
 }
