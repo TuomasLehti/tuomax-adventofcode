@@ -7,6 +7,14 @@ import fi.tuomax.adventofcode.commons.Range;
 import fi.tuomax.adventofcode.framework.parsing.Parser;
 import fi.tuomax.adventofcode.framework.solving.Solver;
 
+/**
+ * <p>The common part of solving Advent of Code 2016, day 20: 
+ * Firewall Rules.</p>
+ *
+ * @see 
+ *      <a href="https://adventofcode.com/2016/day/20">
+ *      Puzzle on the Advent of Code website.</a>
+ */
 public abstract class FirewallRules 
 extends Solver
 {
