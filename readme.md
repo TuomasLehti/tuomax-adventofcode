@@ -113,6 +113,11 @@ To do after solving everything from 2016:
 
 ## Year 2016
 
+Solving the puzzles of 2016 in 2024 seemed pretty easy. You could brute-force
+your way through the problems quite easily and not think about clever 
+algorithms. Maybe doing 8 year old puzzles has that effect and these weren't
+brute-forceable back then?
+
 | Day | Part 1 | Part 2 | Notes |
 |---|---|---|---|
 | 1  | 23.6.2024 | 23.6.2024 |  |
@@ -135,7 +140,7 @@ To do after solving everything from 2016:
 | 18 | 12.8.2024 | 12.8.2024 |  |
 | 19 | 12.8.2024 | 14.8.2024 |  |
 | 20 | 17.8.2024 | 17.8.2024 |  |
-| 21 |  |  |  |
+| 21 | 19.8.2024 | 20.8.2024 |  |
 | 22 |  |  |  |
 | 23 |  |  |  |
 | 24 |  |  |  |
