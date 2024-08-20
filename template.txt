@@ -7,7 +7,7 @@ import java.util.List;
 
 /**
  * <p>Solves Advent of Code {year}, day {day}, part {part}: 
- * {puzzle_name}.
+ * {puzzle_name}.</p>
  *
  * @see 
  *      <a href="https://adventofcode.com/{year}/day/{day}">
@@ -29,6 +29,7 @@ extends Solver
     @Override
     protected Parser manufactureParser(List<String> input) 
     {{
+        return null;
     }}
 
     @Override
