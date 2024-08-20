@@ -35,13 +35,17 @@ def read_session_cookie():
     file.close()
     return data
 
+def fetch_puzzle_input(year, day, login_data):
+    # https://adventofcode.com/2016/day/22/input
+    r = requests.get(f"https://adventofcode.com/{year}/day/{day:02}/input", cookies=login_data)
+    p_input = Path(".") / "inputs" / f"year{year}" / f"day{day:02}" / f"{year}-{day:02} input.txt"
+    file = open(p_input, "w")
+    file.writelines(r.text)
+    file.close()
+
 def fetch_puzzle_text(year, day, login_data):
-    r = requests.get(f"https://adventofcode.com/{year}/day/{day:02}", login_data)
+    r = requests.get(f"https://adventofcode.com/{year}/day/{day:02}", cookies=login_data)
     return r.text
-#    file = open("puzzle_txt.txt")
-#    lines = file.readlines()
-#    file.close()
-#    return lines
     
 def fetch_puzzle_name(year, day, login_data):
     lines = fetch_puzzle_text(year, day, login_data)
@@ -73,7 +77,9 @@ year, day = parse_arguments()
 check_directories(year, day)
 print(f"Setting up Advent of Code {year}, day {day}")
 create_directories(year, day)
-login_data = {'session' : read_session_cookie()}
+login_data = {"session" : read_session_cookie()}
+print(login_data)
 puzzle_name, puzzle_name_pascal_cased = fetch_puzzle_name(year, day, login_data)
 create_java_class(year, day, "1", puzzle_name, puzzle_name_pascal_cased)
 create_java_class(year, day, "2", puzzle_name, puzzle_name_pascal_cased)
+fetch_puzzle_input(year, day, login_data)
