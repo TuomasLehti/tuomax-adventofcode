@@ -5,6 +5,7 @@ import java.util.HashSet;
 import java.util.List;
 
 import fi.tuomax.adventofcode.commons.cpu.Cpu;
+import fi.tuomax.adventofcode.commons.cpu.InstructionFactory;
 import fi.tuomax.adventofcode.framework.parsing.Parser;
 
 public class LeonardosMonorail_Parser 
@@ -27,11 +28,9 @@ extends Parser
     @Override
     public void parse() 
     {
+        InstructionFactory factory = new LeonardosMonorail_InstructionFactory();
         for (String line : input) {
-            if (line.startsWith("cpy")) cpu.enterProgram(new Cpy(line));
-            else if (line.startsWith("inc")) cpu.enterProgram(new Inc(line));
-            else if (line.startsWith("dec")) cpu.enterProgram(new Dec(line));
-            else if (line.startsWith("jnz")) cpu.enterProgram(new Jnz(line));
+            cpu.enterProgram(factory.fromAocInput(line));
         }
     }
     
