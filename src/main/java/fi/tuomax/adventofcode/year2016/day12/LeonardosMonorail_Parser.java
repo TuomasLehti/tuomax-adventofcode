@@ -30,7 +30,7 @@ extends Parser
     {
         InstructionFactory factory = new LeonardosMonorail_InstructionFactory();
         for (String line : input) {
-            cpu.enterProgram(factory.fromAocInput(line));
+            cpu.enterProgram(factory.fromAocInput(line, cpu));
         }
     }
     

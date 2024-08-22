@@ -2,34 +2,37 @@ package fi.tuomax.adventofcode.year2016.day12;
 
 import fi.tuomax.adventofcode.commons.cpu.Cpu;
 import fi.tuomax.adventofcode.commons.cpu.Instruction;
+import fi.tuomax.adventofcode.commons.cpu.InstructionFactory;
 
 public class Jnz 
 extends Instruction
 {
 
-    private Integer value = null;
 
-    private String sourceRegister = null;
-
-    private Integer offset;
-
-    public Jnz(String input)
+    public Jnz(String input, Cpu cpu) 
     {
-        String[] parts = input.split(" ");
-        offset = Integer.valueOf(parts[2]);
-        try {
-            value = Integer.valueOf(parts[1]);
-        } catch (NumberFormatException e) {
-            sourceRegister = parts[1];
-        }
+        super(input, cpu);
     }
 
     @Override
     public void run(Cpu cpu) 
     {
-        Integer comparee = value != null ? value : cpu.getRegister(sourceRegister);
+        Integer comparee = arguments.get(0).getValue();
         if (!comparee.equals(0))
-            cpu.jump(offset);
+            cpu.jump(arguments.get(1).getValue());
+    }
+
+    @Override
+    public Instruction toggle() 
+    {
+        return InstructionFactory.inUse().fromAocInput(
+            String.format(
+                "cpy %s %s",
+                arguments.get(0).toString(),
+                arguments.get(1).toString()
+            ),
+            cpu
+        );
     }
     
 }

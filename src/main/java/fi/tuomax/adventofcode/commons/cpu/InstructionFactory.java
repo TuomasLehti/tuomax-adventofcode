@@ -6,6 +6,18 @@ package fi.tuomax.adventofcode.commons.cpu;
 public abstract class InstructionFactory 
 {
 
-    public abstract Instruction fromAocInput(String input);
+    private static InstructionFactory inUse = null;
+
+    public static InstructionFactory inUse()
+    {
+        return InstructionFactory.inUse;
+    }
+
+    public void use(InstructionFactory factory)
+    {
+        InstructionFactory.inUse = factory;
+    }
+
+    public abstract Instruction fromAocInput(String input, Cpu cpu);
     
 }
