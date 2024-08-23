@@ -33,14 +33,16 @@ extends Solver
         return new AirDuctSpelunking_Parser(input);
     }
 
-    protected Graph graph = new Graph();
+    protected static Graph graph = null;
 
     @Override
     protected void solve()
     {
+        if (AirDuctSpelunking.graph != null) return;
+
         Map<Integer, Coordinates> targets = ((AirDuctSpelunking_Parser) parser).getTargets();
         MazeSolver mazeSolver = new MazeSolver(((AirDuctSpelunking_Parser) parser).getMaze());
-
+        Graph graph = new Graph();
         List<Integer> nodes = new ArrayList<>(targets.keySet());
         for (int i = 0; i < nodes.size() - 1; i++) {
             for (int j = i + 1; j < nodes.size(); j++) {
@@ -51,6 +53,7 @@ extends Solver
                         i, j, len));
             }
         }
+        AirDuctSpelunking.graph = graph;
     }
 
 }
