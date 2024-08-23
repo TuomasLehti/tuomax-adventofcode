@@ -1,9 +1,7 @@
 package fi.tuomax.adventofcode.year2016.day24;
 
 import fi.tuomax.adventofcode.framework.solving.Metadata;
-import fi.tuomax.adventofcode.framework.parsing.Parser;
-import fi.tuomax.adventofcode.framework.solving.Solver;
-import java.util.List;
+import fi.tuomax.adventofcode.commons.pathfinding.TravellingSalesman;
 
 /**
  * <p>Solves Advent of Code 2016, day 24, part 2:
@@ -14,7 +12,7 @@ import java.util.List;
  *      Puzzle on the Advent of Code website.</a></p>
  */
 public class AirDuctSpelunking_Part2
-extends Solver
+extends AirDuctSpelunking
 {
 
     @Override
@@ -27,14 +25,12 @@ extends Solver
     }
 
     @Override
-    protected Parser manufactureParser(List<String> input)
-    {
-        return null;
-    }
-
-    @Override
     protected void solve()
     {
+        super.solve();
+        TravellingSalesman.fixedStartingNode = "0";
+        TravellingSalesman.returnToStartingNode = true;
+        setAnswer(TravellingSalesman.minDistance(graph));
     }
 
 }

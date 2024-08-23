@@ -16,7 +16,7 @@ public class Test_AirDuctSpelunking
     public void test_Part1()
     {
         try {
-            AirDuctSpelunking_Part1 solver = new AirDuctSpelunking_Part1();
+            AirDuctSpelunking solver = new AirDuctSpelunking_Part1();
             solver.run(InputFactory.inputFromMetadata(solver.getMetadata(), "test.txt"));
             assertEquals("14", solver.getAnswer());
         } catch (IOException e) {
