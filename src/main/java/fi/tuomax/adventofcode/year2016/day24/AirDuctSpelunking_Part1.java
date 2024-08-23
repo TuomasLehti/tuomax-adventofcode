@@ -4,13 +4,10 @@ import fi.tuomax.adventofcode.framework.solving.Metadata;
 import fi.tuomax.adventofcode.commons.Coordinates;
 import fi.tuomax.adventofcode.commons.pathfinding.Graph;
 import fi.tuomax.adventofcode.commons.pathfinding.MazeSolver;
-import fi.tuomax.adventofcode.commons.pathfinding.Permutator;
-import fi.tuomax.adventofcode.commons.pathfinding.TravellingSalesman_FixedStartNode;
+import fi.tuomax.adventofcode.commons.pathfinding.TravellingSalesman;
 import fi.tuomax.adventofcode.framework.parsing.Parser;
 import fi.tuomax.adventofcode.framework.solving.Solver;
 
-import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 
@@ -48,7 +45,6 @@ extends Solver
         MazeSolver mazeSolver = new MazeSolver(((AirDuctSpelunking_Parser) parser).getMaze());
         Graph graph = new Graph();
 
-
         for (Integer i : targets.keySet())
             for (Integer j : targets.keySet()) 
                 if (!i.equals(j)) {
@@ -56,9 +52,9 @@ extends Solver
                     System.out.println(String.format("%d -> %d : %d", i, j, len));
                     graph.addNodesAndDirectedEdge(i.toString(), j.toString(), len);
                 }
-
-        TravellingSalesman_FixedStartNode.startNodeName = "0";
-        setAnswer(TravellingSalesman_FixedStartNode.minDistance(graph));
+        
+        TravellingSalesman.fixedStartingNode = "0";
+        setAnswer(TravellingSalesman.minDistance(graph));
     }
 
 }
