@@ -1,11 +1,8 @@
 package fi.tuomax.adventofcode.year2016.day24;
 
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
-
 import fi.tuomax.adventofcode.commons.Coordinates;
 import fi.tuomax.adventofcode.commons.Grid;
 import fi.tuomax.adventofcode.commons.pathfinding.GridMazeGenerator;
