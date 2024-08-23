@@ -10,12 +10,19 @@ import java.util.Map;
  * <p>A very naive and crude brute-force solution for the travelling 
  * salesman problem.</p>
  * 
- * <p>Visits every node exactly once, and the starting and ending nodes 
- * have not been defined. Guaranteed to work with complete graphs only.
- * (A complete graph is a graph, where every distinct pair of nodes is
- * connected with a pair of unique edges (one in each direction).)</p>
+ * <p>Guaranteed to work with complete graphs only. (A complete graph is a 
+ * graph, where every distinct pair of nodes is connected with a pair of unique 
+ * edges (one in each direction).)</p>
+ * 
+ * <p>The default behaviour is that every node is visited exactly once, and the 
+ * starting and ending nodes have not been defined. This behaviour can be 
+ * changed via the settings.</p>
  */
 public class TravellingSalesmanBruteforce {
+
+    public static String fixedStartingNode = "";
+
+    public static Boolean returnToStartingNode = false;
 
     /**
      * Counts the minimum distance (weight) for complete traversal of
@@ -41,7 +48,28 @@ public class TravellingSalesmanBruteforce {
      */
     private static List<List<String>> routes(Graph graph)
     {
-        return Permutator.getPermutations(new ArrayList<String>(graph.nodes()));
+        List<List<String>> permutations = 
+            Permutator.getPermutations(new ArrayList<String>(graph.nodes()));
+
+        if (!fixedStartingNode.equals(""))
+            permutations = removeWrongStartingNodes(permutations);
+
+        return permutations;
+    }
+
+    /**
+     * Removes routes which have a wrong starting node. The sizes of graphs in
+     * Advent of Code puzzles are quite small, and doing the unnecessary work
+     * of first adding all routes and then removing some of them doesn't become
+     * a factor.
+     */
+    private static List<List<String>> removeWrongStartingNodes(List<List<String>> permutations) 
+    {
+        List<List<String>> result = new ArrayList<>();
+        for (List<String> permutation : permutations)
+            if (permutation.get(0).equals(fixedStartingNode))
+                result.add(permutation);
+        return result;
     }
 
     /** 
