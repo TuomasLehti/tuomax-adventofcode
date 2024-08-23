@@ -141,8 +141,8 @@ brute-forceable back then?
 | 19 | 12.8.2024 | 14.8.2024 |  |
 | 20 | 17.8.2024 | 17.8.2024 |  |
 | 21 | 19.8.2024 | 20.8.2024 |  |
-| 22 | 20.8.2024 | 19.8.2024 |  |
-| 23 |  |  |  |
+| 22 | 20.8.2024 | 21.8.2024 |  |
+| 23 | 22.8.2024 | 23.8.2024 | (3) |
 | 24 |  |  |  |
 | 25 |  |  |  |
 
@@ -150,6 +150,8 @@ brute-forceable back then?
    just for the fun of it.
 
 2) No parser included yet.
+
+3) Assembunny computer could use an optimizer.
 
 ## Year 2015
 

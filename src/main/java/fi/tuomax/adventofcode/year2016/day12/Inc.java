@@ -26,7 +26,7 @@ extends Instruction
     {
         return InstructionFactory.inUse().fromAocInput(
             String.format(
-                "inc %s",
+                "dec %s",
                 arguments.get(0).toString()
             ),
             cpu

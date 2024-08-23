@@ -6,17 +6,24 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 /**
  * An instruction-based cpu, which doesn't have any memory.
  */
 public class Cpu 
 {
 
+    private final Logger LOGGER = LoggerFactory.getLogger(getClass());
+
     /** The instruction which make up the program. */
     private List<Instruction> program = new ArrayList<>();
 
     /** Which line of the program is being executed. */
     private Integer programCounter = 0;
+
+    private Integer cycle = 0;
 
     public Integer getProgramCounter() 
     {
@@ -26,6 +33,17 @@ public class Cpu
     public void setProgramCounter(Integer programCounter) 
     {
         this.programCounter = programCounter;
+    }
+
+    public Instruction getInstruction(Integer idx)
+    {
+        return program.get(idx);
+    }
+
+    public void setInstruction(Integer idx, Instruction instruction)
+    {
+        if (idx < program.size())
+            program.set(idx, instruction);
     }
 
     public void jump(Integer offset)
@@ -84,18 +102,32 @@ public class Cpu
     /**
      * Runs the program in the cpu.
      */
-    public void run() {
+    public void run() 
+    {
         while (programCounter < program.size()) {
-//            System.out.println(toString());
             program.get(programCounter).run(this);
             programCounter++;
+            cycle++;
         }
     }
 
+    /**
+     * Resets the cpu to its initial state.
+     */
+    public void reset()
+    {
+        for (String registerName : registers.keySet())
+            setRegister(registerName, 0);
+        programCounter = 0;
+    }
+
+    /**
+     * Returns the state of the processor as a string.
+     */
     public String toString()
     {
         StringBuilder sb = new StringBuilder();
-        sb.append(String.format("PC : %2d", programCounter+1));
+        sb.append(String.format("PC : %2d", programCounter + 1));
         for (String registerName : registers.keySet())
             sb.append(String.format(", %s: %2d", registerName, getRegister(registerName)));
         return sb.toString();

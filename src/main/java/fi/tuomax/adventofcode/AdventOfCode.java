@@ -101,6 +101,8 @@ import fi.tuomax.adventofcode.year2016.day21.ScrambledLettersAndHash_Part1;
 import fi.tuomax.adventofcode.year2016.day21.ScrambledLettersAndHash_Part2;
 import fi.tuomax.adventofcode.year2016.day22.GridComputing_Part1;
 import fi.tuomax.adventofcode.year2016.day22.GridComputing_Part2;
+import fi.tuomax.adventofcode.year2016.day23.SafeCracking_Part1;
+import fi.tuomax.adventofcode.year2016.day23.SafeCracking_Part2;
 import fi.tuomax.adventofcode.year2016.day19.AnElephantNamedJoseph_Part1;
 import fi.tuomax.adventofcode.year2016.day19.AnElephantNamedJoseph_Part2;
 import fi.tuomax.adventofcode.year2016.day14.OnetimePad_Part1;
@@ -191,6 +193,9 @@ public class AdventOfCode
         /* day 22 */
         year.addSolver(new GridComputing_Part1());
         year.addSolver(new GridComputing_Part2());
+        /* day 23 */
+        year.addSolver(new SafeCracking_Part1());
+        year.addSolver(new SafeCracking_Part2());
     }
 
     private Printer manufacturePrinter() {

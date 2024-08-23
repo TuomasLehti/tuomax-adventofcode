@@ -12,6 +12,7 @@ public abstract class Instruction
 
     public Instruction(String input, Cpu cpu)
     {
+        this.cpu = cpu;
         String[] parts = input.split(" ");
         for (int i = 1; i < parts.length; i++) {
             arguments.add(new Argument(parts[i], cpu));

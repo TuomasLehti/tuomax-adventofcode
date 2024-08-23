@@ -13,7 +13,7 @@ public abstract class InstructionFactory
         return InstructionFactory.inUse;
     }
 
-    public void use(InstructionFactory factory)
+    public static void use(InstructionFactory factory)
     {
         InstructionFactory.inUse = factory;
     }
