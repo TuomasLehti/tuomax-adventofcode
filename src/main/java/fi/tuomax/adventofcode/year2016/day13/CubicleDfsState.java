@@ -4,13 +4,13 @@ import java.util.HashSet;
 import java.util.Set;
 
 import fi.tuomax.adventofcode.commons.Coordinates;
-import fi.tuomax.adventofcode.commons.DfsState;
+import fi.tuomax.adventofcode.commons.BfsState;
 import fi.tuomax.adventofcode.commons.Direction;
 import fi.tuomax.adventofcode.commons.Direction.DirectionMode;
 import fi.tuomax.adventofcode.commons.Direction.TurnDirection;
 
 public class CubicleDfsState 
-extends DfsState
+extends BfsState
 {
 
     public static Coordinates target = null;
@@ -34,9 +34,9 @@ extends DfsState
     }
 
     @Override
-    public Set<DfsState> nextStates() 
+    public Set<BfsState> nextStates() 
     {
-        Set<DfsState> nextStates = new HashSet<>();
+        Set<BfsState> nextStates = new HashSet<>();
 
         Direction dir = Direction.getInstance(Direction.NORTH);
 
@@ -59,7 +59,7 @@ extends DfsState
         return current.equals(target);
     }
 
-    protected DfsState manufactureState()
+    protected BfsState manufactureState()
     {
         return new CubicleDfsState(this);
     }

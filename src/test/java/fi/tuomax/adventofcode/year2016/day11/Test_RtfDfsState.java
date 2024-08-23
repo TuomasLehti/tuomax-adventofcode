@@ -9,7 +9,7 @@ import java.util.Set;
 
 import org.junit.Test;
 
-import fi.tuomax.adventofcode.commons.DfsState;
+import fi.tuomax.adventofcode.commons.BfsState;
 
 public class Test_RtfDfsState 
 {
@@ -88,11 +88,11 @@ public class Test_RtfDfsState
     public void test_NextStates()
     {
         RtfDfsState state = new RtfDfsState(new int[]{11, 11});
-        Set<DfsState> nextStates = state.nextStates();
+        Set<BfsState> nextStates = state.nextStates();
 
         // cast them all to the right class
         Set<RtfDfsState> rtfStates = new HashSet<>();
-        for (DfsState s : nextStates)
+        for (BfsState s : nextStates)
             rtfStates.add((RtfDfsState) s);
 
         assertEquals(3, rtfStates.size());
@@ -120,9 +120,9 @@ public class Test_RtfDfsState
     private boolean yields(int[] given, int givenElevator, int[] expected, int expectedElevator)
     {
         RtfDfsState state = new RtfDfsState(givenElevator, given, 0);
-        Set<DfsState> nextStates = state.nextStates();
+        Set<BfsState> nextStates = state.nextStates();
         Set<RtfDfsState> rtfStates = new HashSet<>();
-        for (DfsState s : nextStates)
+        for (BfsState s : nextStates)
             rtfStates.add((RtfDfsState) s);
         return rtfStates.contains(new RtfDfsState(expectedElevator, expected, 1));
     }

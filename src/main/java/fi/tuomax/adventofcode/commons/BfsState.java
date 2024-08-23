@@ -7,7 +7,7 @@ import java.util.Set;
  * because states won't be added to the queue if they already have been 
  * visited.
  */
-public abstract class DfsState 
+public abstract class BfsState 
 {
 
     private Integer step = 0;
@@ -22,7 +22,7 @@ public abstract class DfsState
         this.step = step;
     }
 
-    public abstract Set<DfsState> nextStates();
+    public abstract Set<BfsState> nextStates();
 
     public abstract Boolean isTargetState();
     

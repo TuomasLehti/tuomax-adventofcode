@@ -1,6 +1,6 @@
 package fi.tuomax.adventofcode.year2016.day13;
 
-import fi.tuomax.adventofcode.commons.DfsState;
+import fi.tuomax.adventofcode.commons.BfsState;
 
 public class CubicleFdsState_Part2 
 extends CubicleDfsState
@@ -25,7 +25,7 @@ extends CubicleDfsState
     }
 
     @Override
-    protected DfsState manufactureState()
+    protected BfsState manufactureState()
     {
         return new CubicleFdsState_Part2(this);
     }

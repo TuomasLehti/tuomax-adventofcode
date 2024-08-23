@@ -2,8 +2,8 @@ package fi.tuomax.adventofcode.year2016.day11;
 
 import java.util.List;
 
-import fi.tuomax.adventofcode.commons.Dfs;
-import fi.tuomax.adventofcode.commons.DfsState;
+import fi.tuomax.adventofcode.commons.Bfs;
+import fi.tuomax.adventofcode.commons.BfsState;
 import fi.tuomax.adventofcode.framework.parsing.NoopParser;
 import fi.tuomax.adventofcode.framework.parsing.Parser;
 import fi.tuomax.adventofcode.framework.solving.Metadata;
@@ -31,8 +31,8 @@ extends Solver
     @Override
     protected void solve() 
     {
-        Dfs dfs = new Dfs();
-        DfsState ans = dfs.search(new RtfDfsState(new int[]{11, 32, 32, 32, 32}));
+        Bfs dfs = new Bfs();
+        BfsState ans = dfs.search(new RtfDfsState(new int[]{11, 32, 32, 32, 32}));
         if (ans != null)
             setAnswer(ans.getStep());
         else

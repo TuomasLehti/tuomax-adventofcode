@@ -8,8 +8,8 @@ import java.util.Set;
 import org.junit.Test;
 
 import fi.tuomax.adventofcode.commons.Coordinates;
-import fi.tuomax.adventofcode.commons.Dfs;
-import fi.tuomax.adventofcode.commons.DfsState;
+import fi.tuomax.adventofcode.commons.Bfs;
+import fi.tuomax.adventofcode.commons.BfsState;
 
 public class Test_State 
 {
@@ -21,10 +21,10 @@ public class Test_State
         CubicleDfsState.target = new Coordinates(7L, 4L);
         CubicleDfsState state = new CubicleDfsState();
 
-        Set<DfsState> nextStates = state.nextStates();
+        Set<BfsState> nextStates = state.nextStates();
         // cast them all to the right class
         Set<CubicleDfsState> rtfStates = new HashSet<>();
-        for (DfsState s : nextStates)
+        for (BfsState s : nextStates)
             rtfStates.add((CubicleDfsState) s);
         
         state.print(10, 10);
@@ -41,9 +41,9 @@ public class Test_State
     public void testDfs()
     {
         MazeGenerator.favoriteNumber = 10;
-        Dfs dfs = new Dfs();
+        Bfs dfs = new Bfs();
         CubicleDfsState.target = new Coordinates(7L, 4L);
-        DfsState state = dfs.search(new CubicleDfsState());
+        BfsState state = dfs.search(new CubicleDfsState());
         assertEquals(11, (int) state.getStep());
     }
     

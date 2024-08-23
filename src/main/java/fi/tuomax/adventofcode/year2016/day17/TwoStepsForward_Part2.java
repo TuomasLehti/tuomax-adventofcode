@@ -2,8 +2,8 @@ package fi.tuomax.adventofcode.year2016.day17;
 
 import java.util.List;
 
-import fi.tuomax.adventofcode.commons.Dfs;
-import fi.tuomax.adventofcode.commons.DfsState;
+import fi.tuomax.adventofcode.commons.Bfs;
+import fi.tuomax.adventofcode.commons.BfsState;
 import fi.tuomax.adventofcode.framework.parsing.Parser;
 import fi.tuomax.adventofcode.framework.parsing.StringParser;
 import fi.tuomax.adventofcode.framework.solving.Metadata;
@@ -47,10 +47,10 @@ extends Solver
     protected void solve() 
     {
         String passcode = ((StringParser) parser).getString();
-        Dfs dfs = new CompleteBfs();
+        Bfs dfs = new CompleteBfs();
         dfs.search(new StepBfsState(passcode)); // discard result
         Integer maxLength = Integer.MIN_VALUE;
-        for (DfsState s : dfs.getQueue())
+        for (BfsState s : dfs.getQueue())
             if (s.isTargetState())
                 maxLength = Math.max(maxLength, ((StepBfsState) s).getPath().length());
         setAnswer(maxLength);

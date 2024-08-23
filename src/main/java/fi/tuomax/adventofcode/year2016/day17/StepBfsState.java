@@ -4,11 +4,11 @@ import java.util.HashSet;
 import java.util.Set;
 
 import fi.tuomax.adventofcode.commons.Coordinates;
-import fi.tuomax.adventofcode.commons.DfsState;
+import fi.tuomax.adventofcode.commons.BfsState;
 import fi.tuomax.adventofcode.commons.MD5;
 
 public class StepBfsState 
-extends DfsState
+extends BfsState
 {
 
     private static final Coordinates TARGET = new Coordinates(3L, 3L);
@@ -41,9 +41,9 @@ extends DfsState
     }
 
     @Override
-    public Set<DfsState> nextStates() 
+    public Set<BfsState> nextStates() 
     {
-        Set<DfsState> nextStates = new HashSet<>();
+        Set<BfsState> nextStates = new HashSet<>();
         if (isTargetState()) return nextStates;
 
         String md5 = MD5.getMD5(passcode + path, "%32x");

@@ -4,13 +4,13 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
-import fi.tuomax.adventofcode.commons.DfsState;
+import fi.tuomax.adventofcode.commons.BfsState;
 
 /**
  * Radioisotope Testing Facility from Advent of Code 2016, day 11.
  */
 public class RtfDfsState 
-extends DfsState
+extends BfsState
 {
 
     /* 
@@ -101,9 +101,9 @@ extends DfsState
     }
 
     @Override
-    public Set<DfsState> nextStates() 
+    public Set<BfsState> nextStates() 
     {
-        Set<DfsState> nextStates = new HashSet<>();
+        Set<BfsState> nextStates = new HashSet<>();
         int[] onThisFloor = getThingsOnThisFloor();
 
         for (int thingIdx = 0; thingIdx < onThisFloor.length; thingIdx++) {

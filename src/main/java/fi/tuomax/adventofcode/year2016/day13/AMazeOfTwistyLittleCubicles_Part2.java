@@ -3,7 +3,7 @@ package fi.tuomax.adventofcode.year2016.day13;
 import java.util.List;
 
 import fi.tuomax.adventofcode.commons.Coordinates;
-import fi.tuomax.adventofcode.commons.Dfs;
+import fi.tuomax.adventofcode.commons.Bfs;
 import fi.tuomax.adventofcode.framework.parsing.Parser;
 import fi.tuomax.adventofcode.framework.parsing.StringParser;
 import fi.tuomax.adventofcode.framework.solving.Metadata;
@@ -36,7 +36,7 @@ extends Solver
         Integer targetY = parameters.getJSONObject("part1").getInt("target_y");
         CubicleDfsState.target = new Coordinates((long) targetX, (long) targetY);
         CubicleFdsState_Part2.targetSteps = parameters.getJSONObject("part2").getInt("target_steps") + 1;
-        Dfs dfs = new Dfs();
+        Bfs dfs = new Bfs();
         dfs.search(new CubicleFdsState_Part2()); // discard result
         setAnswer(dfs.getQueue().size());
     }

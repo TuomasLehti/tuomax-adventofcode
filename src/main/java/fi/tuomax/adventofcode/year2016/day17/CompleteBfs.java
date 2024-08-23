@@ -1,14 +1,14 @@
 package fi.tuomax.adventofcode.year2016.day17;
 
-import fi.tuomax.adventofcode.commons.Dfs;
-import fi.tuomax.adventofcode.commons.DfsState;
+import fi.tuomax.adventofcode.commons.Bfs;
+import fi.tuomax.adventofcode.commons.BfsState;
 
 /**
  * Searches for every possible state. State class must not return any next
  * states, if it is a target state.
  */
 public class CompleteBfs 
-extends Dfs
+extends Bfs
 {
 
     /** 
@@ -17,7 +17,7 @@ extends Dfs
      * be examined by getQueue().
      */
     @Override
-    protected Boolean finished(DfsState state) 
+    protected Boolean finished(BfsState state) 
     {
         return false;
     }

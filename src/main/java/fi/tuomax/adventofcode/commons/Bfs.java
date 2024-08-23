@@ -8,9 +8,9 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * Depth first search.
+ * Breadth first search.
  */
-public class Dfs 
+public class Bfs 
 {
 
     private Logger LOGGER = LoggerFactory.getLogger(getClass());
@@ -18,16 +18,16 @@ public class Dfs
     /** 
      * Stores all the visited states.
      */
-    private List<DfsState> queue = new ArrayList<>();
+    private List<BfsState> queue = new ArrayList<>();
 
-    public List<DfsState> getQueue() 
+    public List<BfsState> getQueue() 
     {
         return queue;
     }
 
     private Integer idx = 0;
 
-    public DfsState search(DfsState start)
+    public BfsState search(BfsState start)
     {
         int gen = -1;
         queue.add(start);
@@ -36,8 +36,8 @@ public class Dfs
                 gen = queue.get(idx).getStep();
                 LOGGER.debug(String.format("Step %d, %d states.", gen, queue.size() - idx));
             }
-            Set<DfsState> nextStates = queue.get(idx).nextStates();
-            for (DfsState state : nextStates) {
+            Set<BfsState> nextStates = queue.get(idx).nextStates();
+            for (BfsState state : nextStates) {
                 if (finished(state))
                     return state;
                 else if (!queue.contains(state))
@@ -48,7 +48,7 @@ public class Dfs
         return null;
     }
 
-    protected Boolean finished(DfsState state) 
+    protected Boolean finished(BfsState state) 
     {
         return state.isTargetState();
     }
