@@ -13,11 +13,8 @@ public class TestTravellingSalesman
         Graph graph = new Graph();
 
         graph.addNodesAndUndirectedEdge("Helsinki",  "Pori", 237);
-        graph.addNodesAndUndirectedEdge("Pori",  "Helsinki", 237);
         graph.addNodesAndUndirectedEdge("Helsinki",  "Tampere", 179);
-        graph.addNodesAndUndirectedEdge("Tampere",  "Helsinki", 179);
         graph.addNodesAndUndirectedEdge("Pori",  "Tampere", 109);
-        graph.addNodesAndUndirectedEdge("Tampere",  "Pori", 109);
 
         // Hki - Pri - Tre 237 + 109 = 346
         // Hki - Tre - Pri 179 + 109 = 288
@@ -28,7 +25,20 @@ public class TestTravellingSalesman
 
         assertEquals(288, (int) TravellingSalesmanBruteforce.minDistance(graph));
         assertEquals(416, (int) TravellingSalesmanBruteforce.maxDistance(graph));
+    }
 
+    @Test
+    public void test_FixedStartingPoint()
+    {
+        Graph graph = new Graph();
+
+        graph.addNodesAndUndirectedEdge("Helsinki",  "Pori", 237);
+        graph.addNodesAndUndirectedEdge("Pori",  "Helsinki", 237);
+        graph.addNodesAndUndirectedEdge("Helsinki",  "Tampere", 179);
+        graph.addNodesAndDirectedEdge("Tampere",  "Helsinki", 179);
+        graph.addNodesAndUndirectedEdge("Helsinki", "Jyväskylä", null);
+        graph.addNodesAndUndirectedEdge("Pori",  "Tampere", 109);
+        graph.addNodesAndUndirectedEdge("Tampere",  "Pori", 109);
     }
 
 }
