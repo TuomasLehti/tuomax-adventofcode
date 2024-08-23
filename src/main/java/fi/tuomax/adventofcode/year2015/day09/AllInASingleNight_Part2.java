@@ -2,7 +2,7 @@ package fi.tuomax.adventofcode.year2015.day09;
 
 import java.util.List;
 
-import fi.tuomax.adventofcode.commons.pathfinding.TravellingSalesmanBruteforce;
+import fi.tuomax.adventofcode.commons.pathfinding.TravellingSalesman;
 import fi.tuomax.adventofcode.framework.parsing.Parser;
 import fi.tuomax.adventofcode.framework.solving.Metadata;
 import fi.tuomax.adventofcode.framework.solving.Solver;
@@ -40,7 +40,7 @@ extends Solver
     protected void solve() 
     {
         setAnswer(
-            TravellingSalesmanBruteforce.maxDistance(
+            TravellingSalesman.maxDistance(
                 ((AllInASingleNight_Parser) parser).getGraph()
             )
         );

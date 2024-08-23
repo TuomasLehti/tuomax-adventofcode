@@ -23,8 +23,8 @@ public class TestTravellingSalesman
         // Tre - Hki - Pri 179 + 237 = 416
         // Tre - Pri - Hki 109 + 237 = 346
 
-        assertEquals(288, (int) TravellingSalesmanBruteforce.minDistance(graph));
-        assertEquals(416, (int) TravellingSalesmanBruteforce.maxDistance(graph));
+        assertEquals(288, (int) TravellingSalesman.minDistance(graph));
+        assertEquals(416, (int) TravellingSalesman.maxDistance(graph));
     }
 
     @Test
@@ -46,9 +46,9 @@ public class TestTravellingSalesman
         // Hki - Jy  - Tre - Pri    269 + 155 + 109 = 533
         // Hki - Jy  - Pri - Tre    269 + 263 + 109 = 641
 
-        TravellingSalesmanBruteforce.fixedStartingNode = "Helsinki";
-        assertEquals(501, (int) TravellingSalesmanBruteforce.minDistance(graph));
-        assertEquals(655, (int) TravellingSalesmanBruteforce.maxDistance(graph));
+        TravellingSalesman.fixedStartingNode = "Helsinki";
+        assertEquals(501, (int) TravellingSalesman.minDistance(graph));
+        assertEquals(655, (int) TravellingSalesman.maxDistance(graph));
     }
 
     @Test
@@ -70,10 +70,10 @@ public class TestTravellingSalesman
         // Hki - Jy  - Tre - Pri - Hki   269 + 155 + 109 + 237 = 770 
         // Hki - Jy  - Pri - Tre - Hki   269 + 263 + 109 + 179 = 820
 
-        TravellingSalesmanBruteforce.fixedStartingNode = "Helsinki";
-        TravellingSalesmanBruteforce.returnToStartingNode = true;
-        assertEquals(770, (int) TravellingSalesmanBruteforce.minDistance(graph));
-        assertEquals(834, (int) TravellingSalesmanBruteforce.maxDistance(graph));
+        TravellingSalesman.fixedStartingNode = "Helsinki";
+        TravellingSalesman.returnToStartingNode = true;
+        assertEquals(770, (int) TravellingSalesman.minDistance(graph));
+        assertEquals(834, (int) TravellingSalesman.maxDistance(graph));
     }
 
 }

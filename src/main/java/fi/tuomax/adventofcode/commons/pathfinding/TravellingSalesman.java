@@ -18,7 +18,7 @@ import java.util.Map;
  * starting and ending nodes have not been defined. This behaviour can be 
  * changed via the settings.</p>
  */
-public class TravellingSalesmanBruteforce {
+public class TravellingSalesman {
 
     /**
      * The node from which the traversal begins. If it is empty, the search
