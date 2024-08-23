@@ -34,7 +34,7 @@ public class Bfs
         while (idx < queue.size()) {
             if (queue.get(idx).getStep() != gen) {
                 gen = queue.get(idx).getStep();
-                LOGGER.debug(String.format("Step %d, %d states.", gen, queue.size() - idx));
+//                LOGGER.debug(String.format("Step %d, %d states.", gen, queue.size() - idx));
             }
             Set<BfsState> nextStates = queue.get(idx).nextStates();
             for (BfsState state : nextStates) {
