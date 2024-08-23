@@ -1,7 +1,9 @@
 package fi.tuomax.adventofcode.year2016.day24;
 
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 import fi.tuomax.adventofcode.commons.Coordinates;
@@ -24,9 +26,9 @@ extends Parser
     /* Must be class-wide because the dimensions are defined in constructor. */
     private Grid<Boolean> grid;
 
-    private Set<Coordinates> targets = new HashSet<>();
+    private Map<Integer, Coordinates> targets = new HashMap<>();
 
-    public Set<Coordinates> getTargets() 
+    public Map<Integer, Coordinates> getTargets() 
     {
         return targets;
     }
@@ -54,7 +56,9 @@ extends Parser
                         break;
                     default:
                         grid.set(col, row, false);
-                        targets.add(new Coordinates((long) col, (long) row));
+                        targets.put(
+                                Integer.valueOf(Character.toString(input.get(row).charAt(col))), 
+                                new Coordinates((long) col, (long) row));
                         break;
                 }
         maze = new GridMazeGenerator(grid);

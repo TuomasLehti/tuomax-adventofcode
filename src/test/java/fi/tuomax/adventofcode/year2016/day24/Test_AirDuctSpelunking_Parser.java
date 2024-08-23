@@ -1,5 +1,6 @@
 package fi.tuomax.adventofcode.year2016.day24;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
@@ -24,11 +25,12 @@ public class Test_AirDuctSpelunking_Parser
                             new Metadata(2016, 24, null, null, null), 
                             "test.txt"));
             parser.parse();
-            assertTrue(parser.getTargets().contains(new Coordinates(1L, 1L)));
-            assertTrue(parser.getTargets().contains(new Coordinates(3L, 1L)));
-            assertTrue(parser.getTargets().contains(new Coordinates(9L, 1L)));
-            assertTrue(parser.getTargets().contains(new Coordinates(9L, 3L)));
-            assertTrue(parser.getTargets().contains(new Coordinates(1L, 3L)));
+            assertEquals(new Coordinates(1L, 1L), parser.getTargets().get(0));
+            assertEquals(new Coordinates(3L, 1L), parser.getTargets().get(1));
+            assertEquals(new Coordinates(9L, 1L), parser.getTargets().get(2));
+            assertEquals(new Coordinates(9L, 3L), parser.getTargets().get(3));
+            assertEquals(new Coordinates(1L, 3L), parser.getTargets().get(4));
+            
             assertTrue(parser.getMaze().isWall(new Coordinates(5L, 2L)));
             assertTrue(parser.getMaze().isWall(new Coordinates(0L, 0L)));
             assertTrue(parser.getMaze().isWall(new Coordinates(10L, 4L)));
