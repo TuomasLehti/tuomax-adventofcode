@@ -14,7 +14,12 @@ import java.util.Map;
  * have not been defined. Guaranteed to work with complete graphs only.
  * (A complete graph is a graph, where every distinct pair of nodes is
  * connected with a pair of unique edges (one in each direction).)</p>
+ * 
+ * @deprecated
+ *      The functionality is now provided by the class 
+ *      TravellingSalesmanBruteforce.
  */
+@Deprecated
 public class TravellingSalesman_FixedStartNode {
 
     public static String startNodeName;

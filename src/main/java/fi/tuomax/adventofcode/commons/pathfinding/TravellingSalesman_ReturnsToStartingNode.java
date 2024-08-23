@@ -16,8 +16,11 @@ import java.util.Map;
  * (A complete graph is a graph, where every distinct pair of nodes is
  * connected with a pair of unique edges (one in each direction).)</p>
  * 
- * TODO: Join this with TravellingSalesmanBruteForce.
+ * @deprecated
+ *      The functionality is now provided by the class 
+ *      TravellingSalesmanBruteforce.
  */
+@Deprecated
 public class TravellingSalesman_ReturnsToStartingNode {
 
     /**
