@@ -20,8 +20,15 @@ import java.util.Map;
  */
 public class TravellingSalesmanBruteforce {
 
+    /**
+     * The node from which the traversal begins. If it is empty, the search
+     * tries traversals starting from every node.
+     */
     public static String fixedStartingNode = "";
 
+    /**
+     * Should the traversal return to the start node?
+     */
     public static Boolean returnToStartingNode = false;
 
     /**
@@ -54,6 +61,19 @@ public class TravellingSalesmanBruteforce {
         if (!fixedStartingNode.equals(""))
             permutations = removeWrongStartingNodes(permutations);
 
+        if (returnToStartingNode)
+            permutations = addReturnEdges(permutations);
+
+        return permutations;
+    }
+
+    /**
+     * Adds returning edges from the last node to the starting node.
+     */
+    private static List<List<String>> addReturnEdges(List<List<String>> permutations) 
+    {
+        for (List<String> permutation : permutations)
+            permutation.add(permutation.get(0));
         return permutations;
     }
 
