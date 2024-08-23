@@ -8,6 +8,7 @@ import fi.tuomax.adventofcode.commons.pathfinding.TravellingSalesman;
 import fi.tuomax.adventofcode.framework.parsing.Parser;
 import fi.tuomax.adventofcode.framework.solving.Solver;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -45,14 +46,15 @@ extends Solver
         MazeSolver mazeSolver = new MazeSolver(((AirDuctSpelunking_Parser) parser).getMaze());
         Graph graph = new Graph();
 
-        for (Integer i : targets.keySet())
-            for (Integer j : targets.keySet()) 
-                if (!i.equals(j)) {
-                    Integer len = mazeSolver.pathLength(targets.get(i), targets.get(j));
-                    System.out.println(String.format("%d -> %d : %d", i, j, len));
-                    graph.addNodesAndDirectedEdge(i.toString(), j.toString(), len);
-                }
-        
+        List<Integer> nodes = new ArrayList<>(targets.keySet());
+        for (int i = 0; i < nodes.size() - 1; i++) {
+            for (int j = i + 1; j < nodes.size(); j++) {
+                Integer len = mazeSolver.pathLength(targets.get(nodes.get(i)), targets.get(nodes.get(j)));
+                System.out.println(String.format("%d -> %d : %d", i, j, len));
+                graph.addNodesAndUndirectedEdge(nodes.get(i).toString(), nodes.get(j).toString(), len);
+            }
+        }
+
         TravellingSalesman.fixedStartingNode = "0";
         setAnswer(TravellingSalesman.minDistance(graph));
     }
