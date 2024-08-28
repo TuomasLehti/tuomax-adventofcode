@@ -144,7 +144,7 @@ brute-forceable back then?
 | 22 | 20.8.2024 | 21.8.2024 |  |
 | 23 | 22.8.2024 | 23.8.2024 | (3) |
 | 24 | 24.8.2024 | 24.8.2024 |  |
-| 25 |  |  |  |
+| 25 | 28.8.2024 | n/a       |  |
 
 1) Part 2 is solved visually. It should be converted to use text recognition
    just for the fun of it.
