@@ -105,6 +105,9 @@ public class Cpu
     public void run() 
     {
         while (programCounter < program.size()) {
+            if (programCounter.equals(9))
+                System.out.println(toString());
+
             program.get(programCounter).run(this);
             programCounter++;
             cycle++;
