@@ -54,6 +54,7 @@ public class PuzzleTester
         }
     }
 
+    @Deprecated
     protected JSONObject fetchJson(Metadata metadata, String filename)
     {
         File file = new File(InputFactory.inputLocation(metadata, filename));
@@ -79,25 +80,35 @@ public class PuzzleTester
             JSONObject test = (JSONObject) o;
             if (test.has("input")) {
                 tests.add(
-                    new PuzzleTestCase(
-                        InputFactory.inputFromString(test.getString("input")), 
-                        test.getString("answer")
-                    )
+                    createSingleLineTest(test)
                 );
             } else if (test.has("file")) {
-                List<String> input = null;
-                try {
-                    input = InputFactory.inputFromMetadata(
-                        metadata, test.getString("file")
-                    );
-                } catch (JSONException | IOException e) {
-                    logger.error(e.getMessage(), e);
-                    input = new ArrayList<>();
-                }
-                tests.add(new PuzzleTestCase(input,test.getString("answer")));
+                tests.add(
+                    createMultiLineTest(metadata, test)
+                );
             } 
         }
         return tests;
+    }
+
+    private PuzzleTestCase createMultiLineTest(Metadata metadata, JSONObject test) {
+        List<String> input = null;
+        try {
+            input = InputFactory.inputFromMetadata(
+                metadata, test.getString("file")
+            );
+        } catch (JSONException | IOException e) {
+            logger.error(e.getMessage(), e);
+            input = new ArrayList<>();
+        }
+        return new PuzzleTestCase(input, test.getString("answer"));
+    }
+
+    private PuzzleTestCase createSingleLineTest(JSONObject test) {
+        return new PuzzleTestCase(
+            InputFactory.inputFromString(test.getString("input")), 
+            test.getString("answer")
+        );
     }
 
     public File fetchResource(String filename)
