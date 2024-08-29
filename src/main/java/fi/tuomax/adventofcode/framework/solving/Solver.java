@@ -49,9 +49,18 @@ public abstract class Solver
     /**
      * Parameters of the puzzle are the bits of knowledge needed to solve
      * the puzzle, which are not included in the puzzle input itself.
+     * 
+     * Parameters are read from a json file in the puzzle input directory.
+     * The json file should hold a single object, who has two children, one for
+     * both both parts of the puzzle. The name of the children of the root
+     * should be part1 and part2.
      */
     protected JSONObject parameters = null;
 
+    /**
+     * Sets the parameteres of the puzzle, if they need to be read from 
+     * somwhere that is not the standard puzzle input directory.
+     */
     public void setParameters(JSONObject parameters) 
     {
         this.parameters = parameters;
@@ -79,6 +88,7 @@ public abstract class Solver
      */
     public void run(List<String> input)
     {
+        readParametersFromStandardInputDirectory();
         this.parser = manufactureParser(input);
         stopwatch.start();
         parser.parse();
@@ -91,19 +101,6 @@ public abstract class Solver
      */
     public void run()
     {
-        File paramsFile = new File(
-            InputFactory.inputLocation(
-                metadata, 
-                InputFactory.DEFAULT_PARAMETERS_FILENAME
-            )
-        );
-        try {
-            String content = new String(Files.readAllBytes(paramsFile.toPath()));
-            setParameters(new JSONObject(content));
-        } catch (IOException e) {
-            System.out.println(e.getMessage());
-            /* Parameter file not found, just continue without params. */
-        }
         try {
             run(
                 InputFactory.inputFromMetadata(
@@ -114,6 +111,24 @@ public abstract class Solver
         } catch (IOException e) {
             LOGGER.warn("Unable to read input: " + e.toString());
             run(new ArrayList<String>());
+        }
+    }
+
+    private void readParametersFromStandardInputDirectory()
+    {
+        File paramsFile = new File(
+            InputFactory.inputLocation(
+                metadata, 
+                InputFactory.DEFAULT_PARAMETERS_FILENAME
+            )
+        );
+        try {
+            String content = new String(
+                    Files.readAllBytes(paramsFile.toPath()));
+            setParameters(new JSONObject(content));
+        } catch (IOException e) {
+            System.out.println(e.getMessage());
+            /* Parameter file not found, just continue without params. */
         }
     }
 
