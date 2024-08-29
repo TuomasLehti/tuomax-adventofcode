@@ -53,6 +53,22 @@ public class InputFactory
         );
     }
 
+    /**
+     * Defines the location of the puzzle input. The default directory 
+     * structure is "<project_dir>/inputs/yearYYYY/dayDD/" and the default
+     * file name for the input is "YYYY-DD input.txt", where YYYY is the year
+     * and DD is the day.
+     * 
+     * This is a bit redundant, but it has been the standard for me from the 
+     * very beginning, so that's what I'll use to the bitter end.
+     * 
+     * This method should be overriden, if you're going to use your own 
+     * naming scheme.
+     * 
+     * @param metadata
+     * @param filename
+     * @return
+     */
     public static String inputLocation(Metadata metadata, String filename)
     {
         return String.format(
