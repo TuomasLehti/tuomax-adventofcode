@@ -134,19 +134,57 @@ public abstract class Solver
 
     protected abstract void solve();
 
+    /**
+     * A convenience method for setting the answer.
+     */
     protected void setAnswer(Integer i)
     {
         answer = i.toString();
     }
 
+    /**
+     * A convenience method for setting the answer.
+     */
     protected void setAnswer(Long l)
     {
         answer = l.toString();
     }
 
+    /**
+     * A convenience method for setting the answer.
+     */
     protected void setAnswer(String s)
     {
         answer = s;
+    }
+
+    /**
+     * A convenience method for getting a parameter for this part of the
+     * puzzle.
+     */
+    protected String getParamStr(String name)
+    {
+        String partName = String.format("part%d", getMetadata().part());
+        return parameters.getJSONObject(partName).getString(name);
+    }
+
+    /**
+     * A convenience method for getting a parameter for this part of the
+     * puzzle.
+     */
+    protected Integer getParamInt(String name)
+    {
+        String partName = String.format("part%d", getMetadata().part());
+        return parameters.getJSONObject(partName).getInt(name);
+    }
+
+    /**
+     * The convenience method for getting the expected answer is exposed to the
+     * public, because for example the printers need it.
+     */
+    public String getExpectedAnswer()
+    {
+        return getParamStr("expected_answer");
     }
 
 }

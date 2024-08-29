@@ -50,6 +50,36 @@ algorithm.
 It should be noted, that everything will be easier if all algorithms can solve
 both parts of the puzzle.
 
+Solvers may have parameters, which are essential parts for solving the puzzle,
+which are not included in the puzzle input. The width and the height of a grid
+could be parameters, if they can't be deduced from the puzzle input.
+
+These parameters reside in a json file in the input directory for a puzzle.
+Each part of the puzzle should have a json object in the file, located in the
+root node of the json.
+
+A special case of a parameter is the expected puzzle answer. This is, of 
+course, not known, when first solving the puzzle, but it may be useful later,
+when refactoring. The printers can and will format things differently based
+upon the correctness of the answer.
+
+An example json file could look like this:
+
+```
+{
+    "part1" : {
+        "width" : 100,
+        "height" : 100,
+        "expected_answer" : "10000"
+    },
+    "part2" : {
+        "width" : 500,
+        "height" : 500,
+        "expected_answer" : "250000"
+    }
+}
+```
+
 If a solver needs to perform a lengthy task, it should keep the user informed
 of the progress via debug-level logging.
 
