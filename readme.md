@@ -21,10 +21,38 @@ this repository. They should be stored in the local machine, and methods in the
 ```InputFactory```-class should be used to locate and load them based on the 
 metadata for the year and day.
 
+The default directory for the inputs and other files for a given day is
+```<project_dir>/inputs/yearYYYY/dayDD/```, where YYYY is the year and DD is
+the day. The default file name for the input is ```YYYY-DD input.txt``` and
+for the parameters ```YYYY-DD parameters.json```.
+
 For testing purposes, where there are more than one input to test, inputs can
 be read from a json file. ```PuzzleTester```-class has methods for converting 
-json test suites to ```PuzzleTestCase```-objects. Only single-line inputs are 
-supported for now.
+json test suites to ```PuzzleTestCase```-objects.
+
+An example testing json from the very first puzzle (2015, day 1). These inputs
+are not included in the Advent of Code site, so no worries there.
+```
+{   
+    "part1" : [ 
+        {
+            "input": "(((()))(((()))",
+            "answer": "2"
+        },
+        {
+            "input": "()())()(",
+            "answer": "0"
+        },
+    ],
+    "part2" : [ 
+        {
+            "file": "2015-01 test.txt",
+            "answer": "..."
+        }
+    ]
+}
+```
+
 
 ### Parsing
 
