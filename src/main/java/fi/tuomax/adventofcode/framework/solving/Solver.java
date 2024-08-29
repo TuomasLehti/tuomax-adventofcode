@@ -184,7 +184,11 @@ public abstract class Solver
      */
     public String getExpectedAnswer()
     {
-        return getParamStr("expected_answer");
+        try {
+            return getParamStr("expected_answer");
+        } catch (NullPointerException e) {
+            return "";
+        }
     }
 
 }

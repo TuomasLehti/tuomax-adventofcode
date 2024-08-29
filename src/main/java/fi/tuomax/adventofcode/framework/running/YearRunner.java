@@ -50,7 +50,7 @@ extends Runner
 
     private String speedTest(Metadata metadata, All everySolver) 
     {
-        DayRunner runner = new DayRunner();
+        DaySpeedRunner runner = new DaySpeedRunner();
         Results results = runner.run(metadata, everySolver);
         Long fastestTime = Long.MAX_VALUE;
         ResultRow fastestRow = null;

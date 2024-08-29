@@ -4,7 +4,7 @@ import org.fusesource.jansi.Ansi;
 
 import fi.tuomax.adventofcode.framework.printing.Printer;
 import fi.tuomax.adventofcode.framework.printing.Results;
-import fi.tuomax.adventofcode.framework.running.DayRunner;
+import fi.tuomax.adventofcode.framework.running.DaySpeedRunner;
 import fi.tuomax.adventofcode.framework.running.LatestRunner;
 import fi.tuomax.adventofcode.framework.running.Runner;
 import fi.tuomax.adventofcode.framework.running.YearRunner;
@@ -217,7 +217,7 @@ public class AdventOfCode
         else if (settings.runMode() == RunMode.YEAR)
             return new YearRunner();
         else if (settings.runMode() == RunMode.DAY)
-            return new DayRunner();
+            return new DaySpeedRunner();
         return null;
     }
 

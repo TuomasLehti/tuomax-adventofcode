@@ -85,7 +85,7 @@ public class Printer
     private void printAnswer(ResultCol col)
     {
         System.out.print(" | ");
-        if (!col.answer().equals(col.solver().getExpectedAnswer()))
+        if (!col.solver().getExpectedAnswer().equals("") && !col.answer().equals(col.solver().getExpectedAnswer()))
             System.out.print(Ansi.ansi().fg(Ansi.Color.RED).toString());
         String format = String.format(
             "%%-%ds", 
