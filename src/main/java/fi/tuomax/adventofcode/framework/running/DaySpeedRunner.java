@@ -14,17 +14,20 @@ import fi.tuomax.adventofcode.framework.storing.All;
 import fi.tuomax.adventofcode.framework.storing.Day;
 import fi.tuomax.adventofcode.framework.storing.Year;
 
-public class DayRunner 
+public class DaySpeedRunner 
 extends Runner
 {
 
     private Logger logger = LoggerFactory.getLogger(getClass());
+
+    private Integer numOfAlgos = 0;
 
     @Override
     protected List<List<Solver>> collectSolvers(Metadata metadata, All everySolver) {
         List<List<Solver>> runned = new ArrayList<>();
         Year year = everySolver.getYear(metadata.year());
         Day day = year.getDay(metadata.day());
+        numOfAlgos = day.getAlgorithmNames().size();
         for (String algoName : day.getAlgorithmNames()) {
             List<Solver> solvers = new ArrayList<>();
             Algorithm algo = day.getAlgorithm(algoName);
@@ -74,13 +77,20 @@ extends Runner
 
     @Override
     protected String getSubHeading(List<List<Solver>> runned) {
+
         Metadata metadata = runned.get(0).get(0).getMetadata();
-        return String.format("Day %d: %s", metadata.day(), metadata.name());
+        if (numOfAlgos > 1)
+            return String.format("Day %d: %s", metadata.day(), metadata.name());
+        else
+            return "";
     }
 
     @Override
     protected String getRowHeader(List<Solver> row) {
-        return row.get(0).getMetadata().version();
+        if (numOfAlgos > 1)
+            return row.get(0).getMetadata().version();
+        else
+            return String.format("Day %d: %s", row.get(0).getMetadata().day(), row.get(0).getMetadata().name());
     }
     
 }
