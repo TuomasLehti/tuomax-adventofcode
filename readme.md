@@ -53,7 +53,6 @@ are not included in the Advent of Code site, so no worries there.
 }
 ```
 
-
 ### Parsing
 
 The list of strings is then passed on to different parsers, which parse the 
@@ -156,15 +155,21 @@ printed out by a printer class.
 
 ## Roadmap
 
-The development is divided into two branches.
+The development is divided into many branches.
 
-The y2016-branch concentrates on solving puzzles from Advent of Code 2016.
+The y2016-branch concentrates on refactoring puzzles from Advent of Code 2016.
 
-The y2015-branch concentrates on refactoring the slow algorithms from part 1.
-It also is responsible for developing concepts of expected answers and accepted
-solving times, and coloring the printing according to them.
+The y2015-branch concentrates on refactoring the slow algorithms from the first 
+year.
 
-To do after solving everything from 2016:
+Years 2022 and 2023 have been partially solved earlier in a different 
+environment. Each one has its own branch to migrate them to this framework and
+to complete them.
+
+Framework is being worked on in its own branch. Periodically the other branches
+may be rebased from this branch, if they benefit from framework updates.
+
+To do:
 - 2015 day 23: convert to generic cpu
 - Totally revamp the MD5 puzzle algorithm, which is a mess after so many tweaks
   needed by so many puzzles.
