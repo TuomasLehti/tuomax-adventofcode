@@ -10,6 +10,7 @@ import fi.tuomax.adventofcode.framework.printing.ResultCol;
 import fi.tuomax.adventofcode.framework.solving.Metadata;
 import fi.tuomax.adventofcode.framework.solving.Solver;
 import fi.tuomax.adventofcode.framework.storing.Algorithm;
+import fi.tuomax.adventofcode.framework.storing.All;
 import fi.tuomax.adventofcode.framework.storing.Day;
 import fi.tuomax.adventofcode.framework.storing.Year;
 
@@ -20,9 +21,9 @@ extends Runner
     private Logger logger = LoggerFactory.getLogger(getClass());
 
     @Override
-    protected List<List<Solver>> collectSolvers(Metadata metadata, Year year) {
+    protected List<List<Solver>> collectSolvers(Metadata metadata, All everySolver) {
         List<List<Solver>> runned = new ArrayList<>();
-
+        Year year = everySolver.getYear(metadata.year());
         Day day = year.getDay(metadata.day());
         for (String algoName : day.getAlgorithmNames()) {
             List<Solver> solvers = new ArrayList<>();

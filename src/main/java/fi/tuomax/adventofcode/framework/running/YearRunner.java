@@ -8,6 +8,7 @@ import fi.tuomax.adventofcode.framework.printing.Results;
 import fi.tuomax.adventofcode.framework.solving.Metadata;
 import fi.tuomax.adventofcode.framework.solving.Solver;
 import fi.tuomax.adventofcode.framework.storing.Algorithm;
+import fi.tuomax.adventofcode.framework.storing.All;
 import fi.tuomax.adventofcode.framework.storing.Day;
 import fi.tuomax.adventofcode.framework.storing.Year;
 
@@ -16,15 +17,16 @@ extends Runner
 {
 
     @Override
-    protected List<List<Solver>> collectSolvers(Metadata metadata, Year year) {
+    protected List<List<Solver>> collectSolvers(Metadata metadata, All everySolver) {
         List<List<Solver>> runned = new ArrayList<>();
 
+        Year year = everySolver.getYear(metadata.year());
         for (Integer dayNo : year.getDayNos()) {
 
             Day day = year.getDay(dayNo);
             String algoName = "";
             if (day.numOfAlgorithms() > 1) {
-                algoName = speedTest(day.getMetadata(), year);
+                algoName = speedTest(day.getMetadata(), everySolver);
             } else {
                 algoName = (String) year.getDay(dayNo).getAlgorithmNames().toArray()[0];
             }
@@ -46,10 +48,10 @@ extends Runner
         return runned;
     }
 
-    private String speedTest(Metadata metadata, Year year) 
+    private String speedTest(Metadata metadata, All everySolver) 
     {
         DayRunner runner = new DayRunner();
-        Results results = runner.run(metadata, year);
+        Results results = runner.run(metadata, everySolver);
         Long fastestTime = Long.MAX_VALUE;
         ResultRow fastestRow = null;
         for (ResultRow row : results.rows()) {

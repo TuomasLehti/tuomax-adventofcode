@@ -9,6 +9,7 @@ import fi.tuomax.adventofcode.framework.running.LatestRunner;
 import fi.tuomax.adventofcode.framework.running.Runner;
 import fi.tuomax.adventofcode.framework.running.YearRunner;
 import fi.tuomax.adventofcode.framework.solving.Metadata;
+import fi.tuomax.adventofcode.framework.storing.All;
 import fi.tuomax.adventofcode.framework.storing.Year;
 import fi.tuomax.adventofcode.year2015.day01.NotQuiteLisp_Part1;
 import fi.tuomax.adventofcode.year2015.day01.NotQuiteLisp_Part2;
@@ -114,7 +115,7 @@ import fi.tuomax.adventofcode.year2016.day14.OnetimePad_Part2;
 public class AdventOfCode 
 {
 
-    private Year year = new Year();
+    private All solvers = new All();
 
     public void run(Settings settings)
     {
@@ -123,7 +124,7 @@ public class AdventOfCode
         addSolvers2016();
         Runner runner = manufactureRunner(settings);
         Metadata metadata = settings.metadata() != null ? settings.metadata() : Year.latestAddition;
-        Results results = runner.run(metadata, year);
+        Results results = runner.run(metadata, solvers);
         Printer printer = manufacturePrinter();
         printer.print(settings, results);
     }
@@ -131,79 +132,79 @@ public class AdventOfCode
     private void addSolvers2016() 
     {
         /* day 1 */
-        year.addSolver(new NoTimeForATaxicab_Part1());
-        year.addSolver(new NoTimeForATaxicab_Part2());
+        solvers.addSolver(new NoTimeForATaxicab_Part1());
+        solvers.addSolver(new NoTimeForATaxicab_Part2());
         /* day 2 */
-        year.addSolver(new BathroomSecurity_Part1());
-        year.addSolver(new BathroomSecurity_Part2());
+        solvers.addSolver(new BathroomSecurity_Part1());
+        solvers.addSolver(new BathroomSecurity_Part2());
         /* day 3 */
-        year.addSolver(new SquaresWithThreeSides_Part1());
-        year.addSolver(new SquaresWithThreeSides_Part2());
+        solvers.addSolver(new SquaresWithThreeSides_Part1());
+        solvers.addSolver(new SquaresWithThreeSides_Part2());
         /* day 4 */
-        year.addSolver(new SecurityThroughObscurity_Part1());
-        year.addSolver(new SecurityThroughObscurity_Part2());
+        solvers.addSolver(new SecurityThroughObscurity_Part1());
+        solvers.addSolver(new SecurityThroughObscurity_Part2());
         /* day 5 */
-        year.addSolver(new HowAboutANiceGameOfChess_Part1());
-        year.addSolver(new HowAboutANiceGameOfChess_Part2());
+        solvers.addSolver(new HowAboutANiceGameOfChess_Part1());
+        solvers.addSolver(new HowAboutANiceGameOfChess_Part2());
         /* day 6 */
-        year.addSolver(new SignalsAndNoise_Part1());
-        year.addSolver(new SignalsAndNoise_Part2());
+        solvers.addSolver(new SignalsAndNoise_Part1());
+        solvers.addSolver(new SignalsAndNoise_Part2());
         /* day 7 */
-        year.addSolver(new InternetProtocolVersion7_Part1());
-        year.addSolver(new InternetProtocolVersion7_Part2());
+        solvers.addSolver(new InternetProtocolVersion7_Part1());
+        solvers.addSolver(new InternetProtocolVersion7_Part2());
         /* day 8 */
-        year.addSolver(new TwoFactorAuthentication_Part1());
-        year.addSolver(new TwoFactorAuthentication_Part2());
+        solvers.addSolver(new TwoFactorAuthentication_Part1());
+        solvers.addSolver(new TwoFactorAuthentication_Part2());
         /* day 9 */
-        year.addSolver(new ExplosivesInCyberspace_Part1());
-        year.addSolver(new ExplosivesInCyberspace_Part2());
+        solvers.addSolver(new ExplosivesInCyberspace_Part1());
+        solvers.addSolver(new ExplosivesInCyberspace_Part2());
         /* day 10 */
-        year.addSolver(new BalanceBots_Part1());
-        year.addSolver(new BalanceBots_Part2());
+        solvers.addSolver(new BalanceBots_Part1());
+        solvers.addSolver(new BalanceBots_Part2());
         /* day 11 */
-        year.addSolver(new RadioisotopeThermoelectricGenerators_Part1());
-        year.addSolver(new RadioisotopeThermoelectricGenerators_Part2());
+        solvers.addSolver(new RadioisotopeThermoelectricGenerators_Part1());
+        solvers.addSolver(new RadioisotopeThermoelectricGenerators_Part2());
         /* day 12 */
-        year.addSolver(new LeonardosMonorail_Part1());
-        year.addSolver(new LeonardosMonorail_Part2());
+        solvers.addSolver(new LeonardosMonorail_Part1());
+        solvers.addSolver(new LeonardosMonorail_Part2());
         /* day 13 */
-        year.addSolver(new AMazeOfTwistyLittleCubicles_Part1());
-        year.addSolver(new AMazeOfTwistyLittleCubicles_Part2());
+        solvers.addSolver(new AMazeOfTwistyLittleCubicles_Part1());
+        solvers.addSolver(new AMazeOfTwistyLittleCubicles_Part2());
         /* day 14 */
-        year.addSolver(new OnetimePad_Part1());
-        year.addSolver(new OnetimePad_Part2());
+        solvers.addSolver(new OnetimePad_Part1());
+        solvers.addSolver(new OnetimePad_Part2());
         /* day 15 */
-        year.addSolver(new TimingIsEverything_Part1());
-        year.addSolver(new TimingIsEverything_Part2());
+        solvers.addSolver(new TimingIsEverything_Part1());
+        solvers.addSolver(new TimingIsEverything_Part2());
         /* day 16 */
-        year.addSolver(new DragonChecksum_Part1());
-        year.addSolver(new DragonChecksum_Part2());
+        solvers.addSolver(new DragonChecksum_Part1());
+        solvers.addSolver(new DragonChecksum_Part2());
         /* day 17 */
-        year.addSolver(new TwoStepsForward_Part1());
-        year.addSolver(new TwoStepsForward_Part2());
+        solvers.addSolver(new TwoStepsForward_Part1());
+        solvers.addSolver(new TwoStepsForward_Part2());
         /* day 18 */
-        year.addSolver(new LikeARogue_Part1());
-        year.addSolver(new LikeARogue_Part2());
+        solvers.addSolver(new LikeARogue_Part1());
+        solvers.addSolver(new LikeARogue_Part2());
         /* day 19 */
-        year.addSolver(new AnElephantNamedJoseph_Part1());
-        year.addSolver(new AnElephantNamedJoseph_Part2());
+        solvers.addSolver(new AnElephantNamedJoseph_Part1());
+        solvers.addSolver(new AnElephantNamedJoseph_Part2());
         /* day 20 */
-        year.addSolver(new FirewallRules_Part1());
-        year.addSolver(new FirewallRules_Part2());
+        solvers.addSolver(new FirewallRules_Part1());
+        solvers.addSolver(new FirewallRules_Part2());
         /* day 21 */
-        year.addSolver(new ScrambledLettersAndHash_Part1());
-        year.addSolver(new ScrambledLettersAndHash_Part2());
+        solvers.addSolver(new ScrambledLettersAndHash_Part1());
+        solvers.addSolver(new ScrambledLettersAndHash_Part2());
         /* day 22 */
-        year.addSolver(new GridComputing_Part1());
-        year.addSolver(new GridComputing_Part2());
+        solvers.addSolver(new GridComputing_Part1());
+        solvers.addSolver(new GridComputing_Part2());
         /* day 23 */
-        year.addSolver(new SafeCracking_Part1());
-        year.addSolver(new SafeCracking_Part2());
+        solvers.addSolver(new SafeCracking_Part1());
+        solvers.addSolver(new SafeCracking_Part2());
         /* day 24 */
-        year.addSolver(new AirDuctSpelunking_Part1());
-        year.addSolver(new AirDuctSpelunking_Part2());
+        solvers.addSolver(new AirDuctSpelunking_Part1());
+        solvers.addSolver(new AirDuctSpelunking_Part2());
         /* day 25 */
-        year.addSolver(new ClockSignal_Part1());
+        solvers.addSolver(new ClockSignal_Part1());
     }
 
     private Printer manufacturePrinter() {
@@ -222,81 +223,81 @@ public class AdventOfCode
 
     private void addSolvers2015() {
         /* day 1 */
-        year.addSolver(new NotQuiteLisp_Part1());
-        year.addSolver(new NotQuiteLisp_Part2());
+        solvers.addSolver(new NotQuiteLisp_Part1());
+        solvers.addSolver(new NotQuiteLisp_Part2());
         /* day 2 */
-        year.addSolver(new IWasToldThereWouldBeNoMath_Part1());
-        year.addSolver(new IWasToldThereWouldBeNoMath_Part2());
+        solvers.addSolver(new IWasToldThereWouldBeNoMath_Part1());
+        solvers.addSolver(new IWasToldThereWouldBeNoMath_Part2());
         /* day 3 */
-        year.addSolver(new PerfectlySphericalHousesInAVacuum_Part1());
-        year.addSolver(new PerfectlySphericalHousesInAVacuum_Part2());
+        solvers.addSolver(new PerfectlySphericalHousesInAVacuum_Part1());
+        solvers.addSolver(new PerfectlySphericalHousesInAVacuum_Part2());
         /* day 4 */
-        year.addSolver(new TheIdealStockingStuffer_Part1());
-        year.addSolver(new TheIdealStockingStuffer_Part2());
+        solvers.addSolver(new TheIdealStockingStuffer_Part1());
+        solvers.addSolver(new TheIdealStockingStuffer_Part2());
         /* day 5 */
-        year.addSolver(new DoesntHeHaveInternElvesForThis_Part1());
-        year.addSolver(new DoesntHeHaveInternElvesForThis_Part2());
+        solvers.addSolver(new DoesntHeHaveInternElvesForThis_Part1());
+        solvers.addSolver(new DoesntHeHaveInternElvesForThis_Part2());
         /* day 6 */
-        year.addSolver(new ProbablyAFireHazard_LightRanges_Part1());
-        year.addSolver(new ProbablyAFireHazard_LightRanges_Part2());
-        year.addSolver(new ProbablyAFireHazard_SingleLights_Part1());
-        year.addSolver(new ProbablyAFireHazard_SingleLights_Part2());
+        solvers.addSolver(new ProbablyAFireHazard_LightRanges_Part1());
+        solvers.addSolver(new ProbablyAFireHazard_LightRanges_Part2());
+        solvers.addSolver(new ProbablyAFireHazard_SingleLights_Part1());
+        solvers.addSolver(new ProbablyAFireHazard_SingleLights_Part2());
         /* day 7 */
-        year.addSolver(new SomeAssemblyRequired_Part1());
-        year.addSolver(new SomeAssemblyRequired_Part2());
+        solvers.addSolver(new SomeAssemblyRequired_Part1());
+        solvers.addSolver(new SomeAssemblyRequired_Part2());
         /* day 8 */
-        year.addSolver(new Matchsticks_Part1());
-        year.addSolver(new Matchsticks_Part2());
+        solvers.addSolver(new Matchsticks_Part1());
+        solvers.addSolver(new Matchsticks_Part2());
         /* day 9 */
-        year.addSolver(new AllInASingleNight_Part1());
-        year.addSolver(new AllInASingleNight_Part2());
+        solvers.addSolver(new AllInASingleNight_Part1());
+        solvers.addSolver(new AllInASingleNight_Part2());
         /* day 10 */
-        year.addSolver(new ElvesLookElvesSay_Part1());
-        year.addSolver(new ElvesLookElvesSay_Part2());
+        solvers.addSolver(new ElvesLookElvesSay_Part1());
+        solvers.addSolver(new ElvesLookElvesSay_Part2());
         /* day 11 */
-        year.addSolver(new CorporatePolicy_Part1());
-        year.addSolver(new CorporatePolicy_Part2());
+        solvers.addSolver(new CorporatePolicy_Part1());
+        solvers.addSolver(new CorporatePolicy_Part2());
         /* day 12 */
-        year.addSolver(new JSAbacusFrameworkIo_Part1());
-        year.addSolver(new JSAbacusFrameworkIo_Part2());
+        solvers.addSolver(new JSAbacusFrameworkIo_Part1());
+        solvers.addSolver(new JSAbacusFrameworkIo_Part2());
         /* day 13 */
-        year.addSolver(new KnightsOfTheDinnerTable_Part1());
-        year.addSolver(new KnightsOfTheDinnerTable_Part2());
+        solvers.addSolver(new KnightsOfTheDinnerTable_Part1());
+        solvers.addSolver(new KnightsOfTheDinnerTable_Part2());
         /* day 14 */
-        year.addSolver(new ReindeerOlympics_Part1());
-        year.addSolver(new ReindeerOlympics_Part2());
+        solvers.addSolver(new ReindeerOlympics_Part1());
+        solvers.addSolver(new ReindeerOlympics_Part2());
         /* day 15 */
-        year.addSolver(new ScienceForHungryPeople_Part1());
-        year.addSolver(new ScienceForHungryPeople_Part2());
+        solvers.addSolver(new ScienceForHungryPeople_Part1());
+        solvers.addSolver(new ScienceForHungryPeople_Part2());
         /* day 16 */
-        year.addSolver(new AuntSue_Part1());
-        year.addSolver(new AuntSue_Part2());
+        solvers.addSolver(new AuntSue_Part1());
+        solvers.addSolver(new AuntSue_Part2());
         /* day 17 */
-        year.addSolver(new NoSuchThingAsTooMuch_Part1());
-        year.addSolver(new NoSuchThingAsTooMuch_Part2());
+        solvers.addSolver(new NoSuchThingAsTooMuch_Part1());
+        solvers.addSolver(new NoSuchThingAsTooMuch_Part2());
         /* day 18 */
-        year.addSolver(new LikeAGifForYourYard_Part1());
-        year.addSolver(new LikeAGifForYourYard_Part2());
+        solvers.addSolver(new LikeAGifForYourYard_Part1());
+        solvers.addSolver(new LikeAGifForYourYard_Part2());
         /* day 19 */
-        year.addSolver(new MedicineForRudolph_Part1());
-        year.addSolver(new MedicineForRudolph_Part2());
+        solvers.addSolver(new MedicineForRudolph_Part1());
+        solvers.addSolver(new MedicineForRudolph_Part2());
         /* day 20 */
-        year.addSolver(new InfiniteElvesAndInfiniteHouses_Part1());
-        year.addSolver(new InfiniteElvesAndInfiniteHouses_Part2());
+        solvers.addSolver(new InfiniteElvesAndInfiniteHouses_Part1());
+        solvers.addSolver(new InfiniteElvesAndInfiniteHouses_Part2());
         /* day 21 */
-        year.addSolver(new RpgSimulator20xx_Part1());
-        year.addSolver(new RpgSimulator20xx_Part2());
+        solvers.addSolver(new RpgSimulator20xx_Part1());
+        solvers.addSolver(new RpgSimulator20xx_Part2());
         /* day 22 */
-        year.addSolver(new WizardSimulator20XX_Part1());
-        year.addSolver(new WizardSimulator20XX_Part2());
+        solvers.addSolver(new WizardSimulator20XX_Part1());
+        solvers.addSolver(new WizardSimulator20XX_Part2());
         /* day 23 */
-        year.addSolver(new OpeningTheTuringLock_Part1());
-        year.addSolver(new OpeningTheTuringLock_Part2());
+        solvers.addSolver(new OpeningTheTuringLock_Part1());
+        solvers.addSolver(new OpeningTheTuringLock_Part2());
         /* day 24 */
-        year.addSolver(new ItHangsInTheBalance_Part1());
-        year.addSolver(new ItHangsInTheBalance_Part2());
+        solvers.addSolver(new ItHangsInTheBalance_Part1());
+        solvers.addSolver(new ItHangsInTheBalance_Part2());
         /* day 25 */
-        year.addSolver(new LetItSnow());
+        solvers.addSolver(new LetItSnow());
     }
 
     private void printWelcome() {

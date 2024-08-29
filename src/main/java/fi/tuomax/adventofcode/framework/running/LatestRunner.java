@@ -6,6 +6,7 @@ import java.util.List;
 import fi.tuomax.adventofcode.framework.solving.Metadata;
 import fi.tuomax.adventofcode.framework.solving.Solver;
 import fi.tuomax.adventofcode.framework.storing.Algorithm;
+import fi.tuomax.adventofcode.framework.storing.All;
 import fi.tuomax.adventofcode.framework.storing.Day;
 import fi.tuomax.adventofcode.framework.storing.Year;
 
@@ -14,9 +15,12 @@ extends Runner
 {
 
     @Override
-    protected List<List<Solver>> collectSolvers(Metadata metadata, Year year) {
+    protected List<List<Solver>> collectSolvers(Metadata metadata, All everySolver) {
         List<List<Solver>> runned = new ArrayList<>();
 
+        if (!everySolver.containsYear(metadata.year()))
+            throw new IllegalStateException(String.format("Year %d not found.", metadata.year()));
+        Year year = everySolver.getYear(metadata.year());
         if (!year.containsDay(metadata.day()))
             throw new IllegalStateException(String.format("Year %d, day %d not found.", metadata.year(), metadata.day()));
 

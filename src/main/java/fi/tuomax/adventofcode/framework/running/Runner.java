@@ -11,16 +11,16 @@ import fi.tuomax.adventofcode.framework.printing.ResultRow;
 import fi.tuomax.adventofcode.framework.printing.Results;
 import fi.tuomax.adventofcode.framework.solving.Metadata;
 import fi.tuomax.adventofcode.framework.solving.Solver;
-import fi.tuomax.adventofcode.framework.storing.Year;
+import fi.tuomax.adventofcode.framework.storing.All;
 
 public abstract class Runner
 {
 
     private Logger logger = LoggerFactory.getLogger(getClass());
 
-    public Results run(Metadata metadata, Year year)
+    public Results run(Metadata metadata, All solvers)
     {
-        List<List<Solver>> runned = collectSolvers(metadata, year);
+        List<List<Solver>> runned = collectSolvers(metadata, solvers);
         List<ResultRow> resultRows = new ArrayList<>();
         for (List<Solver> row : runned) {
             List<ResultCol> resultCols = new ArrayList<>();
@@ -39,7 +39,7 @@ public abstract class Runner
 
     protected abstract String getRowHeader(List<Solver> row);
 
-    protected abstract List<List<Solver>> collectSolvers(Metadata metadata, Year year);
+    protected abstract List<List<Solver>> collectSolvers(Metadata metadata, All solvers);
 
     protected ResultCol run(Solver solver)
     {
