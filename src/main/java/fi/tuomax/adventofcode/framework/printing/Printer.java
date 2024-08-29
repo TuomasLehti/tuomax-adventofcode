@@ -85,11 +85,14 @@ public class Printer
     private void printAnswer(ResultCol col)
     {
         System.out.print(" | ");
+        if (!col.answer().equals(col.solver().getExpectedAnswer()))
+            System.out.print(Ansi.ansi().fg(Ansi.Color.RED).toString());
         String format = String.format(
             "%%-%ds", 
             getSpaceNeededForAnswer(col.solver().getMetadata().part())
         );
         System.out.print(String.format(format, col.answer()));
+        System.out.print(Ansi.ansi().reset().toString());
     }
 
     private void printTime(ResultCol col)
