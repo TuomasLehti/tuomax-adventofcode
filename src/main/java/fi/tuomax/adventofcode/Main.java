@@ -19,14 +19,25 @@ public class Main
     {
         RunMode runMode = null;
         Metadata metadata = null;
-        if (args[0].equals("--latest")) {
-            runMode = RunMode.LATEST;
-        } else if (args[0].startsWith("--year")) {
-            runMode = RunMode.YEAR;
-            metadata = new Metadata(
-                Integer.valueOf(args[0].substring(args[0].indexOf("=")+1)), 
-                null, null, null, null);
+
+        for (String arg : args) {
+            if (arg.equals("--latest")) {
+                runMode = RunMode.LATEST;
+            } else if (arg.startsWith("--year")) {
+                runMode = RunMode.YEAR;
+                metadata = new Metadata(
+                    Integer.valueOf(arg.substring(arg.indexOf("=")+1)), 
+                    null, null, null, null);
+            } else if (arg.startsWith("--day")) {
+                runMode = RunMode.DAY;
+                metadata = new Metadata(
+                    metadata.year(),
+                    Integer.valueOf(arg.substring(arg.indexOf("=")+1)),
+                    null, null, null);
+            }
+    
         }
+
         return new Settings(metadata, runMode);
     }
     

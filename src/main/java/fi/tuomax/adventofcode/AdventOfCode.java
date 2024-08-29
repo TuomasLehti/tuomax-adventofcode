@@ -4,6 +4,7 @@ import org.fusesource.jansi.Ansi;
 
 import fi.tuomax.adventofcode.framework.printing.Printer;
 import fi.tuomax.adventofcode.framework.printing.Results;
+import fi.tuomax.adventofcode.framework.running.DayRunner;
 import fi.tuomax.adventofcode.framework.running.LatestRunner;
 import fi.tuomax.adventofcode.framework.running.Runner;
 import fi.tuomax.adventofcode.framework.running.YearRunner;
@@ -94,7 +95,6 @@ import fi.tuomax.adventofcode.year2016.day17.TwoStepsForward_Part1;
 import fi.tuomax.adventofcode.year2016.day17.TwoStepsForward_Part2;
 import fi.tuomax.adventofcode.year2016.day18.LikeARogue_Part1;
 import fi.tuomax.adventofcode.year2016.day18.LikeARogue_Part2;
-import fi.tuomax.adventofcode.year2016.day20.FirewallRules;
 import fi.tuomax.adventofcode.year2016.day20.FirewallRules_Part1;
 import fi.tuomax.adventofcode.year2016.day20.FirewallRules_Part2;
 import fi.tuomax.adventofcode.year2016.day21.ScrambledLettersAndHash_Part1;
@@ -103,7 +103,6 @@ import fi.tuomax.adventofcode.year2016.day22.GridComputing_Part1;
 import fi.tuomax.adventofcode.year2016.day22.GridComputing_Part2;
 import fi.tuomax.adventofcode.year2016.day23.SafeCracking_Part1;
 import fi.tuomax.adventofcode.year2016.day23.SafeCracking_Part2;
-import fi.tuomax.adventofcode.year2016.day24.AirDuctSpelunking;
 import fi.tuomax.adventofcode.year2016.day24.AirDuctSpelunking_Part1;
 import fi.tuomax.adventofcode.year2016.day24.AirDuctSpelunking_Part2;
 import fi.tuomax.adventofcode.year2016.day25.ClockSignal_Part1;
@@ -120,7 +119,7 @@ public class AdventOfCode
     public void run(Settings settings)
     {
         printWelcome();
-//        addSolvers2015();
+        addSolvers2015();
         addSolvers2016();
         Runner runner = manufactureRunner(settings);
         Metadata metadata = settings.metadata() != null ? settings.metadata() : Year.latestAddition;
@@ -216,6 +215,8 @@ public class AdventOfCode
             return new LatestRunner();
         else if (settings.runMode() == RunMode.YEAR)
             return new YearRunner();
+        else if (settings.runMode() == RunMode.DAY)
+            return new DayRunner();
         return null;
     }
 
