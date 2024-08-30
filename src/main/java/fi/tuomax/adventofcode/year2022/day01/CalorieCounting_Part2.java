@@ -32,6 +32,11 @@ extends Solver
         return new CalorieCounting_Parser(input);
     }
 
+    /**
+     * Solves Advent of Code 2022, day 1, part 1. The amount of calories an elf
+     * carries is counted in the parser, and this method just graps the three
+     * largest amounts.
+     */
     @Override
     protected void solve()
     {

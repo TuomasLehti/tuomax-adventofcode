@@ -176,6 +176,9 @@ To do:
 
 ## Year 2022
 
+Days 1 to 7 were solved in a different environment. The dates mentioned here
+are the dates of migrating these puzzles to this framework.
+
 | Day | Part 1 | Part 2 | Notes |
 |---|---|---|---|
 | 1  | 30.8.2024 | 30.8.2024 |  |
