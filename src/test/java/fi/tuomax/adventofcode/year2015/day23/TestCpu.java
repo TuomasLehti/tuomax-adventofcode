@@ -5,6 +5,8 @@ import static org.junit.Assert.fail;
 
 import org.junit.Test;
 
+import fi.tuomax.adventofcode.commons.cpu.Cpu;
+import fi.tuomax.adventofcode.commons.cpu.Cpu_Parser;
 import fi.tuomax.adventofcode.framework.inputting.InputFactory;
 import fi.tuomax.adventofcode.framework.solving.Metadata;
 
@@ -15,11 +17,12 @@ public class TestCpu
     public void test()
     {
         try {
-            OpeningTheTuringLock_Parser parser = new OpeningTheTuringLock_Parser(
-                InputFactory.inputFromMetadata(new Metadata(2015, 23, 1, "", ""), "test.txt")
+            Cpu_Parser parser = new Cpu_Parser(
+                InputFactory.inputFromMetadata(new Metadata(2015, 23, 1, "", ""), "test.txt"),
+                new OpeningTheTuringLock_InstructionFactory()
             );
             parser.parse();
-            CPU cpu = parser.getCpu();
+            Cpu cpu = parser.getCpu();
             cpu.run();
             assertEquals(2, (int) cpu.getRegister("a"));
         } catch (Exception e) {

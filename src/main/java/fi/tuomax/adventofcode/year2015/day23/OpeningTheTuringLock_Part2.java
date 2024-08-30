@@ -2,6 +2,8 @@ package fi.tuomax.adventofcode.year2015.day23;
 
 import java.util.List;
 
+import fi.tuomax.adventofcode.commons.cpu.Cpu;
+import fi.tuomax.adventofcode.commons.cpu.Cpu_Parser;
 import fi.tuomax.adventofcode.framework.parsing.Parser;
 import fi.tuomax.adventofcode.framework.solving.Metadata;
 import fi.tuomax.adventofcode.framework.solving.Solver;
@@ -22,13 +24,13 @@ extends Solver
     @Override
     protected Parser manufactureParser(List<String> input) 
     {
-        return new OpeningTheTuringLock_Parser(input);
+        return new Cpu_Parser(input, new OpeningTheTuringLock_InstructionFactory());
     }
 
     @Override
     protected void solve() 
     {
-        CPU cpu = ((OpeningTheTuringLock_Parser) parser).getCpu();
+        Cpu cpu = ((Cpu_Parser) parser).getCpu();
         cpu.setRegister("a", 1);
         cpu.run();
         setAnswer(cpu.getRegister("b"));
