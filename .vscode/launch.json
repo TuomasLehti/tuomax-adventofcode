@@ -14,11 +14,11 @@
         },
         {
             "type": "java",
-            "name": "Year 2015",
+            "name": "Year 2022",
             "request": "launch",
             "mainClass": "fi.tuomax.adventofcode.Main",
             "projectName": "tuomax-adventofcode",
-            "args": "--year=2015"
+            "args": "--year=2022"
         }, 
         {
             "type": "java",
