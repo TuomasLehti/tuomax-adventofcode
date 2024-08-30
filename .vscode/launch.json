@@ -27,6 +27,14 @@
             "mainClass": "fi.tuomax.adventofcode.Main",
             "projectName": "tuomax-adventofcode",
             "args": "--year=2016"
+        },
+        {
+            "type": "java",
+            "name": "Year 2015 day 23",
+            "request": "launch",
+            "mainClass": "fi.tuomax.adventofcode.Main",
+            "projectName": "tuomax-adventofcode",
+            "args": "--year=2015 --day=23"
         }
     ]
 }
