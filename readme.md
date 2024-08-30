@@ -174,6 +174,37 @@ To do:
 - Totally revamp the MD5 puzzle algorithm, which is a mess after so many tweaks
   needed by so many puzzles.
 
+## Year 2022
+
+| Day | Part 1 | Part 2 | Notes |
+|---|---|---|---|
+| 1  | 30.8.2024 | 30.8.2024 |  |
+| 2  |  |  |  |
+| 3  |  |  |  |
+| 4  |  |  |  |
+| 5  |  |  |  |
+| 6  |  |  |  |
+| 7  |  |  |  |
+| 8  |  |  |  |
+| 9  |  |  |  |
+| 10 |  |  |  |
+| 11 |  |  |  |
+| 12 |  |  |  |
+| 13 |  |  |  |
+| 14 |  |  |  |
+| 15 |  |  |  |
+| 16 |  |  |  |
+| 17 |  |  |  |
+| 18 |  |  |  |
+| 19 |  |  |  |
+| 20 |  |  |  |
+| 21 |  |  |  |
+| 22 |  |  |  |
+| 23 |  |  |  |
+| 24 |  |  |  |
+| 25 |  |  |  |
+
+
 ## Year 2016
 
 Solving the puzzles of 2016 in 2024 seemed pretty easy. You could brute-force
