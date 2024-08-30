@@ -107,6 +107,8 @@ import fi.tuomax.adventofcode.year2016.day23.SafeCracking_Part2;
 import fi.tuomax.adventofcode.year2016.day24.AirDuctSpelunking_Part1;
 import fi.tuomax.adventofcode.year2016.day24.AirDuctSpelunking_Part2;
 import fi.tuomax.adventofcode.year2016.day25.ClockSignal_Part1;
+import fi.tuomax.adventofcode.year2022.day01.CalorieCounting_Part1;
+import fi.tuomax.adventofcode.year2022.day01.CalorieCounting_Part2;
 import fi.tuomax.adventofcode.year2016.day19.AnElephantNamedJoseph_Part1;
 import fi.tuomax.adventofcode.year2016.day19.AnElephantNamedJoseph_Part2;
 import fi.tuomax.adventofcode.year2016.day14.OnetimePad_Part1;
@@ -122,11 +124,18 @@ public class AdventOfCode
         printWelcome();
         addSolvers2015();
         addSolvers2016();
+        addSolvers2022();
         Runner runner = manufactureRunner(settings);
         Metadata metadata = settings.metadata() != null ? settings.metadata() : Year.latestAddition;
         Results results = runner.run(metadata, solvers);
         Printer printer = manufacturePrinter();
         printer.print(settings, results);
+    }
+
+    private void addSolvers2022() {
+        /* day 1 */
+        solvers.addSolver(new CalorieCounting_Part1());
+        solvers.addSolver(new CalorieCounting_Part2());
     }
 
     private void addSolvers2016() 
