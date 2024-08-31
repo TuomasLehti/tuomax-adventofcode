@@ -182,7 +182,7 @@ are the dates of migrating these puzzles to this framework.
 | Day | Part 1 | Part 2 | Notes |
 |---|---|---|---|
 | 1  | 30.8.2024 | 30.8.2024 |  |
-| 2  |  |  |  |
+| 2  | 31.8.2024 | 31.8.2024 |  |
 | 3  |  |  |  |
 | 4  |  |  |  |
 | 5  |  |  |  |
