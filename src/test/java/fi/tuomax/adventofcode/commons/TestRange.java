@@ -53,6 +53,19 @@ public class TestRange
     }
 
     @Test
+    public void testContainsRange()
+    {
+        Range range = new Range(10L, 20L);
+        assertTrue(range.contains(new Range(12L, 17L)));
+        assertTrue(range.contains(new Range(10L, 17L)));
+        assertTrue(range.contains(new Range(12L, 20L)));
+        assertTrue(range.contains(new Range(10L, 20L)));
+        assertFalse(range.contains(new Range(9L, 15L)));
+        assertFalse(range.contains(new Range(15L, 21L)));
+        assertFalse(range.contains(new Range(9L, 21L)));
+    }
+
+    @Test
     public void testSplitBefore()
     {
         Range range = new Range(0L, 9L);

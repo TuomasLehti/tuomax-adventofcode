@@ -81,6 +81,19 @@ public class Range
     }
 
     /**
+     * Does this range contain another range?
+     * @param other
+     *      A range which may be contained in this range.
+     * @return
+     *      Is the other range contained in this range?
+     */
+    public Boolean contains(Range other)
+    {
+        return other.getStart() >= this.getStart() && 
+                other.getEnd() <= this.getEnd();
+    }
+
+    /**
      * Splits the range just before a number. If the range doesn't contain the
      * number, returns the whole range as a single part.
      * @param index
