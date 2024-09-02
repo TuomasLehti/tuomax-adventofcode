@@ -113,6 +113,43 @@ public class PuzzleTester
         return tests;
     }
 
+    /**
+     * Fetches a suite of test cases from a json array.
+     * 
+     * The input for these test cases may come from a single line of text or 
+     * from a file. If the input is a file, it must be read from the standard
+     * input directory, which is why the metadata must exists here. If 
+     * you'ven't planned any tests involving input from a file, it is fine
+     * to make metadata null.
+     * 
+     * @param metadata
+     *      Used for determining the actual location of the input file in disk.
+     *      May be null if no file tests are taking place.
+     * 
+     * @param suite
+     *      A JSON array of test cases.
+     * 
+     * @return
+     *      A list of test cases.
+     */
+    protected List<PuzzleTestCase> fetchTestCases(Metadata metadata, JSONArray suite)
+    {
+        List<PuzzleTestCase> tests = new ArrayList<>();
+        for (Object o : suite) {
+            JSONObject test = (JSONObject) o;
+            if (test.has("input")) {
+                tests.add(
+                    createSingleLineTest(test)
+                );
+            } else if (test.has("file")) {
+                tests.add(
+                    createMultiLineTest(metadata, test)
+                );
+            } 
+        }
+        return tests;
+    }
+
     private PuzzleTestCase createMultiLineTest(Metadata metadata, JSONObject test) {
         List<String> input = null;
         try {

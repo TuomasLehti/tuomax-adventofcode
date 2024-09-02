@@ -8,6 +8,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.util.List;
 
+import org.json.JSONArray;
 import org.json.JSONObject;
 import org.junit.Test;
 
@@ -38,6 +39,26 @@ extends PuzzleTester
         File file = fetchResource(FILENAME);
         JSONObject json = readJson(file);
         assertEquals(EXPECTED, json.getString(NAME));
+    }
+
+    @Test
+    public void testFetchTestSuite()
+    {
+        final String FILENAME = "/fi/tuomax/adventofcode/test_testsuite.json";
+        final String SUITE_NAME = "suite";
+        final String[] TEST_INPUTS = 
+            new String[]{"Hello", "my", "friend", "you"};
+        final String[] TEST_ANSWERS = 
+            new String[]{"darkness", "old", "suit", "sir"};
+        File file = fetchResource(FILENAME);
+        JSONObject json = readJson(file);
+        JSONArray suite = json.getJSONArray(SUITE_NAME);
+        List<PuzzleTestCase> cases = fetchTestCases(null, suite);
+        assertEquals(TEST_INPUTS.length, cases.size());
+        for (int i = 0; i < TEST_INPUTS.length; i++) {
+            assertEquals(TEST_INPUTS[i], cases.get(i).input().get(0));
+            assertEquals(TEST_ANSWERS[i], cases.get(i).expectedAnswer());
+        }
     }
     
 }
