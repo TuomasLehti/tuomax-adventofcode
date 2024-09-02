@@ -33,9 +33,7 @@ extends Solver
     {
         moves = ((SupplyStacks_Parser) parser).getMoves();
         stacks = ((SupplyStacks_Parser) parser).getStacks();
-        for (StackMove move : moves)
-            for (int i = 0; i < move.amount(); i++)
-                stacks.get(move.to() - 1).push(stacks.get(move.from() - 1).pop());
+        simulateCrateMover();
         StringBuilder answerBuilder = new StringBuilder();
         for (Deque<Character> stack : stacks)
             answerBuilder.append(stack.pop());
