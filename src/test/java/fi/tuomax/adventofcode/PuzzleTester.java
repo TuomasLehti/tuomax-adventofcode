@@ -33,11 +33,12 @@ public class PuzzleTester
     protected JSONObject json;
 
     /**
-     * Reads the json file which contains the test cases.
+     * Reads the json file which contains the test cases. Default file name is 
+     * used.
      */
     protected void readJson(Metadata metadata)
     {
-        readJson(metadata, "tests.json");
+        json = readJsonFile(metadata, InputFactory.DEFAULT_TEST_INPUT_FILENAME);
     }
 
     /**
@@ -45,17 +46,13 @@ public class PuzzleTester
      */
     protected void readJson(Metadata metadata, String filename)
     {
-        File file = new File(InputFactory.inputLocation(metadata, filename));
-        try {
-            String content = new String(Files.readAllBytes(file.toPath()));
-            json = new JSONObject(content);
-        } catch (IOException e) {
-            fail(e.getMessage());
-        }
+        json = readJsonFile(metadata, filename);
     }
 
-    @Deprecated
-    protected JSONObject fetchJson(Metadata metadata, String filename)
+    /**
+     * Reads a json file from the standard input directory structure.
+     */
+    protected JSONObject readJsonFile(Metadata metadata, String filename)
     {
         File file = new File(InputFactory.inputLocation(metadata, filename));
         try {
@@ -71,9 +68,19 @@ public class PuzzleTester
      */
     protected List<PuzzleTestCase> fetchTestCases(Metadata metadata) 
     {
+        return fetchTestCases(
+            metadata, 
+            String.format("part%d", metadata.part())
+        );
+    }
+
+    /**
+     * Fetches a suite of tests from json.
+     */
+    protected List<PuzzleTestCase> fetchTestCases(Metadata metadata, String suiteName) 
+    {
         readJson(metadata);
-        JSONArray suite = json.getJSONArray(
-                String.format("part%d", metadata.part()));
+        JSONArray suite = json.getJSONArray(suiteName);
 
         List<PuzzleTestCase> tests = new ArrayList<>();
         for (Object o : suite) {
@@ -118,12 +125,18 @@ public class PuzzleTester
         return new File(url.getPath().substring(1));
     }
 
+    /**
+     * Runs a suite of tests against a solver.
+     * 
+     * @param solver
+     *      The solver to test.
+     */
     public void runTests(Solver solver)
     {
         List<PuzzleTestCase> suite = fetchTestCases(solver.getMetadata());
         for (PuzzleTestCase testCase : suite) {
             // may return null, which is fine by solver
-            solver.setParameters(fetchJson(solver.getMetadata(), "test parameters.json"));
+            solver.setParameters(readJsonFile(solver.getMetadata(), "test parameters.json"));
             solver.run(testCase.input());
             assertEquals(testCase.expectedAnswer(), solver.getAnswer());
         }

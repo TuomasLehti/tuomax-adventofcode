@@ -19,7 +19,7 @@ extends PuzzleTester
     {
         try {
             OnetimePad_Part1 solver = new OnetimePad_Part1();
-            solver.setParameters(fetchJson(solver.getMetadata(), "parameters.json"));
+            solver.setParameters(readJsonFile(solver.getMetadata(), "parameters.json"));
             solver.run(InputFactory.inputFromMetadata(solver.getMetadata(), "test.txt"));
             assertEquals("22728", solver.getAnswer());
         } catch (IOException e) {
@@ -32,7 +32,7 @@ extends PuzzleTester
     {
         try {
             OnetimePad_Part2 solver = new OnetimePad_Part2();
-            solver.setParameters(fetchJson(solver.getMetadata(), "parameters.json"));
+            solver.setParameters(readJsonFile(solver.getMetadata(), "parameters.json"));
             solver.run(InputFactory.inputFromMetadata(solver.getMetadata(), "test.txt"));
             assertEquals("22551", solver.getAnswer());
         } catch (IOException e) {
