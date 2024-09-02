@@ -68,9 +68,19 @@ public class PuzzleTester
      */
     protected List<PuzzleTestCase> fetchTestCases(Metadata metadata) 
     {
+        return fetchTestCases(
+            metadata, 
+            String.format("part%d", metadata.part())
+        );
+    }
+
+    /**
+     * Fetches a suite of tests from json.
+     */
+    protected List<PuzzleTestCase> fetchTestCases(Metadata metadata, String suiteName) 
+    {
         readJson(metadata);
-        JSONArray suite = json.getJSONArray(
-                String.format("part%d", metadata.part()));
+        JSONArray suite = json.getJSONArray(suiteName);
 
         List<PuzzleTestCase> tests = new ArrayList<>();
         for (Object o : suite) {
