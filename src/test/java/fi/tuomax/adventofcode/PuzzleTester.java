@@ -2,7 +2,6 @@ package fi.tuomax.adventofcode;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.fail;
 
 import java.io.File;
 import java.io.IOException;
@@ -96,21 +95,7 @@ public class PuzzleTester
     {
         readJson(metadata);
         JSONArray suite = json.getJSONArray(suiteName);
-
-        List<PuzzleTestCase> tests = new ArrayList<>();
-        for (Object o : suite) {
-            JSONObject test = (JSONObject) o;
-            if (test.has("input")) {
-                tests.add(
-                    createSingleLineTest(test)
-                );
-            } else if (test.has("file")) {
-                tests.add(
-                    createMultiLineTest(metadata, test)
-                );
-            } 
-        }
-        return tests;
+        return fetchTestCases(metadata, suite);
     }
 
     /**
