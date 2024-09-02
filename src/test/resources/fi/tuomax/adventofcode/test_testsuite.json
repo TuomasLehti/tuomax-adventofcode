@@ -1,0 +1,20 @@
+{   
+    "suite": [
+        {
+            "input": "Hello",
+            "answer": "darkness"
+        },
+        {
+            "input": "my",
+            "answer": "old"
+        },
+        {
+            "input": "friend",
+            "answer": "suit"
+        },
+        {
+            "input": "you",
+            "answer": "sir"
+        }
+    ]
+}

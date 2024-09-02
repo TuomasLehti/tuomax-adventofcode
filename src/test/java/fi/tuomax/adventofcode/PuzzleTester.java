@@ -2,7 +2,6 @@ package fi.tuomax.adventofcode;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.fail;
 
 import java.io.File;
 import java.io.IOException;
@@ -33,8 +32,8 @@ public class PuzzleTester
     protected JSONObject json;
 
     /**
-     * Reads the json file which contains the test cases. Default file name is 
-     * used.
+     * Reads the json file which contains the test cases. Default input 
+     * directory structure and file name is used.
      */
     protected void readJson(Metadata metadata)
     {
@@ -42,11 +41,26 @@ public class PuzzleTester
     }
 
     /**
-     * Reads the json file which contains the test cases.
+     * Reads the json file which contains the test cases. Default input 
+     * directory structure is used.
      */
     protected void readJson(Metadata metadata, String filename)
     {
-        json = readJsonFile(metadata, filename);
+        json = readJson(new File(
+                InputFactory.inputLocation(metadata, filename)));
+    }
+
+    /**
+     * Reads a json file.
+     */
+    protected JSONObject readJson(File file)
+    {
+        try {
+            String content = new String(Files.readAllBytes(file.toPath()));
+            return new JSONObject(content);
+        } catch (IOException e) {
+            return null;
+        }
     }
 
     /**
@@ -81,7 +95,30 @@ public class PuzzleTester
     {
         readJson(metadata);
         JSONArray suite = json.getJSONArray(suiteName);
+        return fetchTestCases(metadata, suite);
+    }
 
+    /**
+     * Fetches a suite of test cases from a json array.
+     * 
+     * The input for these test cases may come from a single line of text or 
+     * from a file. If the input is a file, it must be read from the standard
+     * input directory, which is why the metadata must exists here. If 
+     * you'ven't planned any tests involving input from a file, it is fine
+     * to make metadata null.
+     * 
+     * @param metadata
+     *      Used for determining the actual location of the input file in disk.
+     *      May be null if no file tests are taking place.
+     * 
+     * @param suite
+     *      A JSON array of test cases.
+     * 
+     * @return
+     *      A list of test cases.
+     */
+    protected List<PuzzleTestCase> fetchTestCases(Metadata metadata, JSONArray suite)
+    {
         List<PuzzleTestCase> tests = new ArrayList<>();
         for (Object o : suite) {
             JSONObject test = (JSONObject) o;
