@@ -21,20 +21,19 @@ extends PuzzleTester
     public void test_Parser()
     {
         Metadata metadata = new Metadata(2022, 7, null, null, null);
-        List<PuzzleTestCase> suite = fetchTestCases(metadata, "directory_sizes");
 
-        NoSpaceLeftOnDevice_Parser parser = null;
+        List<String> input = null;
         try {
-            parser = 
-                    new NoSpaceLeftOnDevice_Parser(
-                            InputFactory.inputFromMetadata(metadata, "test.txt")
-                    );
+            input = InputFactory.inputFromMetadata(metadata, "test.txt");
         } catch (IOException e) {
             fail(e.toString());
         }
 
+        NoSpaceLeftOnDevice_Parser parser = new NoSpaceLeftOnDevice_Parser(input);
         parser.parse();
         Directory tree = parser.getDirectoryTree();
+
+        List<PuzzleTestCase> suite = fetchTestCases(metadata, "directory_sizes");
         for (PuzzleTestCase test : suite) {
             Directory dir = tree.search(test.input().get(0));
             assertEquals(dir.size(), Long.valueOf(test.expectedAnswer()));
