@@ -23,7 +23,7 @@ extends PuzzleTester
     @Test
     public void test_Operations()
     {
-        JSONObject json = fetchJson(new Metadata(2016, 21, 1, null, null), "tests.json");
+        JSONObject json = readJsonFile(new Metadata(2016, 21, 1, null, null), "tests.json");
         JSONArray tests = json.getJSONArray("part1");
         for (Object o : tests) {
             JSONObject test = (JSONObject) o;

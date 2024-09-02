@@ -19,7 +19,7 @@ extends PuzzleTester
     {
         try {
             DragonChecksum_Part1 part = new DragonChecksum_Part1();
-            part.setParameters(fetchJson(part.getMetadata(), "test parameters.json"));
+            part.setParameters(readJsonFile(part.getMetadata(), "test parameters.json"));
             part.run(InputFactory.inputFromMetadata(part.getMetadata(), "test.txt"));
             assertEquals("01100", part.getAnswer());
         } catch (IOException e) {

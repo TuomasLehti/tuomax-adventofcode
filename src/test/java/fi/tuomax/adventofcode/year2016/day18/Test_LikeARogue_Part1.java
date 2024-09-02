@@ -19,7 +19,7 @@ extends PuzzleTester
     {
         try {
             LikeARogue_Part1 solver = new LikeARogue_Part1();
-            solver.setParameters(fetchJson(solver.getMetadata(), "test parameters.json"));
+            solver.setParameters(readJsonFile(solver.getMetadata(), "test parameters.json"));
             solver.run(InputFactory.inputFromMetadata(solver.getMetadata(), "test.txt"));
             assertEquals("38", solver.getAnswer());
         } catch (IOException e) {
