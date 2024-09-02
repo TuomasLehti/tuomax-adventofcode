@@ -37,7 +37,7 @@ public class PuzzleTester
      */
     protected void readJson(Metadata metadata)
     {
-        json = readJsonFile(metadata, InputFactory.DEFAULT_TEST_INPUT_FILENAME);
+        json = readJsonFile(metadata, InputFactory.DEFAULT_TEST_SUITES_FILENAME);
     }
 
     /**
