@@ -119,6 +119,8 @@ import fi.tuomax.adventofcode.year2022.day05.SupplyStacks_Part1;
 import fi.tuomax.adventofcode.year2022.day05.SupplyStacks_Part2;
 import fi.tuomax.adventofcode.year2022.day06.TuningTrouble_Part1;
 import fi.tuomax.adventofcode.year2022.day06.TuningTrouble_Part2;
+import fi.tuomax.adventofcode.year2022.day07.NoSpaceLeftOnDevice_Part1;
+import fi.tuomax.adventofcode.year2022.day07.NoSpaceLeftOnDevice_Part2;
 import fi.tuomax.adventofcode.year2016.day19.AnElephantNamedJoseph_Part1;
 import fi.tuomax.adventofcode.year2016.day19.AnElephantNamedJoseph_Part2;
 import fi.tuomax.adventofcode.year2016.day14.OnetimePad_Part1;
@@ -161,7 +163,9 @@ public class AdventOfCode
         /* day 6 */
         solvers.addSolver(new TuningTrouble_Part1());
         solvers.addSolver(new TuningTrouble_Part2());
-
+        /* day 7 */
+        solvers.addSolver(new NoSpaceLeftOnDevice_Part1());
+        solvers.addSolver(new NoSpaceLeftOnDevice_Part2());
     }
 
     private void addSolvers2016() 
