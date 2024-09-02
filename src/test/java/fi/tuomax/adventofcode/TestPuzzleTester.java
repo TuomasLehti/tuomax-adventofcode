@@ -8,6 +8,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.util.List;
 
+import org.json.JSONObject;
 import org.junit.Test;
 
 public class TestPuzzleTester 
@@ -26,6 +27,17 @@ extends PuzzleTester
         } catch (IOException e) {
             fail(e.getMessage());
         }
+    }
+
+    @Test
+    public void testReadJson()
+    {
+        final String FILENAME = "/fi/tuomax/adventofcode/test_json.json";
+        final String NAME = "Hello";
+        final String EXPECTED = "world";
+        File file = fetchResource(FILENAME);
+        JSONObject json = readJson(file);
+        assertEquals(EXPECTED, json.getString(NAME));
     }
     
 }

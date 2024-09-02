@@ -33,8 +33,8 @@ public class PuzzleTester
     protected JSONObject json;
 
     /**
-     * Reads the json file which contains the test cases. Default file name is 
-     * used.
+     * Reads the json file which contains the test cases. Default input 
+     * directory structure and file name is used.
      */
     protected void readJson(Metadata metadata)
     {
@@ -42,11 +42,26 @@ public class PuzzleTester
     }
 
     /**
-     * Reads the json file which contains the test cases.
+     * Reads the json file which contains the test cases. Default input 
+     * directory structure is used.
      */
     protected void readJson(Metadata metadata, String filename)
     {
-        json = readJsonFile(metadata, filename);
+        json = readJson(new File(
+                InputFactory.inputLocation(metadata, filename)));
+    }
+
+    /**
+     * Reads a json file.
+     */
+    protected JSONObject readJson(File file)
+    {
+        try {
+            String content = new String(Files.readAllBytes(file.toPath()));
+            return new JSONObject(content);
+        } catch (IOException e) {
+            return null;
+        }
     }
 
     /**
