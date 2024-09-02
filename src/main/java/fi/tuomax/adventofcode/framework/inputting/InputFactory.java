@@ -28,6 +28,8 @@ public class InputFactory
 
     public static final String DEFAULT_INPUT_FILENAME = "input.txt";
     public static final String DEFAULT_PARAMETERS_FILENAME = "parameters.json";
+    public static final String DEFAULT_TEST_INPUT_FILENAME = "test.txt";
+    public static final String DEFAULT_TEST_PARAMETERS_FILENAME = "test parameters.json";
 
     public static List<String> inputFromFile(File file) 
     throws IOException
