@@ -115,6 +115,8 @@ import fi.tuomax.adventofcode.year2022.day03.RucksackReorganization_Solver_Part1
 import fi.tuomax.adventofcode.year2022.day03.RucksackReorganization_Solver_Part2;
 import fi.tuomax.adventofcode.year2022.day04.CampCleanup_Part1;
 import fi.tuomax.adventofcode.year2022.day04.CampCleanup_Part2;
+import fi.tuomax.adventofcode.year2022.day05.SupplyStacks_Part1;
+import fi.tuomax.adventofcode.year2022.day05.SupplyStacks_Part2;
 import fi.tuomax.adventofcode.year2016.day19.AnElephantNamedJoseph_Part1;
 import fi.tuomax.adventofcode.year2016.day19.AnElephantNamedJoseph_Part2;
 import fi.tuomax.adventofcode.year2016.day14.OnetimePad_Part1;
@@ -151,6 +153,10 @@ public class AdventOfCode
         /* day 4 */
         solvers.addSolver(new CampCleanup_Part1());
         solvers.addSolver(new CampCleanup_Part2());
+        /* day 5 */
+        solvers.addSolver(new SupplyStacks_Part1());
+        solvers.addSolver(new SupplyStacks_Part2());
+
     }
 
     private void addSolvers2016() 

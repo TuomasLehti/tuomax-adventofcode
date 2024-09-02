@@ -52,5 +52,18 @@ extends PuzzleTester
             fail(e.toString());
         }
     }
+
+    @Test
+    public void test_Part1()
+    {
+        runTests(new SupplyStacks_Part1());
+    }
+
+    @Test
+    public void test_Part2()
+    {
+        runTests(new SupplyStacks_Part2());
+    }
+
     
 }
