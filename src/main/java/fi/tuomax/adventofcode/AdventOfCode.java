@@ -117,6 +117,8 @@ import fi.tuomax.adventofcode.year2022.day04.CampCleanup_Part1;
 import fi.tuomax.adventofcode.year2022.day04.CampCleanup_Part2;
 import fi.tuomax.adventofcode.year2022.day05.SupplyStacks_Part1;
 import fi.tuomax.adventofcode.year2022.day05.SupplyStacks_Part2;
+import fi.tuomax.adventofcode.year2022.day06.TuningTrouble_Part1;
+import fi.tuomax.adventofcode.year2022.day06.TuningTrouble_Part2;
 import fi.tuomax.adventofcode.year2016.day19.AnElephantNamedJoseph_Part1;
 import fi.tuomax.adventofcode.year2016.day19.AnElephantNamedJoseph_Part2;
 import fi.tuomax.adventofcode.year2016.day14.OnetimePad_Part1;
@@ -156,6 +158,9 @@ public class AdventOfCode
         /* day 5 */
         solvers.addSolver(new SupplyStacks_Part1());
         solvers.addSolver(new SupplyStacks_Part2());
+        /* day 6 */
+        solvers.addSolver(new TuningTrouble_Part1());
+        solvers.addSolver(new TuningTrouble_Part2());
 
     }
 
