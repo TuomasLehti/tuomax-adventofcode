@@ -1,12 +1,8 @@
 package fi.tuomax.adventofcode.year2022.day05;
 
 import fi.tuomax.adventofcode.framework.solving.Metadata;
-import fi.tuomax.adventofcode.framework.parsing.Parser;
-import fi.tuomax.adventofcode.framework.solving.Solver;
-
 import java.util.ArrayDeque;
 import java.util.Deque;
-import java.util.List;
 
 /**
  * <p>Solves Advent of Code 2022, day 5, part 2:
