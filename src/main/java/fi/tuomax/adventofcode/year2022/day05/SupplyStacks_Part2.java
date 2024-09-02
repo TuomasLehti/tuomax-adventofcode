@@ -17,7 +17,7 @@ import java.util.List;
  *      Puzzle on the Advent of Code website.</a></p>
  */
 public class SupplyStacks_Part2
-extends Solver
+extends SupplyStacks_Solver
 {
 
     @Override
@@ -29,17 +29,14 @@ extends Solver
         );
     }
 
+    /**
+     * Moves the crates to a temporary stack, which reverses the order. Then
+     * moves them to the destination, which unreverses the order back to the
+     * original state.
+     */
     @Override
-    protected Parser manufactureParser(List<String> input)
+    protected void simulateCrateMover() 
     {
-        return new SupplyStacks_Parser(input);
-    }
-
-    @Override
-    protected void solve()
-    {
-        List<StackMove> moves = ((SupplyStacks_Parser) parser).getMoves();
-        List<Deque<Character>> stacks = ((SupplyStacks_Parser) parser).getStacks();
         for (StackMove move : moves) {
             Deque<Character> temp = new ArrayDeque<>();
             for (int i = 0; i < move.amount(); i++)
@@ -47,10 +44,6 @@ extends Solver
             for (int i = 0; i < move.amount(); i++)
                 stacks.get(move.to() - 1).push(temp.pop());
         }
-        StringBuilder answerBuilder = new StringBuilder();
-        for (Deque<Character> stack : stacks)
-            answerBuilder.append(stack.pop());
-        setAnswer(answerBuilder.toString());
     }
 
 }
