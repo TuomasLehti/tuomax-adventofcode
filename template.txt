@@ -3,7 +3,6 @@ package fi.tuomax.adventofcode.year{year}.day{day:02};
 import fi.tuomax.adventofcode.framework.solving.Metadata;
 import fi.tuomax.adventofcode.framework.parsing.Parser;
 import fi.tuomax.adventofcode.framework.solving.Solver;
-import java.util.List;
 
 /**
  * <p>Solves Advent of Code {year}, day {day}, part {part}: 
