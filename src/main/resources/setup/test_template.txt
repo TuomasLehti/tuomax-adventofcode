@@ -6,18 +6,18 @@ import fi.tuomax.adventofcode.PuzzleTester;
 
 public class Test_{puzzle_name_pascal_cased}
 extends PuzzleTester
-{
+{{
 
     @Test
     public void test_Part1()
-    {
+    {{
         runTests(new {puzzle_name_pascal_cased}_Part1());
-    }
+    }}
 
     @Test
     public void test_Part2()
-    {
+    {{
         runTests(new {puzzle_name_pascal_cased}_Part2());
-    }
+    }}
 
-}
+}}
