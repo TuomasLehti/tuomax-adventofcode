@@ -1,0 +1,21 @@
+package fi.tuomax.adventofcode.year{year}.day{day:02};
+
+import java.util.List;
+
+import fi.tuomax.adventofcode.framework.parsing.Parser;
+
+public class {puzzle_name_pascal_cased}_Parser 
+extends Parser
+{{
+
+    public {puzzle_name_pascal_cased}_Parser(List<String> input)
+    {{
+        super(input);
+    }}
+
+    @Override
+    public void parse() 
+    {{
+    }}
+    
+}}
