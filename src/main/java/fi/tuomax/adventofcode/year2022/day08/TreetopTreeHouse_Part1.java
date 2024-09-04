@@ -90,20 +90,7 @@ extends Solver
                 if (forest.get(col, row).isVisible())
                     visible++;
 
-//        print(forest);
         setAnswer(visible);
-    
-    }
-
-    private void print(Grid<Tree> forest) {
-        for (int row = 0; row < forest.height(); row++) {
-            for (int col = 0; col < forest.width(); col++) 
-                if (forest.get(col, row).isVisible())
-                    System.out.print("[" + forest.get(col, row).getHeight() + "]");
-                else
-                    System.out.print(" " + forest.get(col, row).getHeight() + " ");
-           System.out.println(); 
-        }  
     }
 
 }
