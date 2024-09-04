@@ -43,6 +43,43 @@ extends Solver
         return (Math.abs(d1 - d2) < PRECISION);
     }
 
+    private Coordinates follow(Coordinates head, Coordinates tail, Coordinates headMotion)
+    {
+        Coordinates result = null;
+
+        Double xDist = (double) head.x() - tail.x();
+        Double yDist = (double) head.y() - tail.y();
+        Double dist = Math.sqrt(xDist * xDist + yDist * yDist);
+        if (dist < 2) return tail;
+        if (dblEq(dist, 2.0)) {
+            result = tail.translate(headMotion);
+            return result;
+        }
+
+        //..H
+        //...
+        //T..
+        if (head.x() > tail.x() && head.y() > tail.y())
+            result = tail.translate(Direction.getInstance(Direction.NORTHEAST).asCoordinates());
+        //H..
+        //...
+        //..T
+        else if (head.x() < tail.x() && head.y() > tail.y())
+            result = tail.translate(Direction.getInstance(Direction.NORTHWEST).asCoordinates());
+        //..T
+        //...
+        //H..
+        else if (head.x() < tail.x() && head.y() < tail.y())
+            result = tail.translate(Direction.getInstance(Direction.SOUTHWEST).asCoordinates());
+        //T..
+        //...
+        //..H
+        else if (head.x() > tail.x() && head.y() < tail.y())
+            result = tail.translate(Direction.getInstance(Direction.SOUTHEAST).asCoordinates());
+
+        return result;
+    }
+
     @Override
     protected void solve()
     {
@@ -56,37 +93,8 @@ extends Solver
             for (int i = 0; i < motion.amount(); i++) {
                 visited.add(tail);
 //                print(head, tail);
-
                 head = head.translate(motion.direction().asCoordinates());
-                Double xDist = (double) head.x() - tail.x();
-                Double yDist = (double) head.y() - tail.y();
-                Double dist = Math.sqrt(xDist * xDist + yDist * yDist);
-                if (dist < 2) continue;
-                if (dblEq(dist, 2.0)) {
-                    tail = tail.translate(motion.direction().asCoordinates());
-                    continue;
-                }
-
-                //..H
-                //...
-                //T..
-                if (head.x() > tail.x() && head.y() > tail.y())
-                    tail = tail.translate(Direction.getInstance(Direction.NORTHEAST).asCoordinates());
-                //H..
-                //...
-                //..T
-                else if (head.x() < tail.x() && head.y() > tail.y())
-                    tail = tail.translate(Direction.getInstance(Direction.NORTHWEST).asCoordinates());
-                //..T
-                //...
-                //H..
-                else if (head.x() < tail.x() && head.y() < tail.y())
-                    tail = tail.translate(Direction.getInstance(Direction.SOUTHWEST).asCoordinates());
-                //T..
-                //...
-                //..H
-                else if (head.x() > tail.x() && head.y() < tail.y())
-                    tail = tail.translate(Direction.getInstance(Direction.SOUTHEAST).asCoordinates());
+                tail = follow(head, tail, motion.direction().asCoordinates());
           }
         }
         visited.add(tail);
@@ -97,7 +105,7 @@ extends Solver
     {
         System.out.println();
         StringBuilder sb = new StringBuilder();
-        for (long y = 0; y < 10; y++) {
+        for (long y = 9; y >= 0; y--) {
             sb.append(y);
             sb.append(" ");
             for (long x = 0; x < 10; x++) {
