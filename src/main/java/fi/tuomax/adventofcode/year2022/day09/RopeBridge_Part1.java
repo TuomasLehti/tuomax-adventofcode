@@ -13,6 +13,8 @@ import java.util.Set;
 /**
  * <p>Solves Advent of Code 2022, day 9, part 1:
  * Rope Bridge.</p>
+ * 
+ * @todo: Clean and refactor, combine with part 2
  *
  * @see
  *      <a href="https://adventofcode.com/2022/day/9">

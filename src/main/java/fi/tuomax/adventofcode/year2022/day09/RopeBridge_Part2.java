@@ -7,17 +7,16 @@ import fi.tuomax.adventofcode.commons.Grid;
 import fi.tuomax.adventofcode.framework.parsing.Parser;
 import fi.tuomax.adventofcode.framework.solving.Solver;
 
-import java.nio.channels.NonWritableChannelException;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-import javax.sql.rowset.WebRowSet;
-
 /**
  * <p>Solves Advent of Code 2022, day 9, part 2:
  * Rope Bridge.</p>
+ * 
+ * @todo: Clean and refactor, combine with part 1
  *
  * @see
  *      <a href="https://adventofcode.com/2022/day/9">
