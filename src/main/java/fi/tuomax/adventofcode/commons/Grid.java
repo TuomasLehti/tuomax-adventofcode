@@ -64,6 +64,17 @@ implements Iterable<ArrayList<T>>
         }
     }
 
+    public Grid<T> subgrid(Integer fromCol, Integer fromRow, Integer toCol, Integer toRow)
+    {
+        int numOfCols = toCol - fromCol + 1;
+        int numOfRows = toRow - fromRow + 1;
+        Grid<T> result = new Grid<>(numOfCols, numOfRows);
+        for (int row = 0; row < numOfRows; row++)
+            for (int col = 0; col < numOfCols; col++)
+                result.set(col, row, this.get(fromCol + col, fromRow + row));
+        return result;
+    }
+
     public List<T> neighbors(Integer col, Integer row)
     {
         List<T> result = new ArrayList<>();
