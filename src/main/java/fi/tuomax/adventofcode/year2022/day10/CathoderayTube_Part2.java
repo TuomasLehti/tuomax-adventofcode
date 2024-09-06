@@ -1,6 +1,7 @@
 package fi.tuomax.adventofcode.year2022.day10;
 
 import fi.tuomax.adventofcode.framework.solving.Metadata;
+import fi.tuomax.adventofcode.commons.Grid;
 import fi.tuomax.adventofcode.framework.parsing.Parser;
 import fi.tuomax.adventofcode.framework.parsing.StringListParser;
 import fi.tuomax.adventofcode.framework.solving.Solver;
@@ -17,7 +18,7 @@ import java.util.List;
  *      Puzzle on the Advent of Code website.</a></p>
  */
 public class CathoderayTube_Part2
-extends Solver
+extends CathoderayTube_Solver
 {
 
     @Override
@@ -30,43 +31,19 @@ extends Solver
     }
 
     @Override
-    protected Parser manufactureParser(List<String> input)
-    {
-        return new StringListParser(input);
-    }
-
-    public List<Integer> runningSum = new ArrayList<>();
-
-    @Override
     protected void solve()
     {
-        List<String> instructions = ((StringListParser) parser).getStrings();
-        List<Integer> additions = new ArrayList<>();
-
-        for (String instruction : instructions) {
-            String[] parts = instruction.split(" ");
-            if (parts[0].equals("noop")) {
-                additions.add(0);
-            } else if (parts[0].equals("addx")) {
-                additions.add(0);
-                additions.add(Integer.valueOf(parts[1]));
-            }
-        }
-
-        int signalStrength = 1;
-        for (Integer addition : additions) {
-            runningSum.add(signalStrength);
-            signalStrength += addition;
-        }
-        runningSum.add(signalStrength);
-
+        super.solve();
         int crtWidth = getParamInt("crt_width");
         int crtHeight = getParamInt("crt_height");
+        Grid<Boolean> crt = new Grid<>(crtWidth, crtHeight);
 
         StringBuilder sb = new StringBuilder();
         for (int row = 0; row < crtHeight; row++) {
             for (int col = 0; col < crtWidth; col++) {
                 int pxIdx = row * crtWidth + col;
+                
+
                 if (col < (runningSum.get(pxIdx) - 1) || col > (runningSum.get(pxIdx) + 1))
                     sb.append(".");
                 else    

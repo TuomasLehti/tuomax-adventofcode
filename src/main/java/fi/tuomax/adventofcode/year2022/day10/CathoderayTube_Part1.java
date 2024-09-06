@@ -17,7 +17,7 @@ import java.util.List;
  *      Puzzle on the Advent of Code website.</a></p>
  */
 public class CathoderayTube_Part1
-extends Solver
+extends CathoderayTube_Solver
 {
 
     @Override
@@ -30,36 +30,9 @@ extends Solver
     }
 
     @Override
-    protected Parser manufactureParser(List<String> input)
-    {
-        return new StringListParser(input);
-    }
-
-    public List<Integer> runningSum = new ArrayList<>();
-
-    @Override
     protected void solve()
     {
-        List<String> instructions = ((StringListParser) parser).getStrings();
-        List<Integer> additions = new ArrayList<>();
-
-        for (String instruction : instructions) {
-            String[] parts = instruction.split(" ");
-            if (parts[0].equals("noop")) {
-                additions.add(0);
-            } else if (parts[0].equals("addx")) {
-                additions.add(0);
-                additions.add(Integer.valueOf(parts[1]));
-            }
-        }
-
-        int signalStrength = 1;
-        for (Integer addition : additions) {
-            runningSum.add(signalStrength);
-            signalStrength += addition;
-        }
-        runningSum.add(signalStrength);
-
+        super.solve();
         setAnswer(
             runningSum.get(19) * 20 +
             runningSum.get(59) * 60 +
