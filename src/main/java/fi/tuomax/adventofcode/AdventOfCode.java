@@ -125,6 +125,8 @@ import fi.tuomax.adventofcode.year2022.day08.TreetopTreeHouse_Part1;
 import fi.tuomax.adventofcode.year2022.day08.TreetopTreeHouse_Part2;
 import fi.tuomax.adventofcode.year2022.day09.RopeBridge_Part1;
 import fi.tuomax.adventofcode.year2022.day09.RopeBridge_Part2;
+import fi.tuomax.adventofcode.year2022.day10.CathoderayTube_Part1;
+import fi.tuomax.adventofcode.year2022.day10.CathoderayTube_Part2;
 import fi.tuomax.adventofcode.year2016.day19.AnElephantNamedJoseph_Part1;
 import fi.tuomax.adventofcode.year2016.day19.AnElephantNamedJoseph_Part2;
 import fi.tuomax.adventofcode.year2016.day14.OnetimePad_Part1;
@@ -176,6 +178,9 @@ public class AdventOfCode
         /* day 9 */
         solvers.addSolver(new RopeBridge_Part1());
         solvers.addSolver(new RopeBridge_Part2());
+        /* day 10 */
+        solvers.addSolver(new CathoderayTube_Part1());
+        solvers.addSolver(new CathoderayTube_Part2());
     }
 
     private void addSolvers2016() 

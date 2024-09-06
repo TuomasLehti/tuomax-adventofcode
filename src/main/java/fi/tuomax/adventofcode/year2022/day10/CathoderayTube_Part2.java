@@ -2,7 +2,10 @@ package fi.tuomax.adventofcode.year2022.day10;
 
 import fi.tuomax.adventofcode.framework.solving.Metadata;
 import fi.tuomax.adventofcode.framework.parsing.Parser;
+import fi.tuomax.adventofcode.framework.parsing.StringListParser;
 import fi.tuomax.adventofcode.framework.solving.Solver;
+
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -29,12 +32,58 @@ extends Solver
     @Override
     protected Parser manufactureParser(List<String> input)
     {
-        return null;
+        return new StringListParser(input);
     }
+
+    public List<Integer> runningSum = new ArrayList<>();
 
     @Override
     protected void solve()
     {
+        List<String> instructions = ((StringListParser) parser).getStrings();
+        List<Integer> additions = new ArrayList<>();
+
+        for (String instruction : instructions) {
+            String[] parts = instruction.split(" ");
+            if (parts[0].equals("noop")) {
+                additions.add(0);
+            } else if (parts[0].equals("addx")) {
+                additions.add(0);
+                additions.add(Integer.valueOf(parts[1]));
+            }
+        }
+
+        int signalStrength = 1;
+        for (Integer addition : additions) {
+            runningSum.add(signalStrength);
+            signalStrength += addition;
+        }
+        runningSum.add(signalStrength);
+
+        int crtWidth = getParamInt("crt_width");
+        int crtHeight = getParamInt("crt_height");
+
+        StringBuilder sb = new StringBuilder();
+        for (int row = 0; row < crtHeight; row++) {
+            for (int col = 0; col < crtWidth; col++) {
+                int pxIdx = row * crtWidth + col;
+                if (col < (runningSum.get(pxIdx) - 1) || col > (runningSum.get(pxIdx) + 1))
+                    sb.append(".");
+                else    
+                    sb.append("#");
+            }
+            System.out.println(sb.toString());
+            sb = new StringBuilder();
+        }
+
+        setAnswer(
+            runningSum.get(19) * 20 +
+            runningSum.get(59) * 60 +
+            runningSum.get(99) * 100 +
+            runningSum.get(139) * 140 +
+            runningSum.get(179) * 180 +
+            runningSum.get(219) * 220
+        );
     }
 
 }
