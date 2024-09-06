@@ -42,15 +42,8 @@ extends CathoderayTube_Solver
         for (int row = 0; row < crtHeight; row++) {
             for (int col = 0; col < crtWidth; col++) {
                 int pxIdx = row * crtWidth + col;
-                
-
-                if (col < (runningSum.get(pxIdx) - 1) || col > (runningSum.get(pxIdx) + 1))
-                    sb.append(".");
-                else    
-                    sb.append("#");
+                crt.set(col, row, col < (runningSum.get(pxIdx) - 1) || col > (runningSum.get(pxIdx) + 1));
             }
-            System.out.println(sb.toString());
-            sb = new StringBuilder();
         }
 
         setAnswer(
