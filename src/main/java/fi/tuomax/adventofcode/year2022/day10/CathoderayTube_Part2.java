@@ -35,18 +35,40 @@ extends CathoderayTube_Solver
         for (int row = 0; row < crtHeight; row++) {
             for (int col = 0; col < crtWidth; col++) {
                 int pxIdx = row * crtWidth + col;
-                crt.set(col, row, col < (runningSum.get(pxIdx) - 1) || col > (runningSum.get(pxIdx) + 1));
+                crt.set(col, row, col >= (runningSum.get(pxIdx) - 1) && col <= (runningSum.get(pxIdx) + 1));
             }
         }
 
-        setAnswer(
-            runningSum.get(19) * 20 +
-            runningSum.get(59) * 60 +
-            runningSum.get(99) * 100 +
-            runningSum.get(139) * 140 +
-            runningSum.get(179) * 180 +
-            runningSum.get(219) * 220
-        );
+        for (int row = 0; row < crtHeight; row++) {
+            for (int col = 0; col < crtWidth; col++) {
+                System.out.print(crt.get(col, row) ? "X" : " ");
+            }
+            System.out.println();
+        }
+        System.out.println();
+
+        int spacing = getParamInt("char_width") + getParamInt("char_spacing");
+        int numOfChars = crtWidth / spacing;
+        String result = "";
+        for (int i = 0; i < numOfChars; i++) {
+            Grid<Boolean> character = crt.subgrid(
+                i * spacing, 0, 
+                (i * spacing + getParamInt("char_width")) - 1, crtHeight - 1
+            );
+
+            for (int row = 0; row < character.height(); row++) {
+                for (int col = 0; col < character.width(); col++) {
+                    System.out.print(character.get(col, row) ? "X" : " ");
+                }
+                System.out.println();
+            }
+            System.out.println();
+    
+            String chrStr = CharacterRecognizer.gridToString(character);
+            result += CharacterRecognizer.recognize(chrStr, getParamInt("char_width"), crtHeight);
+        }
+
+        setAnswer(result);
     }
 
 }

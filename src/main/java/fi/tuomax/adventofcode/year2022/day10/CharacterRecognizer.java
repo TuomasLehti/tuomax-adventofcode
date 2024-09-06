@@ -88,7 +88,7 @@ public class CharacterRecognizer
         }    
     }
 
-    private static String gridToString(Grid<Boolean> input)
+    public static String gridToString(Grid<Boolean> input)
     {
         StringBuilder sb = new StringBuilder();
         for (int row = 0; row < input.height(); row++) 
@@ -101,72 +101,13 @@ public class CharacterRecognizer
     {
         Grid<Boolean> inputGrid = inputToGrid(input, width, height);
         print(inputGrid);
+        System.out.println();
         Grid<Boolean> expanded = expand(inputGrid, 5, 5);
-        print(expanded);
         Grid<Boolean> condensed = condense(expanded, 4, 6);
         print(condensed);
+        System.out.println();
+        System.out.println();
         return gridToString(condensed);
-
-/*
-
-original
-
-XXX 
-X  X
-X  X
-XXX 
-#   
-#   
-
-widen
-
-XXXXX XXXXX XXXXX      
-XXXXX             XXXXX
-XXXXX             XXXXX
-XXXXX XXXXX XXXXX      
-XXXXX                  
-XXXXX                  
-
-heighten
-
-XXXXX XXXXX XXXXX      
-XXXXX XXXXX XXXXX      
-XXXXX XXXXX XXXXX      
-XXXXX XXXXX XXXXX      
-XXXXX XXXXX XXXXX      
-
-XXXXX             XXXXX
-XXXXX             XXXXX
-XXXXX             XXXXX
-XXXXX             XXXXX
-XXXXX             XXXXX
-
-XXXXX             XXXXX
-XXXXX             XXXXX
-XXXXX             XXXXX
-XXXXX             XXXXX
-XXXXX             XXXXX
-
-XXXXX XXXXX XXXXX      
-XXXXX XXXXX XXXXX      
-XXXXX XXXXX XXXXX      
-XXXXX XXXXX XXXXX      
-XXXXX XXXXX XXXXX      
-
-XXXXX                  
-XXXXX                  
-XXXXX                  
-XXXXX                  
-XXXXX                  
-
-XXXXX                  
-XXXXX                  
-XXXXX                  
-XXXXX                  
-XXXXX                  
-
-
-*/        
     }
 
     private static void populateArchetypes() 
@@ -186,11 +127,11 @@ XXXXX
             "XXXX "
         ));
         archetypes.add(new CharacterArchetype('C', 
-            " XXX " +
-            "X   X" +
+            " XXXX" +
             "X    " +
-            "X   X" +
-            " XXX "
+            "X    " +
+            "X    " +
+            " XXXX"
         ));
         archetypes.add(new CharacterArchetype('D', 
             "XXXX " +
@@ -216,7 +157,7 @@ XXXXX
         archetypes.add(new CharacterArchetype('G', 
             " XXX " +
             "X    " +
-            "X XXX" +
+            "X  XX" +
             "X   X" +
             " XXX "
         ));
