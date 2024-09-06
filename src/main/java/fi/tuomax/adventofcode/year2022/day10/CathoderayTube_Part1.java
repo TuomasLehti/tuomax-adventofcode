@@ -1,12 +1,6 @@
 package fi.tuomax.adventofcode.year2022.day10;
 
 import fi.tuomax.adventofcode.framework.solving.Metadata;
-import fi.tuomax.adventofcode.framework.parsing.Parser;
-import fi.tuomax.adventofcode.framework.parsing.StringListParser;
-import fi.tuomax.adventofcode.framework.solving.Solver;
-
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * <p>Solves Advent of Code 2022, day 10, part 1:

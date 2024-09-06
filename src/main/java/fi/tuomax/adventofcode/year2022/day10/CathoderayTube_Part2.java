@@ -2,12 +2,6 @@ package fi.tuomax.adventofcode.year2022.day10;
 
 import fi.tuomax.adventofcode.framework.solving.Metadata;
 import fi.tuomax.adventofcode.commons.Grid;
-import fi.tuomax.adventofcode.framework.parsing.Parser;
-import fi.tuomax.adventofcode.framework.parsing.StringListParser;
-import fi.tuomax.adventofcode.framework.solving.Solver;
-
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * <p>Solves Advent of Code 2022, day 10, part 2:
@@ -38,7 +32,6 @@ extends CathoderayTube_Solver
         int crtHeight = getParamInt("crt_height");
         Grid<Boolean> crt = new Grid<>(crtWidth, crtHeight);
 
-        StringBuilder sb = new StringBuilder();
         for (int row = 0; row < crtHeight; row++) {
             for (int col = 0; col < crtWidth; col++) {
                 int pxIdx = row * crtWidth + col;
