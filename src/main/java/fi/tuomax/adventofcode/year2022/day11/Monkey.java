@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Monkey 
+implements Comparable<Monkey>
 {
 
     private Integer number;
@@ -22,6 +23,11 @@ public class Monkey
     private String secondOperand;
 
     private Integer divisibilityTest;
+
+    public Integer getDivisibilityTest() 
+    {
+        return divisibilityTest;
+    }
 
     private Integer throwsToOnTrue;
 
@@ -119,6 +125,12 @@ public class Monkey
             sb.append(item);
         }
         return String.format("Monkey %d: %s", number, sb.toString());
+    }
+
+    @Override
+    public int compareTo(Monkey o) 
+    {
+        return this.itemsInspected.compareTo(o.itemsInspected);
     }
 
     
