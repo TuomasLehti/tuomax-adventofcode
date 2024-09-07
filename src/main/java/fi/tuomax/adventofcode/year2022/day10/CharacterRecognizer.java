@@ -100,13 +100,8 @@ public class CharacterRecognizer
     private static String normalizeInput(String input, Integer width, Integer height) 
     {
         Grid<Boolean> inputGrid = inputToGrid(input, width, height);
-        print(inputGrid);
-        System.out.println();
         Grid<Boolean> expanded = expand(inputGrid, 5, 5);
         Grid<Boolean> condensed = condense(expanded, 4, 6);
-        print(condensed);
-        System.out.println();
-        System.out.println();
         return gridToString(condensed);
     }
 

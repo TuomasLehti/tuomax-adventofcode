@@ -55,7 +55,7 @@ extends CathoderayTube_Solver
                 i * spacing, 0, 
                 (i * spacing + getParamInt("char_width")) - 1, crtHeight - 1
             );
-
+/*
             for (int row = 0; row < character.height(); row++) {
                 for (int col = 0; col < character.width(); col++) {
                     System.out.print(character.get(col, row) ? "X" : " ");
@@ -63,7 +63,7 @@ extends CathoderayTube_Solver
                 System.out.println();
             }
             System.out.println();
-    
+*/    
             String chrStr = CharacterRecognizer.gridToString(character);
             result += CharacterRecognizer.recognize(chrStr, getParamInt("char_width"), crtHeight);
         }
