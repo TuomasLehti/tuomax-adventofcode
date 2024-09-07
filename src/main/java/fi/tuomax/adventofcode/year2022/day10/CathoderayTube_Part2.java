@@ -38,14 +38,16 @@ extends CathoderayTube_Solver
                 crt.set(col, row, col >= (runningSum.get(pxIdx) - 1) && col <= (runningSum.get(pxIdx) + 1));
             }
         }
-
-        for (int row = 0; row < crtHeight; row++) {
-            for (int col = 0; col < crtWidth; col++) {
-                System.out.print(crt.get(col, row) ? "X" : " ");
+        
+        if (getParamBool("print_crt")) {
+            for (int row = 0; row < crtHeight; row++) {
+                for (int col = 0; col < crtWidth; col++) {
+                    System.out.print(crt.get(col, row) ? "X" : " ");
+                }
+                System.out.println();
             }
             System.out.println();
         }
-        System.out.println();
 
         int spacing = getParamInt("char_width") + getParamInt("char_spacing");
         int numOfChars = crtWidth / spacing;
@@ -55,15 +57,6 @@ extends CathoderayTube_Solver
                 i * spacing, 0, 
                 (i * spacing + getParamInt("char_width")) - 1, crtHeight - 1
             );
-/*
-            for (int row = 0; row < character.height(); row++) {
-                for (int col = 0; col < character.width(); col++) {
-                    System.out.print(character.get(col, row) ? "X" : " ");
-                }
-                System.out.println();
-            }
-            System.out.println();
-*/    
             String chrStr = CharacterRecognizer.gridToString(character);
             result += CharacterRecognizer.recognize(chrStr, getParamInt("char_width"), crtHeight);
         }
