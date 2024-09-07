@@ -185,7 +185,7 @@ public abstract class Solver
     protected Boolean getParamBool(String name)
     {
         String partName = String.format("part%d", getMetadata().part());
-        return parameters.getJSONObject(partName).getBoolean(partName);
+        return parameters.getJSONObject(partName).getBoolean(name);
     }
 
     /**
