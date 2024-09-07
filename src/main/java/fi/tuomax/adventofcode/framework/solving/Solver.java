@@ -179,6 +179,16 @@ public abstract class Solver
     }
 
     /**
+     * A convenience method for getting a parameter for this part of the
+     * puzzle.
+     */
+    protected Boolean getParamBool(String name)
+    {
+        String partName = String.format("part%d", getMetadata().part());
+        return parameters.getJSONObject(partName).getBoolean(partName);
+    }
+
+    /**
      * The convenience method for getting the expected answer is exposed to the
      * public, because for example the printers need it.
      */
