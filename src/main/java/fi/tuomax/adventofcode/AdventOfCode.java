@@ -131,6 +131,7 @@ import fi.tuomax.adventofcode.year2022.day11.MonkeyInTheMiddle_Part1;
 import fi.tuomax.adventofcode.year2022.day11.MonkeyInTheMiddle_Part2;
 import fi.tuomax.adventofcode.year2022.day12.HillClimbingAlgorithm_Part1;
 import fi.tuomax.adventofcode.year2022.day12.HillClimbingAlgorithm_Part2;
+import fi.tuomax.adventofcode.year2022.day13.DistressSignal_Part1;
 import fi.tuomax.adventofcode.year2016.day19.AnElephantNamedJoseph_Part1;
 import fi.tuomax.adventofcode.year2016.day19.AnElephantNamedJoseph_Part2;
 import fi.tuomax.adventofcode.year2016.day14.OnetimePad_Part1;
@@ -191,6 +192,8 @@ public class AdventOfCode
         /* day 12 */
         solvers.addSolver(new HillClimbingAlgorithm_Part1());
         solvers.addSolver(new HillClimbingAlgorithm_Part2());
+        /* day 13 */
+        solvers.addSolver(new DistressSignal_Part1());
     }
 
     private void addSolvers2016() 

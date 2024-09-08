@@ -2,6 +2,7 @@ package fi.tuomax.adventofcode.year2022.day13;
 
 import fi.tuomax.adventofcode.framework.solving.Metadata;
 import fi.tuomax.adventofcode.framework.parsing.Parser;
+import fi.tuomax.adventofcode.framework.parsing.StringListParser;
 import fi.tuomax.adventofcode.framework.solving.Solver;
 import java.util.List;
 
@@ -29,12 +30,18 @@ extends Solver
     @Override
     protected Parser manufactureParser(List<String> input)
     {
-        return null;
+        return new StringListParser(input);
     }
 
     @Override
     protected void solve()
     {
+        List<String> input = ((StringListParser) parser).getStrings();
+        Integer result = 0;
+        for (int row = 0; row < input.size(); row += 3)
+            if (PacketComparer.inOrder(input.get(row), input.get(row + 1)) == TrinaryBoolean.TRUE)
+                result += row / 3 + 1;
+        setAnswer(result);
     }
 
 }
