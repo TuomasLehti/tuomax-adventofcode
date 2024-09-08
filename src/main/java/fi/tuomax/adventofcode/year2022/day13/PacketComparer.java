@@ -7,25 +7,34 @@ import org.json.JSONArray;
  */
 public class PacketComparer {
 
-    public static Boolean compare(JSONArray one, JSONArray other)
+    public static TrinaryBoolean inOrder(String left, String right)
+    {
+        return inOrder(new JSONArray(left), new JSONArray(right));
+    }
+
+    public static TrinaryBoolean inOrder(JSONArray one, JSONArray other)
     {
         int longerLength = Math.max(one.length(), other.length());
         for (int i = 0; i < longerLength; i++) {
-            
-            if (i == one.length()) return true;
-            if (i == other.length()) return false;
-            
+
+            /* One of arrays is shorter than the other. */
+            if (i == one.length()) return TrinaryBoolean.TRUE;
+            if (i == other.length()) return TrinaryBoolean.FALSE;
+
+            /* Try getting integers. */
             int left = one.optInt(i, -1);
             int right = other.optInt(i, -1);
 
             /* Both are ints, compare straight up. */
             if (left > -1 && right > -1)
                 if (left > right) 
-                    return false;
-                else
+                    return TrinaryBoolean.FALSE;
+                else if (left < right)
+                    return TrinaryBoolean.TRUE;
+                else 
                     continue;
 
-            /* Different types. Make both arrays. */
+            /* Convert both to arrays if they aren't already. */
             JSONArray leftArr = 
                 left == -1 ? 
                 one.getJSONArray(i) : 
@@ -36,22 +45,12 @@ public class PacketComparer {
                 other.getJSONArray(i) : 
                 new JSONArray(String.format("[%d]", right));
 
-            /* Now they're both arrays. */
-            if (areEqual(leftArr, rightArr))
-                continue;
-            else
-                return compare(leftArr, rightArr);
-            
+            TrinaryBoolean subResult = inOrder(leftArr, rightArr);
+            if (subResult != TrinaryBoolean.UNDECIDABLE)
+                return subResult;
+            /* else continue; */
         }
-        return true;
+        return TrinaryBoolean.UNDECIDABLE;
     }
 
-    public static Boolean areEqual(JSONArray one, JSONArray other)
-    {
-        if (one.length() != other.length()) return false;
-        for (int i = 0; i < one.length(); i++)
-            if (one.getInt(i) != other.getInt(i)) return false;
-        return true;
-    }
-    
 }
