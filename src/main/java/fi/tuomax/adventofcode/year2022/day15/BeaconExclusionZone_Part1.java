@@ -82,7 +82,7 @@ extends Solver
         while (!que.isEmpty()) {
             Range next = que.pop();
             if (current.joinable(next)) {
-                current = (Range) current.join(next);
+                current = current.join(next);
             } else {
                 result.add(current);
                 current = next;
