@@ -1,7 +1,9 @@
 package fi.tuomax.adventofcode.year2022.day15;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -13,7 +15,24 @@ public class Sensor
 
     private Coordinates position;
 
+    public Coordinates getPosition() 
+    {
+        return position;
+    }
+
     private Coordinates closestBeacon;
+
+    public Coordinates getClosestBeacon() 
+    {
+        return closestBeacon;
+    }
+
+    private static Set<Coordinates> beacons = new HashSet<>();
+
+    public static Set<Coordinates> getBeacons() 
+    {
+        return beacons;
+    }
 
     public Sensor(String aocInput)
     {
@@ -30,6 +49,7 @@ public class Sensor
             Long.valueOf(matches.get(2)),
             Long.valueOf(matches.get(3))
         );
+        Sensor.beacons.add(closestBeacon);
     }
 
     public Long taxicabDistanceToBeacon()
