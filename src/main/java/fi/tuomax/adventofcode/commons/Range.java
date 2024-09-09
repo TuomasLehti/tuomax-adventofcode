@@ -212,7 +212,7 @@ public class Range
      * @throws IllegalArgumentException
      *      If the ranges can't be joined.
      */
-    public Object join(Range other) 
+    public Range join(Range other) 
     throws IllegalArgumentException
     {
         if (!this.joinable(other))
