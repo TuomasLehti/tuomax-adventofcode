@@ -6,7 +6,8 @@ implements Comparable<Coordinates>
 
     public static final Coordinates ORIGIN = new Coordinates(0l, 0l);
 
-    public Coordinates translate(Coordinates amount) {
+    public Coordinates translate(Coordinates amount) 
+    {
         return new Coordinates(this.x + amount.x, this.y + amount.y);
     }
 
@@ -39,6 +40,11 @@ implements Comparable<Coordinates>
     public Long taxiCabDistance()
     {
         return Math.abs(this.x) + Math.abs(this.y);
+    }
+
+    public Long taxicabDistance(Coordinates to)
+    {
+        return Math.abs(to.x() - this.x()) + Math.abs(to.y() - this.y());
     }
 
 }
