@@ -1,0 +1,8 @@
+{{
+    "part1" : {{
+        "expected_answer" : "5808"
+    }},
+    "part2" : {{
+        "expected_answer" : "22713"
+    }}
+}}

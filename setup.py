@@ -118,6 +118,48 @@ def create_test_class(year, day, part, puzzle_name, puzzle_name_pascal_cased):
     output_file.writelines(output)
     output_file.close()
 
+def create_tests_json(year, day, part, puzzle_name, puzzle_name_pascal_cased):
+    puzzle_data = {
+        'year' : year,
+        'day' : day,
+        'part' : part,
+        'puzzle_name' : puzzle_name,
+        'puzzle_name_pascal_cased' : puzzle_name_pascal_cased
+    }
+    p_template = Path(".") / "src" / "main" / "resources" / "setup" / "tests_template.txt"
+    file = open(p_template)
+    lines = file.readlines()
+    file.close()
+    output = []
+    for line in lines:
+        output.append(line.rstrip().format(**puzzle_data))
+        output.append("\n")
+    p_code = Path(".") / "inputs" / f"year{year}" / f"day{day:02}" / f"{year}-{day:02} tests.json"
+    output_file = open(p_code, "w")
+    output_file.writelines(output)
+    output_file.close()
+
+def create_parameters_json(year, day, part, puzzle_name, puzzle_name_pascal_cased):
+    puzzle_data = {
+        'year' : year,
+        'day' : day,
+        'part' : part,
+        'puzzle_name' : puzzle_name,
+        'puzzle_name_pascal_cased' : puzzle_name_pascal_cased
+    }
+    p_template = Path(".") / "src" / "main" / "resources" / "setup" / "parameters_template.txt"
+    file = open(p_template)
+    lines = file.readlines()
+    file.close()
+    output = []
+    for line in lines:
+        output.append(line.rstrip().format(**puzzle_data))
+        output.append("\n")
+    p_code = Path(".") / "inputs" / f"year{year}" / f"day{day:02}" / f"{year}-{day:02} parameters.json"
+    output_file = open(p_code, "w")
+    output_file.writelines(output)
+    output_file.close()
+
 year, day = parse_arguments()
 check_directories(year, day)
 print(f"Setting up Advent of Code {year}, day {day}")
@@ -129,4 +171,6 @@ create_java_class(year, day, "1", puzzle_name, puzzle_name_pascal_cased)
 create_java_class(year, day, "2", puzzle_name, puzzle_name_pascal_cased)
 create_parser_class(year, day, "2", puzzle_name, puzzle_name_pascal_cased)
 create_test_class(year, day, "2", puzzle_name, puzzle_name_pascal_cased)
-fetch_puzzle_input(year, day, login_data)
+create_tests_json(year, day, "2", puzzle_name, puzzle_name_pascal_cased)
+create_parameters_json(year, day, "2", puzzle_name, puzzle_name_pascal_cased)
+#fetch_puzzle_input(year, day, login_data)

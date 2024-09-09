@@ -196,5 +196,43 @@ public class TestRange
         assertEquals(new Range(0L, 2L), range.split(other).get(1));
         assertEquals(new Range(3L, 4L), range.split(other).get(2));
     }
+
+    @Test
+    public void testJoinable()
+    {
+        Range range = new Range(10L, 20L);
+        
+        assertFalse(range.joinable(new Range(0L, 8L)));
+        assertTrue(range.joinable(new Range(0L, 9L)));
+        assertTrue(range.joinable(new Range(0L, 10L)));
+        assertTrue(range.joinable(new Range(0L, 15L)));
+        assertTrue(range.joinable(new Range(0L, 20L)));
+        assertTrue(range.joinable(new Range(0L, 25L)));
+
+        assertTrue(range.joinable(new Range(12L, 18L)));
+
+        assertTrue(range.joinable(new Range(15L, 30L)));
+        assertTrue(range.joinable(new Range(20L, 30L)));
+        assertTrue(range.joinable(new Range(21L, 30L)));
+        assertFalse(range.joinable(new Range(22L, 30L)));
+    }
+
+    @Test
+    public void testJoin()
+    {
+        Range range = new Range(10L, 20L);
+        
+        assertEquals(new Range(0L, 20L), range.join(new Range(0L, 9L)));
+        assertEquals(new Range(0L, 20L), range.join(new Range(0L, 10L)));
+        assertEquals(new Range(0L, 20L), range.join(new Range(0L, 15L)));
+        assertEquals(new Range(0L, 20L), range.join(new Range(0L, 20L)));
+        assertEquals(new Range(0L, 25L), range.join(new Range(0L, 25L)));
+
+        assertEquals(new Range(10L, 20L), range.join(new Range(12L, 18L)));
+
+        assertEquals(new Range(10L, 30L), range.join(new Range(15L, 30L)));
+        assertEquals(new Range(10L, 30L), range.join(new Range(20L, 30L)));
+        assertEquals(new Range(10L, 30L), range.join(new Range(21L, 30L)));
+    }
     
 }

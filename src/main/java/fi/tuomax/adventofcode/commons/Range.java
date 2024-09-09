@@ -186,22 +186,44 @@ public class Range
                 splitted[2] = parts.get(1);
             }
         }
-        
-        
-/*        if (this.getStart() >= other.getStart() && this.getEnd() <= other.getEnd()) {
-            splitted[1] = this;
-        } else if (this.getStart() < other.getStart() && this.getEnd() > other.getEnd()) {
-            splitted[0] = this.splitBefore(other.getStart()).get(0);
-            splitted[2] = this.splitAfter(other.getEnd()).get(1);
-            splitted[1] = new Range(splitted[0].getEnd() + 1, splitted[2].getStart() - 1);
-        } else if (this.getStart() <= other.getStart() && this.getEnd() <= other.getEnd()) {
-            splitted[0] = this.splitBefore(other.getStart()).get(0);
-            splitted[1] = this.splitBefore(other.getStart()).get(1);
-        } else if (this.getStart() >= other.getStart() && this.getEnd() >= other.getEnd()) {
-            splitted[1] = this.splitAfter(other.getEnd()).get(0);
-            splitted[2] = this.splitAfter(other.getEnd()).get(1);
-        }*/
         return Arrays.asList(splitted);
+    }
+
+    /**
+     * Returns if two ranges can be joined together to form a new range.
+     * @param other
+     *      The range to check against.
+     * @return
+     *      Can the ranges be joined?
+     */
+    public Boolean joinable(Range other)
+    {
+        return overlaps(other) ||
+                other.getEnd().equals(this.getStart() - 1) ||
+                this.getEnd().equals(other.getStart() - 1);
+    }
+
+    /**
+     * Joins two ranges to a new, continuous range.
+     * @param other
+     *      The range to join.
+     * @return
+     *      The new range.
+     * @throws IllegalArgumentException
+     *      If the ranges can't be joined.
+     */
+    public Object join(Range other) 
+    throws IllegalArgumentException
+    {
+        if (!this.joinable(other))
+            throw new IllegalArgumentException(String.format(
+                "The ranges %s and %s are not joinable.",
+                this.toString(), other.toString()
+            ));
+        return new Range(
+            Math.min(this.getStart(), other.getStart()),
+            Math.max(this.getEnd(), other.getEnd())
+        );
     }
 
     /**
@@ -225,5 +247,6 @@ public class Range
     {
         return String.format("Range [%d-%d]", getStart(), getEnd());
     }
+
 
 }
