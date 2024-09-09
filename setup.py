@@ -15,7 +15,6 @@ def parse_arguments():
 
 def check_directories(year, day):
     p = Path(".") / "inputs" / f"year{year}" / f"day{day:02}"
-    print(p)
     if p.exists():
         print(f"Advent of Code {year}, day {day} already set up.")
         sys.exit()
@@ -37,6 +36,7 @@ def read_session_cookie():
     return data
 
 def fetch_puzzle_input(year, day, login_data):
+    print("Downloading input")
     # https://adventofcode.com/2016/day/22/input
     r = requests.get(f"https://adventofcode.com/{year}/day/{day}/input", cookies=login_data)
     p_input = Path(".") / "inputs" / f"year{year}" / f"day{day:02}" / f"{year}-{day:02} input.txt"
@@ -45,6 +45,7 @@ def fetch_puzzle_input(year, day, login_data):
     file.close()
 
 def fetch_puzzle_text(year, day, login_data):
+    print("Downloading text")
     r = requests.get(f"https://adventofcode.com/{year}/day/{day}", cookies=login_data)
     return r.text
     
@@ -123,6 +124,7 @@ print(f"Setting up Advent of Code {year}, day {day}")
 create_directories(year, day)
 login_data = {"session" : read_session_cookie()}
 puzzle_name, puzzle_name_pascal_cased = fetch_puzzle_name(year, day, login_data)
+print("Creating files")
 create_java_class(year, day, "1", puzzle_name, puzzle_name_pascal_cased)
 create_java_class(year, day, "2", puzzle_name, puzzle_name_pascal_cased)
 create_parser_class(year, day, "2", puzzle_name, puzzle_name_pascal_cased)
