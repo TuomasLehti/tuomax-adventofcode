@@ -73,4 +73,12 @@ extends PuzzleTester
         runTests(new BeaconExclusionZone_Part2());
     }
 
+    @Test
+    public void test_Speed()
+    {
+        for (long i = 0; i < 4_000_000 * 4_000_000; i++)
+            if ((i % 1000) == 0)
+                System.out.println(i);
+    }
+
 }
