@@ -16,6 +16,8 @@ import java.util.List;
 /**
  * <p>Solves Advent of Code 2022, day 15, part 1:
  * Beacon Exclusion Zone.</p>
+ * 
+ * TODO: search ways to make it faster
  *
  * @see
  *      <a href="https://adventofcode.com/2022/day/15">
