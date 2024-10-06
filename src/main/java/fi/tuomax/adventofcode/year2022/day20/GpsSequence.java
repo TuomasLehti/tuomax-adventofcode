@@ -5,15 +5,15 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
-public class Nums 
+public class GpsSequence 
 {
 
-    public List<Num> nums = new ArrayList<>();
+    public List<GpsNumber> nums = new ArrayList<>();
 
-    public Nums(int[] numbers) 
+    public GpsSequence(int[] numbers) 
     {
         for (int n : numbers) {
-            Num num = new Num();
+            GpsNumber num = new GpsNumber();
             num.num = n;
             num.currIdx = nums.size();
             num.origIdx = nums.size();
@@ -21,28 +21,28 @@ public class Nums
         }
     }
 
-    public Nums(){}
+    public GpsSequence(){}
 
     public void add(int n)
     {
-        Num num = new Num();
+        GpsNumber num = new GpsNumber();
         num.num = n;
         num.currIdx = nums.size();
         num.origIdx = nums.size();
         nums.add(num);
     }
 
-    public Num getNum(int n)
+    public GpsNumber getNum(int n)
     {
-        for (Num num : nums)
+        for (GpsNumber num : nums)
             if (num.num == n)
                 return num;
         return null;
     }
 
-    public Num getIdx(int i) 
+    public GpsNumber getIdx(int i) 
     {
-        for (Num num : nums)
+        for (GpsNumber num : nums)
             if (num.currIdx == i)
                 return num;
         return null;
@@ -50,13 +50,13 @@ public class Nums
 
     public void moveAll()
     {
-        for (Num num : nums) {
+        for (GpsNumber num : nums) {
             System.out.println(num.origIdx);
             move(num);
         }
     }
 
-    public void move(Num num)
+    public void move(GpsNumber num)
     {
         if (num.num == 0) return;
         int amount = Math.abs(num.num);
@@ -69,30 +69,30 @@ public class Nums
         }
     }
 
-    public void moveRight(Num num)
+    public void moveRight(GpsNumber num)
     {
         if (num.currIdx < (nums.size() - 1)) {
-            for (Num n : nums)
+            for (GpsNumber n : nums)
                 if (n.currIdx == (num.currIdx + 1))
                     n.currIdx--;
             num.currIdx++;
         } else {
-            for (Num n : nums)
+            for (GpsNumber n : nums)
                 if (n.currIdx == 0)
                     n.currIdx = nums.size() - 1;
             num.currIdx = 0;
         }
     }
 
-    public void moveLeft(Num num)
+    public void moveLeft(GpsNumber num)
     {
         if (num.currIdx > 0) {
-            for (Num n : nums)
+            for (GpsNumber n : nums)
                 if (n.currIdx == (num.currIdx - 1))
                     n.currIdx++;
             num.currIdx--;
         } else {
-            for (Num n : nums)
+            for (GpsNumber n : nums)
                 if (n.currIdx == (nums.size() - 1))
                     n.currIdx = 0;
             num.currIdx = nums.size() - 1;
@@ -101,15 +101,15 @@ public class Nums
 
     public String toString()
     {
-        List<Num> printees = new ArrayList<>(nums);
-        Collections.sort(printees, new Comparator<Num>(){
+        List<GpsNumber> printees = new ArrayList<>(nums);
+        Collections.sort(printees, new Comparator<GpsNumber>(){
             @Override
-            public int compare(Num o1, Num o2) {
+            public int compare(GpsNumber o1, GpsNumber o2) {
                 return o1.currIdx - o2.currIdx;
             }
         });
         StringBuilder sb = new StringBuilder();
-        for (Num printee : printees) {
+        for (GpsNumber printee : printees) {
             if (sb.length() > 0) sb.append(", ");
             sb.append(printee.num);
         }

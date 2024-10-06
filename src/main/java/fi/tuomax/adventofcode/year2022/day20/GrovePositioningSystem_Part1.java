@@ -35,9 +35,9 @@ extends Solver
     @Override
     protected void solve()
     {
-        Nums nums = ((GrovePositioningSystem_Parser) parser).getNums();
+        GpsSequence nums = ((GrovePositioningSystem_Parser) parser).getNums();
         nums.moveAll();
-        Num zero = nums.getNum(0);
+        GpsNumber zero = nums.getNum(0);
         setAnswer(
             nums.getIdx((zero.currIdx + 1000) % nums.nums.size()).num +
             nums.getIdx((zero.currIdx + 2000) % nums.nums.size()).num +

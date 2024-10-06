@@ -8,9 +8,9 @@ public class GrovePositioningSystem_Parser
 extends Parser
 {
 
-    private Nums nums = new Nums();
+    private GpsSequence nums = new GpsSequence();
 
-    public Nums getNums() 
+    public GpsSequence getNums() 
     {
         return nums;
     }

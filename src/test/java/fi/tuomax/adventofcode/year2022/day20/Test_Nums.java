@@ -10,14 +10,14 @@ public class Test_Nums
     @Test
     public void test_ToString()
     {
-        Nums nums = new Nums(new int[]{0, 1, 2, 3, 4, 5, 6});
+        GpsSequence nums = new GpsSequence(new int[]{0, 1, 2, 3, 4, 5, 6});
         assertEquals("0, 1, 2, 3, 4, 5, 6", nums.toString());
     }
 
     @Test
     public void test_MoveRight()
     {
-        Nums nums = new Nums(new int[]{0, 1, 2, 3, 4, 5, 6});
+        GpsSequence nums = new GpsSequence(new int[]{0, 1, 2, 3, 4, 5, 6});
         nums.moveRight(nums.nums.get(1));
         assertEquals("0, 2, 1, 3, 4, 5, 6", nums.toString());
     }
@@ -25,7 +25,7 @@ public class Test_Nums
     @Test
     public void test_MoveRight_WrapAround()
     {
-        Nums nums = new Nums(new int[]{0, 1, 2, 3, 4, 5, 6});
+        GpsSequence nums = new GpsSequence(new int[]{0, 1, 2, 3, 4, 5, 6});
         nums.moveRight(nums.nums.get(6));
         assertEquals("6, 1, 2, 3, 4, 5, 0", nums.toString());
     }
@@ -33,7 +33,7 @@ public class Test_Nums
     @Test
     public void test_MoveLeft()
     {
-        Nums nums = new Nums(new int[]{0, 1, 2, 3, 4, 5, 6});
+        GpsSequence nums = new GpsSequence(new int[]{0, 1, 2, 3, 4, 5, 6});
         nums.moveLeft(nums.nums.get(2));
         assertEquals("0, 2, 1, 3, 4, 5, 6", nums.toString());
     }
@@ -41,7 +41,7 @@ public class Test_Nums
     @Test
     public void test_MoveLeft_WrapAround()
     {
-        Nums nums = new Nums(new int[]{0, 1, 2, 3, 4, 5, 6});
+        GpsSequence nums = new GpsSequence(new int[]{0, 1, 2, 3, 4, 5, 6});
         nums.moveLeft(nums.nums.get(0));
         assertEquals("6, 1, 2, 3, 4, 5, 0", nums.toString());
     }
@@ -49,8 +49,8 @@ public class Test_Nums
     @Test
     public void test_Move()
     {
-        Nums nums;
-        nums = new Nums(new int[]{1, 2, -3, 3, -2, 0, 4});
+        GpsSequence nums;
+        nums = new GpsSequence(new int[]{1, 2, -3, 3, -2, 0, 4});
         nums.move(nums.nums.get(0));
         assertEquals("2, 1, -3, 3, -2, 0, 4", nums.toString());
         nums.move(nums.nums.get(1));
