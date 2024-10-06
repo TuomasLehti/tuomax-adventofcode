@@ -135,6 +135,7 @@ import fi.tuomax.adventofcode.year2022.day14.RegolithReservoir_Part1;
 import fi.tuomax.adventofcode.year2022.day14.RegolithReservoir_Part2;
 import fi.tuomax.adventofcode.year2022.day15.BeaconExclusionZone_Part1;
 import fi.tuomax.adventofcode.year2022.day15.BeaconExclusionZone_Part2;
+import fi.tuomax.adventofcode.year2022.day20.GrovePositioningSystem_Part1;
 import fi.tuomax.adventofcode.year2022.day13.DistressSignal_Part1;
 import fi.tuomax.adventofcode.year2022.day13.DistressSignal_Part2;
 import fi.tuomax.adventofcode.year2016.day19.AnElephantNamedJoseph_Part1;
@@ -206,6 +207,8 @@ public class AdventOfCode
         /* day 15 */
         solvers.addSolver(new BeaconExclusionZone_Part1());
         solvers.addSolver(new BeaconExclusionZone_Part2());
+        /* day 20 */
+        solvers.addSolver(new GrovePositioningSystem_Part1());
     }
 
     private void addSolvers2016() 
