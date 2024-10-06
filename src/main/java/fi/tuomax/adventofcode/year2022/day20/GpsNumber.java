@@ -9,6 +9,13 @@ public class GpsNumber
     
     public int currIdx;
 
-
+    @Override
+    public boolean equals(Object o)
+    {
+        if (o == null || !(o instanceof GpsNumber)) return false;
+        if (o == this) return true;
+        GpsNumber other = (GpsNumber) o;
+        return (num == other.num && origIdx == other.origIdx);
+    }
     
 }

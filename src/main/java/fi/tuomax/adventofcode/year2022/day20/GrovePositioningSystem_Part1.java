@@ -35,13 +35,16 @@ extends Solver
     @Override
     protected void solve()
     {
-        GpsSequence nums = ((GrovePositioningSystem_Parser) parser).getNums();
-        nums.moveAll();
-        GpsNumber zero = nums.getNum(0);
+        GpsMixer nums = ((GrovePositioningSystem_Parser) parser).getNums();
+
+        for (int origIdx = 0; origIdx < nums.size(); origIdx++)
+            nums.moveByNum(origIdx);
+
+        int zero = nums.getMixedZeroIdx();
         setAnswer(
-            nums.getIdx((zero.currIdx + 1000) % nums.nums.size()).num +
-            nums.getIdx((zero.currIdx + 2000) % nums.nums.size()).num +
-            nums.getIdx((zero.currIdx + 3000) % nums.nums.size()).num
+            nums.getMixed(zero + 1000).num +
+            nums.getMixed(zero + 2000).num +
+            nums.getMixed(zero + 3000).num
         );
     }
 

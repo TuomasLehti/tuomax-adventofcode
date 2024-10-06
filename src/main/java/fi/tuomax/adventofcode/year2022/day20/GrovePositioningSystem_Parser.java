@@ -8,9 +8,9 @@ public class GrovePositioningSystem_Parser
 extends Parser
 {
 
-    private GpsSequence nums = new GpsSequence();
+    private GpsMixer nums = new GpsMixer();
 
-    public GpsSequence getNums() 
+    public GpsMixer getNums() 
     {
         return nums;
     }
@@ -24,7 +24,7 @@ extends Parser
     public void parse()
     {
         for (String line : input) {
-            nums.add(Integer.valueOf(line));
+            nums.addInteger(Integer.valueOf(line));
         }
     }
 
