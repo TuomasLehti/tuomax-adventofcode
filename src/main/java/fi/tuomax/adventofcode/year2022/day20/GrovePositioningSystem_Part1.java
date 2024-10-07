@@ -38,9 +38,11 @@ extends Solver
     {
         GpsMixer nums = ((GrovePositioningSystem_Parser) parser).getNums();
 
-        for (int origIdx = 0; origIdx < nums.size(); origIdx++) {
-            nums.moveByNum(origIdx);
-        }
+        int rounds = getParamInt("rounds");
+        for (int r = 0; r < rounds; r++)
+            for (int origIdx = 0; origIdx < nums.size(); origIdx++) 
+                nums.moveByNum(origIdx);
+            
 
         int zero = nums.getMixedZeroIdx();
         setAnswer(
