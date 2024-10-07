@@ -4,17 +4,11 @@ import java.util.List;
 
 import fi.tuomax.adventofcode.framework.parsing.Parser;
 
-public class GrovePositioningSystem_Parser
+public abstract class GrovePositioningSystem_Parser
 extends Parser
 {
 
     private GpsMixer nums = new GpsMixer();
-
-    private GpsSequence seq = new GpsSequence();
-
-    public GpsSequence getSeq() {
-        return seq;
-    }
 
     public GpsMixer getNums() 
     {
@@ -30,9 +24,10 @@ extends Parser
     public void parse()
     {
         for (String line : input) {
-            nums.addInteger(Integer.valueOf(line));
-            seq.add(Integer.valueOf(line));
+            nums.addNumber(aocInputToLong(line));
         }
     }
+
+    protected abstract long aocInputToLong(String line);
 
 }

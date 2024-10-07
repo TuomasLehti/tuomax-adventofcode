@@ -250,7 +250,7 @@ public class Test_GpsMixer {
     {
         GpsMixer mixer = new GpsMixer();
         for (int num : nums)
-            mixer.addInteger(num);
+            mixer.addNumber(num);
         return mixer;
     }
 

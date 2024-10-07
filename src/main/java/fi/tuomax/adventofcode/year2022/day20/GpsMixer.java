@@ -10,7 +10,7 @@ public class GpsMixer
 
     private List<GpsNumber> mixed = new ArrayList<>();
 
-    public void addInteger(int i)
+    public void addNumber(long i)
     {
         GpsNumber num = new GpsNumber();
         num.num = i;

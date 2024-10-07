@@ -59,7 +59,7 @@ public class GpsSequence
     public void move(GpsNumber num)
     {
         if (num.num == 0) return;
-        int amount = Math.abs(num.num);
+        long amount = Math.abs(num.num);
         if (num.num < 0) {
             for (int i = 0; i < amount; i++)
                 moveLeft(num);
