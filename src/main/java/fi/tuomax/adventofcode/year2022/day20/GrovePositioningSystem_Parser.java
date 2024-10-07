@@ -10,6 +10,12 @@ extends Parser
 
     private GpsMixer nums = new GpsMixer();
 
+    private GpsSequence seq = new GpsSequence();
+
+    public GpsSequence getSeq() {
+        return seq;
+    }
+
     public GpsMixer getNums() 
     {
         return nums;
@@ -25,6 +31,7 @@ extends Parser
     {
         for (String line : input) {
             nums.addInteger(Integer.valueOf(line));
+            seq.add(Integer.valueOf(line));
         }
     }
 

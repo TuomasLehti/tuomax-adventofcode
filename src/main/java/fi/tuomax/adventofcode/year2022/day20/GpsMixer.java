@@ -49,9 +49,15 @@ public class GpsMixer
     public void moveByNum(int fromOrigIdx)
     {
         GpsNumber num = original.get(fromOrigIdx);
+
+        long amount = num.num;
+        while (amount > (mixed.size() - 1)) 
+            amount -= mixed.size() - 1;
+        while (amount < 0)
+            amount += mixed.size() - 1;
+
         int fromMixedIdx = mixed.indexOf(num);
-        int toMixedIdx = fromMixedIdx + num.num;
-        if (num.num < 0) toMixedIdx--;
+        int toMixedIdx = fromMixedIdx + (int) amount;
         move(fromMixedIdx, toMixedIdx);
 
     }
@@ -81,9 +87,10 @@ public class GpsMixer
     public String toString()
     {
         StringBuilder sb = new StringBuilder();
-        for (GpsNumber n : mixed) {
+        int zero = getMixedZeroIdx();
+        for (int i = 0; i < mixed.size(); i++) {
             if (sb.length() > 0) sb.append(", ");
-            sb.append(n.num);
+            sb.append(getMixed(zero + i).num);
         }
         return sb.toString();
     }

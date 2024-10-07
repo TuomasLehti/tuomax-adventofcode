@@ -33,6 +33,10 @@ public class Test_GpsMixer {
     public void test_GetMixed()
     {
         GpsMixer one = manufactureMixer(new int[]{0, 1, 2, 3});
+        assertEquals(0, one.getMixed(-8).num);
+        assertEquals(1, one.getMixed(-7).num);
+        assertEquals(2, one.getMixed(-6).num);
+        assertEquals(3, one.getMixed(-5).num);
         assertEquals(0, one.getMixed(-4).num);
         assertEquals(1, one.getMixed(-3).num);
         assertEquals(2, one.getMixed(-2).num);
@@ -137,6 +141,58 @@ public class Test_GpsMixer {
         assertEquals(expected, original);
     }
 
+    /*
+     * This is the catch that's missing from the example input.
+     *              vv
+     *      0  10 11 X  12 13
+     * 1  | 0  10 11 12 X  13  
+     * 2  | 0  10 11 12 13 X   = X  0  10 11 12 13
+     * 3  | 0  X  10 11 12 13
+     * 4  | 0  10 X  11 12 13
+     * 5  | 0  10 11 X  12 13
+     * 6  | 0  10 11 12 X  13
+     * 7  | 0  10 11 12 13 X   = X  0  10 11 12 13
+     * 8  | 0  X  10 11 12 13
+     * 9  | 0  10 X  11 12 13
+     * 10 | 0  10 11 X  12 13
+     * 11 | 0  10 11 12 X  13
+     * 12 | 0  10 11 12 13 X   = X  0  10 11 12 13
+     *
+     *
+     *              vv
+     *      0  10 11 X  12 13
+     * 1  | 0  10 X  11 12 13
+     * 2  | 0  X  10 11 12 13
+     * 3  | X  0  10 11 12 13 = 0  10 11 12 13 X
+     * 4  | 0  10 11 12 X  13
+     * 5  | 0  10 11 X  12 13
+     * 6  | 0  10 X  11 12 13
+     * 7  | 0  X  10 11 12 13
+     * 8  | X  0  10 11 12 13 = 0  10 11 12 13 X
+     * 9  | 0  10 11 12 X  13
+     * 10 | 0  10 11 X  12 13
+     * 11 | 0  10 X  11 12 13
+     * 12 | 0  X  10 11 12 13
+     * 13 | X  0  10 11 12 13 = 0  10 11 12 13 X
+     * 14 | 0  10 11 12 X  13
+     * 15 | 0  10 11 X  12 13
+     * 
+     * So the number which is being moved is at the same index every size-1
+     * movements. In this case movement by 7 is the same as movement by 2, and 
+     * so are movements by 12, 17.
+     * 
+     * In the negative direction a movements by -7 and -12 can be reduced to
+     * a movement by -2, and ultimately to a movement by +3.
+     */
+    @Test
+    public void test_MoveByNum_WrapAround_ToGreaterThanOriginal()
+    {
+        GpsMixer original = manufactureMixer(new int[]{0, 10, 11, 7, 12, 13});
+        GpsMixer expected = manufactureMixer(new int[]{0, 10, 11, 12, 13, 7});
+        original.moveByNum(3);
+        assertEquals(expected, original);
+    }
+
     @Test
     public void test_MoveByNum_Left()
     {
@@ -162,6 +218,32 @@ public class Test_GpsMixer {
         GpsMixer expected = manufactureMixer(new int[]{0, 10, 11, 12, -4, 13});
         original.moveByNum(3);
         assertEquals(expected, original);
+    }
+
+    @Test
+    public void test_MoveByNum_Left_WrapAround_ToLesserThanOriginal()
+    {
+        GpsMixer original = manufactureMixer(new int[]{0, 10, 11, -7, 12, 13});
+        GpsMixer expected = manufactureMixer(new int[]{0, -7, 10, 11, 12, 13});
+        original.moveByNum(3);
+        assertEquals(expected, original);
+    }
+
+    @Test
+    public void test_MoveByNum_Left_WrapAroundTwice()
+    {
+        GpsMixer original = manufactureMixer(new int[]{0, 20, 21, -13, 22, 23});
+        GpsMixer expected = manufactureMixer(new int[]{-13, 0, 20, 21, 22, 23});
+        original.moveByNum(3);
+        assertEquals(expected, original);
+    }
+
+    @Test
+    public void test_ActualInput()
+    {
+        GpsMixer original = manufactureMixer(new int[]{0, 20, 21, -10, 22, 23});
+        GpsMixer expected = manufactureMixer(new int[]{0, 20, 21, 22, -10, 23});
+
     }
     
     private GpsMixer manufactureMixer(int[] nums)
