@@ -2,7 +2,6 @@ package fi.tuomax.adventofcode.year2022.day20;
 
 import fi.tuomax.adventofcode.framework.solving.Metadata;
 import fi.tuomax.adventofcode.framework.parsing.Parser;
-import fi.tuomax.adventofcode.framework.solving.Solver;
 import java.util.List;
 
 /**
@@ -29,7 +28,7 @@ extends GrovePositioningSystem_Part1
     @Override
     protected Parser manufactureParser(List<String> input)
     {
-        return new GrovePositioningSystem_Parser(input, getParamLong("decryption_key"));
+        return new GrovePositioningSystem_Parser_Part2(input, getParamLong("decryption_key"));
     }
 
 }

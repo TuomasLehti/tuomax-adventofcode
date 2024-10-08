@@ -50,12 +50,14 @@ public class GpsMixer
     {
         GpsNumber num = original.get(fromOrigIdx);
 
-        long amount = num.num;
+/*         long amount = num.num;
         while (amount > (mixed.size() - 1)) 
             amount -= mixed.size() - 1;
         while (amount < 0)
             amount += mixed.size() - 1;
-
+ */
+        long amount = num.num % (mixed.size() - 1);
+        if (amount < 0) amount--;
         int fromMixedIdx = mixed.indexOf(num);
         int toMixedIdx = fromMixedIdx + (int) amount;
         move(fromMixedIdx, toMixedIdx);
