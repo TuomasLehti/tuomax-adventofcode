@@ -1,10 +1,7 @@
 package fi.tuomax.adventofcode.year2022.day20;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotEquals;
-import static org.junit.Assert.assertTrue;
-
 import org.junit.Test;
 
 public class Test_GpsMixer {
@@ -17,7 +14,7 @@ public class Test_GpsMixer {
         assertEquals(one, other);
 
         GpsNumber mixed = manufactureNumber(1, 1, 9);
-        assertEquals(one, other);
+        assertEquals(one, mixed);
     }
 
     private GpsNumber manufactureNumber(int num, int origIdx, int currIdx)
@@ -141,49 +138,6 @@ public class Test_GpsMixer {
         assertEquals(expected, original);
     }
 
-    /*
-     * This is the catch that's missing from the example input.
-     *              vv
-     *      0  10 11 X  12 13
-     * 1  | 0  10 11 12 X  13  
-     * 2  | 0  10 11 12 13 X   = X  0  10 11 12 13
-     * 3  | 0  X  10 11 12 13
-     * 4  | 0  10 X  11 12 13
-     * 5  | 0  10 11 X  12 13
-     * 6  | 0  10 11 12 X  13
-     * 7  | 0  10 11 12 13 X   = X  0  10 11 12 13
-     * 8  | 0  X  10 11 12 13
-     * 9  | 0  10 X  11 12 13
-     * 10 | 0  10 11 X  12 13
-     * 11 | 0  10 11 12 X  13
-     * 12 | 0  10 11 12 13 X   = X  0  10 11 12 13
-     *
-     *
-     *              vv
-     *      0  10 11 X  12 13
-     * 1  | 0  10 X  11 12 13
-     * 2  | 0  X  10 11 12 13
-     * 3  | X  0  10 11 12 13 = 0  10 11 12 13 X
-     * 4  | 0  10 11 12 X  13
-     * 5  | 0  10 11 X  12 13
-     * 6  | 0  10 X  11 12 13
-     * 7  | 0  X  10 11 12 13
-     * 8  | X  0  10 11 12 13 = 0  10 11 12 13 X
-     * 9  | 0  10 11 12 X  13
-     * 10 | 0  10 11 X  12 13
-     * 11 | 0  10 X  11 12 13
-     * 12 | 0  X  10 11 12 13
-     * 13 | X  0  10 11 12 13 = 0  10 11 12 13 X
-     * 14 | 0  10 11 12 X  13
-     * 15 | 0  10 11 X  12 13
-     * 
-     * So the number which is being moved is at the same index every size-1
-     * movements. In this case movement by 7 is the same as movement by 2, and 
-     * so are movements by 12, 17.
-     * 
-     * In the negative direction a movements by -7 and -12 can be reduced to
-     * a movement by -2, and ultimately to a movement by +3.
-     */
     @Test
     public void test_MoveByNum_WrapAround_ToGreaterThanOriginal()
     {
@@ -236,14 +190,6 @@ public class Test_GpsMixer {
         GpsMixer expected = manufactureMixer(new int[]{-13, 0, 20, 21, 22, 23});
         original.moveByNum(3);
         assertEquals(expected, original);
-    }
-
-    @Test
-    public void test_ActualInput()
-    {
-        GpsMixer original = manufactureMixer(new int[]{0, 20, 21, -10, 22, 23});
-        GpsMixer expected = manufactureMixer(new int[]{0, 20, 21, 22, -10, 23});
-
     }
     
     private GpsMixer manufactureMixer(int[] nums)

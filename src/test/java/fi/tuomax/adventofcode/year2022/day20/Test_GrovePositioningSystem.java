@@ -1,7 +1,5 @@
 package fi.tuomax.adventofcode.year2022.day20;
 
-import static org.junit.Assert.assertEquals;
-
 import org.junit.Test;
 
 import fi.tuomax.adventofcode.PuzzleTester;
