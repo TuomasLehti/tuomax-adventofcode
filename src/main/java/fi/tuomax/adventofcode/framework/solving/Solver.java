@@ -88,7 +88,8 @@ public abstract class Solver
      */
     public void run(List<String> input)
     {
-        readParametersFromStandardInputDirectory();
+        if (parameters == null) 
+            readParametersFromStandardInputDirectory();
         this.parser = manufactureParser(input);
         stopwatch.start();
         parser.parse();
