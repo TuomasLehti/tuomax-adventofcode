@@ -201,7 +201,7 @@ are the dates of migrating these puzzles to this framework.
 | 18 |  |  |  |
 | 19 |  |  |  |
 | 20 | 5.10.2024 | 7.10.2024 |  |
-| 21 |  |  |  |
+| 21 | xx.10.2024| xx.10.2024 |  |
 | 22 |  |  |  |
 | 23 |  |  |  |
 | 24 |  |  |  |
