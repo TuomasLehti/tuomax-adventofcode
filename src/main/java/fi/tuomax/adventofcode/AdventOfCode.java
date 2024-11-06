@@ -215,6 +215,7 @@ public class AdventOfCode
         solvers.addSolver(new GrovePositioningSystem_Part2());
         /* day 21 */
         solvers.addSolver(new MonkeyMath_Part1());
+        solvers.addSolver(new MonkeyMath_Part2());
     }
 
     private void addSolvers2016() 

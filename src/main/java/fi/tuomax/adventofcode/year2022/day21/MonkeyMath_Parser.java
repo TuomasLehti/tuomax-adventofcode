@@ -16,6 +16,7 @@ extends Parser
     @Override
     public void parse()
     {
+        Monkey.barrel.clear();
         for (String line : input) {
             Monkey.addToBarrelFromInput(line);
         }
