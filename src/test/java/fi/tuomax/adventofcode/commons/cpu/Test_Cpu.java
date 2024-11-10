@@ -17,8 +17,27 @@ public class Test_Cpu
         registers.add("A");
         Cpu cpu = new Cpu(registers);
         cpu.enterProgram(new Nop("", cpu));
+        cpu.enterProgram(new Nop("", cpu));
+        cpu.enterProgram(new Nop("", cpu));
         cpu.run();
+        assertEquals(3, (int) cpu.getProgramCounter());
+    }
+
+    @Test
+    public void test_Step()
+    {
+        Set<String> registers = new HashSet<>();
+        registers.add("A");
+        Cpu cpu = new Cpu(registers);
+        cpu.enterProgram(new Nop("", cpu));
+        cpu.enterProgram(new Nop("", cpu));
+        cpu.enterProgram(new Nop("", cpu));
+        cpu.step();
         assertEquals(1, (int) cpu.getProgramCounter());
+        cpu.step();
+        assertEquals(2, (int) cpu.getProgramCounter());
+        cpu.step();
+        assertEquals(3, (int) cpu.getProgramCounter());
     }
 
     private class Nop 

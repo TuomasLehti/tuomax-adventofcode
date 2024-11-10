@@ -15,6 +15,7 @@ import org.slf4j.LoggerFactory;
 public class Cpu 
 {
 
+    @SuppressWarnings("unused")
     private final Logger LOGGER = LoggerFactory.getLogger(getClass());
 
     /** The instruction which make up the program. */
@@ -100,7 +101,7 @@ public class Cpu
     }
     
     /**
-     * Runs the program in the cpu.
+     * Runs the program in the cpu until the end is reached.
      */
     public void run() 
     {
@@ -112,6 +113,16 @@ public class Cpu
             programCounter++;
             cycle++;
         }
+    }
+
+    /**
+     * Executes the next instruction.
+     */
+    public void step()
+    {
+        program.get(programCounter).run(this);
+        programCounter++;
+        cycle++;
     }
 
     /**
