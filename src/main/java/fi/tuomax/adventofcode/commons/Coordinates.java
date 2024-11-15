@@ -34,7 +34,7 @@ implements Comparable<Coordinates>
     @Override
     public int compareTo(Coordinates o) 
     {
-        return this.y == o.y ? this.y.compareTo(o.y) : this.x.compareTo(o.x);
+        return this.y == o.y ? this.x.compareTo(o.x) : this.y.compareTo(o.y);
     }
 
     public Long taxiCabDistance()
