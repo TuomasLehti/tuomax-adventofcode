@@ -38,10 +38,21 @@ implements Iterable<ArrayList<T>>
             );
     }
 
+    public T get(Coordinates c)
+    throws IndexOutOfBoundsException
+    {
+        return get(c.xAsInt(), c.yAsInt());
+    }
+
     public void set(Integer col, Integer row, T contents)
     throws IndexOutOfBoundsException
     {
         rows.get(row).set(col, contents);
+    }
+
+    public void set(Coordinates c, T contents)
+    {
+        set(c.xAsInt(), c.yAsInt(), contents);
     }
 
     public Integer width()
@@ -64,6 +75,11 @@ implements Iterable<ArrayList<T>>
         }
     }
 
+    public Boolean exists(Coordinates c)
+    {
+        return exists(c.xAsInt(), c.yAsInt());
+    }
+
     public Grid<T> subgrid(Integer fromCol, Integer fromRow, Integer toCol, Integer toRow)
     {
         int numOfCols = toCol - fromCol + 1;
@@ -73,6 +89,11 @@ implements Iterable<ArrayList<T>>
             for (int col = 0; col < numOfCols; col++)
                 result.set(col, row, this.get(fromCol + col, fromRow + row));
         return result;
+    }
+
+    public Grid<T> subgrid(Coordinates from, Coordinates to)
+    {
+        return subgrid(from.xAsInt(), from.yAsInt(), to.xAsInt(), to.yAsInt());
     }
 
     public List<T> neighbors(Integer col, Integer row)
@@ -89,8 +110,14 @@ implements Iterable<ArrayList<T>>
         return result;
     }
 
+    public List<T> neighbors(Coordinates c)
+    {
+        return neighbors(c.xAsInt(), c.yAsInt());
+    }
+
     @Override
-    public Iterator<ArrayList<T>> iterator() {
+    public Iterator<ArrayList<T>> iterator() 
+    {
         return rows.iterator();
     }
     
