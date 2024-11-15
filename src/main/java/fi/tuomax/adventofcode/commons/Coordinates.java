@@ -6,6 +6,11 @@ implements Comparable<Coordinates>
 
     public static final Coordinates ORIGIN = new Coordinates(0l, 0l);
 
+    public static Coordinates fromInteger(Integer x, Integer y)
+    {
+        return new Coordinates((long) x, (long) y);
+    }
+
     public Coordinates translate(Coordinates amount) 
     {
         return new Coordinates(this.x + amount.x, this.y + amount.y);
