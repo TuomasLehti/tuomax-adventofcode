@@ -26,5 +26,18 @@ public class TestDirection
             Direction.getInstance(Direction.NORTH), 
             direction.turn(TurnDirection.RIGHT));
     }
+
+    @Test
+    public void test_GetInstance()
+    {
+        assertEquals(Direction.NORTH, Direction.getInstance(Direction.NORTH).get());
+        assertEquals(Direction.NORTHEAST, Direction.getInstance(Direction.NORTHEAST).get());
+        assertEquals(Direction.EAST, Direction.getInstance(Direction.EAST).get());
+        assertEquals(Direction.SOUTHEAST, Direction.getInstance(Direction.SOUTHEAST).get());
+        assertEquals(Direction.SOUTH, Direction.getInstance(Direction.SOUTH).get());
+        assertEquals(Direction.SOUTHWEST, Direction.getInstance(Direction.SOUTHWEST).get());
+        assertEquals(Direction.WEST, Direction.getInstance(Direction.WEST).get());
+        assertEquals(Direction.NORTHWEST, Direction.getInstance(Direction.NORTHWEST).get());
+    }
     
 }
