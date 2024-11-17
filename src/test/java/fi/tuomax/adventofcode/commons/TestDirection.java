@@ -39,5 +39,13 @@ public class TestDirection
         assertEquals(Direction.WEST, Direction.getInstance(Direction.WEST).get());
         assertEquals(Direction.NORTHWEST, Direction.getInstance(Direction.NORTHWEST).get());
     }
+
+    @Test
+    public void test_TurnDoesntAffectInstances()
+    {
+        Direction direction = Direction.getInstance(Direction.NORTH);
+        direction.turn(TurnDirection.RIGHT);
+        assertEquals(Direction.NORTH, Direction.getInstance(Direction.NORTH).get());
+    }
     
 }

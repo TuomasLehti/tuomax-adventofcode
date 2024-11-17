@@ -121,19 +121,19 @@ public class Direction
     public enum TurnDirection 
     {
         LEFT,
-        RIGHT
+        RIGHT;
     }
 
+    /**
+     * @param direction
+     * @return
+     */
     public Direction turn(TurnDirection direction)
     {
         Integer dir = direction == TurnDirection.LEFT ? -1 : +1;
         Integer amt = directionMode == DirectionMode.FOUR_DIRS ? 2 : 1;
-        currentDirection += dir * amt;
-        if (currentDirection < 0)
-            currentDirection += 8;
-        else if (currentDirection > 7)
-            currentDirection -= 8;
-        return instances[currentDirection];
+        Integer newDirection = (currentDirection + dir * amt + 8) % 8;
+        return getInstance(newDirection);
     }
     
 }
