@@ -47,7 +47,7 @@ public class TestCycleDetector
     public void test_IsRepeating_WhenRepeating_IncompleteLastCycle()
     {
         List<Integer> ints = Arrays.asList(new Integer[]{1, 2, 3, 4, 1, 2, 3, 4, 1, 2, 3});
-        assertTrue(CycleDetector.isRepeating(ints, 0, 4));
+        assertFalse(CycleDetector.isRepeating(ints, 0, 4));
     }
 
     @Test
@@ -145,8 +145,8 @@ public class TestCycleDetector
     public void test_Offset_IncompleteCycle_Cycles()
     {
         CycleData d = CycleDetector.detect(Arrays.asList(new Integer[]{ 1, 2, 3, 4, 2, 3, 4, 2, 3, 4, 2, 3 }));
-        assertEquals(1L, (long) d.start());
-        assertEquals(3L, (long) d.length());
+        assertEquals(-1L, (long) d.start());
+        assertEquals(-1L, (long) d.length());
     }
 
     @Test

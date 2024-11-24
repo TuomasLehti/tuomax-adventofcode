@@ -46,8 +46,13 @@ public class CycleDetector
             new CycleData(-1L, -1L);
  */    }
 
+    /**
+     * Tells if a list of integers has repeats.
+     */
     public static Boolean isRepeating(List<Integer> ints, long start, long length)
     {
+        if ((ints.size() - start) % length != 0) return false;
+
         long substart = start + length;
         if (substart >= ints.size()) return false;
         List<Integer> beginning = ints.subList((int) start, (int) (start + length));
@@ -62,6 +67,17 @@ public class CycleDetector
             substart += length;
         }
         return works;
+    }
+
+    public static Boolean hasRepeats(List<Integer> ints, long start)
+    {
+        if ((ints.size() - start) % 2 != 0) return false;
+        long length = (ints.size() - start) / 2;
+        for (int i = 0; i < length; i++) {
+            if (!ints.get((int) start + i).equals(ints.get((int) start + i + (int) length)))
+                return false;
+        }
+        return true;
     }
 
     private static Boolean listsEqual(List<Integer> one, List<Integer> other)
