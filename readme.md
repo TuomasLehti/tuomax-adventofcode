@@ -174,6 +174,14 @@ To do:
 - Totally revamp the MD5 puzzle algorithm, which is a mess after so many tweaks
   needed by so many puzzles.
 
+## Progress through the years
+
+In this framework I did years 2015 and 2016 first. Then I started to import 
+solutions from year 2022 to this framework, which got put to the back burner
+while I solved year 2020 and watched Dylan Beattie's streams of year 2020 after
+first solving them myself. This process was still in progress when the event
+for year 2024 began, so I consentrated on that next.
+
 ## Year 2022
 
 Days 1 to 7 were solved in a different environment. The dates mentioned here
