@@ -182,6 +182,37 @@ while I solved year 2020 and watched Dylan Beattie's streams of year 2020 after
 first solving them myself. This process was still in progress when the event
 for year 2024 began, so I consentrated on that next.
 
+## Year 2024
+
+| Day | Part 1 | Part 2 | Notes |
+|---|---|---|---|
+| 1  |  |  |  |
+| 2  |  |  |  |
+| 3  |  |  |  |
+| 4  |  |  |  |
+| 5  |  |  |  |
+| 6  |  |  |  |
+| 7  |  |  |  |
+| 8  |  |  |  |
+| 9  |  |  |  |
+| 10 |  |  |  |
+| 11 |  |  |  |
+| 12 |  |  |  |
+| 13 |  |  |  |
+| 14 |  |  |  |
+| 15 |  |  |  |
+| 16 |  |  |  |
+| 17 |  |  |  |
+| 18 |  |  |  |
+| 19 |  |  |  |
+| 20 |  |  |  |
+| 21 |  |  |  |
+| 22 |  |  |  |
+| 23 |  |  |  |
+| 24 |  |  |  |
+| 25 |  |  |  |
+
+
 ## Year 2022
 
 Days 1 to 7 were solved in a different environment. The dates mentioned here
