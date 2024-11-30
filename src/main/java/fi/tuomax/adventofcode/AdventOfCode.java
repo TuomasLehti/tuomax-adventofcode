@@ -153,11 +153,15 @@ public class AdventOfCode
         addSolvers2015();
         addSolvers2016();
         addSolvers2022();
+        addSolvers2024();
         Runner runner = manufactureRunner(settings);
         Metadata metadata = settings.metadata() != null ? settings.metadata() : Year.latestAddition;
         Results results = runner.run(metadata, solvers);
         Printer printer = manufacturePrinter();
         printer.print(settings, results);
+    }
+    private void addSolvers2024() 
+    {
     }
 
     private void addSolvers2022() {
