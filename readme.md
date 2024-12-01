@@ -186,7 +186,7 @@ for year 2024 began, so I consentrated on that next.
 
 | Day | Part 1 | Part 2 | Notes |
 |---|---|---|---|
-| 1  |  |  |  |
+| 1  | 1.12.2024 | 1.12.2024 |  |
 | 2  |  |  |  |
 | 3  |  |  |  |
 | 4  |  |  |  |
