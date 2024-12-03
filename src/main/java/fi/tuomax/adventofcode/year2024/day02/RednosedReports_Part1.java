@@ -5,8 +5,6 @@ import fi.tuomax.adventofcode.framework.parsing.Parser;
 import fi.tuomax.adventofcode.framework.solving.Solver;
 import java.util.List;
 
-import org.slf4j.LoggerFactory;
-
 /**
  * <p>Solves Advent of Code 2024, day 2, part 1:
  * Red-Nosed Reports.</p>
@@ -39,9 +37,7 @@ extends Solver
     {
         List<List<Integer>> reports = ((RednosedReports_Parser) parser).getReports();
         Integer sum = 0;
-        Integer idx = 0;
         for (List<Integer> report : reports) {
-            LoggerFactory.getLogger(getClass()).debug(idx + " is " + ReportEvaluator.isSafe(report));
             if (ReportEvaluator.isSafe(report)) sum++;
         }
         setAnswer(sum);

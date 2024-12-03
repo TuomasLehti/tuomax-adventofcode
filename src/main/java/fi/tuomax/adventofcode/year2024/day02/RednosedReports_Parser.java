@@ -1,7 +1,6 @@
 package fi.tuomax.adventofcode.year2024.day02;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 import fi.tuomax.adventofcode.framework.parsing.Parser;
