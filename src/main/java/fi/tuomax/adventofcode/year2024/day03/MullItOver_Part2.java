@@ -1,9 +1,8 @@
 package fi.tuomax.adventofcode.year2024.day03;
 
 import fi.tuomax.adventofcode.framework.solving.Metadata;
-import fi.tuomax.adventofcode.framework.parsing.Parser;
-import fi.tuomax.adventofcode.framework.solving.Solver;
-import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * <p>Solves Advent of Code 2024, day 3, part 2:
@@ -14,7 +13,7 @@ import java.util.List;
  *      Puzzle on the Advent of Code website.</a></p>
  */
 public class MullItOver_Part2
-extends Solver
+extends MullItOver_Part1
 {
 
     @Override
@@ -27,14 +26,31 @@ extends Solver
     }
 
     @Override
-    protected Parser manufactureParser(List<String> input)
+    protected Long scan(String input)
     {
-        return null;
-    }
 
-    @Override
-    protected void solve()
-    {
+        String mulStr = "mul\\(\\d+,\\d+\\)";
+        String dodoStr = "do\\(\\)";
+        String dontStr = "don't\\(\\)";
+
+        Pattern pat = Pattern.compile(String.format(
+                "(%s|%s|%s)", mulStr, dodoStr, dontStr));
+        Matcher matcher = pat.matcher(input);
+
+        Long result = 0L;
+        Boolean enabled = true;
+        while (matcher.find()) {
+            String group = matcher.group(0);
+            System.out.println(group);
+            if (group.matches(dodoStr))
+                enabled = true;
+            else if (group.matches(dontStr))
+                enabled = false;
+            else if (group.matches(mulStr) && enabled) 
+                result += multiply(group);
+        }
+        return result;
     }
+    
 
 }
