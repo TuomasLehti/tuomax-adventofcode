@@ -38,20 +38,27 @@ extends Solver
     @Override
     protected void solve()
     {
-        Pattern mul = Pattern.compile("(mul\\(\\d+,\\d+\\))");
         String input = String.join("", ((StringListParser) parser).getStrings());
-        Matcher matcher = mul.matcher(input);
+        setAnswer(scan(input));
+    }
 
+    protected Long scan(String input)
+    {
+        Pattern mul = Pattern.compile("(mul\\(\\d+,\\d+\\))");
+        Matcher matcher = mul.matcher(input);
         Long result = 0L;
         while (matcher.find()) {
-            String[] parts = matcher.group(0).split("\\(|,|\\)");
-            Long one = Long.valueOf(parts[1]);
-            Long other = Long.valueOf(parts[2]);
-            Long product = one * other;
-            result += product;
+            result += multiply(matcher.group(0));
         }
+        return result;
+    }
 
-        setAnswer(result);
+    protected Long multiply(String instruction) 
+    {
+        String[] parts = instruction.split("\\(|,|\\)");
+        Long one = Long.valueOf(parts[1]);
+        Long other = Long.valueOf(parts[2]);
+        return one * other;
     }
 
 }
