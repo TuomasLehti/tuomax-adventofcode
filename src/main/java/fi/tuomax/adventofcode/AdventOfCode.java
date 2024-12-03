@@ -139,6 +139,7 @@ import fi.tuomax.adventofcode.year2024.day01.HistorianHysteria_Part1;
 import fi.tuomax.adventofcode.year2024.day01.HistorianHysteria_Part2;
 import fi.tuomax.adventofcode.year2024.day02.RednosedReports_Part1;
 import fi.tuomax.adventofcode.year2024.day02.RednosedReports_Part2;
+import fi.tuomax.adventofcode.year2024.day03.MullItOver_Part1;
 import fi.tuomax.adventofcode.year2022.day13.DistressSignal_Part1;
 import fi.tuomax.adventofcode.year2022.day13.DistressSignal_Part2;
 import fi.tuomax.adventofcode.year2016.day19.AnElephantNamedJoseph_Part1;
@@ -170,6 +171,7 @@ public class AdventOfCode
         solvers.addSolver(new HistorianHysteria_Part2());
         solvers.addSolver(new RednosedReports_Part1());
         solvers.addSolver(new RednosedReports_Part2());
+        solvers.addSolver(new MullItOver_Part1());
     }
 
     private void addSolvers2022() {
