@@ -41,30 +41,32 @@ extends Solver
     {
         Direction.directionMode = Direction.DirectionMode.EIGHT_DIRS;
         Grid<Character> cells = ((CeresSearch_Parser) parser).getCells();
-        Long count = 0L;
+        Integer count = 0;
         for (int row = 0; row < cells.height(); row++) {
             for (int col = 0; col < cells.width(); col++) {
-
-                Direction dir = Direction.getInstance(Direction.NORTH);
-                do {
-                    Coordinates coords = Coordinates.fromInteger(col, row);
-                    StringBuilder sb = new StringBuilder();
-                    for (int c = 0; c < 4; c++) {
-                        if (cells.exists(coords))
-                            sb.append(cells.get(coords));
-                        coords = coords.translate(dir.asCoordinates());
-                    }
-/*                     System.out.println("dir: "+ dir.get());
-                    System.out.println(sb.toString()); */
-                    if (sb.toString().equals("XMAS"))
-                        count++;
-                    dir = dir.turn(TurnDirection.RIGHT);
-/*                     System.out.println("new dir: "+ dir.get());                     */
-                } while (!dir.get().equals(Direction.getInstance(Direction.NORTH).get()));
-
+                count += numOfXmas(cells, Coordinates.fromInteger(col, row));
             }
         }
         setAnswer(count);
+    }
+
+    protected Integer numOfXmas(Grid<Character> cells, Coordinates startCoords)
+    {
+        Integer count = 0;
+        Direction dir = Direction.getInstance(Direction.NORTH);
+        do {
+            Coordinates coords = new Coordinates(startCoords.x(), startCoords.y());
+            StringBuilder sb = new StringBuilder();
+            for (int c = 0; c < 4; c++) {
+                if (cells.exists(coords))
+                    sb.append(cells.get(coords));
+                coords = coords.translate(dir.asCoordinates());
+            }
+            if (sb.toString().equals("XMAS"))
+                count++;
+            dir = dir.turn(TurnDirection.RIGHT);
+        } while (!dir.get().equals(Direction.getInstance(Direction.NORTH).get()));
+        return count;
     }
 
 }
