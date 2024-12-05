@@ -15,9 +15,9 @@ extends Parser
         return rules;
     }
 
-    private List<List<Integer>> updates = new ArrayList<>();
+    private List<Update> updates = new ArrayList<>();
 
-    public List<List<Integer>> getUpdates() {
+    public List<Update> getUpdates() {
         return updates;
     }
 
@@ -42,16 +42,8 @@ extends Parser
             if (parseState == RULE_STATE)
                 rules.add(new Rule(line));
             else
-                updates.add(updateFromAocInput(line));
+                updates.add(new Update(line, rules));
         }
-    }
-
-    private List<Integer> updateFromAocInput(String line)
-    {
-        List<Integer> update = new ArrayList<>();
-        for (String value : line.split(","))
-            update.add(Integer.valueOf(value));
-        return update;
     }
 
 }

@@ -36,17 +36,12 @@ extends Solver
     protected void solve()
     {
         List<Rule> rules = ((PrintQueue_Parser) parser).getRules();
-        List<List<Integer>> updates = ((PrintQueue_Parser) parser).getUpdates();
+        List<Update> updates = ((PrintQueue_Parser) parser).getUpdates();
 
         Long result = 0L;
-        for (List<Integer> update : updates) {
-            Boolean correct = true;
-            for (Rule rule : rules) {
-                if (rule.applies(update))
-                  if (!rule.inRightOrder(update)) 
-                    correct = false;
-            }
-            if (correct) result += update.get(update.size() / 2);
+        for (Update update : updates) {
+            if (update.isInRightOrder()) 
+                result += update.getMiddlePageNumber();
         }
         setAnswer(result);
     }
