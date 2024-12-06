@@ -29,12 +29,26 @@ extends Solver
     @Override
     protected Parser manufactureParser(List<String> input)
     {
-        return null;
+        return new PrintQueue_Parser(input);
     }
 
     @Override
     protected void solve()
     {
+        List<Update> updates = ((PrintQueue_Parser) parser).getUpdates();
+        List<RuleOrder> order = RuleOrder.getRuleOrder(((PrintQueue_Parser) parser).getRules());
+
+        for (RuleOrder ruleorder : order) System.out.println(ruleorder.toString());
+
+        Long result = 0L;
+        for (Update update : updates) {
+            if (!update.isInRightOrder()) {
+                update.rearrange(order);
+                result += update.getMiddlePageNumber();
+            }
+        }
+        setAnswer(result);
     }
 
 }
+// 4591 too low

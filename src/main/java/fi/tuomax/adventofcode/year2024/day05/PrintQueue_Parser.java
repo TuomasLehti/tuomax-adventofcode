@@ -39,7 +39,7 @@ extends Parser
                 parseState = UPDATE_STATE;
                 continue;
             } 
-            if (parseState == RULE_STATE)
+            if (parseState == RULE_STATE) 
                 rules.add(new Rule(line));
             else
                 updates.add(new Update(line, rules));
