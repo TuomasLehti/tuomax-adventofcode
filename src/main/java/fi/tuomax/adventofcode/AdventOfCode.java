@@ -145,6 +145,7 @@ import fi.tuomax.adventofcode.year2024.day04.CeresSearch_Part1;
 import fi.tuomax.adventofcode.year2024.day04.CeresSearch_Part2;
 import fi.tuomax.adventofcode.year2024.day05.PrintQueue_Part1;
 import fi.tuomax.adventofcode.year2024.day05.PrintQueue_Part2;
+import fi.tuomax.adventofcode.year2024.day06.GuardGallivant_Part1;
 import fi.tuomax.adventofcode.year2022.day13.DistressSignal_Part1;
 import fi.tuomax.adventofcode.year2022.day13.DistressSignal_Part2;
 import fi.tuomax.adventofcode.year2016.day19.AnElephantNamedJoseph_Part1;
@@ -182,7 +183,7 @@ public class AdventOfCode
         solvers.addSolver(new CeresSearch_Part2());
         solvers.addSolver(new PrintQueue_Part1());
         solvers.addSolver(new PrintQueue_Part2());
-        
+        solvers.addSolver(new GuardGallivant_Part1());
     }
 
     private void addSolvers2022() {
