@@ -8,6 +8,7 @@ import fi.tuomax.adventofcode.commons.Direction.TurnDirection;
 import fi.tuomax.adventofcode.framework.parsing.Parser;
 import fi.tuomax.adventofcode.framework.solving.Solver;
 import java.util.List;
+import java.util.Set;
 
 /**
  * <p>Solves Advent of Code 2024, day 6, part 1:
@@ -41,8 +42,12 @@ extends Solver
         return (GuardGallivant_Parser) parser;
     }
 
-    @Override
-    protected void solve()
+
+    /* A cheaky side effect. */
+    protected Set<Coordinates> latestVisitedCells;
+
+    /* Return -1 if enters loop, otherwise num of visited locations. */
+    protected Integer numOfVisitedDuringRound()
     {
         Walker walker = new Walker();
         walker.setCurrentCoords(parser().getStart());
@@ -56,7 +61,6 @@ extends Solver
             walker.getCurrentCoords().x() < parser().getSize().x() &&
             walker.getCurrentCoords().y() > ((parser().getSize().y() * -1) + 1)
         ) {
-
             if (walker.getCurrentCoords().equals(Coordinates.ORIGIN))
                 revisitsOrigin = true;
 
@@ -69,7 +73,17 @@ extends Solver
             walker.step(dir);
         }
 
-         for (int row = 0; row <= parser().getSize().x(); row++) {
+        latestVisitedCells = walker.getVisited();
+        Integer result = walker.numOfVisited();
+        if (!revisitsOrigin) result--;
+        return result;
+    }
+
+    @Override
+    protected void solve()
+    {
+
+/*          for (int row = 0; row <= parser().getSize().x(); row++) {
             for (int col = 0; col < (parser().getSize().x()); col++) {
                 Coordinates c = Coordinates.fromInteger(col, (row * -1));
                 if (parser().getStart().equals(c))
@@ -83,11 +97,8 @@ extends Solver
             }
             System.out.println();
         }
- 
-        Integer result = walker.numOfVisited();
-//        result--; //for the last position outside the grid
-        if (!revisitsOrigin) result--;
-        setAnswer(result); // -1 for 0,0 and -1 
+ */ 
+        setAnswer(numOfVisitedDuringRound()); 
     }
 
 }
