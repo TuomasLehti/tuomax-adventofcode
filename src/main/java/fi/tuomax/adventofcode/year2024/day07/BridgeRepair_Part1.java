@@ -47,6 +47,7 @@ extends Solver
     {
         Long result = 0L;
         for (Equation eq : parser().getEquations()) {
+//            LoggerFactory.getLogger(getClass()).debug(eq.toString());
             EquationSolver es = new EquationSolver();
             if (es.possibleAnswersForEquation(eq.operands()).contains(eq.result()))
                 result += eq.result();

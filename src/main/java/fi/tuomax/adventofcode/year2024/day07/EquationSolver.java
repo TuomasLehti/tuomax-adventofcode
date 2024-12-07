@@ -14,10 +14,16 @@ import java.util.Set;
 public class EquationSolver 
 {
 
-    public Set<Long> possibleAnswersForEquation(String equation)
+    public Set<Long> possibleAnswersForEquation(List<Long> operands)
     {
+/*         StringBuilder sb = new StringBuilder();
+        sb.append("  ".repeat(EquationSolver.depth));
+        for (Long o : operands) {
+            if (sb.length() > 0) sb.append(" ");
+            sb.append(o);
+        }
+        System.out.println(sb.toString()); */
         Set<Long> result = new HashSet<>();
-        List<String> operands = new ArrayList<>(Arrays.asList(equation.split(" ")));
 
         if (operands.size() == 2) {
             Long left = Long.valueOf(operands.get(0));
@@ -30,21 +36,24 @@ public class EquationSolver
             operands.remove(0);
             
             operands.remove(0);
-            operands.add(0, String.format("%d", left * right));
-            result.addAll(possibleAnswersForEquation(String.join(" ", operands)));
+            operands.add(0, left * right);
+            result.addAll(possibleAnswersForEquation(operands));
 
             operands.remove(0);
-            operands.add(0, String.format("%d", left + right));
-            result.addAll(possibleAnswersForEquation(String.join(" ", operands)));
+            operands.add(0, left + right);
+            result.addAll(possibleAnswersForEquation(operands));
+
+            operands.remove(0);
+            operands.add(0, right);
+            operands.add(0, left);
         }
         
         return result;
     }
 
-    public Set<Long> possibleAnswersForEquationPart2(String equation)
+    public Set<Long> possibleAnswersForEquationPart2(List<Long> operands)
     {
         Set<Long> result = new HashSet<>();
-        List<String> operands = new ArrayList<>(Arrays.asList(equation.split(" ")));
 
         if (operands.size() == 2) {
             Long left = Long.valueOf(operands.get(0));
@@ -58,16 +67,20 @@ public class EquationSolver
             operands.remove(0);
             
             operands.remove(0);
-            operands.add(0, String.format("%d", left * right));
-            result.addAll(possibleAnswersForEquationPart2(String.join(" ", operands)));
+            operands.add(0, left * right);
+            result.addAll(possibleAnswersForEquationPart2(operands));
 
             operands.remove(0);
-            operands.add(0, String.format("%d", left + right));
-            result.addAll(possibleAnswersForEquationPart2(String.join(" ", operands)));
+            operands.add(0, left + right);
+            result.addAll(possibleAnswersForEquationPart2(operands));
 
             operands.remove(0);
-            operands.add(0, String.format("%d%d", left, right));
-            result.addAll(possibleAnswersForEquationPart2(String.join(" ", operands)));
+            operands.add(0, Long.valueOf(String.format("%d%d", left, right)));
+            result.addAll(possibleAnswersForEquationPart2(operands));
+
+            operands.remove(0);
+            operands.add(0, right);
+            operands.add(0, left);
         }
         
         return result;
