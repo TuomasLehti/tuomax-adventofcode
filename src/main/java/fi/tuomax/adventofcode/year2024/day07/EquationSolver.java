@@ -51,6 +51,36 @@ public class EquationSolver
         return result;
     }
 
+    public Boolean solvesEquationPart2(Long target, List<Long> operands)
+    {
+        Long left = Long.valueOf(operands.get(0));
+        Long right = Long.valueOf(operands.get(1));
+        if (operands.size() == 2) {
+            return target.equals(left + right) ||
+                target.equals(left * right) ||
+                target.equals(Long.valueOf(left.toString() + right.toString()));
+        } else {
+            operands.remove(0);
+            
+            operands.remove(0);
+            operands.add(0, left * right);
+            if (solvesEquationPart2(target, operands)) return true;
+
+            operands.remove(0);
+            operands.add(0, left + right);
+            if (solvesEquationPart2(target, operands)) return true;
+
+            operands.remove(0);
+            operands.add(0, Long.valueOf(String.format("%d%d", left, right)));
+            if (solvesEquationPart2(target, operands)) return true;
+
+            operands.remove(0);
+            operands.add(0, right);
+            operands.add(0, left);
+        }
+        return false;
+    }
+
     public Set<Long> possibleAnswersForEquationPart2(List<Long> operands)
     {
         Set<Long> result = new HashSet<>();

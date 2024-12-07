@@ -43,7 +43,7 @@ extends Solver
         Long result = 0L;
         for (Equation eq : parser().getEquations()) {
             EquationSolver es = new EquationSolver();
-            if (es.possibleAnswersForEquationPart2(eq.operands()).contains(eq.result()))
+            if (es.solvesEquationPart2(eq.result(), eq.operands()))
                 result += eq.result();
         }
         setAnswer(result);
