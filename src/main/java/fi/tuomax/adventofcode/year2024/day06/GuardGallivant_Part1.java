@@ -42,13 +42,10 @@ extends Solver
         return (GuardGallivant_Parser) parser;
     }
 
-
-    /* A cheaky side effect. */
-    protected Set<Coordinates> latestVisitedCells;
-
     /* Return -1 if enters loop, otherwise num of visited locations. */
     protected Integer numOfVisitedDuringRound()
     {
+        
         Walker walker = new Walker();
         walker.setCurrentCoords(parser().getStart());
         Direction dir = Direction.getInstance(Direction.NORTH);
@@ -73,7 +70,6 @@ extends Solver
             walker.step(dir);
         }
 
-        latestVisitedCells = walker.getVisited();
         Integer result = walker.numOfVisited();
         if (!revisitsOrigin) result--;
         return result;
