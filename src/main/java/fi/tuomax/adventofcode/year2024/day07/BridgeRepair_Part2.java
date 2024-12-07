@@ -29,12 +29,25 @@ extends Solver
     @Override
     protected Parser manufactureParser(List<String> input)
     {
-        return null;
+        return new BridgeRepair_Parser(input);
+    }
+
+    protected BridgeRepair_Parser parser()
+    {
+        return (BridgeRepair_Parser) parser;
     }
 
     @Override
     protected void solve()
     {
+        Long result = 0L;
+        for (Equation eq : parser().getEquations()) {
+            EquationSolver es = new EquationSolver();
+            if (es.possibleAnswersForEquationPart2(eq.operands()).contains(eq.result()))
+                result += eq.result();
+        }
+        setAnswer(result);
     }
+
 
 }

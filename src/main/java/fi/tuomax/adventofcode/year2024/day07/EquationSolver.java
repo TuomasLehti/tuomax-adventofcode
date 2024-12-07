@@ -41,4 +41,36 @@ public class EquationSolver
         return result;
     }
 
+    public Set<Long> possibleAnswersForEquationPart2(String equation)
+    {
+        Set<Long> result = new HashSet<>();
+        List<String> operands = new ArrayList<>(Arrays.asList(equation.split(" ")));
+
+        if (operands.size() == 2) {
+            Long left = Long.valueOf(operands.get(0));
+            Long right = Long.valueOf(operands.get(1));
+            result.add(left * right);
+            result.add(left + right);
+            result.add(Long.valueOf(left.toString() + right.toString()));
+        } else {
+            Long left = Long.valueOf(operands.get(0));
+            Long right = Long.valueOf(operands.get(1));
+            operands.remove(0);
+            
+            operands.remove(0);
+            operands.add(0, String.format("%d", left * right));
+            result.addAll(possibleAnswersForEquationPart2(String.join(" ", operands)));
+
+            operands.remove(0);
+            operands.add(0, String.format("%d", left + right));
+            result.addAll(possibleAnswersForEquationPart2(String.join(" ", operands)));
+
+            operands.remove(0);
+            operands.add(0, String.format("%d%d", left, right));
+            result.addAll(possibleAnswersForEquationPart2(String.join(" ", operands)));
+        }
+        
+        return result;
+    }
+
 }
