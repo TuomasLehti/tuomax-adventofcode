@@ -1,9 +1,7 @@
 package fi.tuomax.adventofcode.year2024.day08;
 
 import fi.tuomax.adventofcode.framework.solving.Metadata;
-import fi.tuomax.adventofcode.framework.parsing.Parser;
-import fi.tuomax.adventofcode.framework.solving.Solver;
-import java.util.List;
+import fi.tuomax.adventofcode.commons.Coordinates;
 
 /**
  * <p>Solves Advent of Code 2024, day 8, part 2:
@@ -14,7 +12,7 @@ import java.util.List;
  *      Puzzle on the Advent of Code website.</a></p>
  */
 public class ResonantCollinearity_Part2
-extends Solver
+extends ResonantCollinearity_Part1
 {
 
     @Override
@@ -27,14 +25,16 @@ extends Solver
     }
 
     @Override
-    protected Parser manufactureParser(List<String> input)
+    protected void addAntinodes(Antenna one, Antenna other)
     {
-        return null;
-    }
-
-    @Override
-    protected void solve()
-    {
+        Coordinates delta = delta(one.position(), other.position());
+        Coordinates antinode = one.position().translate(delta);
+        while (inBounds(antinode)) {
+            antinodes.add(antinode);
+            antinode = antinode.translate(delta);
+        }
+        antinodes.add(one.position());
+        antinodes.add(other.position());
     }
 
 }
