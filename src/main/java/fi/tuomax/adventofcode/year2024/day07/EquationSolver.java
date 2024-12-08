@@ -54,6 +54,9 @@ public class EquationSolver
     public Boolean solvesEquationPart2(Long target, List<Long> operands)
     {
         Long left = Long.valueOf(operands.get(0));
+
+        if (left > target) return false;
+
         Long right = Long.valueOf(operands.get(1));
         if (operands.size() == 2) {
             return target.equals(left + right) ||
