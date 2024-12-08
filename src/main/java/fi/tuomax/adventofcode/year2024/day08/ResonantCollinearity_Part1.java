@@ -41,22 +41,41 @@ extends Solver
         return (ResonantCollinearity_Parser) parser;
     }
 
+    protected Boolean inBounds(Coordinates coordinates)
+    {
+        return 
+            coordinates.x() >= 0 && 
+            coordinates.x() < getParser().getWidth() &&
+            coordinates.y() >= 0 && 
+            coordinates.y() < getParser().getHeight();
+    }
+
+    protected Coordinates delta(Coordinates one, Coordinates other)
+    {
+        Long dx = one.x() - other.x();
+        Long dy = one.y() - other.y();
+        return new Coordinates(dx, dy);
+    }
+
+    protected Set<Coordinates> antinodes = new HashSet<>();
+
+    protected void addAntinodes(Antenna one, Antenna other)
+    {
+        Coordinates delta = delta(one.position(), other.position());
+        Coordinates antinode = one.position().translate(delta);
+        if (inBounds(antinode))
+            antinodes.add(antinode);
+    }
+
     @Override
     protected void solve()
     {
-        Set<Coordinates> antinodes = new HashSet<>();
-
+        antinodes.clear(); // don't know why, but it must be done
         for (Antenna one : getParser().getAntennas()) 
             for (Antenna other : getParser().getAntennas()) {
                 if (one.equals(other)) continue;
                 if (!one.frequency().equals(other.frequency())) continue;
-                Long dx = one.position().x() - other.position().x();
-                Long dy = one.position().y() - other.position().y();
-                Coordinates delta = new Coordinates(dx, dy);
-                Coordinates antinode = one.position().translate(delta);
-                if (antinode.x() >= 0 && antinode.x() < getParser().getWidth() &&
-                    antinode.y() >= 0 && antinode.y() < getParser().getHeight())
-                    antinodes.add(antinode);
+                addAntinodes(one, other);
             }
 
         setAnswer(antinodes.size());
