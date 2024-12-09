@@ -26,6 +26,18 @@ implements Comparable<HistoriansFile>
         return start + length - 1;
     }
 
+    private Boolean moved = false;
+
+    public Boolean hasMoved()
+    {
+        return moved;
+    }
+
+    public void setMoved()
+    {
+        moved = true;
+    }
+
     public HistoriansFile(Integer index, Integer start, Integer length)
     {
         this.index = index;

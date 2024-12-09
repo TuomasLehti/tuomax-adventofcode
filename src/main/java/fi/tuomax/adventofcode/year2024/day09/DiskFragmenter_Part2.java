@@ -29,12 +29,16 @@ extends Solver
     @Override
     protected Parser manufactureParser(List<String> input)
     {
-        return null;
+        return new DiskFragmenter_Parser(input);
     }
 
     @Override
     protected void solve()
     {
+        DiskMap dm = ((DiskFragmenter_Parser) parser).getDiskMap();
+        dm.defragment();
+        setAnswer(dm.checkSum());
     }
 
 }
+// 9826752182521 too high

@@ -61,6 +61,49 @@ public class DiskMap
             move();
     }
 
+    public Boolean movePart2()
+    {
+        Integer gapIdx = 0;
+        while (gapIdx < files.size() - 1) {
+            for (int fileIdx = files.size() - 1; fileIdx >= gapIdx; fileIdx--) {
+                if (gapSizeAfter(gapIdx) >= files.get(fileIdx).getLength()) {
+                    files.get(fileIdx).move(files.get(gapIdx).getEnd() + 1);
+                    Collections.sort(files);
+                    return true;
+                }
+            }
+            gapIdx++;
+        }
+        return false;
+    }
+
+    private Integer getLastNonMovedFileIdx()
+    {
+        for (int fileIdx = files.size() - 1; fileIdx > 0; fileIdx--) {
+            if (!files.get(fileIdx).hasMoved())
+                return fileIdx;
+        }
+        return -1;
+    }
+
+    public void defragment()
+    {
+        Integer fileIdx = getLastNonMovedFileIdx();
+        while (fileIdx > -1) {
+//            System.out.println(toString());
+            files.get(fileIdx).setMoved();
+            for (int gapIdx = 0; gapIdx < fileIdx; gapIdx++) {
+                if (gapSizeAfter(gapIdx) >= files.get(fileIdx).getLength()) {
+                    files.get(fileIdx).move(files.get(gapIdx).getEnd() + 1);
+                    Collections.sort(files);
+                    break;
+                }
+            }
+            fileIdx = getLastNonMovedFileIdx();
+        }
+
+    }
+
     public Long checkSum()
     {
         Long result = 0L;
