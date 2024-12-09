@@ -23,7 +23,7 @@ extends Parser
     @Override
     public void parse()
     {
-        long start = 0;
+        int start = 0;
         for (int idx = 0; idx < input.get(0).length(); idx += 2) {
             int fileIdx = idx / 2;
             int size = Integer.valueOf(input.get(0).substring(idx, idx + 1));
