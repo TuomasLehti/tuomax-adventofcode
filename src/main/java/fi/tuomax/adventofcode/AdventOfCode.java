@@ -153,6 +153,8 @@ import fi.tuomax.adventofcode.year2024.day08.ResonantCollinearity_Part1;
 import fi.tuomax.adventofcode.year2024.day08.ResonantCollinearity_Part2;
 import fi.tuomax.adventofcode.year2024.day09.DiskFragmenter_Part1;
 import fi.tuomax.adventofcode.year2024.day09.DiskFragmenter_Part2;
+import fi.tuomax.adventofcode.year2024.day10.HoofIt_Part1;
+import fi.tuomax.adventofcode.year2024.day10.HoofIt_Part2;
 import fi.tuomax.adventofcode.year2022.day13.DistressSignal_Part1;
 import fi.tuomax.adventofcode.year2022.day13.DistressSignal_Part2;
 import fi.tuomax.adventofcode.year2016.day19.AnElephantNamedJoseph_Part1;
@@ -198,6 +200,8 @@ public class AdventOfCode
         solvers.addSolver(new ResonantCollinearity_Part2());
         solvers.addSolver(new DiskFragmenter_Part1());
         solvers.addSolver(new DiskFragmenter_Part2());
+        solvers.addSolver(new HoofIt_Part1());
+        solvers.addSolver(new HoofIt_Part2());
     }
 
     private void addSolvers2022() {
