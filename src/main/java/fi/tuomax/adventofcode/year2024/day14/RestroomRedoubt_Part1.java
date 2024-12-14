@@ -5,12 +5,9 @@ import fi.tuomax.adventofcode.commons.Coordinates;
 import fi.tuomax.adventofcode.framework.parsing.Parser;
 import fi.tuomax.adventofcode.framework.solving.Solver;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
 
 /**
  * <p>Solves Advent of Code 2024, day 14, part 1:
@@ -49,9 +46,6 @@ extends Solver
         for (Robot robot : robots)
             robot.step(100);
 
-/*         Integer quadrantWidth = (Robot.spaceWidth / 2) - 1;
-        Integer quadrantHeight = (Robot.spaceHeight / 2) - 1; */
-
         Coordinates middle = Coordinates.fromInteger(
             Robot.spaceWidth / 2, 
             Robot.spaceHeight / 2
@@ -63,8 +57,6 @@ extends Solver
                 robot.getPosition().x().equals(middle.x()) ||
                 robot.getPosition().y().equals(middle.y()) 
             ) continue;
-/*             Integer quadX = robot.getPosition().xAsInt() / (Robot.spaceWidth / 2);
-            Integer quadY = robot.getPosition().yAsInt() / (Robot.spaceHeight / 2); */
             Integer quadX = robot.getPosition().x() < middle.x() ? 0 : 1;
             Integer quadY = robot.getPosition().y() < middle.y() ? 0 : 1;
             Integer quad = quadY * 2 + quadX;
