@@ -42,5 +42,35 @@ public class Robot
             (newPosition.y() + numOfSteps * spaceHeight) % spaceHeight
         );
     }
+
+    public Boolean isMirrorOf(Robot other)
+    {
+        /* If they're on different rows, return false. */
+        if (!this.getPosition().y().equals(other.getPosition().y()))
+            return false;
+
+        long middle = Robot.spaceWidth / 2;
+        long onesDistFromMiddle = this.getPosition().x() - middle;
+
+        /* If a robot is at the middle, it is always a mirror of itself. */
+        if (onesDistFromMiddle == 0) return true;
+
+        long othersDistFromMiddle = other.getPosition().x() - middle;
+
+        /* They are mirrored if their distance from the middle is the same, but
+         * their sign is different.
+         * 
+         * This uses a trick with compiler. The second comparison, after the 
+         * and, is only evaluated if the absolute values of the distances are
+         * the same, which means that the distances are (d,d), (d,-d), (-d,d)
+         * or (-d,-d).
+         * 
+         * In the second comparison the signs of the distances are same if the 
+         * distances are same!
+         */
+        return 
+            Math.abs(onesDistFromMiddle) == Math.abs(othersDistFromMiddle) &&
+            onesDistFromMiddle != othersDistFromMiddle;
+    }
     
 }

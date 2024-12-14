@@ -1,6 +1,8 @@
 package fi.tuomax.adventofcode.year2024.day14;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 
@@ -20,7 +22,7 @@ extends PuzzleTester
     }
 
     @Test
-    public void test_Robot()
+    public void test_Robot_Step()
     {
         Robot.spaceWidth = 11;
         Robot.spaceHeight = 7;
@@ -38,6 +40,46 @@ extends PuzzleTester
         assertEquals(Coordinates.fromInteger(10, 6), robot.getPosition());
         robot.step(1);
         assertEquals(Coordinates.fromInteger(1, 3), robot.getPosition());
+    }
+
+    @Test
+    public void test_Robot_IsMirrorOf_DifferentRows()
+    {
+        Robot.spaceWidth = 5;
+        Robot.spaceHeight = 5;
+        Robot one = new Robot("p=3,0 v=2,-3");
+        Robot other = new  Robot("p=1,3 v=2,-3");
+        assertFalse(one.isMirrorOf(other));
+    }
+
+    @Test
+    public void test_Robot_IsMirrorOf_InMiddle()
+    {
+        Robot.spaceWidth = 5;
+        Robot.spaceHeight = 5;
+        Robot one = new Robot("p=2,0 v=2,-3");
+        Robot other = new  Robot("p=1,0 v=2,-3");
+        assertTrue(one.isMirrorOf(other));
+    }
+
+    @Test
+    public void test_Robot_IsMirrorOf_DifferentDistances()
+    {
+        Robot.spaceWidth = 5;
+        Robot.spaceHeight = 5;
+        Robot one = new Robot("p=4,0 v=2,-3");
+        Robot other = new  Robot("p=1,0 v=2,-3");
+        assertFalse(one.isMirrorOf(other));
+    }
+
+    @Test
+    public void test_Robot_IsMirrorOf_Yes()
+    {
+        Robot.spaceWidth = 5;
+        Robot.spaceHeight = 5;
+        Robot one = new Robot("p=3,0 v=2,-3");
+        Robot other = new  Robot("p=1,0 v=2,-3");
+        assertTrue(one.isMirrorOf(other));
     }
 
     @Test
