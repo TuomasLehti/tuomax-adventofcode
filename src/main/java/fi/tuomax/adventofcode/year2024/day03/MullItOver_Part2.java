@@ -41,7 +41,6 @@ extends MullItOver_Part1
         Boolean enabled = true;
         while (matcher.find()) {
             String group = matcher.group(0);
-            System.out.println(group);
             if (group.matches(dodoStr))
                 enabled = true;
             else if (group.matches(dontStr))
