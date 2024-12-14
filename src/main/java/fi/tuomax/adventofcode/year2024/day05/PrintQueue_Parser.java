@@ -26,7 +26,6 @@ extends Parser
         super(input);
     }
 
-
     @Override
     public void parse()
     {

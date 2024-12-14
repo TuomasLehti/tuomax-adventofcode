@@ -35,7 +35,6 @@ extends Solver
     @Override
     protected void solve()
     {
-        List<Rule> rules = ((PrintQueue_Parser) parser).getRules();
         List<Update> updates = ((PrintQueue_Parser) parser).getUpdates();
 
         Long result = 0L;
