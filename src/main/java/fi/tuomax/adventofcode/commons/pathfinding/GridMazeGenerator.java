@@ -10,6 +10,8 @@ public class GridMazeGenerator
 extends MazeGenerator
 {
 
+    public static Boolean outOfBoundsIsWall = false;
+
     private Grid<Boolean> grid;
 
     public GridMazeGenerator(Grid<Boolean> grid)
@@ -20,7 +22,9 @@ extends MazeGenerator
     @Override
     public Boolean isWall(Coordinates coordinates) 
     {
-        return grid.get(coordinates.xAsInt(), coordinates.yAsInt());
+        return 
+            (outOfBoundsIsWall && !grid.exists(coordinates)) || 
+            grid.get(coordinates.xAsInt(), coordinates.yAsInt());
     }
     
 }
