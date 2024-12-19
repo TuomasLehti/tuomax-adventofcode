@@ -1,6 +1,7 @@
 package fi.tuomax.adventofcode.framework.running;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import fi.tuomax.adventofcode.framework.printing.ResultRow;
@@ -21,7 +22,9 @@ extends Runner
         List<List<Solver>> runned = new ArrayList<>();
 
         Year year = everySolver.getYear(metadata.year());
-        for (Integer dayNo : year.getDayNos()) {
+        List<Integer> dayNos = new ArrayList<>(year.getDayNos());
+        Collections.sort(dayNos);
+        for (Integer dayNo : dayNos) {
 
             Day day = year.getDay(dayNo);
             String algoName = "";
