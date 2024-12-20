@@ -15,6 +15,8 @@ import org.slf4j.LoggerFactory;
 /**
  * <p>Solves Advent of Code 2024, day 18, part 2:
  * RAM Run.</p>
+ * 
+ * TODO: optimize
  *
  * @see
  *      <a href="https://adventofcode.com/2024/day/18">
