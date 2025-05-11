@@ -216,7 +216,7 @@ are the dates of migrating these puzzles to this framework.
 | 3  | 11.5.2025  | 11.5.2025  |  |
 | 4  | 11.5.2025  | 11.5.2025  |  |
 | 5  | 11.5.2025  | 11.5.2025  |  |
-| 6  |  |  |  |
+| 6  | 11.5.2025  | 11.5.2025  | (1) |
 | 7  |  |  |  |
 | 8  |  |  |  |
 | 9  |  |  |  |
@@ -236,6 +236,8 @@ are the dates of migrating these puzzles to this framework.
 | 23 |  |  |  |
 | 24 |  |  |  |
 | 25 |  |  |  |
+
+1) TODO: Make it faster and utilize IntegerListParser.
 
 
 ## Year 2016

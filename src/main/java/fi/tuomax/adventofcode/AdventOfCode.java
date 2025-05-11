@@ -117,6 +117,8 @@ import fi.tuomax.adventofcode.year2017.day04.HighentropyPassphrases_Part1;
 import fi.tuomax.adventofcode.year2017.day04.HighentropyPassphrases_Part2;
 import fi.tuomax.adventofcode.year2017.day05.AMazeOfTwistyTrampolinesAllAlike_Part1;
 import fi.tuomax.adventofcode.year2017.day05.AMazeOfTwistyTrampolinesAllAlike_Part2;
+import fi.tuomax.adventofcode.year2017.day06.MemoryReallocation_Part1;
+import fi.tuomax.adventofcode.year2017.day06.MemoryReallocation_Part2;
 import fi.tuomax.adventofcode.year2022.day01.CalorieCounting_Part1;
 import fi.tuomax.adventofcode.year2022.day01.CalorieCounting_Part2;
 import fi.tuomax.adventofcode.year2022.day02.RockPaperScissors_Part1;
@@ -187,6 +189,9 @@ public class AdventOfCode
         /* day 5 */
         solvers.addSolver(new AMazeOfTwistyTrampolinesAllAlike_Part1());
         solvers.addSolver(new AMazeOfTwistyTrampolinesAllAlike_Part2());
+        /* day 6 */
+        solvers.addSolver(new MemoryReallocation_Part1());
+        solvers.addSolver(new MemoryReallocation_Part2());
     }
 
     private void addSolvers2022() {
