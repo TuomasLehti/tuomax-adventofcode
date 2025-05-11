@@ -111,6 +111,7 @@ import fi.tuomax.adventofcode.year2017.day01.InverseCaptcha_Part1;
 import fi.tuomax.adventofcode.year2017.day01.InverseCaptcha_Part2;
 import fi.tuomax.adventofcode.year2017.day02.CorruptionChecksum_Part1;
 import fi.tuomax.adventofcode.year2017.day02.CorruptionChecksum_Part2;
+import fi.tuomax.adventofcode.year2017.day03.SpiralMemory_Part1;
 import fi.tuomax.adventofcode.year2022.day01.CalorieCounting_Part1;
 import fi.tuomax.adventofcode.year2022.day01.CalorieCounting_Part2;
 import fi.tuomax.adventofcode.year2022.day02.RockPaperScissors_Part1;
@@ -172,6 +173,8 @@ public class AdventOfCode
         /* day 2 */
         solvers.addSolver(new CorruptionChecksum_Part1());
         solvers.addSolver(new CorruptionChecksum_Part2());
+        /* day 3 */
+        solvers.addSolver(new SpiralMemory_Part1());
     }
 
     private void addSolvers2022() {
