@@ -10,6 +10,9 @@ import java.util.List;
 /**
  * <p>Solves Advent of Code 2017, day 3, part 1:
  * Spiral Memory.</p>
+ * 
+ * <p>In anticipation of a much, much larger target for part two I decided to use maths 
+ * to calculate the answer.</p>
  *
  * @see
  *      <a href="https://adventofcode.com/2017/day/3">
