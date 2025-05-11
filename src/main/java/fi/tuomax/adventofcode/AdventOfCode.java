@@ -109,6 +109,8 @@ import fi.tuomax.adventofcode.year2016.day24.AirDuctSpelunking_Part2;
 import fi.tuomax.adventofcode.year2016.day25.ClockSignal_Part1;
 import fi.tuomax.adventofcode.year2017.day01.InverseCaptcha_Part1;
 import fi.tuomax.adventofcode.year2017.day01.InverseCaptcha_Part2;
+import fi.tuomax.adventofcode.year2017.day02.CorruptionChecksum_Part1;
+import fi.tuomax.adventofcode.year2017.day02.CorruptionChecksum_Part2;
 import fi.tuomax.adventofcode.year2022.day01.CalorieCounting_Part1;
 import fi.tuomax.adventofcode.year2022.day01.CalorieCounting_Part2;
 import fi.tuomax.adventofcode.year2022.day02.RockPaperScissors_Part1;
@@ -167,6 +169,9 @@ public class AdventOfCode
         /* day 1 */
         solvers.addSolver(new InverseCaptcha_Part1());
         solvers.addSolver(new InverseCaptcha_Part2());
+        /* day 2 */
+        solvers.addSolver(new CorruptionChecksum_Part1());
+        solvers.addSolver(new CorruptionChecksum_Part2());
     }
 
     private void addSolvers2022() {
