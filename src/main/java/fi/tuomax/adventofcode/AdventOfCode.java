@@ -123,6 +123,8 @@ import fi.tuomax.adventofcode.year2017.day07.RecursiveCircus_Part1;
 import fi.tuomax.adventofcode.year2017.day07.RecursiveCircus_Part2;
 import fi.tuomax.adventofcode.year2017.day08.IHeardYouLikeRegisters_Part1;
 import fi.tuomax.adventofcode.year2017.day08.IHeardYouLikeRegisters_Part2;
+import fi.tuomax.adventofcode.year2017.day09.StreamProcessing_Part1;
+import fi.tuomax.adventofcode.year2017.day09.StreamProcessing_Part2;
 import fi.tuomax.adventofcode.year2022.day01.CalorieCounting_Part1;
 import fi.tuomax.adventofcode.year2022.day01.CalorieCounting_Part2;
 import fi.tuomax.adventofcode.year2022.day02.RockPaperScissors_Part1;
@@ -202,6 +204,9 @@ public class AdventOfCode
         /* day 8 */
         solvers.addSolver(new IHeardYouLikeRegisters_Part1());
         solvers.addSolver(new IHeardYouLikeRegisters_Part2());
+        /* day 9 */
+        solvers.addSolver(new StreamProcessing_Part1());
+        solvers.addSolver(new StreamProcessing_Part2());
     }
 
     private void addSolvers2022() {
