@@ -16,14 +16,32 @@ extends Parser
 implements Iterable<Integer>
 {
 
+    /**
+     * Creates a parser for data, which is laid out one integer per line.
+     * 
+     * @param input
+     *      The AoC input.
+     */
     public IntegerListParser(List<String> input) 
     {
         super(input);
+        this.separator = "";
+    }
+
+    public IntegerListParser(List<String> input, String separator)
+    {
+        super(input);
+        this.separator = separator;
     }
 
     Logger logger = LoggerFactory.getLogger("");
 
     private List<Integer> ints = new ArrayList<>();
+
+    /**
+     * Separator to use when parsing single line data.
+     */
+    private String separator = "";
 
     public List<Integer> getIntegers()
     {
@@ -44,12 +62,17 @@ implements Iterable<Integer>
     @Override
     public void parse() 
     {
-        for (String line : input)
-            parseLine(line);
+        if (separator.equals(""))
+            for (String line : input)
+                parseLine(line);
+        else
+            for (String line : input.get(0).split(separator))
+                parseLine(line.trim());
     }
 
     @Override
-    public Iterator<Integer> iterator() {
+    public Iterator<Integer> iterator() 
+    {
         return ints.iterator();
     }
 
