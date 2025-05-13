@@ -9,6 +9,11 @@ public class KnotHasher
 
     private List<Integer> list = new ArrayList<>();
 
+    public List<Integer> getSparseHash() 
+    {
+        return list;
+    }
+
     private Integer currentPosition = 0;
 
     private Integer skipSize = 0;
@@ -49,7 +54,7 @@ public class KnotHasher
         list = newList;
     }
 
-    public void run(Integer length)
+    public void runRound(Integer length)
     {
         if (length > 1) {
             List<Integer> subList = getSublist(currentPosition, length);
@@ -61,6 +66,13 @@ public class KnotHasher
         currentPosition += length + skipSize;
         currentPosition %= list.size();
         skipSize++;
+    }
+
+    public void hashIntegers(List<Integer> lengths)
+    {
+        for (Integer length : lengths) {
+            runRound(length);
+        }
     }
 
     public String toString()
@@ -75,9 +87,4 @@ public class KnotHasher
         return sb.toString();
     }
 
-    public Integer getAnswer()
-    {
-        return list.get(0) * list.get(1);
-    }
-    
 }

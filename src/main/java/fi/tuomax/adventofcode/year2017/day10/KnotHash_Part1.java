@@ -38,10 +38,8 @@ extends Solver
     protected void solve()
     {
         KnotHasher hasher = new KnotHasher(getParamInt("hash_size"));
-        for (Integer i : ((IntegerListParser) parser).getIntegers()) {
-            hasher.run(i);
-        }
-        setAnswer(hasher.getAnswer());
+        hasher.hashIntegers(((IntegerListParser) parser).getIntegers());
+        setAnswer(hasher.getSparseHash().get(0) * hasher.getSparseHash().get(1));
     }
 
 }
