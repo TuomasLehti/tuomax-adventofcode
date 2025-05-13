@@ -49,7 +49,8 @@ implements Iterable<Integer>
     }
 
     @Override
-    public Iterator<Integer> iterator() {
+    public Iterator<Integer> iterator() 
+    {
         return ints.iterator();
     }
 
