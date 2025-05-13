@@ -2,6 +2,7 @@ package fi.tuomax.adventofcode.year2017.day10;
 
 import fi.tuomax.adventofcode.framework.solving.Metadata;
 import fi.tuomax.adventofcode.framework.parsing.Parser;
+import fi.tuomax.adventofcode.framework.parsing.StringParser;
 import fi.tuomax.adventofcode.framework.solving.Solver;
 import java.util.List;
 
@@ -29,12 +30,15 @@ extends Solver
     @Override
     protected Parser manufactureParser(List<String> input)
     {
-        return null;
+        return new StringParser(input);
     }
 
     @Override
     protected void solve()
     {
+        KnotHasher hasher = new KnotHasher(getParamInt("hash_size"));
+        hasher.hashString(((StringParser) parser).getString());
+        setAnswer(hasher.getDenseHash());
     }
 
 }

@@ -1,6 +1,7 @@
 package fi.tuomax.adventofcode.year2017.day10;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
@@ -68,11 +69,49 @@ public class KnotHasher
         skipSize++;
     }
 
+    /**
+     * Hashing a list of integers is only applicable for part 1, which is why 
+     * only one round is calculated.
+     * @param lengths
+     */
     public void hashIntegers(List<Integer> lengths)
     {
         for (Integer length : lengths) {
             runRound(length);
         }
+    }
+
+    public void hashString(String string)
+    {
+        List<Integer> lengths = new ArrayList<>();
+        for (char c : string.toCharArray()) {
+            lengths.add((int) c);
+        }
+        lengths.addAll(Arrays.asList(new Integer[]{17, 31, 73, 47, 23}));
+
+        for (int i = 0; i < 64; i++) {
+            hashIntegers(lengths);
+        }
+    }
+
+    public String getDenseHash()
+    {
+        List<Integer> denseHash = new ArrayList<>();
+        for (int i = 0; i < 16; i++) {
+            int densedigit = list.get(i * 16);
+            for (int j = 1; j < 16; j++) {
+                densedigit ^= list.get(i * 16 + j);
+            }
+            denseHash.add(densedigit);
+        }
+        StringBuilder sb = new StringBuilder();
+        for (Integer digit : denseHash) {
+            if (digit < 16) {
+                sb.append("0");
+            }
+            sb.append(Integer.toHexString(digit));
+        }
+        return sb.toString();
     }
 
     public String toString()
