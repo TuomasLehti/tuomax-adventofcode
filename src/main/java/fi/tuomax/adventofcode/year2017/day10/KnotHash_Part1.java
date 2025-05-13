@@ -1,11 +1,10 @@
 package fi.tuomax.adventofcode.year2017.day10;
 
 import fi.tuomax.adventofcode.framework.solving.Metadata;
+import fi.tuomax.adventofcode.framework.parsing.IntegerListParser;
 import fi.tuomax.adventofcode.framework.parsing.Parser;
-import fi.tuomax.adventofcode.framework.parsing.StringParser;
 import fi.tuomax.adventofcode.framework.solving.Solver;
 
-import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -32,14 +31,14 @@ extends Solver
     @Override
     protected Parser manufactureParser(List<String> input)
     {
-        return new KnotHash_Parser(input);
+        return new IntegerListParser(input, ",");
     }
 
     @Override
     protected void solve()
     {
-        KnotHasher hasher = new KnotHasher(256);
-        for (Integer i : ((KnotHash_Parser) parser).getInts()) {
+        KnotHasher hasher = new KnotHasher(getParamInt("hash_size"));
+        for (Integer i : ((IntegerListParser) parser).getIntegers()) {
             hasher.run(i);
         }
         setAnswer(hasher.getAnswer());
