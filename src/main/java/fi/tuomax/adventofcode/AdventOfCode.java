@@ -127,6 +127,8 @@ import fi.tuomax.adventofcode.year2017.day09.StreamProcessing_Part1;
 import fi.tuomax.adventofcode.year2017.day09.StreamProcessing_Part2;
 import fi.tuomax.adventofcode.year2017.day10.KnotHash_Part1;
 import fi.tuomax.adventofcode.year2017.day10.KnotHash_Part2;
+import fi.tuomax.adventofcode.year2017.day11.HexEd_Part1;
+import fi.tuomax.adventofcode.year2017.day11.HexEd_Part2;
 import fi.tuomax.adventofcode.year2022.day01.CalorieCounting_Part1;
 import fi.tuomax.adventofcode.year2022.day01.CalorieCounting_Part2;
 import fi.tuomax.adventofcode.year2022.day02.RockPaperScissors_Part1;
@@ -212,6 +214,9 @@ public class AdventOfCode
         /* day 10 */
         solvers.addSolver(new KnotHash_Part1());
         solvers.addSolver(new KnotHash_Part2());
+        /* day 11 */
+        solvers.addSolver(new HexEd_Part1());
+        solvers.addSolver(new HexEd_Part2());
     }
 
     private void addSolvers2022() {
