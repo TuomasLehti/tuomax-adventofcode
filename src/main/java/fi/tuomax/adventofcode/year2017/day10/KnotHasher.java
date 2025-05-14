@@ -26,6 +26,13 @@ public class KnotHasher
         }
     }
 
+    public KnotHasher()
+    {
+        for (int i = 0; i < 256; i++) {
+            list.add(i);
+        }
+    }
+
     private List<Integer> getSublist(Integer start, Integer length)
     {
         if ((start + length) <= list.size()) {
@@ -112,6 +119,12 @@ public class KnotHasher
             sb.append(Integer.toHexString(digit));
         }
         return sb.toString();
+    }
+
+    public String getDenseHash(String string)
+    {
+        hashString(string);
+        return getDenseHash();
     }
 
     public String toString()
