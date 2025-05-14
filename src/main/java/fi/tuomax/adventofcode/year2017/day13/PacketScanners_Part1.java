@@ -43,7 +43,7 @@ extends Solver
         for (int depth = 0; depth <= maxDepth; depth++) {
             Layer layer = layers.getOrDefault(depth, null);
             if (layer != null) {
-                if (layer.getScanner().equals(0)) {
+                if (layer.blocksAt(layer.getDepth())) {
                     totalSeverity += depth * layer.getRange();
                 }
             }
