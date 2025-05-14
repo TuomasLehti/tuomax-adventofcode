@@ -4,7 +4,6 @@ import fi.tuomax.adventofcode.framework.solving.Metadata;
 import fi.tuomax.adventofcode.framework.parsing.Parser;
 import fi.tuomax.adventofcode.framework.solving.Solver;
 import java.util.List;
-import java.util.Map;
 
 /**
  * <p>Solves Advent of Code 2017, day 13, part 2:
@@ -36,25 +35,15 @@ extends Solver
     @Override
     protected void solve()
     {
-        Map<Integer, Layer> layers = ((PacketScanners_Parser) parser).getLayers();
-        Integer maxDepth = Layer.getMaxDepth(layers);
-
-        Integer delay = 10;
-
+        List<Layer> layers = ((PacketScanners_Parser) parser).getLayers();
+        Integer delay = 0;
         Boolean gotCaught = true;
-
         while (gotCaught) {
-
-//            if ((delay % 1000) == 0) System.out.println(delay);
-
             gotCaught = false;
-            for (int depth = 0; depth <= maxDepth; depth++) {
-                Layer layer = layers.getOrDefault(depth, null);
-                if (layer != null) {
-                    if (layer.blocksAt(layer.getDepth() + delay)) {
-                        gotCaught = true;
-                        break;
-                    }
+            for (Layer layer : layers) {
+                if (layer.blocksAt(layer.getDepth() + delay)) {
+                    gotCaught = true;
+                    break;
                 }
             }
             delay++;

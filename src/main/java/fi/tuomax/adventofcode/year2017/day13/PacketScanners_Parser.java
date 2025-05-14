@@ -1,18 +1,17 @@
 package fi.tuomax.adventofcode.year2017.day13;
 
-import java.util.HashMap;
+import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
-
 import fi.tuomax.adventofcode.framework.parsing.Parser;
 
 public class PacketScanners_Parser
 extends Parser
 {
 
-    Map<Integer, Layer> layers = new HashMap<>();
 
-    public Map<Integer, Layer> getLayers() 
+    List<Layer> layers = new ArrayList<>();
+
+    public List<Layer> getLayers() 
     {
         return layers;
     }
@@ -27,7 +26,7 @@ extends Parser
     {
         for (String line : input) {
             Layer layer = new Layer(line);
-            layers.put(layer.getDepth(), layer);
+            layers.add(layer);
         }
     }
 
