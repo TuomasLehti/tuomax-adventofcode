@@ -17,5 +17,21 @@ public class Test_Generator
         assertEquals(1744312007L, (long) a.calculate());
         assertEquals(1352636452L, (long) a.calculate());
     }
+
+    @Test
+    public void test_calculation_part2()
+    {
+        Generator a = new Generator_Part2(65L, 16807L, 4L);
+        assertEquals(   1352636452L, (long) a.calculate());
+        assertEquals(1992081072L, (long) a.calculate());
+        assertEquals( 530830436L, (long) a.calculate());
+        assertEquals(1980017072L, (long) a.calculate());
+        assertEquals(740335192L, (long) a.calculate());
+    }
     
 }
+
+
+ 
+
+ 
