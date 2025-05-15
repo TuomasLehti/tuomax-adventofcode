@@ -46,9 +46,6 @@ extends Solver
 
         long numOfMatches = 0;
         for (long round = 1; round <= 40_000_000; round++) {
-            if ((round % 100_000) == 0) {
-                System.out.println(round);
-            }
             long a = genA.calculate();
             long b = genB.calculate();
             if ((a & 65535) == (b & 65535)) {
