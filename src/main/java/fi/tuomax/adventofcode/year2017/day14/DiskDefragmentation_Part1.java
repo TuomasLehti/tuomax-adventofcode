@@ -45,23 +45,31 @@ extends Solver
             KnotHasher hasher = new KnotHasher();
             String salted = input + i;
             String hash = hasher.getDenseHash(salted);
-            disk.add(new BigInteger(hash, 16).toString(2).toCharArray());
+            String row = new BigInteger(hash, 16).toString(2);
+            while (row.length() < 128) {
+                row = "0" + row;
+            }
+            disk.add(row.toCharArray());
         }
         return disk;
     }
 
-    @Override
-    protected void solve()
+    protected Integer countNumOfOnes(List<char[]> disk) 
     {
-        List<char[]> disk = prepareDisk();
-
         Integer numOfOnes = 0;
         for (char[] row : disk) {
             for (char col : row) {
                 numOfOnes += col - '0';
             }
         }
-        setAnswer(numOfOnes);
+        return numOfOnes;
+    }
+
+    @Override
+    protected void solve()
+    {
+        List<char[]> disk = prepareDisk();
+        setAnswer(countNumOfOnes(disk));
     }
 
 }
