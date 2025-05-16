@@ -9,14 +9,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * <p>Solves Advent of Code 2017, day 17, part 1:
+ * <p>Solves Advent of Code 2017, day 17, part 2:
  * Spinlock.</p>
  *
  * @see
  *      <a href="https://adventofcode.com/2017/day/17">
  *      Puzzle on the Advent of Code website.</a></p>
  */
-public class Spinlock_Part1
+public class Spinlock_Part2
 extends Solver
 {
 
@@ -24,7 +24,7 @@ extends Solver
     protected Metadata manufactureMetadata()
     {
         return new Metadata(
-            2017, 17, 1,
+            2017, 17, 2,
             "Spinlock", ""
         );
     }
@@ -44,11 +44,12 @@ extends Solver
         Spinlock current = head;
 
         int value = 1;
-        for (int step = 0; step < 2017; step++) {
+        for (int step = 0; step < 50_000_000; step++) {
+            if (step % 100_000 == 0) System.out.println(step);
             current = current.add(steps, value);
             value++;
         }
-        setAnswer(current.getNext().getValue());
+        setAnswer(head.getNext().getValue());
     }
 
 }
