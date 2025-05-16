@@ -1,8 +1,7 @@
 package fi.tuomax.adventofcode.year2017.day16;
 
 import fi.tuomax.adventofcode.framework.solving.Metadata;
-import fi.tuomax.adventofcode.framework.parsing.Parser;
-import fi.tuomax.adventofcode.framework.solving.Solver;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -14,7 +13,7 @@ import java.util.List;
  *      Puzzle on the Advent of Code website.</a></p>
  */
 public class PermutationPromenade_Part2
-extends Solver
+extends PermutationPromenade_Part1
 {
 
     @Override
@@ -27,14 +26,20 @@ extends Solver
     }
 
     @Override
-    protected Parser manufactureParser(List<String> input)
+    protected void dance()
     {
-        return null;
-    }
-
-    @Override
-    protected void solve()
-    {
+        List<String> danceFloors = new ArrayList<>();
+        String danceFloorStr = new String(danceFloor);
+        while (!danceFloors.contains(danceFloorStr)) {
+            danceFloors.add(danceFloorStr);
+            danceForOneRound();
+            danceFloorStr = new String(danceFloor);
+        }
+        int cycleStart = danceFloors.indexOf(danceFloorStr);
+        long target = 1_000_000_000L;
+        int indexOfTarget = CycleCalculator.indexOfTarget(
+                cycleStart, danceFloors.size(), target);
+        setAnswer(danceFloors.get(indexOfTarget));
     }
 
 }
