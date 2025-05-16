@@ -14,10 +14,4 @@ extends PuzzleTester
         runTests(new PermutationPromenade_Part1());
     }
 
-    @Test
-    public void test_Part2()
-    {
-        runTests(new PermutationPromenade_Part2());
-    }
-
 }

@@ -37,11 +37,25 @@ extends Solver
         return new StringParser(input);
     }
 
+    char[] danceFloor = null;
+    String[] moves = null;
+
     @Override
     protected void solve()
     {
-        char[] danceFloor = getParamStr("dancefloor").toCharArray();
-        String[] moves = ((StringParser) parser).getString().split(",");
+        danceFloor = getParamStr("dancefloor").toCharArray();
+        moves = ((StringParser) parser).getString().split(",");
+        dance();
+    }
+
+    protected void dance()
+    {
+        danceForOneRound();
+        setAnswer(new String(danceFloor));
+    }
+
+    protected void danceForOneRound()
+    {
         for (String move : moves) {
             LoggerFactory.getLogger(getClass()).trace(new String(danceFloor));
             if (move.startsWith("s")) {
@@ -54,8 +68,6 @@ extends Solver
                 LoggerFactory.getLogger(getClass()).warn("Unknown move: " + move);
             }
         }
-        LoggerFactory.getLogger(getClass()).trace(new String(danceFloor));
-        setAnswer(new String(danceFloor));
     }
 
     private void spin(String move, char[] danceFloor) 
