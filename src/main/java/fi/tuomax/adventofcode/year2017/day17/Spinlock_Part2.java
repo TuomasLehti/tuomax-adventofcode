@@ -5,7 +5,6 @@ import fi.tuomax.adventofcode.framework.parsing.Parser;
 import fi.tuomax.adventofcode.framework.parsing.StringParser;
 import fi.tuomax.adventofcode.framework.solving.Solver;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -40,16 +39,15 @@ extends Solver
     {
         int steps = Integer.valueOf(((StringParser) parser).getString());
 
-        Spinlock head = new Spinlock();
-        Spinlock current = head;
-
-        int value = 1;
-        for (int step = 0; step < 50_000_000; step++) {
-            if (step % 100_000 == 0) System.out.println(step);
-            current = current.add(steps, value);
-            value++;
+        int valueAtPos1 = 0;
+        int currentPos = 0;
+        for (int step = 1; step < 50_000_000; step++) {
+            currentPos = (currentPos + steps) % step + 1;
+            if (currentPos == 1) {
+                valueAtPos1 = step;
+            }
         }
-        setAnswer(head.getNext().getValue());
+        setAnswer(valueAtPos1);
     }
 
 }

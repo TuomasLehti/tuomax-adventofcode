@@ -5,7 +5,6 @@ import fi.tuomax.adventofcode.framework.parsing.Parser;
 import fi.tuomax.adventofcode.framework.parsing.StringParser;
 import fi.tuomax.adventofcode.framework.solving.Solver;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
