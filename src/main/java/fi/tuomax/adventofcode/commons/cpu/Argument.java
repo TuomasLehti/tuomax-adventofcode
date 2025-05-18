@@ -36,7 +36,7 @@ public class Argument
         }
     }
 
-    public Integer getValue() 
+    public Long getValue() 
     {
         return isRegister ? cpu.getRegister(register) : value;
     }

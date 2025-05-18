@@ -22,16 +22,16 @@ public class Cpu
     private List<Instruction> program = new ArrayList<>();
 
     /** Which line of the program is being executed. */
-    private Integer programCounter = 0;
+    private Long programCounter = 0L;
 
     private Integer cycle = 0;
 
-    public Integer getProgramCounter() 
+    public Long getProgramCounter() 
     {
         return programCounter;
     }
 
-    public void setProgramCounter(Integer programCounter) 
+    public void setProgramCounter(Long programCounter) 
     {
         this.programCounter = programCounter;
     }
@@ -47,7 +47,7 @@ public class Cpu
             program.set(idx, instruction);
     }
 
-    public void jump(Integer offset)
+    public void jump(Long offset)
     {
         programCounter += offset;
         // Counteract the effect of increasing program counter once every cycle.
@@ -55,7 +55,7 @@ public class Cpu
     }
 
     /** Registers. */
-    private Map<String, Integer> registers = new HashMap<>();
+    private Map<String, Long> registers = new HashMap<>();
 
     /**
      * Creates a CPU. All registers are set to zero.
@@ -63,7 +63,7 @@ public class Cpu
     public Cpu(Set<String> registerNames)
     {
         for (String name : registerNames)
-            registers.put(name, 0);
+            registers.put(name, 0L);
     }
 
     /**
@@ -83,7 +83,7 @@ public class Cpu
      * @return
      *      The value in that register.
      */
-    public Integer getRegister(String register)
+    public Long getRegister(String register)
     {
         return registers.get(register);
     }
@@ -95,7 +95,7 @@ public class Cpu
      * @param value
      *      The value to be set.
      */
-    public void setRegister(String register, Integer value)
+    public void setRegister(String register, Long value)
     {
         registers.put(register, value);
     }
@@ -105,13 +105,15 @@ public class Cpu
      */
     public void run() 
     {
+        LoggerFactory.getLogger(getClass()).debug(toString());
         while (programCounter < program.size()) {
             if (programCounter.equals(9))
                 System.out.println(toString());
 
-            program.get(programCounter).run(this);
+            program.get((int) (programCounter%Integer.MAX_VALUE)).run(this);
             programCounter++;
             cycle++;
+            LoggerFactory.getLogger(getClass()).debug(toString());
         }
     }
 
@@ -120,7 +122,7 @@ public class Cpu
      */
     public void step()
     {
-        program.get(programCounter).run(this);
+        program.get((int) (programCounter%Integer.MAX_VALUE)).run(this);
         programCounter++;
         cycle++;
     }
@@ -131,8 +133,8 @@ public class Cpu
     public void reset()
     {
         for (String registerName : registers.keySet())
-            setRegister(registerName, 0);
-        programCounter = 0;
+            setRegister(registerName, 0L);
+        programCounter = 0L;
     }
 
     /**
@@ -141,7 +143,7 @@ public class Cpu
     public String toString()
     {
         StringBuilder sb = new StringBuilder();
-        sb.append(String.format("PC : %2d", programCounter + 1));
+        sb.append(String.format("PC : %2d", programCounter));
         for (String registerName : registers.keySet())
             sb.append(String.format(", %s: %2d", registerName, getRegister(registerName)));
         return sb.toString();
