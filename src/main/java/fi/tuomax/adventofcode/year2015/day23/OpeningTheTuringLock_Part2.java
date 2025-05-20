@@ -24,7 +24,11 @@ extends Solver
     @Override
     protected Parser manufactureParser(List<String> input) 
     {
-        return new Cpu_Parser(input, new OpeningTheTuringLock_InstructionFactory());
+        return new Cpu_Parser(
+            input, 
+            new OpeningTheTuringLock_InstructionFactory(),
+            new String[]{"a", "b"}
+        );
     }
 
     @Override

@@ -199,7 +199,7 @@ public class Cpu
      */
     protected boolean shouldStop()
     {
-        return (programCounter >= 0) && (programCounter < program.size());
+        return (programCounter < 0) || (programCounter >= program.size());
     }
 
     /**
