@@ -27,7 +27,6 @@ public class Cpu
             registers.put(name, 0);
     }
 
-
     /** 
      * The instructions which make up the program. 
      */
@@ -178,13 +177,8 @@ public class Cpu
      */
     public void run() 
     {
-        while (programCounter < program.size()) {
-            if (programCounter.equals(9))
-                System.out.println(toString());
-
-            program.get(programCounter).run(this);
-            programCounter++;
-            cycle++;
+        while (!shouldStop()) {
+            step();
         }
     }
 
@@ -196,6 +190,16 @@ public class Cpu
         program.get(programCounter).run(this);
         programCounter++;
         cycle++;
+    }
+
+    /**
+     * Should return true if the execution of the program should be halted.
+     * @return
+     *      True if the execution should stop.
+     */
+    protected boolean shouldStop()
+    {
+        return (programCounter >= 0) && (programCounter < program.size());
     }
 
     /**
