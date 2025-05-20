@@ -25,7 +25,7 @@ public class TestCpu
             parser.parse();
             Cpu cpu = parser.getCpu();
             cpu.run();
-            assertEquals(2, (int) cpu.getRegister("a"));
+            assertEquals(2, (long) cpu.getRegister("a"));
         } catch (Exception e) {
             fail(e.getMessage());
         }

@@ -35,7 +35,7 @@ extends Solver
     protected void solve() 
     {
         Cpu cpu = ((Cpu_Parser) parser).getCpu();
-        cpu.setRegister("a", 1);
+        cpu.setRegister("a", 1L);
         cpu.run();
         setAnswer(cpu.getRegister("b"));
     }

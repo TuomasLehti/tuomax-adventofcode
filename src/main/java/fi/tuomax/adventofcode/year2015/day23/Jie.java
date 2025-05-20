@@ -16,9 +16,9 @@ extends Instruction
     @Override
     public void run(Cpu cpu) 
     {
-        Integer comparee = arguments.get(0).getValue();
+        Long comparee = arguments.get(0).getValue();
         if ((comparee % 2) == 0)
-            cpu.jump(arguments.get(1).getValue());
+            cpu.jump((int) (arguments.get(1).getValue() % Integer.MAX_VALUE));
     }
 
     @Override

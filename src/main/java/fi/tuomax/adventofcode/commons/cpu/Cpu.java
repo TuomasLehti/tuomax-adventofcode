@@ -24,7 +24,7 @@ public class Cpu
     public Cpu(Set<String> registerNames)
     {
         for (String name : registerNames)
-            registers.put(name, 0);
+            registers.put(name, 0L);
     }
 
     /** 
@@ -146,7 +146,7 @@ public class Cpu
     /** 
      * Registers. 
      */
-    private Map<String, Integer> registers = new HashMap<>();
+    private Map<String, Long> registers = new HashMap<>();
 
     /**
      * Gets the value in a register.
@@ -155,7 +155,7 @@ public class Cpu
      * @return
      *      The value in that register.
      */
-    public Integer getRegister(String register)
+    public Long getRegister(String register)
     {
         return registers.get(register);
     }
@@ -167,7 +167,7 @@ public class Cpu
      * @param value
      *      The value to be set.
      */
-    public void setRegister(String register, Integer value)
+    public void setRegister(String register, Long value)
     {
         registers.put(register, value);
     }
@@ -208,7 +208,7 @@ public class Cpu
     public void reset()
     {
         for (String registerName : registers.keySet())
-            setRegister(registerName, 0);
+            setRegister(registerName, 0L);
         programCounter = 0;
     }
 

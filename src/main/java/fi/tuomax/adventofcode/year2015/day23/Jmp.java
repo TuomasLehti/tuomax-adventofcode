@@ -16,7 +16,7 @@ extends Instruction
     @Override
     public void run(Cpu cpu) 
     {
-        cpu.jump(arguments.get(0).getValue()); 
+        cpu.jump((int) (arguments.get(0).getValue() % Integer.MAX_VALUE)); 
     }
 
     @Override
