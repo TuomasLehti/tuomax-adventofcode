@@ -5,6 +5,7 @@ import org.fusesource.jansi.Ansi;
 import fi.tuomax.adventofcode.framework.printing.Printer;
 import fi.tuomax.adventofcode.framework.printing.Results;
 import fi.tuomax.adventofcode.framework.running.DaySpeedRunner;
+import fi.tuomax.adventofcode.framework.running.InteractiveRunner;
 import fi.tuomax.adventofcode.framework.running.LatestRunner;
 import fi.tuomax.adventofcode.framework.running.Runner;
 import fi.tuomax.adventofcode.framework.running.YearRunner;
@@ -297,6 +298,8 @@ public class AdventOfCode
             return new YearRunner();
         else if (settings.runMode() == RunMode.DAY)
             return new DaySpeedRunner();
+        else if (settings.runMode() == RunMode.INTERACTIVE)
+            return new InteractiveRunner();
         return null;
     }
 
@@ -381,7 +384,7 @@ public class AdventOfCode
 
     private void printWelcome() {
         System.out.print("\n".repeat(2));
-        System.out.println(Ansi.ansi().fgBright(Ansi.Color.WHITE).a("Tuomax's Advent of Code Framework v. 16.1").reset());
+        System.out.println(Ansi.ansi().fgBright(Ansi.Color.WHITE).a("Tuomax's Advent of Code Framework v. 25.1").reset());
         System.out.print("\n".repeat(2));
     }
 

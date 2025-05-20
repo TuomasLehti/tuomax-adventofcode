@@ -4,6 +4,7 @@
     // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
     "version": "0.2.0",
     "configurations": [
+        
         {
             "type": "java",
             "name": "Latest",
@@ -11,6 +12,14 @@
             "mainClass": "fi.tuomax.adventofcode.Main",
             "projectName": "tuomax-adventofcode",
             "args": "--latest"
+        },
+        { 
+            "type": "java",
+            "name": "Interactive",
+            "request": "launch",
+            "mainClass": "fi.tuomax.adventofcode.Main",
+            "projectName": "tuomax-adventofcode",
+            "args": "--interactive"
         },
         {
             "type": "java",

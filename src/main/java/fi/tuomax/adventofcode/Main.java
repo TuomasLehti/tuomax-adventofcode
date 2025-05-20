@@ -23,6 +23,8 @@ public class Main
         for (String arg : args) {
             if (arg.equals("--latest")) {
                 runMode = RunMode.LATEST;
+            } else if (arg.equals("--interactive")) {
+                runMode = RunMode.INTERACTIVE;
             } else if (arg.startsWith("--year")) {
                 runMode = RunMode.YEAR;
                 metadata = new Metadata(

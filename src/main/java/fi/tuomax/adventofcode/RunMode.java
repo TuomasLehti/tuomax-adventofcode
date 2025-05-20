@@ -5,6 +5,7 @@ public enum RunMode
 
     LATEST,
     DAY,
-    YEAR
+    YEAR,
+    INTERACTIVE
     
 }
