@@ -11,6 +11,15 @@ public class Test_Cpu
 {
 
     @Test
+    public void test_Registers()
+    {
+        Cpu cpu = new Cpu();
+        assertEquals(0L, (long) cpu.getRegister("a"));
+        cpu.setRegister("b", 42L);
+        assertEquals(42L, (long) cpu.getRegister("b"));
+    }
+
+    @Test
     public void test_Run()
     {
         Set<String> registers = new HashSet<>();

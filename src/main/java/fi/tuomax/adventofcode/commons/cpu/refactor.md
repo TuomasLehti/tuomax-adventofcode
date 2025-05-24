@@ -54,16 +54,20 @@ The CPU class need s thorough refactoring for various reasons.
 
 ## Refactoring tasks
 
-- Change the registers to Longs.
 - Move the toggling of instructions in 2016d23 to the toggle instruction
   and remove the toggle-method from Instructions.
-- Add a constructor to start with an unknown set of registers. Change the
-  register getters and setters to add a register and set it to zero, if
-  it hasn't been encountered yet.
 - Add a possibility to stop the program execution from the cpu and the
   instructions and continue execution later from the same state.
 - Move instructions to the framework side if they are general enough.
 - Create more general instructions which can be used by InstructionFactories.
+- Refactor all the solvers which need the cpu class.
+
+## Completed refactoring tasks
+
+- Change the registers to Longs.
+- Add a constructor to start with an unknown set of registers. Change the
+  register getters and setters to add a register and set it to zero, if
+  it hasn't been encountered yet.
 
 ## Refactoring instructions
 

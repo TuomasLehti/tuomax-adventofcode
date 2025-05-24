@@ -27,6 +27,14 @@ public class Cpu
             registers.put(name, 0L);
     }
 
+    /**
+     * Creates a CPU.
+     */
+    public Cpu()
+    {
+
+    }
+
     /** 
      * The instructions which make up the program. 
      */
@@ -149,7 +157,8 @@ public class Cpu
     private Map<String, Long> registers = new HashMap<>();
 
     /**
-     * Gets the value in a register.
+     * Gets the value in a register. If the register doesn't exist, creates 
+     * it and sets it to zero.
      * @param register
      *      The name of the register.
      * @return
@@ -157,11 +166,14 @@ public class Cpu
      */
     public Long getRegister(String register)
     {
+        if (!registers.containsKey(register))
+            registers.put(register, 0L);
         return registers.get(register);
     }
 
     /**
-     * Sets the value of the register.
+     * Sets the value of the register. If the register doesn't exist, 
+     * creates it.
      * @param register
      *      The name of the register.
      * @param value
