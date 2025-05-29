@@ -20,9 +20,9 @@ public class Test_Cpu
     public void test_Run()
     {
         Cpu cpu = new Cpu();
-        cpu.enterProgram(new Nop("", cpu));
-        cpu.enterProgram(new Nop("", cpu));
-        cpu.enterProgram(new Nop("", cpu));
+        cpu.enterProgram(new Nop(cpu));
+        cpu.enterProgram(new Nop(cpu));
+        cpu.enterProgram(new Nop(cpu));
         cpu.run();
         assertEquals(3, (int) cpu.getProgramCounter());
     }
@@ -31,9 +31,9 @@ public class Test_Cpu
     public void test_Step()
     {
         Cpu cpu = new Cpu();
-        cpu.enterProgram(new Nop("", cpu));
-        cpu.enterProgram(new Nop("", cpu));
-        cpu.enterProgram(new Nop("", cpu));
+        cpu.enterProgram(new Nop(cpu));
+        cpu.enterProgram(new Nop(cpu));
+        cpu.enterProgram(new Nop(cpu));
         cpu.step();
         assertEquals(1, (int) cpu.getProgramCounter());
         cpu.step();

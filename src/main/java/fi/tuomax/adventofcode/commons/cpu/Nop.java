@@ -7,9 +7,9 @@ public class Nop
 extends Instruction
 {
 
-    public Nop(String input, Cpu cpu) 
+    public Nop(Cpu cpu) 
     {
-        super(input, cpu);
+        super(cpu);
     }
 
     @Override

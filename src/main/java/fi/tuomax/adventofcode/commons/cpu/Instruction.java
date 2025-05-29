@@ -15,7 +15,7 @@ public abstract class Instruction
      * @param cpu
      *      The processor in which this instruction should reside.
      */
-    public Instruction(String input, Cpu cpu)
+    public Instruction(Cpu cpu)
     {
         this.cpu = cpu;
     }
