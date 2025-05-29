@@ -18,6 +18,12 @@ public class Cpu
     @SuppressWarnings("unused")
     private final Logger LOGGER = LoggerFactory.getLogger(getClass());
 
+    private final int CPU_RUNNING = 0;
+
+    private final int CPU_STOPPED = 1;
+
+    private int cpuState = CPU_STOPPED;
+
     /**
      * Creates a CPU with a set of registers. All registers are set to zero.
      */
@@ -189,9 +195,10 @@ public class Cpu
      */
     public void run() 
     {
-        while (!shouldStop()) {
+        cpuState = CPU_RUNNING;
+        do {
             step();
-        }
+        } while (cpuState == CPU_RUNNING);
     }
 
     /**
@@ -202,16 +209,50 @@ public class Cpu
         program.get(programCounter).run(this);
         programCounter++;
         cycle++;
+        determineCpuState();
+    }
+
+    /**
+     * Determines the next state of the processor.
+     */
+    private void determineCpuState() 
+    {
+        /* If processor state is something other than running, an instruction 
+         * must have changed it and the state set by the instruction is passed 
+         * forward.
+         * 
+         * Otherwise a method is called to determine if the cpu should stop or 
+         * keep running. That method can be overriden by child classeses. */
+        if ((cpuState == CPU_RUNNING) && (shouldStop()))
+            cpuState = CPU_STOPPED;
+            
     }
 
     /**
      * Should return true if the execution of the program should be halted.
+     * 
+     * The base implementation, which is required by most problems, is to stop
+     * when the end of the program is reached or if the program counter points
+     * to outside of the program after a jump instruction.
+     * 
+     * This method should be overridden by child classes if the execution 
+     * should stop on an other condition.
+     * 
      * @return
      *      True if the execution should stop.
      */
     protected boolean shouldStop()
     {
         return (programCounter < 0) || (programCounter >= program.size());
+    }
+
+    /**
+     * Stops the execution. Should be called by instructions if they want to
+     * stop the execution.
+     */
+    public void stop()
+    {
+        cpuState = CPU_STOPPED;
     }
 
     /**

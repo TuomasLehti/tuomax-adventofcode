@@ -22,5 +22,10 @@ public abstract class Instruction
     public abstract void run(Cpu cpu);
 
     public abstract Instruction toggle();
+
+    protected void stopCpu()
+    {
+        cpu.stop();
+    }
     
 }
