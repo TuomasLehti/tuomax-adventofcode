@@ -45,6 +45,7 @@ extends Parser
         super(input);
         this.factory = factory;
         cpu = new Cpu(new HashSet<String>(Arrays.asList(registers)));
+//        cpu = new Cpu();
     }
 
     /**

@@ -1,38 +1,23 @@
 package fi.tuomax.adventofcode.year2016.day12;
 
 import fi.tuomax.adventofcode.commons.cpu.Cpu;
-import fi.tuomax.adventofcode.commons.cpu.Instruction;
-import fi.tuomax.adventofcode.commons.cpu.InstructionFactory;
+import fi.tuomax.adventofcode.commons.cpu.RelJmp;
 
 public class Jnz 
-extends Instruction
+extends RelJmp
 {
 
+    String regName = "";
 
-    public Jnz(String input, Cpu cpu) 
+    public Jnz(Cpu cpu, Integer offset, String regName) 
     {
-        super(input, cpu);
+        super(cpu, offset);
+        this.regName = regName;
     }
 
-    @Override
-    public void run(Cpu cpu) 
+    public Boolean shouldJump()
     {
-        Integer comparee = arguments.get(0).getValue();
-        if (!comparee.equals(0))
-            cpu.jump(arguments.get(1).getValue());
-    }
-
-    @Override
-    public Instruction toggle() 
-    {
-        return InstructionFactory.inUse().fromAocInput(
-            String.format(
-                "cpy %s %s",
-                arguments.get(0).toString(),
-                arguments.get(1).toString()
-            ),
-            cpu
-        );
+        return cpu.getRegister(regName) != 0;
     }
     
 }

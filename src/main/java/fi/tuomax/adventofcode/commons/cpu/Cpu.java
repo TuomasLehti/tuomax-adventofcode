@@ -210,6 +210,7 @@ public class Cpu
         programCounter++;
         cycle++;
         determineCpuState();
+//        LOGGER.debug(toString());
     }
 
     /**
