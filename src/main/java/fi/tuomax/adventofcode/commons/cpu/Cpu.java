@@ -206,7 +206,7 @@ public class Cpu
      */
     public void step()
     {
-        program.get(programCounter).run(this);
+        program.get(programCounter).run();
         programCounter++;
         cycle++;
         determineCpuState();

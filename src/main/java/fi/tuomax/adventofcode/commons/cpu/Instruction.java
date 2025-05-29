@@ -1,31 +1,46 @@
 package fi.tuomax.adventofcode.commons.cpu;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public abstract class Instruction 
 {
 
+    /**
+     * The processor in which this instruction resides.
+     */
     protected Cpu cpu;
 
-    protected List<Argument> arguments = new ArrayList<>();
-
+    /**
+     * Creates the instruction.
+     * @param input
+     *      Advent of Code input.
+     * @param cpu
+     *      The processor in which this instruction should reside.
+     */
     public Instruction(String input, Cpu cpu)
     {
         this.cpu = cpu;
-        String[] parts = input.split(" ");
-        for (int i = 1; i < parts.length; i++) {
-            arguments.add(new Argument(parts[i], cpu));
-        }
     }
 
-    public abstract void run(Cpu cpu);
+    /**
+     * Runs the instruction.
+     */
+    public abstract void run();
 
-    public abstract Instruction toggle();
-
+    /**
+     * Stops the execution of the program after this instruction.
+     */
     protected void stopCpu()
     {
         cpu.stop();
+    }
+
+    /**
+     * Returns the number of cycles this instruction takes to run.
+     * @return
+     *      The number of cycles.
+     */
+    public Integer getCycles()
+    {
+        return 0;
     }
     
 }
