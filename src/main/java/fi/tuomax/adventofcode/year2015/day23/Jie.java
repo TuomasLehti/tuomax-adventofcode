@@ -1,31 +1,25 @@
 package fi.tuomax.adventofcode.year2015.day23;
 
 import fi.tuomax.adventofcode.commons.cpu.Cpu;
-import fi.tuomax.adventofcode.commons.cpu.Instruction;
+import fi.tuomax.adventofcode.commons.cpu.RelJmp;
 
 /** Jumps if a value in a register is even. */
 public class Jie 
-extends Instruction
+extends RelJmp
 {
 
-    public Jie(String input, Cpu cpu) 
+    String regName = "";
+
+    public Jie(Cpu cpu, Integer offset, String regName) 
     {
-        super(input, cpu);
+        super(cpu, offset);
+        this.regName = regName;
     }
 
-    @Override
-    public void run(Cpu cpu) 
+    public Boolean shouldJump()
     {
-        Long comparee = arguments.get(0).getValue();
-        if ((comparee % 2) == 0)
-            cpu.jump((int) (arguments.get(1).getValue() % Integer.MAX_VALUE));
+        return (cpu.getRegister(regName) % 2L) == 0L;
     }
 
-    @Override
-    public Instruction toggle() 
-    {
-        // Toggling not needed in 2015 day 23
-        return this;
-    }
     
 }

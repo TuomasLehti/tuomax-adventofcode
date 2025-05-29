@@ -1,31 +1,24 @@
 package fi.tuomax.adventofcode.year2015.day23;
 
 import fi.tuomax.adventofcode.commons.cpu.Cpu;
-import fi.tuomax.adventofcode.commons.cpu.Instruction;
+import fi.tuomax.adventofcode.commons.cpu.RelJmp;
 
 /** Jumps if a value of a register is <em>ONE</em>, not odd. */
 public class Jio
-extends Instruction 
+extends RelJmp
 {
 
-    public Jio(String input, Cpu cpu) 
+    String regName = "";
+
+    public Jio(Cpu cpu, Integer offset, String regName) 
     {
-        super(input, cpu);
+        super(cpu, offset);
+        this.regName = regName;
     }
 
-    @Override
-    public void run(Cpu cpu) 
+    public Boolean shouldJump()
     {
-        Long comparee = arguments.get(0).getValue();
-        if (comparee.equals(1L))
-            cpu.jump((int) (arguments.get(1).getValue() % Integer.MAX_VALUE));
-    }
-
-    @Override
-    public Instruction toggle() 
-    {
-        // Toggling not needed in 2015 day 23
-        return this;
+        return cpu.getRegister(regName).equals(1L);
     }
     
 }
