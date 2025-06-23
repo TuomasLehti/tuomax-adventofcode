@@ -1,11 +1,11 @@
 package fi.tuomax.adventofcode.year2015.day23;
 
 import fi.tuomax.adventofcode.commons.cpu.Cpu;
-import fi.tuomax.adventofcode.commons.cpu.RelJmp;
+import fi.tuomax.adventofcode.commons.cpu.RelJmpOfsFromImm;
 
 /** Jumps if a value in a register is even. */
 public class Jie 
-extends RelJmp
+extends RelJmpOfsFromImm
 {
 
     String regName = "";
