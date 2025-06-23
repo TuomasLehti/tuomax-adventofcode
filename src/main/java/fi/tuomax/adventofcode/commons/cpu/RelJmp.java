@@ -1,36 +1,31 @@
 package fi.tuomax.adventofcode.commons.cpu;
 
 /**
- * An instruction for an unconditional jump. This class also serves as a base
- * class for conditional jumps, in which case the child classes should override
- * the method which determines the condition.
+ * The base class for instructions that perform an unconditional jump to a 
+ * target address computed as an offset from the program counter.
  * 
  * The jump offset is an integer, because the program counter is an 32-bit 
  * value, which in turn is so because the instruction are stored in a List,
  * which use integer indexing in Java.
  */
-public class RelJmp 
+public abstract class RelJmp 
 extends Instruction
 {
 
-    private Integer offset = 0;
+    protected abstract Integer getOffset();
 
-    public RelJmp(Cpu cpu, Integer offset)
+    public RelJmp(Cpu cpu)
     {
         super(cpu);
-        this.offset = offset;
     }
 
     @Override
     public void run() 
     {
         if (shouldJump())
-            cpu.jump(offset);
+            cpu.jump(getOffset());
     }
 
-    public Boolean shouldJump()
-    {
-        return true;
-    }
+    protected abstract Boolean shouldJump();
     
 }
