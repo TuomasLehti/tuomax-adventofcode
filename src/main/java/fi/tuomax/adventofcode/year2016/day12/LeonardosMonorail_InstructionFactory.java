@@ -6,7 +6,7 @@ import fi.tuomax.adventofcode.commons.cpu.CpyRegToReg;
 import fi.tuomax.adventofcode.commons.cpu.IncRegByImm;
 import fi.tuomax.adventofcode.commons.cpu.Instruction;
 import fi.tuomax.adventofcode.commons.cpu.InstructionFactory;
-import fi.tuomax.adventofcode.commons.cpu.RelJmp;
+import fi.tuomax.adventofcode.commons.cpu.RelJmpOfsFromImm;
 
 /**
  * Provides Assembunny instructions from Aoc 2016, day 12.
@@ -29,9 +29,9 @@ extends InstructionFactory
         else if (line.startsWith("inc")) return new IncRegByImm(cpu, parts[1], 1L);
         else if (line.startsWith("dec")) return new IncRegByImm(cpu, parts[1], -1L);
         else if (line.startsWith("jnz")) {
-            /* jnz imm ofs is used as an uncoditional jump in the input */
+            /* There is a jnz 1 ofs instruction in the input, which is used as an unconditional jump. */
             if (isInteger(parts[1])) 
-                return new RelJmp(cpu, Integer.valueOf(parts[2]));
+                return new RelJmpOfsFromImm(cpu, Integer.valueOf(parts[2]));
             else
                 return new Jnz(cpu, Integer.valueOf(parts[2]), parts[1]);
         }

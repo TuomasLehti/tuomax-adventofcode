@@ -1,10 +1,10 @@
 package fi.tuomax.adventofcode.year2016.day12;
 
 import fi.tuomax.adventofcode.commons.cpu.Cpu;
-import fi.tuomax.adventofcode.commons.cpu.RelJmp;
+import fi.tuomax.adventofcode.commons.cpu.RelJmpOfsFromImm;
 
 public class Jnz 
-extends RelJmp
+extends RelJmpOfsFromImm
 {
 
     String regName = "";
