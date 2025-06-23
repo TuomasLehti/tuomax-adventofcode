@@ -6,12 +6,17 @@ extends Instruction
 
     private Argument condition;
 
-    protected Argument getCondition()
+    public Argument getCondition()
     {
         return condition;
     }
 
     private Argument offset;
+
+    public Argument getOffset() 
+    {
+        return offset;
+    }
 
     public ConditionalJump(Cpu cpu, Argument condition, Argument offset)
     {

@@ -47,7 +47,7 @@ extends Solver
     @Override
     protected Parser manufactureParser(List<String> input)
     {
-        return new Cpu_Parser(input, new SafeCracking_InstructionFactory());
+        return new Cpu_Parser(input, new SafeCracking_InstructionFactory(), new String[]{});
     }
 
     @Override

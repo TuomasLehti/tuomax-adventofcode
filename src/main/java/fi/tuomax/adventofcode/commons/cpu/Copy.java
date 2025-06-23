@@ -6,22 +6,37 @@ extends Instruction
 
     private Argument source;
 
-    private Argument target;
+    public Argument getSource() 
+    {
+        return source;
+    }
+
+    private Argument destination;
+
+    public Argument getDestination() 
+    {
+        return destination;
+    }
+
+    public void setDestination(Argument target) 
+    {
+        this.destination = target;
+    }
 
     public Copy(Cpu cpu, Argument source, Argument target)
     {
         super(cpu);
         this.source = source;
-        this.target = target;
+        this.destination = target;
     }
 
     @Override
     public void run() 
     {
-        if (!target.isRegister()) {
+        if (!destination.isRegister()) {
             cpu.stop();
         } else {
-            cpu.setRegister(target.getRegister(), source.getValue());
+            cpu.setRegister(destination.getRegister(), source.getValue());
         }
     }
     

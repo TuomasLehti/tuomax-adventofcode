@@ -6,7 +6,17 @@ extends Instruction
 
     private Argument accumulator;
     
+    public Argument getAccumulator() 
+    {
+        return accumulator;
+    }
+
     private Argument amount;
+
+    public Argument getAmount() 
+    {
+        return amount;
+    }
 
     public Increment(Cpu cpu, Argument accumulator, Argument amount)
     {
