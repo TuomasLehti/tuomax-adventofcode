@@ -7,6 +7,7 @@ import java.util.Set;
 
 import org.junit.Test;
 
+import fi.tuomax.adventofcode.commons.cpu.Argument;
 import fi.tuomax.adventofcode.commons.cpu.Cpu;
 
 public class TestInstructions 
@@ -18,11 +19,11 @@ public class TestInstructions
         Set<String> regs = new HashSet<>();
         regs.add("a");
         Cpu cpu = new Cpu(regs);
-        Duet_Snd snd = new Duet_Snd("snd 42", cpu);
+        Duet_Snd snd = new Duet_Snd(cpu, new Argument(cpu, "42"));
 
-        assertEquals(0, (int) Duet_Snd.lastPlayed);
-        snd.run(cpu);
-        assertEquals(42, (int) Duet_Snd.lastPlayed);
+        assertEquals(0L, (long) Duet_Snd.lastPlayed);
+        snd.run();
+        assertEquals(42L, (long) Duet_Snd.lastPlayed);
     }
 
 }

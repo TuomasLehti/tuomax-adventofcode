@@ -1,5 +1,6 @@
 package fi.tuomax.adventofcode.year2017.day18;
 
+import fi.tuomax.adventofcode.commons.cpu.Argument;
 import fi.tuomax.adventofcode.commons.cpu.Cpu;
 import fi.tuomax.adventofcode.commons.cpu.Instruction;
 
@@ -8,22 +9,19 @@ extends Instruction
 {
 
     public static Long lastPlayed = 0L;
+    
+    private Argument sound;
 
-    public Duet_Snd(String input, Cpu cpu) 
+    public Duet_Snd(Cpu cpu, Argument sound) 
     {
-        super(input, cpu);
+        super(cpu);
+        this.sound = sound;
     }
 
     @Override
-    public void run(Cpu cpu) 
+    public void run() 
     {
-        Duet_Snd.lastPlayed = arguments.get(0).getValue();
-    }
-
-    @Override
-    public Instruction toggle() 
-    {
-        throw new UnsupportedOperationException("Unimplemented method 'toggle'");
+        Duet_Snd.lastPlayed = sound.getValue();
     }
 
 }

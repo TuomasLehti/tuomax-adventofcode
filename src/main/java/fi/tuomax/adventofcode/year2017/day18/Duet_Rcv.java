@@ -2,6 +2,7 @@ package fi.tuomax.adventofcode.year2017.day18;
 
 import org.slf4j.LoggerFactory;
 
+import fi.tuomax.adventofcode.commons.cpu.Argument;
 import fi.tuomax.adventofcode.commons.cpu.Cpu;
 import fi.tuomax.adventofcode.commons.cpu.Instruction;
 
@@ -9,22 +10,21 @@ public class Duet_Rcv
 extends Instruction
 {
 
-    public Duet_Rcv(String input, Cpu cpu) {
-        super(input, cpu);
-        //TODO Auto-generated constructor stub
-    }
+    private Argument condition;
 
-    @Override
-    public void run(Cpu cpu) 
+    public Duet_Rcv(Cpu cpu, Argument condition) 
     {
-        LoggerFactory.getLogger(getClass()).debug("Recovered " + Duet_Snd.lastPlayed);
-        System.out.print("");
+        super(cpu);
+        this.condition = condition;
     }
 
     @Override
-    public Instruction toggle() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'toggle'");
+    public void run() 
+    {
+        if (!condition.getValue().equals(0L)) {
+            LoggerFactory.getLogger(getClass()).debug("Recovered " + Duet_Snd.lastPlayed);
+            cpu.stop();
+        }
     }
 
 }

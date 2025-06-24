@@ -31,14 +31,14 @@ extends Solver
     @Override
     protected Parser manufactureParser(List<String> input)
     {
-        return new Cpu_Parser(input, new Duet_InsturctionFactory());
+        return new Cpu_Parser(input, new Duet_InsturctionFactory(), new String[]{});
     }
 
     @Override
     protected void solve()
     {
         ((Cpu_Parser) parser).getCpu().run();
-        setAnswer(0);
+        setAnswer(Duet_Snd.lastPlayed);
     }
 
 }
