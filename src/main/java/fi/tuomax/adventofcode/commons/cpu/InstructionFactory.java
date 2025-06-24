@@ -19,5 +19,15 @@ public abstract class InstructionFactory
     }
 
     public abstract Instruction fromAocInput(String input, Cpu cpu);
+
+    public Boolean isInteger(String s)
+    {
+        try {
+            Long.valueOf(s);
+        } catch (NumberFormatException e) {
+            return false;
+        }
+        return true;
+    }
     
 }

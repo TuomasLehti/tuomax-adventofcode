@@ -19,12 +19,13 @@ public class TestCpu
         try {
             Cpu_Parser parser = new Cpu_Parser(
                 InputFactory.inputFromMetadata(new Metadata(2015, 23, 1, "", ""), "test.txt"),
-                new OpeningTheTuringLock_InstructionFactory()
+                new OpeningTheTuringLock_InstructionFactory(),
+                new String[]{"a", "b"}
             );
             parser.parse();
             Cpu cpu = parser.getCpu();
             cpu.run();
-            assertEquals(2, (int) cpu.getRegister("a"));
+            assertEquals(2, (long) cpu.getRegister("a"));
         } catch (Exception e) {
             fail(e.getMessage());
         }

@@ -37,7 +37,7 @@ extends Solver
     @Override
     protected Parser manufactureParser(List<String> input)
     {
-        return new Cpu_Parser(input, new ClockSignal_InstructionFactory());
+        return new Cpu_Parser(input, new ClockSignal_InstructionFactory(), new String[]{});
     }
 
     @Override
@@ -51,7 +51,7 @@ extends Solver
          * 10992 = 10101010101010
          */
         Cpu cpu = ((Cpu_Parser) parser).getCpu();
-        cpu.setRegister("a", 198);
+        cpu.setRegister("a", 198L);
 //        cpu.run();
         setAnswer(198);
     }
