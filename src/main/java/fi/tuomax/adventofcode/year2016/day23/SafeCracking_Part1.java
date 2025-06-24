@@ -42,14 +42,14 @@ extends Solver
     @Override
     protected Parser manufactureParser(List<String> input)
     {
-        return new Cpu_Parser(input, new SafeCracking_InstructionFactory());
+        return new Cpu_Parser(input, new SafeCracking_InstructionFactory(), new String[]{});
     }
 
     @Override
     protected void solve()
     {
         Cpu cpu = ((Cpu_Parser) parser).getCpu();
-        cpu.setRegister("a", 7);
+        cpu.setRegister("a", 7L);
         cpu.run();
         setAnswer(cpu.getRegister("a"));
     }

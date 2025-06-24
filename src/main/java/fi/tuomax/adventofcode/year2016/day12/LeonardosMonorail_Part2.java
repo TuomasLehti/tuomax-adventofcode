@@ -31,14 +31,14 @@ extends Solver
     @Override
     protected Parser manufactureParser(List<String> input) 
     {
-        return new Cpu_Parser(input, new LeonardosMonorail_InstructionFactory());
+        return new Cpu_Parser(input, new LeonardosMonorail_InstructionFactory(), new String[]{"a", "b", "c", "d"});
     }
 
     @Override
     protected void solve() 
     {
         Cpu cpu = ((Cpu_Parser) parser).getCpu();
-        cpu.setRegister("c", 1);
+        cpu.setRegister("c", 1L);
         cpu.run();
         setAnswer(cpu.getRegister("a"));
     }

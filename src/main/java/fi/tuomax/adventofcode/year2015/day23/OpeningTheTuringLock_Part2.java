@@ -24,14 +24,18 @@ extends Solver
     @Override
     protected Parser manufactureParser(List<String> input) 
     {
-        return new Cpu_Parser(input, new OpeningTheTuringLock_InstructionFactory());
+        return new Cpu_Parser(
+            input, 
+            new OpeningTheTuringLock_InstructionFactory(),
+            new String[]{"a", "b"}
+        );
     }
 
     @Override
     protected void solve() 
     {
         Cpu cpu = ((Cpu_Parser) parser).getCpu();
-        cpu.setRegister("a", 1);
+        cpu.setRegister("a", 1L);
         cpu.run();
         setAnswer(cpu.getRegister("b"));
     }

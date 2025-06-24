@@ -2,23 +2,27 @@ package fi.tuomax.adventofcode.commons.cpu;
 
 import static org.junit.Assert.assertEquals;
 
-import java.util.HashSet;
-import java.util.Set;
-
 import org.junit.Test;
 
 public class Test_Cpu 
 {
 
     @Test
+    public void test_Registers()
+    {
+        Cpu cpu = new Cpu();
+        assertEquals(0L, (long) cpu.getRegister("a"));
+        cpu.setRegister("b", 42L);
+        assertEquals(42L, (long) cpu.getRegister("b"));
+    }
+
+    @Test
     public void test_Run()
     {
-        Set<String> registers = new HashSet<>();
-        registers.add("A");
-        Cpu cpu = new Cpu(registers);
-        cpu.enterProgram(new Nop("", cpu));
-        cpu.enterProgram(new Nop("", cpu));
-        cpu.enterProgram(new Nop("", cpu));
+        Cpu cpu = new Cpu();
+        cpu.enterProgram(new Nop(cpu));
+        cpu.enterProgram(new Nop(cpu));
+        cpu.enterProgram(new Nop(cpu));
         cpu.run();
         assertEquals(3, (int) cpu.getProgramCounter());
     }
@@ -26,36 +30,16 @@ public class Test_Cpu
     @Test
     public void test_Step()
     {
-        Set<String> registers = new HashSet<>();
-        registers.add("A");
-        Cpu cpu = new Cpu(registers);
-        cpu.enterProgram(new Nop("", cpu));
-        cpu.enterProgram(new Nop("", cpu));
-        cpu.enterProgram(new Nop("", cpu));
+        Cpu cpu = new Cpu();
+        cpu.enterProgram(new Nop(cpu));
+        cpu.enterProgram(new Nop(cpu));
+        cpu.enterProgram(new Nop(cpu));
         cpu.step();
         assertEquals(1, (int) cpu.getProgramCounter());
         cpu.step();
         assertEquals(2, (int) cpu.getProgramCounter());
         cpu.step();
         assertEquals(3, (int) cpu.getProgramCounter());
-    }
-
-    private class Nop 
-    extends Instruction 
-    {
-        public Nop(String input, Cpu cpu) {
-            super(input, cpu);
-        }
-
-        @Override
-        public void run(Cpu cpu) {
-        }
-
-        @Override
-        public Instruction toggle() {
-            return this;
-        }
-
     }
     
 }
