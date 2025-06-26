@@ -19,11 +19,11 @@ public class TestInstructions
         Set<String> regs = new HashSet<>();
         regs.add("a");
         Cpu cpu = new Cpu(regs);
-        Duet_Snd snd = new Duet_Snd(cpu, new Argument(cpu, "42"));
+        Duet_Sound snd = new Duet_Sound(cpu, new Argument(cpu, "42"));
 
-        assertEquals(0L, (long) Duet_Snd.lastPlayed);
+        assertEquals(0L, (long) Duet_Sound.lastPlayed);
         snd.run();
-        assertEquals(42L, (long) Duet_Snd.lastPlayed);
+        assertEquals(42L, (long) Duet_Sound.lastPlayed);
     }
 
 }

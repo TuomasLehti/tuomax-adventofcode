@@ -8,7 +8,7 @@ import fi.tuomax.adventofcode.commons.cpu.Instruction;
 import fi.tuomax.adventofcode.commons.cpu.InstructionFactory;
 import fi.tuomax.adventofcode.commons.cpu.Multiply;
 
-public class Duet_InsturctionFactory 
+public class Duet_InsturctionFactory_Part2
 extends InstructionFactory
 {
 
@@ -18,7 +18,7 @@ extends InstructionFactory
         String[] parts = input.split(" ");
 
         if (input.startsWith("snd")) 
-            return new Duet_Snd(cpu, new Argument(cpu, parts[1]));
+            return new Duet_Send(cpu, new Argument(cpu, parts[1]));
 
         else if (input.startsWith("set")) 
             return new Copy(cpu, new Argument(cpu, parts[2]), new Argument(cpu, parts[1]));
@@ -36,7 +36,7 @@ extends InstructionFactory
             return new JumpIfGreaterThanZero(cpu, new Argument(cpu, parts[1]), new Argument(cpu, parts[2]));
 
         else if (input.startsWith("rcv")) 
-            return new Duet_Rcv(cpu, new Argument(cpu, parts[1]));
+            return new Duet_Receive(cpu, new Argument(cpu, parts[1]));
 
         else 
             throw new IllegalArgumentException("Unknown instruction: " + input);

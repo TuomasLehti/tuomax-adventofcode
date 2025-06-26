@@ -1,6 +1,7 @@
 package fi.tuomax.adventofcode.year2017.day18;
 
 import fi.tuomax.adventofcode.framework.solving.Metadata;
+import fi.tuomax.adventofcode.commons.cpu.Cpu;
 import fi.tuomax.adventofcode.framework.parsing.Parser;
 import fi.tuomax.adventofcode.framework.solving.Solver;
 import java.util.List;
@@ -29,12 +30,29 @@ extends Solver
     @Override
     protected Parser manufactureParser(List<String> input)
     {
-        return null;
+        return new Duet_Parser(input);
     }
 
     @Override
     protected void solve()
     {
+        Cpu one = ((Duet_Parser) parser).getOne();
+        Cpu other = ((Duet_Parser) parser).getOther();
+        Boolean oneDeadLocked = false;
+        Boolean otherDeadLocked = false;
+        while (!(oneDeadLocked && otherDeadLocked)) {
+            one.run();
+            other.run();
+            oneDeadLocked = 
+                (one.getCpuState() == one.CPU_STOPPED) && 
+                (Duet_Send.ques.get(1).isEmpty());
+            otherDeadLocked = 
+                (other.getCpuState() == other.CPU_STOPPED) && 
+                (Duet_Send.ques.get(0).isEmpty());
+        }
+        setAnswer(Duet_Send.sent[1]);
     }
 
 }
+
+// 254 too low

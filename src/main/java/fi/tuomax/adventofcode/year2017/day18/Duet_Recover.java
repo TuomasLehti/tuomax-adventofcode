@@ -6,13 +6,13 @@ import fi.tuomax.adventofcode.commons.cpu.Argument;
 import fi.tuomax.adventofcode.commons.cpu.Cpu;
 import fi.tuomax.adventofcode.commons.cpu.Instruction;
 
-public class Duet_Rcv
+public class Duet_Recover
 extends Instruction
 {
 
     private Argument condition;
 
-    public Duet_Rcv(Cpu cpu, Argument condition) 
+    public Duet_Recover(Cpu cpu, Argument condition) 
     {
         super(cpu);
         this.condition = condition;
@@ -22,7 +22,7 @@ extends Instruction
     public void run() 
     {
         if (!condition.getValue().equals(0L)) {
-            LoggerFactory.getLogger(getClass()).debug("Recovered " + Duet_Snd.lastPlayed);
+            LoggerFactory.getLogger(getClass()).debug("Recovered " + Duet_Sound.lastPlayed);
             cpu.stop();
         }
     }

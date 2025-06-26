@@ -18,11 +18,16 @@ public class Cpu
     @SuppressWarnings("unused")
     private final Logger LOGGER = LoggerFactory.getLogger(getClass());
 
-    private final int CPU_RUNNING = 0;
+    public final int CPU_RUNNING = 0;
 
-    private final int CPU_STOPPED = 1;
+    public final int CPU_STOPPED = 1;
 
     private int cpuState = CPU_STOPPED;
+
+    public int getCpuState() 
+    {
+        return cpuState;
+    }
 
     /**
      * Creates a CPU with a set of registers. All registers are set to zero.
@@ -45,6 +50,11 @@ public class Cpu
      * The instructions which make up the program. 
      */
     private List<Instruction> program = new ArrayList<>();
+
+    public List<Instruction> getProgram() 
+    {
+        return program;
+    }
 
     /** 
      * Which line of the program is being executed. 
@@ -201,6 +211,15 @@ public class Cpu
         } while (cpuState == CPU_RUNNING);
     }
 
+    public void debug()
+    {
+        cpuState = CPU_RUNNING;
+        do {
+            step();
+            LOGGER.debug(toString());
+        } while (cpuState == CPU_RUNNING);
+    }
+
     /**
      * Executes the next instruction.
      */
@@ -210,7 +229,6 @@ public class Cpu
         programCounter++;
         cycle++;
         determineCpuState();
-//        LOGGER.debug(toString());
     }
 
     /**
@@ -275,6 +293,7 @@ public class Cpu
         sb.append(String.format("PC : %2d", programCounter));
         for (String registerName : registers.keySet())
             sb.append(String.format(", %s: %2d", registerName, getRegister(registerName)));
+        sb.append(String.format(", %s", program.get(programCounter).toString()));
         return sb.toString();
     }
 

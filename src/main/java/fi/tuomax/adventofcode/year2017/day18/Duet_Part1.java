@@ -2,7 +2,6 @@ package fi.tuomax.adventofcode.year2017.day18;
 
 import fi.tuomax.adventofcode.framework.solving.Metadata;
 import fi.tuomax.adventofcode.commons.cpu.Cpu_Parser;
-import fi.tuomax.adventofcode.commons.cpu.InstructionFactory;
 import fi.tuomax.adventofcode.framework.parsing.Parser;
 import fi.tuomax.adventofcode.framework.solving.Solver;
 import java.util.List;
@@ -31,14 +30,14 @@ extends Solver
     @Override
     protected Parser manufactureParser(List<String> input)
     {
-        return new Cpu_Parser(input, new Duet_InsturctionFactory(), new String[]{});
+        return new Cpu_Parser(input, new Duet_InsturctionFactory_Part1(), new String[]{});
     }
 
     @Override
     protected void solve()
     {
         ((Cpu_Parser) parser).getCpu().run();
-        setAnswer(Duet_Snd.lastPlayed);
+        setAnswer(Duet_Sound.lastPlayed);
     }
 
 }

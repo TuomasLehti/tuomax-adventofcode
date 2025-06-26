@@ -4,7 +4,7 @@ import fi.tuomax.adventofcode.commons.cpu.Argument;
 import fi.tuomax.adventofcode.commons.cpu.Cpu;
 import fi.tuomax.adventofcode.commons.cpu.Instruction;
 
-public class Duet_Snd 
+public class Duet_Sound 
 extends Instruction
 {
 
@@ -12,7 +12,7 @@ extends Instruction
     
     private Argument sound;
 
-    public Duet_Snd(Cpu cpu, Argument sound) 
+    public Duet_Sound(Cpu cpu, Argument sound) 
     {
         super(cpu);
         this.sound = sound;
@@ -21,7 +21,7 @@ extends Instruction
     @Override
     public void run() 
     {
-        Duet_Snd.lastPlayed = sound.getValue();
+        Duet_Sound.lastPlayed = sound.getValue();
     }
 
 }
