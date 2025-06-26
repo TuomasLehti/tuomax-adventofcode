@@ -22,6 +22,12 @@ public class Packet
         return letters;
     }
 
+    private Integer numOfSteps = 1; // the first step has already been taken when the packet entered the diagram
+
+    public Integer getNumOfSteps() {
+        return numOfSteps;
+    }
+
     public Packet(Diagram diagram)
     {
         this.diagram = diagram;
@@ -52,6 +58,7 @@ public class Packet
             nextPos = currentPos.translate(dir.asCoordinates());
             letters += diagram.getLetter(nextPos);
             currentPos = nextPos;
+            numOfSteps++;
         } while (!(diagram.isCorner(nextPos) || diagram.isDeadEnd(nextPos)));
     }
 
