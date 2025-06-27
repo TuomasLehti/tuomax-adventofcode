@@ -39,7 +39,7 @@ extends Solver
         Long slowestAcceleration = Long.MAX_VALUE;
         Integer closestIdx = 0;
         for (int idx = 0; idx < particles.size(); idx++) {
-            Long dist = particles.get(idx).taxicabDistanceOfAcceleration();
+            Long dist = particles.get(idx).getAcceleration().taxiCabDistance();
             if (dist < slowestAcceleration) {
                 slowestAcceleration = dist;
                 closestIdx = idx;

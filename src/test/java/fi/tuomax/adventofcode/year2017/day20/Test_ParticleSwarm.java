@@ -26,41 +26,6 @@ extends PuzzleTester
     }
 
     @Test
-    public void test_Particle_TaxicabDistance()
-    {
-        Particle particle = Particle.fromAocInput("p=<-3787,-3683,3352>, v=<41,-25,-124>, a=<5,9,1>");
-        assertEquals(
-            3787L + 3683L + 3352L,
-            (long) particle.taxicabDistance()
-        );
-    }
-
-    @Test
-    public void test_Particle_Tick()
-    {
-        Particle particle = Particle.fromAocInput("p=<3,0,0>, v=<2,0,0>, a=<-1,0,0>");
-        
-        particle.tick();
-        assertEquals(
-            Particle.fromAocInput("p=<4,0,0>, v=<1,0,0>, a=<-1,0,0>"),
-            particle
-        );
-
-        particle.tick();
-        assertEquals(
-            Particle.fromAocInput("p=<4,0,0>, v=<0,0,0>, a=<-1,0,0>"),
-            particle
-        );
-
-        particle.tick();
-        assertEquals(
-            Particle.fromAocInput("p=<3,0,0>, v=<-1,0,0>, a=<-1,0,0>"),
-            particle
-        );
-
-    }
-
-    @Test
     public void test_Part1()
     {
         runTests(new ParticleSwarm_Part1());

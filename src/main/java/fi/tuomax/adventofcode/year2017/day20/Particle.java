@@ -10,6 +10,11 @@ public class Particle {
     
     private Coordinates3d acceleration;
 
+    public Coordinates3d getAcceleration() 
+    {
+        return acceleration;
+    }
+
     public Particle(Coordinates3d position, Coordinates3d velocity, Coordinates3d acceleration)
     {
         this.position = position;
@@ -38,29 +43,10 @@ public class Particle {
         return new Particle(position, velocity, acceleration);
     }
 
-    public Long taxicabDistance()
-    {
-        return Math.abs(position.x()) + Math.abs(position.y()) + Math.abs(position.z());
-    }
-
-    public Long taxicabDistanceOfAcceleration()
-    {
-        return Math.abs(acceleration.x()) + Math.abs(acceleration.y()) + Math.abs(acceleration.z());
-    }
-
-    public Coordinates3d add(Coordinates3d one, Coordinates3d other)
-    {
-        return new Coordinates3d(
-            one.x() + other.x(),
-            one.y() + other.y(),
-            one.z() + other.z()
-        );
-    }
-
     public void tick()
     {
-        velocity = add(velocity, acceleration);
-        position = add(position, velocity);
+        velocity = velocity.translate(acceleration);
+        position = position.translate(velocity);
     }
 
     @Override
