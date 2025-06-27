@@ -10,5 +10,19 @@ public record Coordinates3d (
     {
         return new Coordinates3d((long) x, (long) y, (long) z);
     }
+
+    public Coordinates3d translate(Coordinates3d amount)
+    {
+        return new Coordinates3d(
+            this.x() + amount.x(),
+            this.y() + amount.y(),
+            this.z() + amount.z()
+        );
+    }
+
+    public Long taxiCabDistance()
+    {
+        return Math.abs(this.x()) + Math.abs(this.y()) + Math.abs(this.z());
+    }
     
 }
