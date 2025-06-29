@@ -147,6 +147,7 @@ import fi.tuomax.adventofcode.year2017.day18.Duet_Part2;
 import fi.tuomax.adventofcode.year2017.day19.ASeriesOfTubes_Part1;
 import fi.tuomax.adventofcode.year2017.day19.ASeriesOfTubes_Part2;
 import fi.tuomax.adventofcode.year2017.day20.ParticleSwarm_Part1;
+import fi.tuomax.adventofcode.year2017.day20.ParticleSwarm_Part2;
 import fi.tuomax.adventofcode.year2022.day01.CalorieCounting_Part1;
 import fi.tuomax.adventofcode.year2022.day01.CalorieCounting_Part2;
 import fi.tuomax.adventofcode.year2022.day02.RockPaperScissors_Part1;
@@ -261,6 +262,7 @@ public class AdventOfCode
         solvers.addSolver(new ASeriesOfTubes_Part2());
         /* day 20 */
         solvers.addSolver(new ParticleSwarm_Part1());
+        solvers.addSolver(new ParticleSwarm_Part2());
     }
 
     private void addSolvers2022() {
