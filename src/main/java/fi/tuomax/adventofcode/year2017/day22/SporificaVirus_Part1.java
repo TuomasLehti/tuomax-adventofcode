@@ -37,13 +37,13 @@ extends Solver
         return new SporificaVirus_Parser(input);
     }
 
-    private SparseGrid<InfectionStatus> infected;
+    protected SparseGrid<InfectionStatus> infected;
 
     private Integer numOfBursts;
 
-    private Coordinates currentPosition;
+    protected Coordinates currentPosition;
 
-    private Direction currentDirection;
+    protected Direction currentDirection;
 
     protected Long numOfInfected = 0L;
 
@@ -81,11 +81,12 @@ extends Solver
     {
         fetchParams();
         for (long burstIdx = 0; burstIdx < numOfBursts; burstIdx++) {
-            if (burstIdx % 1000 == 0)
+            if (burstIdx % 250_000 == 0)
                 System.out.println(burstIdx);
             step();
             currentPosition = currentPosition.translate(currentDirection.asCoordinates());
         }
+        System.out.println(numOfBursts);
         setAnswer(numOfInfected);
     }
 
