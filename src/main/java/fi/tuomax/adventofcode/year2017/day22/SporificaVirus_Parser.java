@@ -1,19 +1,17 @@
 package fi.tuomax.adventofcode.year2017.day22;
 
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
-
 import fi.tuomax.adventofcode.commons.Coordinates;
 import fi.tuomax.adventofcode.framework.parsing.Parser;
+import fi.tuomax.adventofcode.year2017.day21.SparseGrid;
 
 public class SporificaVirus_Parser
 extends Parser
 {
 
-    private Set<Coordinates> statusMap = new HashSet<>();
+    private SparseGrid<InfectionStatus> statusMap = new SparseGrid<>();
 
-    public Set<Coordinates> getStatusMap() 
+    public SparseGrid<InfectionStatus> getStatusMap() 
     {
         return statusMap;
     }
@@ -39,7 +37,9 @@ extends Parser
         for (String line : input) {
             for (Character c : line.toCharArray()) {
                 if (c.equals('#'))
-                    statusMap.add(new Coordinates(col, row));
+                    statusMap.add(new Coordinates(col, row), InfectionStatus.INFECTED);
+                else
+                    statusMap.add(new Coordinates(col, row), InfectionStatus.CLEAN);
                 col++;
             }
             row--;

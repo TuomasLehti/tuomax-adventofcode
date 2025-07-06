@@ -6,8 +6,9 @@ import fi.tuomax.adventofcode.commons.Direction;
 import fi.tuomax.adventofcode.commons.Direction.TurnDirection;
 import fi.tuomax.adventofcode.framework.parsing.Parser;
 import fi.tuomax.adventofcode.framework.solving.Solver;
+import fi.tuomax.adventofcode.year2017.day21.SparseGrid;
+
 import java.util.List;
-import java.util.Set;
 
 /**
  * <p>Solves Advent of Code 2017, day 22, part 1:
@@ -36,25 +37,33 @@ extends Solver
         return new SporificaVirus_Parser(input);
     }
 
+    private SparseGrid<InfectionStatus> infected;
+
+    private InfectionStatus getStatus(Coordinates pos)
+    {
+        return infected.exists(pos) ? infected.get(pos) : InfectionStatus.CLEAN;
+    }
+
     @Override
     protected void solve()
     {
         Long numOfBursts = getParamLong("num_of_bursts");
         Integer mapSize = ((SporificaVirus_Parser) parser).getMapSize();
-        Set<Coordinates> infected = ((SporificaVirus_Parser) parser).getStatusMap();
+        infected = ((SporificaVirus_Parser) parser).getStatusMap();
+
         Coordinates currentPosition = Coordinates.fromInteger(mapSize / 2, -mapSize / 2);
         Direction currentDirection = Direction.getInstance(Direction.NORTH);
         Long numOfInfected = 0L;
         for (long burstIdx = 0; burstIdx < numOfBursts; burstIdx++) {
             if (burstIdx % 1000 == 0)
                 System.out.println(burstIdx);
-            if (infected.contains(currentPosition)) {
+            if (getStatus(currentPosition) == InfectionStatus.INFECTED) {
                 currentDirection = currentDirection.turn(TurnDirection.RIGHT);
-                infected.remove(currentPosition);
+                infected.add(currentPosition, InfectionStatus.CLEAN);
                 currentPosition = currentPosition.translate(currentDirection.asCoordinates());
             } else {
                 currentDirection = currentDirection.turn(TurnDirection.LEFT);
-                infected.add(currentPosition);
+                infected.add(currentPosition, InfectionStatus.INFECTED);
                 numOfInfected++;
                 currentPosition = currentPosition.translate(currentDirection.asCoordinates());
             }
