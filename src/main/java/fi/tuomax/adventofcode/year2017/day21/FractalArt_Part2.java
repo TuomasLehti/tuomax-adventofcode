@@ -14,7 +14,7 @@ import java.util.List;
  *      Puzzle on the Advent of Code website.</a></p>
  */
 public class FractalArt_Part2
-extends Solver
+extends FractalArt_Part1
 {
 
     @Override
@@ -24,17 +24,6 @@ extends Solver
             2017, 21, 2,
             "Fractal Art", ""
         );
-    }
-
-    @Override
-    protected Parser manufactureParser(List<String> input)
-    {
-        return null;
-    }
-
-    @Override
-    protected void solve()
-    {
     }
 
 }

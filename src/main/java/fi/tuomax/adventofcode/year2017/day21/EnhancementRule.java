@@ -45,64 +45,64 @@ public class EnhancementRule
         Set<EnhancementRule> rules = new HashSet<>();
         
         rules.add(new EnhancementRule(inputPattern, rule.getOutputPattern()));
-        System.out.println(inputPattern.toString() + " => " + rule.getOutputPattern().toString());
+//        System.out.println(inputPattern.toString() + " => " + rule.getOutputPattern().toString());
 
         inputPattern = (SparseBooleanGrid) inputPattern.copy();
         inputPattern.rotate(TurnDirection.RIGHT);
         rules.add(new EnhancementRule(inputPattern, rule.getOutputPattern()));
-        System.out.println(inputPattern.toString() + " => " + rule.getOutputPattern().toString());
+//        System.out.println(inputPattern.toString() + " => " + rule.getOutputPattern().toString());
 
         inputPattern = (SparseBooleanGrid) inputPattern.copy();
         inputPattern.rotate(TurnDirection.RIGHT);
         rules.add(new EnhancementRule(inputPattern, rule.getOutputPattern()));
-        System.out.println(inputPattern.toString() + " => " + rule.getOutputPattern().toString());
+//        System.out.println(inputPattern.toString() + " => " + rule.getOutputPattern().toString());
 
         inputPattern = (SparseBooleanGrid) inputPattern.copy();
         inputPattern.rotate(TurnDirection.RIGHT);
         rules.add(new EnhancementRule(inputPattern, rule.getOutputPattern()));
-        System.out.println(inputPattern.toString() + " => " + rule.getOutputPattern().toString());
+//        System.out.println(inputPattern.toString() + " => " + rule.getOutputPattern().toString());
 
         inputPattern = (SparseBooleanGrid) inputPattern.copy();
         inputPattern.rotate(TurnDirection.RIGHT);
         inputPattern.reflectHorizontally();
         rules.add(new EnhancementRule(inputPattern, rule.getOutputPattern()));
-        System.out.println(inputPattern.toString() + " => " + rule.getOutputPattern().toString());
+//        System.out.println(inputPattern.toString() + " => " + rule.getOutputPattern().toString());
 
         inputPattern = (SparseBooleanGrid) inputPattern.copy();
         inputPattern.rotate(TurnDirection.RIGHT);
         rules.add(new EnhancementRule(inputPattern, rule.getOutputPattern()));
-        System.out.println(inputPattern.toString() + " => " + rule.getOutputPattern().toString());
+//        System.out.println(inputPattern.toString() + " => " + rule.getOutputPattern().toString());
 
         inputPattern = (SparseBooleanGrid) inputPattern.copy();
         inputPattern.rotate(TurnDirection.RIGHT);
         rules.add(new EnhancementRule(inputPattern, rule.getOutputPattern()));
-        System.out.println(inputPattern.toString() + " => " + rule.getOutputPattern().toString());
+//        System.out.println(inputPattern.toString() + " => " + rule.getOutputPattern().toString());
 
         inputPattern = (SparseBooleanGrid) inputPattern.copy();
         inputPattern.rotate(TurnDirection.RIGHT);
         rules.add(new EnhancementRule(inputPattern, rule.getOutputPattern()));
-        System.out.println(inputPattern.toString() + " => " + rule.getOutputPattern().toString());
+//        System.out.println(inputPattern.toString() + " => " + rule.getOutputPattern().toString());
 
         inputPattern = (SparseBooleanGrid) inputPattern.copy();
         inputPattern.rotate(TurnDirection.RIGHT);
         inputPattern.reflectVertically();
         rules.add(new EnhancementRule(inputPattern, rule.getOutputPattern()));
-        System.out.println(inputPattern.toString() + " => " + rule.getOutputPattern().toString());
+//        System.out.println(inputPattern.toString() + " => " + rule.getOutputPattern().toString());
 
         inputPattern = (SparseBooleanGrid) inputPattern.copy();
         inputPattern.rotate(TurnDirection.RIGHT);
         rules.add(new EnhancementRule(inputPattern, rule.getOutputPattern()));
-        System.out.println(inputPattern.toString() + " => " + rule.getOutputPattern().toString());
+//        System.out.println(inputPattern.toString() + " => " + rule.getOutputPattern().toString());
 
         inputPattern = (SparseBooleanGrid) inputPattern.copy();
         inputPattern.rotate(TurnDirection.RIGHT);
         rules.add(new EnhancementRule(inputPattern, rule.getOutputPattern()));
-        System.out.println(inputPattern.toString() + " => " + rule.getOutputPattern().toString());
+//        System.out.println(inputPattern.toString() + " => " + rule.getOutputPattern().toString());
 
         inputPattern = (SparseBooleanGrid) inputPattern.copy();
         inputPattern.rotate(TurnDirection.RIGHT);
         rules.add(new EnhancementRule(inputPattern, rule.getOutputPattern()));
-        System.out.println(inputPattern.toString() + " => " + rule.getOutputPattern().toString());
+//        System.out.println(inputPattern.toString() + " => " + rule.getOutputPattern().toString());
         
         return rules;
     }

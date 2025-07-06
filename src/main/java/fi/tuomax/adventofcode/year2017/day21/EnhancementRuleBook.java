@@ -16,9 +16,9 @@ public class EnhancementRuleBook
     {
         Set<EnhancementRule> transformations = EnhancementRule.transformedRules(rule);
         for (EnhancementRule transformation : transformations) {
-            if (transformation.getInputPattern().width().equals(2L))
+/*             if (transformation.getInputPattern().width().equals(2L))
                 System.out.println(transformation.getInputPattern().toString() + " => " + transformation.getOutputPattern().toString());
-            rules.put(transformation.getInputPattern(), transformation);
+ */            rules.put(transformation.getInputPattern(), transformation);
         }
     }
 

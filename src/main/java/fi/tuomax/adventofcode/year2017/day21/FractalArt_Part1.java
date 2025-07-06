@@ -42,8 +42,9 @@ extends Solver
         );
         Integer numOfIterations = getParamInt("iterations");
         for (int i = 0; i < numOfIterations; i++) {
-            System.out.println("=========");
-            System.out.println(original.asString("#", ".", "", "\n"));
+            System.out.println(i + ": " + original.width());
+/*             System.out.println("=========");
+            System.out.println(original.asString("#", ".", "", "\n")); */
             SparseBooleanGrid result = new SparseBooleanGrid();
             if (original.width() % 2 == 0) {
                 long chunkRow = 0;
@@ -57,15 +58,15 @@ extends Solver
                         subgrid.translate(new Coordinates(
                             -col, -row
                         ));
-                        System.out.println("-----");
+/*                         System.out.println("-----");
                         System.out.println(subgrid.asString("#", ".", "", "\n"));
-                        EnhancementRule enhancement = rules.get(subgrid);
+ */                        EnhancementRule enhancement = rules.get(subgrid);
                         SparseBooleanGrid output = enhancement.getOutputPattern().copy();
-                        System.out.println("<<<---");
+/*                         System.out.println("<<<---");
                         System.out.println(enhancement.getInputPattern().asString("#", ".", "", "\n"));
                         System.out.println("--->>>");
                         System.out.println(output.asString("#", ".", "", "\n"));
-                        output.normalize();
+ */                        output.normalize();
                         Coordinates translationAmount = new Coordinates(
                             chunkCol * 3, chunkRow * 3
                         );
@@ -88,15 +89,15 @@ extends Solver
                         subgrid.translate(new Coordinates(
                             -col, -row
                         ));
-                        System.out.println("-----");
+/*                         System.out.println("-----");
                         System.out.println(subgrid.asString("#", ".", "", "\n"));
-                        EnhancementRule enhancement = rules.get(subgrid);
+ */                        EnhancementRule enhancement = rules.get(subgrid);
                         SparseBooleanGrid output = enhancement.getOutputPattern().copy();
-                        System.out.println("<<<---");
+/*                         System.out.println("<<<---");
                         System.out.println(enhancement.getInputPattern().asString("#", ".", "", "\n"));
                         System.out.println("--->>>");
                         System.out.println(output.asString("#", ".", "", "\n"));
-                        output.normalize();
+ */                        output.normalize();
                         Coordinates translationAmount = new Coordinates(
                             chunkCol * 4, chunkRow * 4
                         );
