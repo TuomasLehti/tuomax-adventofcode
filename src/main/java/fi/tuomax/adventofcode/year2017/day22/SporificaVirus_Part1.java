@@ -39,34 +39,52 @@ extends Solver
 
     private SparseGrid<InfectionStatus> infected;
 
-    private InfectionStatus getStatus(Coordinates pos)
+    private Integer numOfBursts;
+
+    private Coordinates currentPosition;
+
+    private Direction currentDirection;
+
+    protected Long numOfInfected = 0L;
+
+    private void fetchParams()
     {
-        return infected.exists(pos) ? infected.get(pos) : InfectionStatus.CLEAN;
+        numOfBursts = getParamInt("num_of_bursts");
+        infected = ((SporificaVirus_Parser) parser).getStatusMap();
+        Integer mapSize = ((SporificaVirus_Parser) parser).getMapSize();
+        currentPosition = Coordinates.fromInteger(mapSize / 2, -mapSize / 2);
+        currentDirection = Direction.getInstance(Direction.NORTH);
+    }
+
+    protected InfectionStatus getInfectionStatus()
+    {
+        return 
+            infected.exists(currentPosition) 
+                ? infected.get(currentPosition) 
+                : InfectionStatus.CLEAN;
+    }
+
+    protected void step()
+    {
+        if (getInfectionStatus() == InfectionStatus.INFECTED) {
+            currentDirection = currentDirection.turn(TurnDirection.RIGHT);
+            infected.add(currentPosition, InfectionStatus.CLEAN);
+        } else {
+            currentDirection = currentDirection.turn(TurnDirection.LEFT);
+            infected.add(currentPosition, InfectionStatus.INFECTED);
+            numOfInfected++;
+        }
     }
 
     @Override
     protected void solve()
     {
-        Long numOfBursts = getParamLong("num_of_bursts");
-        Integer mapSize = ((SporificaVirus_Parser) parser).getMapSize();
-        infected = ((SporificaVirus_Parser) parser).getStatusMap();
-
-        Coordinates currentPosition = Coordinates.fromInteger(mapSize / 2, -mapSize / 2);
-        Direction currentDirection = Direction.getInstance(Direction.NORTH);
-        Long numOfInfected = 0L;
+        fetchParams();
         for (long burstIdx = 0; burstIdx < numOfBursts; burstIdx++) {
             if (burstIdx % 1000 == 0)
                 System.out.println(burstIdx);
-            if (getStatus(currentPosition) == InfectionStatus.INFECTED) {
-                currentDirection = currentDirection.turn(TurnDirection.RIGHT);
-                infected.add(currentPosition, InfectionStatus.CLEAN);
-                currentPosition = currentPosition.translate(currentDirection.asCoordinates());
-            } else {
-                currentDirection = currentDirection.turn(TurnDirection.LEFT);
-                infected.add(currentPosition, InfectionStatus.INFECTED);
-                numOfInfected++;
-                currentPosition = currentPosition.translate(currentDirection.asCoordinates());
-            }
+            step();
+            currentPosition = currentPosition.translate(currentDirection.asCoordinates());
         }
         setAnswer(numOfInfected);
     }
