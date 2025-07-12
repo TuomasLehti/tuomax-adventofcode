@@ -233,13 +233,15 @@ are the dates of migrating these puzzles to this framework.
 | 20 | 27.6.2025  | 28.6.2025  |  |
 | 21 | 6.7.2025   | 6.7.2025   | (2) (3)  |
 | 22 | 6.7.2025   | 6.7.2025   |  |
-| 23 |  |  |  |
+| 23 | 7.7.2025   | 12.7.2025  | (4) |
 | 24 |  |  |  |
 | 25 |  |  |  |
 
 1) TODO: Make it faster and utilize IntegerListParser.
 2) TODO: Tidy it up.
 3) TODO: Make it faster.
+4) TODO: Move isPrime to commons. Write up on the conversion of the algorithm
+   from assembly to Java.
 
 
 ## Year 2016
