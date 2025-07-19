@@ -40,16 +40,15 @@ extends Solver
     {
         Set<Component> components = ((ElectromagneticMoat_Parser) parser).getComponents();
         Component starter = Component.getStarterInstance();
-        bridgify(starter, components, 0L, "");
-        setAnswer(maxLen);
+        bridgify(starter, components, 0L);
+        setAnswer(maxStrength);
     }
 
-    private Long maxLen = Long.MIN_VALUE;
+    private Long maxStrength = Long.MIN_VALUE;
 
-    private void bridgify(Component current, Set<Component> available, Long curLen, String bridge)
+    private void bridgify(Component current, Set<Component> available, Long curStrength)
     {
-        maxLen = Math.max(maxLen, curLen);
-//        System.out.println(bridge + " : " + curLen);
+        maxStrength = Math.max(maxStrength, curStrength);
 
         Set<Component> possibles = new HashSet<>();
 
@@ -57,15 +56,10 @@ extends Solver
             if (current.isConnectableTo(component))
                 possibles.add(component);
 
-        if (possibles.isEmpty()) {
-//            maxLen = Math.max(maxLen, curLen);
-//            System.out.println(bridge + " : " + curLen);
-        }
-
         for (Component component : possibles) {
             available.remove(component);
             current.connectTo(component);
-            bridgify(component, available, curLen + component.getLength(), bridge + "--" + component.toString());
+            bridgify(component, available, curStrength + component.getLength());
             current.disconnectFrom(component);
             available.add(component);
         }
