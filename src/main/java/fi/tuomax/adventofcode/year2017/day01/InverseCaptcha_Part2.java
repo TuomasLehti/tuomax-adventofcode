@@ -37,12 +37,19 @@ extends Solver
     protected void solve()
     {
         String input = ((StringParser) parser).getString();
+
+        /* Original length is needed later to determine the amount of 
+         * comparisons.*/
         int origLength = input.length();
+
+        /* Account for the circularity of the list. */
         input += input;
+
         int ans = 0;
         int offset = origLength / 2;
         for (int idx = 0; idx < origLength; idx++) {
             if (input.charAt(idx) == input.charAt(idx + offset)) {
+                /* ASCII character 0 is encoded as 48. */
                 ans += input.charAt(idx) - 48;
             }
         }
