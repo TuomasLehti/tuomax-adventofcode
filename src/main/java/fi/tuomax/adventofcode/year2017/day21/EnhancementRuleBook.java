@@ -1,8 +1,10 @@
 package fi.tuomax.adventofcode.year2017.day21;
+import fi.tuomax.adventofcode.commons.SparseBooleanGrid;
 
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
+
 
 public class EnhancementRuleBook 
 {

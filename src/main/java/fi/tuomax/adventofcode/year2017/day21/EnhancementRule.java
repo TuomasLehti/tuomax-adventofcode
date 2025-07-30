@@ -3,6 +3,7 @@ package fi.tuomax.adventofcode.year2017.day21;
 import java.util.HashSet;
 import java.util.Set;
 
+import fi.tuomax.adventofcode.commons.SparseBooleanGrid;
 import fi.tuomax.adventofcode.commons.Direction.TurnDirection;
 
 public class EnhancementRule 

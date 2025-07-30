@@ -7,6 +7,7 @@ import static org.junit.Assert.assertTrue;
 import org.junit.Test;
 
 import fi.tuomax.adventofcode.commons.Coordinates;
+import fi.tuomax.adventofcode.commons.SparseBooleanGrid;
 
 public class Test_SparseBooleanGrid 
 {

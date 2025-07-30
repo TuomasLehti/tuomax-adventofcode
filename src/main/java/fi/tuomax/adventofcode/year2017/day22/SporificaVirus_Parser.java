@@ -2,8 +2,8 @@ package fi.tuomax.adventofcode.year2017.day22;
 
 import java.util.List;
 import fi.tuomax.adventofcode.commons.Coordinates;
+import fi.tuomax.adventofcode.commons.SparseGrid;
 import fi.tuomax.adventofcode.framework.parsing.Parser;
-import fi.tuomax.adventofcode.year2017.day21.SparseGrid;
 
 public class SporificaVirus_Parser
 extends Parser

@@ -2,6 +2,7 @@ package fi.tuomax.adventofcode.year2017.day21;
 
 import fi.tuomax.adventofcode.framework.solving.Metadata;
 import fi.tuomax.adventofcode.commons.Coordinates;
+import fi.tuomax.adventofcode.commons.SparseBooleanGrid;
 import fi.tuomax.adventofcode.framework.parsing.Parser;
 import fi.tuomax.adventofcode.framework.solving.Solver;
 import java.util.List;
@@ -49,8 +50,8 @@ extends Solver
             if (original.width() % 2 == 0) {
                 long chunkRow = 0;
                 long chunkCol = 0;
-                for (long row = original.topLeft.y(); original.bottomRight.y() < row; row -= 2) {
-                    for (long col = original.topLeft.x(); col < original.bottomRight.x(); col += 2) {
+                for (long row = original.getTopLeft().y(); original.getBottomRight().y() < row; row -= 2) {
+                    for (long col = original.getTopLeft().x(); col < original.getBottomRight().x(); col += 2) {
                         SparseBooleanGrid subgrid = (SparseBooleanGrid) original.subgrid(
                             new Coordinates(col, row),
                             new Coordinates(col + 2, row - 2)
@@ -80,8 +81,8 @@ extends Solver
             } else if (original.width() % 3 == 0) {
                 long chunkRow = 0;
                 long chunkCol = 0;
-                for (long row = original.topLeft.y(); original.bottomRight.y() < row; row -= 3) {
-                    for (long col = original.topLeft.x(); col < original.bottomRight.x(); col += 3) {
+                for (long row = original.getTopLeft().y(); original.getBottomRight().y() < row; row -= 3) {
+                    for (long col = original.getTopLeft().x(); col < original.getBottomRight().x(); col += 3) {
                         SparseBooleanGrid subgrid = (SparseBooleanGrid) original.subgrid(
                             new Coordinates(col, row),
                             new Coordinates(col + 3, row - 3)

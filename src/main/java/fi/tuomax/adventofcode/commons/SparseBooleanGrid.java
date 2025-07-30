@@ -1,6 +1,4 @@
-package fi.tuomax.adventofcode.year2017.day21;
-
-import fi.tuomax.adventofcode.commons.Coordinates;
+package fi.tuomax.adventofcode.commons;
 
 /**
  * Many of Advent of Code puzzles feature a grid of booleans.

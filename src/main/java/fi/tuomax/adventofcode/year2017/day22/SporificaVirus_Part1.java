@@ -3,10 +3,10 @@ package fi.tuomax.adventofcode.year2017.day22;
 import fi.tuomax.adventofcode.framework.solving.Metadata;
 import fi.tuomax.adventofcode.commons.Coordinates;
 import fi.tuomax.adventofcode.commons.Direction;
+import fi.tuomax.adventofcode.commons.SparseGrid;
 import fi.tuomax.adventofcode.commons.Direction.TurnDirection;
 import fi.tuomax.adventofcode.framework.parsing.Parser;
 import fi.tuomax.adventofcode.framework.solving.Solver;
-import fi.tuomax.adventofcode.year2017.day21.SparseGrid;
 
 import java.util.List;
 

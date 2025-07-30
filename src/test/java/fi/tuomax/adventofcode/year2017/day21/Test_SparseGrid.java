@@ -7,6 +7,7 @@ import static org.junit.Assert.assertTrue;
 import org.junit.Test;
 
 import fi.tuomax.adventofcode.commons.Coordinates;
+import fi.tuomax.adventofcode.commons.SparseGrid;
 import fi.tuomax.adventofcode.commons.Direction.TurnDirection;
 
 public class Test_SparseGrid 

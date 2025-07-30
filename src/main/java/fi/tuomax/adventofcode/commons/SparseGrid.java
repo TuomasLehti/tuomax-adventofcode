@@ -1,9 +1,8 @@
-package fi.tuomax.adventofcode.year2017.day21;
+package fi.tuomax.adventofcode.commons;
 
 import java.util.HashMap;
 import java.util.Map;
 
-import fi.tuomax.adventofcode.commons.Coordinates;
 import fi.tuomax.adventofcode.commons.Direction.TurnDirection;
 
 /**
@@ -23,7 +22,17 @@ public class SparseGrid<T>
 
     protected Coordinates topLeft = Coordinates.ORIGIN;
 
+    public Coordinates getTopLeft() 
+    {
+        return topLeft;
+    }
+
     protected Coordinates bottomRight = Coordinates.ORIGIN;
+
+    public Coordinates getBottomRight() 
+    {
+        return bottomRight;
+    }
 
     public void add(Coordinates coords, T cell)
     {
